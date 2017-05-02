@@ -1,0 +1,195 @@
+
+// NOTE: order is very important here
+
+// Margins
+@mixin push {
+	margin: $buffer-tight $buffer $buffer $buffer;
+}
+@mixin push-even {
+	margin: $buffer;
+}
+
+	// Pane
+	@mixin push-horizontal {
+		margin-left: $buffer;
+		margin-right: $buffer;
+	}
+	@mixin push-vertical {
+		margin-top: $buffer-tight;
+		margin-bottom: $buffer;
+	}
+		@mixin push-vertical-even {
+			margin-top: $buffer;
+			margin-bottom: $buffer;
+		}
+
+	// Single
+	@mixin push-top {
+		margin-top: $buffer-tight;
+	}
+		@mixin push-top-even {
+			margin-top: $buffer;
+		}
+	@mixin push-right {
+		margin-right: $buffer;
+	}
+	@mixin push-bottom {
+		margin-bottom: $buffer;
+	}
+	@mixin push-left {
+		margin-left: $buffer;
+	}
+
+
+
+// Small margins
+@mixin push-tight {
+	margin: $buffer-verytight $buffer-tight $buffer-tight $buffer-tight;
+}
+@mixin push-tight-even {
+	margin: $buffer-tight;
+}
+
+	// Pane
+	@mixin push-tight-horizontal {
+		margin-left: $buffer-tight;
+		margin-right: $buffer-tight;
+	}
+	@mixin push-tight-vertical {
+		margin-top: $buffer-verytight;
+		margin-bottom: $buffer-tight;
+	}
+		@mixin push-tight-vertical-even {
+			margin-top: $buffer-tight;
+			margin-bottom: $buffer-tight;
+		}
+
+	// Single
+	@mixin push-tight-top {
+		margin-top: $buffer-verytight;
+	}
+		@mixin push-tight-top-even {
+			margin-top: $buffer-tight;
+		}
+	@mixin push-tight-right {
+		margin-right: $buffer-tight;
+	}
+	@mixin push-tight-bottom {
+		margin-bottom: $buffer-tight;
+	}
+	@mixin push-tight-left {
+		margin-left: $buffer-tight;
+	}
+
+
+
+// Double margins
+@mixin push-loose {
+	margin: $buffer $buffer-loose $buffer-loose $buffer-loose;
+}
+@mixin push-loose-even {
+	margin: $buffer-loose;
+}
+
+	// Pane
+	@mixin push-loose-horizontal {
+		margin-left: $buffer-loose;
+		margin-right: $buffer-loose;
+	}
+	@mixin push-loose-vertical {
+		margin-top: $buffer;
+		margin-bottom: $buffer-loose;
+	}
+		@mixin push-loose-vertical-even {
+			margin-top: $buffer-loose;
+			margin-bottom: $buffer-loose;
+		}
+
+	// Single
+	@mixin push-loose-top {
+		margin-top: $buffer;
+	}
+		@mixin push-loose-top-even {
+			margin-top: $buffer-loose;
+		}
+	@mixin push-loose-right {
+		margin-right: $buffer-loose;
+	}
+	@mixin push-loose-bottom {
+		margin-bottom: $buffer-loose;
+	}
+	@mixin push-loose-left {
+		margin-left: $buffer-loose;
+	}
+
+
+
+// Percentage-based buffers
+@mixin push-relative {
+	margin: $buffer-relative-tight $buffer-relative $buffer-relative $buffer-relative;
+}
+@mixin push-relative-even {
+	margin: $buffer-relative;
+}
+
+	// Pane
+	@mixin push-relative-horizontal {
+		margin-left: $buffer-relative;
+		margin-right: $buffer-relative;
+	}
+	@mixin push-relative-vertical {
+		margin-top: $buffer-relative-tight;
+		margin-bottom: $buffer-relative;
+	}
+		@mixin push-relative-vertical-even {
+			margin-top: $buffer-relative;
+			margin-bottom: $buffer-relative;
+		}
+
+	// Single
+	@mixin push-relative-top {
+		margin-top: $buffer-relative-tight;
+	}
+		@mixin push-relative-top-even {
+			margin-top: $buffer-relative;
+		}
+	@mixin push-relative-right {
+		margin-right: $buffer-relative;
+	}
+	@mixin push-relative-bottom {
+		margin-bottom: $buffer-relative;
+	}
+	@mixin push-relative-left {
+		margin-left: $buffer-relative;
+	}
+
+
+
+// Double margins
+@mixin no-push {
+	margin: 0;
+}
+
+	// Pane
+	@mixin no-push-horizontal {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	@mixin no-push-vertical {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	// Single
+	@mixin no-push-top {
+		margin-top: 0;
+	}
+	@mixin no-push-right {
+		margin-right: 0;
+	}
+	@mixin no-push-bottom {
+		margin-bottom: 0;
+	}
+	@mixin no-push-left {
+		margin-left: 0;
+	}

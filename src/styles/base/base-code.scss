@@ -1,0 +1,16 @@
+
+code {
+	display: inline-block;
+}
+
+pre {
+	code {
+		display: block;
+		@include radius-loose;
+		background-color: $color-verylightgrey;
+		padding: 1.6em;
+		border-width: 1px;
+		// border-color: $color-lightgrey;
+		// line-height: $line-height-tight;
+	}
+}

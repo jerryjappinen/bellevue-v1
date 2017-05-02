@@ -1,0 +1,29 @@
+
+@mixin animation ($name, $duration: $transition-veryveryslow, $easing: false, $count: infinite, $direction: normal) {
+	animation-name: $name;
+	animation-duration: $duration;
+	animation-direction: $direction;
+	animation-iteration-count: $count;
+
+	// Use explicitly defined easing
+	@if $easing {
+		animation-timing-function: $easing;
+
+	// Default to linear for infinite animations
+	} @else if $count == infinite {
+		animation-timing-function: linear;
+	}
+
+}
+
+@mixin animation-alternate ($name, $duration: $transition-veryveryslow, $easing: false, $count: infinite) {
+	@include animation($name, $duration, $easing, $count, alternate);
+}
+
+@mixin animation-once ($name, $duration: $transition-veryveryslow, $easing: false) {
+	@include animation($name, $duration, $easing, 1);
+}
+
+@mixin animation-pulse ($count: infinite) {
+	@include animation(pulse, $transition-slow, $easing-smooth, $count, alternate);
+}

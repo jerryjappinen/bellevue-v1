@@ -1,0 +1,15 @@
+
+a {
+	font-weight: 600;
+	color: $color-link;
+
+	&:focus,
+	&:hover {
+		color: $color-link-active;
+	}
+
+	&.plain {
+		color: inherit;
+	}
+
+}

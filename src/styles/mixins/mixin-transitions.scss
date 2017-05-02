@@ -1,0 +1,23 @@
+
+@mixin transition-hover {
+	transition-duration: $transition-slow;
+	&:focus,
+	&:hover {
+		transition-duration: $transition-fast;
+	}
+}
+
+@mixin transition-active {
+	transition-duration: $transition-slow;
+	&:active {
+		transition-duration: $transition-fast;
+	}
+}
+
+@mixin no-transition {
+	transition-duration: 0ms;
+}
+
+@mixin no-transition-delay {
+	transition-delay: 0ms;
+}

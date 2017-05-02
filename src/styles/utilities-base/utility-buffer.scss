@@ -1,0 +1,63 @@
+
+// Default
+@include toolchain-buffer;
+
+// Responsive versions
+@include viewport-under-tiny {
+	@include toolchain-buffer('under-tiny');
+}
+	@include viewport-over-tiny {
+		@include toolchain-buffer('over-tiny');
+	}
+@include viewport-under-small {
+	@include toolchain-buffer('under-small');
+}
+	@include viewport-over-small {
+		@include toolchain-buffer('over-small');
+	}
+@include viewport-under-smallish {
+	@include toolchain-buffer('under-smallish');
+}
+	@include viewport-over-smallish {
+		@include toolchain-buffer('over-smallish');
+	}
+@include viewport-under-medium {
+	@include toolchain-buffer('under-medium');
+}
+	@include viewport-over-medium {
+		@include toolchain-buffer('over-medium');
+	}
+@include viewport-under-large {
+	@include toolchain-buffer('under-large');
+}
+	@include viewport-over-large {
+		@include toolchain-buffer('over-large');
+	}
+@include viewport-under-verylarge {
+	@include toolchain-buffer('under-verylarge');
+}
+	@include viewport-over-verylarge {
+		@include toolchain-buffer('over-verylarge');
+	}
+
+.no-buffer {
+	@include no-buffer;
+}
+	.no-buffer-horizontal {
+		@include no-buffer-horizontal;
+	}
+	.no-buffer-vertical {
+		@include no-buffer-vertical;
+	}
+	.no-buffer-top {
+		@include no-buffer-top;
+	}
+	.no-buffer-bottom {
+		@include no-buffer-bottom;
+	}
+	.no-buffer-left {
+		@include no-buffer-left;
+	}
+	.no-buffer-right {
+		@include no-buffer-right;
+	}

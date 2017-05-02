@@ -1,0 +1,158 @@
+
+.clear-after {
+	*zoom: 1;
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+}
+
+.clear {
+	clear: both;
+}
+	.clear-left {
+		clear: left;
+	}
+	.clear-right {
+		clear: right;
+	}
+
+	@include viewport-under-tiny {
+		.clear-under-tiny {
+			clear: both;
+		}
+			.clear-left-under-tiny {
+				clear: left;
+			}
+			.clear-right-under-tiny {
+				clear: right;
+			}
+	}
+		@include viewport-over-tiny {
+			.clear-over-tiny {
+				clear: both;
+			}
+				.clear-left-over-tiny {
+					clear: left;
+				}
+				.clear-right-over-tiny {
+					clear: right;
+				}
+		}
+
+	@include viewport-under-small {
+		.clear-under-small {
+			clear: both;
+		}
+			.clear-left-under-small {
+				clear: left;
+			}
+			.clear-right-under-small {
+				clear: right;
+			}
+	}
+		@include viewport-over-small {
+			.clear-over-small {
+				clear: both;
+			}
+				.clear-left-over-small {
+					clear: left;
+				}
+				.clear-right-over-small {
+					clear: right;
+				}
+		}
+
+	@include viewport-under-smallish {
+		.clear-under-smallish {
+			clear: both;
+		}
+			.clear-left-under-smallish {
+				clear: left;
+			}
+			.clear-right-under-smallish {
+				clear: right;
+			}
+	}
+		@include viewport-over-smallish {
+			.clear-over-smallish {
+				clear: both;
+			}
+				.clear-left-over-smallish {
+					clear: left;
+				}
+				.clear-right-over-smallish {
+					clear: right;
+				}
+		}
+
+	@include viewport-under-medium {
+		.clear-under-medium {
+			clear: both;
+		}
+			.clear-left-under-medium {
+				clear: left;
+			}
+			.clear-right-under-medium {
+				clear: right;
+			}
+	}
+		@include viewport-over-medium {
+			.clear-over-medium {
+				clear: both;
+			}
+				.clear-left-over-medium {
+					clear: left;
+				}
+				.clear-right-over-medium {
+					clear: right;
+				}
+		}
+
+	@include viewport-under-large {
+		.clear-under-large {
+			clear: both;
+		}
+			.clear-left-under-large {
+				clear: left;
+			}
+			.clear-right-under-large {
+				clear: right;
+			}
+	}
+		@include viewport-over-large {
+			.clear-over-large {
+				clear: both;
+			}
+				.clear-left-over-large {
+					clear: left;
+				}
+				.clear-right-over-large {
+					clear: right;
+				}
+		}
+
+	@include viewport-under-verylarge {
+		.clear-under-verylarge {
+			clear: both;
+		}
+			.clear-left-under-verylarge {
+				clear: left;
+			}
+			.clear-right-under-verylarge {
+				clear: right;
+			}
+	}
+		@include viewport-over-verylarge {
+			.clear-over-verylarge {
+				clear: both;
+			}
+				.clear-left-over-verylarge {
+					clear: left;
+				}
+				.clear-right-over-verylarge {
+					clear: right;
+				}
+		}
+

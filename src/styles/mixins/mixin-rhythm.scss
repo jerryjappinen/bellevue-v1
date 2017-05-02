@@ -1,0 +1,43 @@
+
+@mixin no-rhythm {
+
+	object,
+	iframe,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	blockquote,
+	pre,
+	abbr,
+	address,
+	q,
+	dl,
+	dt,
+	dd,
+	ol,
+	ul,
+	li,
+	table,
+	caption,
+	tbody,
+	tfoot,
+	thead,
+	tr,
+	th,
+	td,
+	article,
+	aside,
+	footer,
+	header,
+	hgroup,
+	menu,
+	nav,
+	section {
+		@include no-push-vertical;
+	}
+
+}

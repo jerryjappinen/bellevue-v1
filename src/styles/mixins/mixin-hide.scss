@@ -1,0 +1,94 @@
+
+@mixin hide {
+	display: none;
+}
+
+	@mixin hide-in-print {
+		@include viewport-print {
+			display: none;
+		}
+	}
+
+	@mixin hide-in-not-print {
+		@include viewport-not-print {
+			display: none;
+		}
+	}
+
+	@mixin hide-in-landscape {
+		@include viewport-landscape {
+			display: none;
+		}
+	}
+
+	@mixin hide-in-portrait {
+		@include viewport-portrait {
+			display: none;
+		}
+	}
+
+@mixin hide-under-tiny {
+	@include viewport-under-tiny {
+		display: none;
+	}
+}
+	@mixin hide-over-tiny {
+		@include viewport-over-tiny {
+			display: none;
+		}
+	}
+
+@mixin hide-under-small {
+	@include viewport-under-small {
+		display: none;
+	}
+}
+	@mixin hide-over-small {
+		@include viewport-over-small {
+			display: none;
+		}
+	}
+
+@mixin hide-under-smallish {
+	@include viewport-under-smallish {
+		display: none;
+	}
+}
+	@mixin hide-over-smallish {
+		@include viewport-over-smallish {
+			display: none;
+		}
+	}
+
+@mixin hide-under-medium {
+	@include viewport-under-medium {
+		display: none;
+	}
+}
+	@mixin hide-over-medium {
+		@include viewport-over-medium {
+			display: none;
+		}
+	}
+
+@mixin hide-under-large {
+	@include viewport-under-large {
+		display: none;
+	}
+}
+	@mixin hide-over-large {
+		@include viewport-over-large {
+			display: none;
+		}
+	}
+
+@mixin hide-under-verylarge {
+	@include viewport-under-verylarge {
+		display: none;
+	}
+}
+	@mixin hide-over-verylarge {
+		@include viewport-over-verylarge {
+			display: none;
+		}
+	}

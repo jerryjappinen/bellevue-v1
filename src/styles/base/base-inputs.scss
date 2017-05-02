@@ -1,0 +1,65 @@
+
+// FIXME: this should go, label styles should come from components
+label {
+	// @include type-h3;
+	display: block;
+}
+
+// Reset input styling
+button,
+input,
+textarea {
+	border-width: 0;
+	padding: 0;
+	border-radius: 0;
+
+	border-style: solid;
+	background-color: transparent;
+	outline-color: transparent;
+	outline-style: solid;
+
+	color: inherit;
+	font-size: inherit;
+	font-family: inherit;
+	line-height: inherit;
+	vertical-align: middle;
+
+	&:focus {
+		outline-offset: 0;
+		outline-width: 0;
+	}
+
+	-webkit-appearance: none;
+	// &[type="search"] {
+	// 	-webkit-appearance: textfield;
+	// }
+
+	transition-property: color, border-color, background-color, box-shadow;
+}
+
+// Dimensions
+input,
+textarea {
+	max-width: 100%;
+	box-sizing: border-box;
+	// border-color: transparent;
+	// padding: ($pad-vertical - 1px) ($pad-horizontal - 1px);
+	// border-width: 1px;
+
+	&.block {
+		width: 100%;
+		max-height: 100%;
+	}
+
+}
+
+// textarea {
+// 	height: 10.72em;
+// 	&.squeeze {
+// 		height: 4.02em;
+// 	}
+// }
+
+::placeholder {
+	color: $color-grey;
+}

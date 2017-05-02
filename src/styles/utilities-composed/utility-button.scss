@@ -1,0 +1,121 @@
+
+.button,
+.button-plain,
+.button-stroke,
+.button-solid {
+	// width: auto;
+	@include border-box;
+	display: inline-block;
+	@include cursor-pointer;
+	@include pad;
+	// min-width: 6em;
+	@include radius;
+	text-align: center;
+
+	border-color: transparent;
+	@include transition-active;
+	transition-property: transform, border-color, background-color, box-shadow, color;
+
+	// Scale down when pressing
+	transform: scale($scale-normal);
+	&:active {
+		transform: scale($scale-small);
+	}
+
+	// Disabled state
+	&.is-disabled,
+	&[disabled] {
+		@include cursor-default;
+		&:active {
+			transform: scale($scale-normal);
+		}
+	}
+
+	&.block {
+		width: 100%;
+	}
+
+}
+
+// Light background buttons
+.button,
+.button-stroke {
+
+	// Link color
+	color: $color-link;
+	// &:focus,
+	// &:active {
+	// 	color: $color-link-active;
+	// }
+
+}
+
+// Light background buttons
+.button,
+.button-stroke,
+.button-plain {
+
+	// Text color
+	&:active {
+		background-color: $color-dark-translucent;
+	}
+
+}
+
+// Light background buttons
+.button,
+.button-stroke {
+
+	// Disabled state
+	&.is-disabled,
+	&[disabled] {
+		color: $color-grey;
+		&:active {
+			color: $color-grey;
+		}
+	}
+
+}
+
+// Solid background buttons
+.button-solid {
+	color: $color-white;
+	border-color: $color-link;
+	background-color: $color-link;
+
+	&:active {
+		background-color: $color-link-active;
+	}
+
+	// Disabled state
+	&.is-disabled,
+	&[disabled] {
+		background-color: $color-grey;
+		&:active {
+			background-color: $color-grey;
+		}
+	}
+
+}
+
+// Bordered look
+.button-stroke {
+	border-width: 2px;
+	border-color: $color-verylightgrey;
+
+	&:active {
+		border-color: $color-lightgrey;
+	}
+
+}
+
+// No border
+.button-plain {
+	color: inherit;
+	&:active {
+		&.is-disabled,
+		&[disabled] {
+			background-color: transparent;
+		}
+	}
+}

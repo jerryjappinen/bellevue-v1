@@ -1,0 +1,54 @@
+
+.input-text-container {
+	display: inline-block;
+	&.block {
+		.input-text {
+			display: block;
+			width: 100%;
+		}
+	}
+}
+
+.input-text {
+	background-color: $color-verylightgrey;
+	@include radius;
+
+	@include pad;
+	box-sizing: border-box;
+	border-width: 2px;
+	border-color: transparent;
+
+	&::placeholder {
+		color: $color-grey;
+		transition-duration: $transition-veryslow;
+		transition-property: color;
+	}
+
+	transition-duration: $transition-slow;
+	transition-property: box-shadow, border-color, background-color, color;
+
+	&:hover,
+	&:focus {
+		transition-duration: $transition-fast;
+
+		&::placeholder {
+			color: color-darken($color-grey);
+			transition-duration: $transition-fast;
+		}
+
+	}
+
+	&:hover {
+		border-color: $color-dark-translucent;
+	}
+
+	&:focus,
+	&:focus:hover {
+		border-color: $color-lightgrey;
+	}
+
+}
+
+textarea.input-text {
+	height: 10.5em;
+}

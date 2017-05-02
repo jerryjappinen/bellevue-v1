@@ -1,0 +1,63 @@
+
+.hide {
+	display: none;
+}
+
+	.hide-in-print {
+		@include hide-in-print;
+	}
+
+	.hide-in-not-print {
+		@include hide-in-not-print;
+	}
+
+	.hide-in-landscape {
+		@include hide-in-landscape;
+	}
+
+	.hide-in-portrait {
+		@include hide-in-portrait;
+	}
+
+// Responsive
+.hide-under-tiny {
+	@include hide-under-tiny;
+}
+	.hide-over-tiny {
+		@include hide-over-tiny;
+	}
+
+.hide-under-small {
+	@include hide-under-small;
+}
+	.hide-over-small {
+		@include hide-over-small;
+	}
+
+.hide-under-smallish {
+	@include hide-under-smallish;
+}
+	.hide-over-smallish {
+		@include hide-over-smallish;
+	}
+
+.hide-under-medium {
+	@include hide-under-medium;
+}
+	.hide-over-medium {
+		@include hide-over-medium;
+	}
+
+.hide-under-large {
+	@include hide-under-large;
+}
+	.hide-over-large {
+		@include hide-over-large;
+	}
+
+.hide-under-verylarge {
+	@include hide-under-verylarge;
+}
+	.hide-over-verylarge {
+		@include hide-over-verylarge;
+	}

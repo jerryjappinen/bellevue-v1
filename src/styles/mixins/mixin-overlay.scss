@@ -1,0 +1,8 @@
+
+@mixin overlay ($direction: 0deg, $opacity: 0.25, $color: $color-black) {
+	background-image: linear-gradient(
+		$direction,
+		rgba($color, 0),
+		rgba($color, ($opacity / 2)) 60%,
+		rgba($color, $opacity));
+}

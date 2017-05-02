@@ -1,0 +1,182 @@
+
+@mixin toolchain-push ($suffix: false) {
+	@if $suffix {
+		$suffix: "-#{$suffix}";
+	} @else {
+		$suffix: "";
+	}
+
+	// Pushes
+	.push#{$suffix} {
+		@include push;
+	}
+	.push-even#{$suffix} {
+		@include push-even;
+	}
+
+		// Pane
+		.push-horizontal#{$suffix} {
+			@include push-horizontal;
+		}
+		.push-vertical#{$suffix} {
+			@include push-vertical;
+		}
+			.push-vertical-even#{$suffix} {
+				@include push-vertical-even;
+			}
+
+		// Single
+		.push-top#{$suffix} {
+			@include push-top;
+		}
+			.push-top-even#{$suffix} {
+				@include push-top-even;
+			}
+		.push-right#{$suffix} {
+			@include push-right;
+		}
+		.push-bottom#{$suffix} {
+			@include push-bottom;
+		}
+		.push-left#{$suffix} {
+			@include push-left;
+		}
+
+
+
+	// Small pushes
+	.push-tight#{$suffix} {
+		@include push-tight;
+	}
+	.push-tight-even#{$suffix} {
+		@include push-tight-even;
+	}
+
+		// Pane
+		.push-tight-horizontal#{$suffix} {
+			@include push-tight-horizontal;
+		}
+		.push-tight-vertical#{$suffix} {
+			@include push-tight-vertical;
+		}
+			.push-tight-vertical-even#{$suffix} {
+				@include push-tight-vertical-even;
+			}
+
+		// Single
+		.push-tight-top#{$suffix} {
+			@include push-tight-top;
+		}
+			.push-tight-top-even#{$suffix} {
+				@include push-tight-top-even;
+			}
+		.push-tight-right#{$suffix} {
+			@include push-tight-right;
+		}
+		.push-tight-bottom#{$suffix} {
+			@include push-tight-bottom;
+		}
+		.push-tight-left#{$suffix} {
+			@include push-tight-left;
+		}
+
+
+
+	// Double pushes
+	.push-loose#{$suffix} {
+		@include push-loose;
+	}
+	.push-loose-even#{$suffix} {
+		@include push-loose-even;
+	}
+
+		// Pane
+		.push-loose-horizontal#{$suffix} {
+			@include push-loose-horizontal;
+		}
+		.push-loose-vertical#{$suffix} {
+			@include push-loose-vertical;
+		}
+			.push-loose-vertical-even#{$suffix} {
+				@include push-loose-vertical-even;
+			}
+
+		// Single
+		.push-loose-top#{$suffix} {
+			@include push-loose-top;
+		}
+			.push-loose-top-even#{$suffix} {
+				@include push-loose-top-even;
+			}
+		.push-loose-right#{$suffix} {
+			@include push-loose-right;
+		}
+		.push-loose-bottom#{$suffix} {
+			@include push-loose-bottom;
+		}
+		.push-loose-left#{$suffix} {
+			@include push-loose-left;
+		}
+
+
+
+	// Percentage-based pushes
+	.push-relative#{$suffix} {
+		@include push-relative;
+	}
+	.push-relative-even#{$suffix} {
+		@include push-relative-even;
+	}
+
+		// Pane
+		.push-relative-horizontal#{$suffix} {
+			@include push-relative-horizontal;
+		}
+		.push-relative-vertical#{$suffix} {
+			@include push-relative-vertical;
+		}
+			.push-relative-vertical-even#{$suffix} {
+				@include push-relative-vertical-even;
+			}
+
+		// Single
+		.push-relative-top#{$suffix} {
+			@include push-relative-top;
+		}
+			.push-relative-top-even#{$suffix} {
+				@include push-relative-top-even;
+			}
+		.push-relative-right#{$suffix} {
+			@include push-relative-right;
+		}
+		.push-relative-bottom#{$suffix} {
+			@include push-relative-bottom;
+		}
+		.push-relative-left#{$suffix} {
+			@include push-relative-left;
+		}
+
+	// Resetting pushes
+	.no-push#{$suffix} {
+		@include no-push;
+	}
+		.no-push-vertical#{$suffix} {
+			@include no-push-vertical;
+		}
+		.no-push-horizontal#{$suffix} {
+			@include no-push-horizontal;
+		}
+		.no-push-top#{$suffix} {
+			@include no-push-top;
+		}
+		.no-push-right#{$suffix} {
+			@include no-push-right;
+		}
+		.no-push-bottom#{$suffix} {
+			@include no-push-bottom;
+		}
+		.no-push-left#{$suffix} {
+			@include no-push-left;
+		}
+
+}

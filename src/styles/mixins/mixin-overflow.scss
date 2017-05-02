@@ -1,0 +1,10 @@
+
+@mixin overflow-vertical {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+@mixin overflow-hidden {
+	overflow: hidden;
+	-webkit-overflow-scrolling: auto;
+}

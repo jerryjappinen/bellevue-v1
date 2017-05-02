@@ -1,0 +1,39 @@
+
+// Box sizing
+.content-box {
+	@include content-box;
+}
+
+.border-box {
+	@include border-box;
+}
+
+
+
+// Border-collapse
+.border-collapse {
+	@include border-collapse;
+}
+
+.no-border-collapse {
+	@include no-border-collapse;
+}
+
+
+
+// Background-clip
+.background-clip-content-box {
+	@include background-clip-content-box;
+}
+
+.background-clip-border-box {
+	@include background-clip-border-box;
+}
+
+.background-clip-padding-box {
+	@include background-clip-padding-box;
+}
+
+.background-clip-text {
+	@include background-clip-text;
+}

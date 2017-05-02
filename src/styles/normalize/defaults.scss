@@ -1,0 +1,175 @@
+
+// This file is for opinionated defaults. For normalization and resets, use o-normalize.css
+
+html {
+	cursor: default;
+	font-family: sans-serif;
+
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+
+	tab-size: 4;
+}
+
+// NOTE: if this works, we can simply provide transition-property to add default transitions to element
+* {
+	transition-duration: $transition-fast;
+	transition-property: none;
+	// transition-timing-function: $easing-snap;
+}
+
+// Element defaults
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+a,
+small,
+strong,
+sub,
+sup,
+var,
+i,
+b,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+button,
+input,
+textarea {
+	// clear: both;
+	border-color: $color-grey-hint;
+    // max-width: 100%;
+	&:before,
+	&:after {
+		vertical-align: middle;
+		border-color: $color-grey-hint;
+	}
+}
+blockquote,
+q {
+	font-family: serif;
+}
+
+pre,
+code,
+kbd,
+samp {
+	font-family: monospace;
+}
+
+fieldset {
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+}
+
+h1,
+h2,
+h3 {
+	text-rendering: optimizeLegibility;
+}
+
+// sub,
+// sup,
+// small {}
+// big {}
+
+a {
+	display: inline-block;
+
+	&:focus,
+	&:active,
+	&:hover {
+		outline-width: 0;
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	transition-property: transform, opacity, color, background-color, border-color, box-shadow, text-shadow;
+	@include transition-hover;
+}
+
+svg,
+img {
+	// display: block;
+	vertical-align: middle;
+	max-height: 100%;
+}
+
+abbr[title],
+dfn[title] {
+	text-decoration: underline;
+	cursor: help;
+}
+
+a,
+label,
+button,
+input,
+select,
+option {
+	cursor: pointer;
+
+	&[disabled] {
+		cursor: default;
+	}
+
+}

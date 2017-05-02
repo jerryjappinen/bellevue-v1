@@ -1,0 +1,20 @@
+
+@mixin radius ($rad: $radius) {
+	border-radius: $rad;
+}
+
+@mixin radius-tight {
+	border-radius: $radius-tight;
+}
+
+@mixin radius-loose {
+	border-radius: $radius-loose;
+}
+
+@mixin radius-round {
+	border-radius: 1000em;
+}
+
+@mixin no-radius {
+	border-radius: 0;
+}

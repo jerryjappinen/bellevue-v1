@@ -1,0 +1,21 @@
+
+// Text context
+
+// This is used for rich body text. Elements commonly used in building components, like links, are robbed of their sensible defaults. Attach this utility class on a body text container to style the rich text elements in a way that makes sense for natural article content.
+
+.inverse {
+	color: $color-dark;
+
+	// Light background buttons
+	.button,
+	.button-stroke,
+	.button-plain {
+
+		// Text color
+		&:active {
+			background-color: rgba($color-dark, 0.05);
+		}
+
+	}
+
+}

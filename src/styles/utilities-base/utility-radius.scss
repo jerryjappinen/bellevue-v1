@@ -1,0 +1,13 @@
+
+.radius {
+	@include radius;
+}
+	.radius-tight {
+		@include radius-tight;
+	}
+	.radius-loose {
+		@include radius-loose;
+	}
+	.radius-round {
+		@include radius-round;
+	}

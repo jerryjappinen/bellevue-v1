@@ -1,0 +1,50 @@
+
+@mixin limit ($breakpoint) {
+	@include viewport-over($breakpoint) {
+		max-width: $breakpoint;
+	}
+}
+
+@mixin limit-max {
+	max-width: 100%;
+}
+
+@mixin limit-tiny {
+	@include viewport-over-tiny {
+		max-width: $breakpoint-tiny;
+	}
+}
+
+@mixin limit-small {
+	@include viewport-over-small {
+		max-width: $breakpoint-small;
+	}
+}
+
+@mixin limit-smallish {
+	@include viewport-over-smallish {
+		max-width: $breakpoint-smallish;
+	}
+}
+
+@mixin limit-medium {
+	@include viewport-over-medium {
+		max-width: $breakpoint-medium;
+	}
+}
+
+@mixin limit-large {
+	@include viewport-over-large {
+		max-width: $breakpoint-large;
+	}
+}
+
+@mixin limit-verylarge {
+	@include viewport-over-verylarge {
+		max-width: $breakpoint-verylarge;
+	}
+}
+
+@mixin no-limit {
+	max-width: none;
+}

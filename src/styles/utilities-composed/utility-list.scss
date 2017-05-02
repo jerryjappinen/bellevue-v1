@@ -1,0 +1,16 @@
+
+.list {
+	position: relative;
+}
+
+.list-item {
+	// @include pad;
+	@include pad-vertical;
+}
+
+.list-item-icon {
+	float: left;
+	width: 1em;
+	height: 1em;
+	margin-right: 0.5em;
+}

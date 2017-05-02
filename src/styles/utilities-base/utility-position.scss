@@ -1,0 +1,29 @@
+
+.static {
+	position: static;
+}
+.relative {
+	position: relative;
+}
+.absolute {
+	position: absolute;
+}
+.fixed {
+	position: fixed;
+}
+
+.absolute,
+.fixed {
+	&.keep-top {
+		top: 0;
+	}
+	&.keep-bottom {
+		bottom: 0;
+	}
+	&.keep-left {
+		left: 0;
+	}
+	&.keep-right {
+		right: 0;
+	}
+}

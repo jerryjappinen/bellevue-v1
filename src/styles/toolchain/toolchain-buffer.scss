@@ -1,0 +1,184 @@
+
+@mixin toolchain-buffer ($suffix: false) {
+	@if $suffix {
+		$suffix: "-#{$suffix}";
+	} @else {
+		$suffix: "";
+	}
+
+	// Buffers
+	.buffer#{$suffix} {
+		@include buffer;
+	}
+	.buffer-even#{$suffix} {
+		@include buffer-even;
+	}
+
+		// Pane
+		.buffer-horizontal#{$suffix} {
+			@include buffer-horizontal;
+		}
+		.buffer-vertical#{$suffix} {
+			@include buffer-vertical;
+		}
+			.buffer-vertical-even#{$suffix} {
+				@include buffer-vertical-even;
+			}
+
+		// Single
+		.buffer-top#{$suffix} {
+			@include buffer-top;
+		}
+			.buffer-top-even#{$suffix} {
+				@include buffer-top-even;
+			}
+		.buffer-right#{$suffix} {
+			@include buffer-right;
+		}
+		.buffer-bottom#{$suffix} {
+			@include buffer-bottom;
+		}
+		.buffer-left#{$suffix} {
+			@include buffer-left;
+		}
+
+
+
+	// Small buffers
+	.buffer-tight#{$suffix} {
+		@include buffer-tight;
+	}
+	.buffer-tight-even#{$suffix} {
+		@include buffer-tight-even;
+	}
+
+		// Pane
+		.buffer-tight-horizontal#{$suffix} {
+			@include buffer-tight-horizontal;
+		}
+		.buffer-tight-vertical#{$suffix} {
+			@include buffer-tight-vertical;
+		}
+			.buffer-tight-vertical-even#{$suffix} {
+				@include buffer-tight-vertical-even;
+			}
+
+		// Single
+		.buffer-tight-top#{$suffix} {
+			@include buffer-tight-top;
+		}
+			.buffer-tight-top-even#{$suffix} {
+				@include buffer-tight-top-even;
+			}
+		.buffer-tight-right#{$suffix} {
+			@include buffer-tight-right;
+		}
+		.buffer-tight-bottom#{$suffix} {
+			@include buffer-tight-bottom;
+		}
+		.buffer-tight-left#{$suffix} {
+			@include buffer-tight-left;
+		}
+
+
+
+	// Double buffers
+	.buffer-loose#{$suffix} {
+		@include buffer-loose;
+	}
+	.buffer-loose-even#{$suffix} {
+		@include buffer-loose-even;
+	}
+
+		// Pane
+		.buffer-loose-horizontal#{$suffix} {
+			@include buffer-loose-horizontal;
+		}
+		.buffer-loose-vertical#{$suffix} {
+			@include buffer-loose-vertical;
+		}
+			.buffer-loose-vertical-even#{$suffix} {
+				@include buffer-loose-vertical-even;
+			}
+
+		// Single
+		.buffer-loose-top#{$suffix} {
+			@include buffer-loose-top;
+		}
+			.buffer-loose-top-even#{$suffix} {
+				@include buffer-loose-top-even;
+			}
+		.buffer-loose-right#{$suffix} {
+			@include buffer-loose-right;
+		}
+		.buffer-loose-bottom#{$suffix} {
+			@include buffer-loose-bottom;
+		}
+		.buffer-loose-left#{$suffix} {
+			@include buffer-loose-left;
+		}
+
+
+
+	// Percentage-based buffers
+	.buffer-relative#{$suffix} {
+		@include buffer-relative;
+	}
+	.buffer-relative-even#{$suffix} {
+		@include buffer-relative-even;
+	}
+
+		// Pane
+		.buffer-relative-horizontal#{$suffix} {
+			@include buffer-relative-horizontal;
+		}
+		.buffer-relative-vertical#{$suffix} {
+			@include buffer-relative-vertical;
+		}
+			.buffer-relative-vertical-even#{$suffix} {
+				@include buffer-relative-vertical-even;
+			}
+
+		// Single
+		.buffer-relative-top#{$suffix} {
+			@include buffer-relative-top;
+		}
+			.buffer-relative-top-even#{$suffix} {
+				@include buffer-relative-top-even;
+			}
+		.buffer-relative-right#{$suffix} {
+			@include buffer-relative-right;
+		}
+		.buffer-relative-bottom#{$suffix} {
+			@include buffer-relative-bottom;
+		}
+		.buffer-relative-left#{$suffix} {
+			@include buffer-relative-left;
+		}
+
+	// Resetting buffers
+	.no-buffer#{$suffix} {
+		padding: 0;
+	}
+		.no-buffer-vertical#{$suffix} {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		.no-buffer-horizontal#{$suffix} {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.no-buffer-top#{$suffix} {
+			padding-top: 0;
+		}
+		.no-buffer-right#{$suffix} {
+			padding-right: 0;
+		}
+		.no-buffer-bottom#{$suffix} {
+			padding-bottom: 0;
+		}
+		.no-buffer-left#{$suffix} {
+			padding-left: 0;
+		}
+
+}

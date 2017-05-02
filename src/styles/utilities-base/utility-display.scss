@@ -1,0 +1,14 @@
+
+// NOTE: order is important: blockiest classes last so they override inliny classes
+
+.inline {
+	@include inline;
+}
+
+.inline-block {
+	@include inline-block;
+}
+
+.block {
+	@include block;
+}

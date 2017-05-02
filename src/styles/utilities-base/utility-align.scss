@@ -1,0 +1,172 @@
+
+// NOTE: missing responsive versions for vertical alignments (probably not needed)
+
+// Vertical
+.align-top {
+	vertical-align: top;
+}
+	.align-middle,
+	.align-vertical-center {
+		vertical-align: middle;
+	}
+	.align-baseline {
+		vertical-align: baseline;
+	}
+	.align-bottom {
+		vertical-align: bottom;
+	}
+
+// Horizontal
+.align-left {
+	text-align: left;
+}
+.align-center {
+	text-align: center;
+}
+.align-right {
+	text-align: right;
+}
+
+@include viewport-over-tiny {
+	.align-left-over-tiny {
+		text-align: left;
+	}
+	.align-center-over-tiny {
+		text-align: center;
+	}
+	.align-right-over-tiny {
+		text-align: right;
+	}
+}
+
+@include viewport-under-tiny {
+	.align-left-under-tiny {
+		text-align: left;
+	}
+	.align-center-under-tiny {
+		text-align: center;
+	}
+	.align-right-under-tiny {
+		text-align: right;
+	}
+}
+
+@include viewport-over-small {
+	.align-left-over-small {
+		text-align: left;
+	}
+	.align-center-over-small {
+		text-align: center;
+	}
+	.align-right-over-small {
+		text-align: right;
+	}
+}
+
+@include viewport-under-small {
+	.align-left-under-small {
+		text-align: left;
+	}
+	.align-center-under-small {
+		text-align: center;
+	}
+	.align-right-under-small {
+		text-align: right;
+	}
+}
+
+@include viewport-over-smallish {
+	.align-left-over-smallish {
+		text-align: left;
+	}
+	.align-center-over-smallish {
+		text-align: center;
+	}
+	.align-right-over-smallish {
+		text-align: right;
+	}
+}
+
+@include viewport-under-smallish {
+	.align-left-under-smallish {
+		text-align: left;
+	}
+	.align-center-under-smallish {
+		text-align: center;
+	}
+	.align-right-under-smallish {
+		text-align: right;
+	}
+}
+
+@include viewport-over-medium {
+	.align-left-over-medium {
+		text-align: left;
+	}
+	.align-center-over-medium {
+		text-align: center;
+	}
+	.align-right-over-medium {
+		text-align: right;
+	}
+}
+
+@include viewport-under-medium {
+	.align-left-under-medium {
+		text-align: left;
+	}
+	.align-center-under-medium {
+		text-align: center;
+	}
+	.align-right-under-medium {
+		text-align: right;
+	}
+}
+
+@include viewport-over-large {
+	.align-left-over-large {
+		text-align: left;
+	}
+	.align-center-over-large {
+		text-align: center;
+	}
+	.align-right-over-large {
+		text-align: right;
+	}
+}
+
+@include viewport-under-large {
+	.align-left-under-large {
+		text-align: left;
+	}
+	.align-center-under-large {
+		text-align: center;
+	}
+	.align-right-under-large {
+		text-align: right;
+	}
+}
+
+@include viewport-over-verylarge {
+	.align-left-over-verylarge {
+		text-align: left;
+	}
+	.align-center-over-verylarge {
+		text-align: center;
+	}
+	.align-right-over-verylarge {
+		text-align: right;
+	}
+}
+
+@include viewport-under-verylarge {
+	.align-left-under-verylarge {
+		text-align: left;
+	}
+	.align-center-under-verylarge {
+		text-align: center;
+	}
+	.align-right-under-verylarge {
+		text-align: right;
+	}
+}

@@ -1,0 +1,19 @@
+
+/*Transition code*/
+/*https://vuejs.org/v2/guide/transitions.html*/
+/*https://vuejs.org/images/transition.png*/
+
+/*While either transition is playing*/
+.transition-fade-enter-active,
+.transition-fade-leave-active {
+	opacity: 1;
+	transition: opacity .25s;
+}
+
+/*Start state for enter*/
+.transition-fade-enter,
+
+/*End state for exit*/
+.transition-fade-leave-to {
+	opacity: 0;
+}

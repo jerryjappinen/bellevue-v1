@@ -1,0 +1,30 @@
+
+// Regular horizontal stuff
+
+.keep-left {
+	@include keep-left;
+}
+
+.keep-right {
+	@include keep-right;
+}
+
+.keep-center {
+	@include keep-center;
+}
+
+
+
+// Advanced positioning
+
+.keep-vertical-center {
+	@include keep-vertical-center;
+}
+
+.keep-horizontal-center {
+	@include keep-horizontal-center;
+}
+
+.keep-full-center {
+	@include keep-full-center;
+}

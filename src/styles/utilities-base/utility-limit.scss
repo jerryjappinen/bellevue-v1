@@ -1,0 +1,44 @@
+
+.limit-max {
+	max-width: 100%;
+}
+
+@include viewport-over-tiny {
+	.limit-tiny {
+		max-width: $breakpoint-tiny;
+	}
+}
+
+@include viewport-over-small {
+	.limit-small {
+		max-width: $breakpoint-small;
+	}
+}
+
+@include viewport-over-smallish {
+	.limit-smallish {
+		max-width: $breakpoint-smallish;
+	}
+}
+
+@include viewport-over-medium {
+	.limit-medium {
+		max-width: $breakpoint-medium;
+	}
+}
+
+@include viewport-over-large {
+	.limit-large {
+		max-width: $breakpoint-large;
+	}
+}
+
+@include viewport-over-verylarge {
+	.limit-verylarge {
+		max-width: $breakpoint-verylarge;
+	}
+}
+
+.no-limit {
+	@include no-limit;
+}

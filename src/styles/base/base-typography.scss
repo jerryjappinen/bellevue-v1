@@ -1,0 +1,91 @@
+
+html {
+	font-family: $font-sans;
+	font-size: $font-size-default;
+	// font-weight: 300;
+
+	@include viewport-over-verylarge {
+		font-size: $font-size-default-over-verylarge;
+	}
+
+	@include viewport-over($breakpoint-ridiculous) {
+		font-size: 1.5 * $font-size-default;
+	}
+
+	@include viewport-over($breakpoint-totally-ridiculous) {
+		font-size: 2 * $font-size-default;
+	}
+
+}
+
+blockquote,
+q {
+	font-family: $font-sans;
+}
+
+i {
+	svg {
+		display: block;
+		width: 1em;
+		height: 1em;
+	}
+}
+
+address {
+	font-style: inherit;
+}
+
+// Headings
+h2,
+h3,
+h4 {
+	font-weight: inherit;
+}
+
+h3,
+h4,
+h5 {
+	font-size: inherit;
+}
+
+h1 {
+	@include type-h1;
+}
+
+h2 {
+	@include type-h2;
+}
+
+h3 {
+	@include type-h3;
+}
+
+h4 {
+	@include type-h4;
+}
+
+th,
+dt,
+h5 {
+	@include type-h5;
+}
+
+
+
+// Code
+code {
+	white-space: nowrap;
+}
+
+pre {
+	code {
+		white-space: inherit;
+	}
+}
+
+pre,
+code,
+kbd,
+samp {
+	@include type-mono;
+}

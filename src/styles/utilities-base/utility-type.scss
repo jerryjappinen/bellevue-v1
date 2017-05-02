@@ -1,0 +1,82 @@
+
+
+
+// Font styles
+.type-uppercase {
+	@include type-uppercase;
+}
+
+.type-small {
+	@include type-small;
+}
+
+.type-large {
+	@include type-large;
+}
+
+.type-mono {
+	@include type-mono;
+}
+
+.type-display {
+	@include type-display;
+}
+
+.type-serif {
+	@include type-serif;
+}
+
+.type-large {
+	@include type-large;
+}
+
+
+
+// Headings
+.type-h1 {
+	@include type-h1;
+}
+
+.type-h2 {
+	@include type-h2;
+}
+
+.type-h3 {
+	@include type-h3;
+}
+
+.type-h4 {
+	@include type-h4;
+}
+
+.type-h5 {
+	@include type-h5;
+}
+
+.type-hyphens {
+	@include type-hyphens;
+}
+
+.type-nohyphens {
+	@include type-nohyphens;
+}
+
+.type-nobreak {
+	@include type-nobreak;
+}
+
+.type-ellipsis {
+	@include type-ellipsis;
+}
+
+.type-discreet {
+	@include type-discreet;
+}
+
+.type-discreet-dark {
+	@include type-discreet-dark;
+}
+
+.type-warning {
+	@include type-warning;
+}

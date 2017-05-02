@@ -1,0 +1,24 @@
+
+@mixin cursor-grab {
+	cursor: grab;
+}
+
+@mixin cursor-grabbing {
+	cursor: grabbing;
+}
+
+@mixin cursor-pointer {
+	cursor: pointer;
+}
+
+@mixin cursor-text {
+	cursor: text;
+}
+
+@mixin cursor-default {
+	cursor: default;
+}
+
+@mixin cursor-inherit {
+	cursor: inherit;
+}
