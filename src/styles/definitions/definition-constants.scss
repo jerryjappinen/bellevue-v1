@@ -154,6 +154,9 @@ $scale-large: 1.04;
 
 // Pads, buffers etc. sizing
 
+$separator: 1px;
+$separator-double: $separator * 2;
+
 $pad-vertical: 6px;
 $pad-horizontal: 16px;
 

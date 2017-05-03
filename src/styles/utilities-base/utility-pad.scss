@@ -3,31 +3,37 @@
 	@include pad;
 }
 
-	.pad-even {
-		@include pad-even;
-	}
-	.pad-even-horizontal {
-		@include pad-even-horizontal;
-	}
+.pad-even {
+	@include pad-even;
+}
 
-	.pad-horizontal {
-		@include pad-horizontal;
-		padding-right: $pad-horizontal;
-	}
-	.pad-vertical {
-		@include pad-vertical;
-		padding-bottom: $pad-vertical;
-	}
+.pad-even-horizontal {
+	@include pad-even-horizontal;
+}
 
-	.pad-top {
-		@include pad-top;
-	}
-	.pad-right {
-		@include pad-right;
-	}
-	.pad-bottom {
-		@include pad-bottom;
-	}
-	.pad-left {
-		@include pad-left;
-	}
+.pad-horizontal {
+	@include pad-horizontal;
+}
+.pad-vertical {
+	@include pad-vertical;
+}
+
+
+
+// Single direction
+
+.pad-top {
+	@include pad-top;
+}
+
+.pad-right {
+	@include pad-right;
+}
+
+.pad-bottom {
+	@include pad-bottom;
+}
+
+.pad-left {
+	@include pad-left;
+}

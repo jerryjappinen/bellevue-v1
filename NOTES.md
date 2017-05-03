@@ -56,7 +56,7 @@
 
 - Input validation
 	- `vue-validator` exists
-- Backend integration and fetching data
+- Backend integration, authentication and fetching data
 	- `vue-resource`
 	- http://vuejs-templates.github.io/webpack/backend.html
 	- http://vuejs-templates.github.io/webpack/proxy.html
@@ -68,9 +68,10 @@
 - TypeScript?
 	- https://vuejs.org/v2/guide/typescript.html
 - Tests
-	- Vuex
-	- Custom views
-	- SCSS working loading as expected
+	- Vuex requires configuring Karma with Promise polyfill
+	- SCSS not loading as expected: for some reason, pipeline tries to compile all SCSS files independently?
+	- Could SCSS be tested somehow?
+	- Test cases for custom views
 	- Did not test e2e tests (Java stuff)
 - Server-side rendering
 	- https://vuejs.org/v2/guide/ssr.html

@@ -4,34 +4,34 @@
 	padding: $pad-vertical $pad-horizontal;
 }
 
-	// Buffers
-	@mixin pad-even {
-		padding: $pad-vertical;
-	}
-	@mixin pad-even-horizontal {
-		padding: $pad-horizontal;
-	}
+// Buffers
+@mixin pad-even {
+	padding: $pad-vertical;
+}
+@mixin pad-even-horizontal {
+	padding: $pad-horizontal;
+}
 
-	// Pane
-	@mixin pad-horizontal {
-		padding-left: $pad-horizontal;
-		padding-right: $pad-horizontal;
-	}
-	@mixin pad-vertical {
-		padding-top: $pad-vertical;
-		padding-bottom: $pad-vertical;
-	}
+// Pane
+@mixin pad-horizontal {
+	padding-left: $pad-horizontal;
+	padding-right: $pad-horizontal;
+}
+@mixin pad-vertical {
+	padding-top: $pad-vertical;
+	padding-bottom: $pad-vertical;
+}
 
-	// Single
-	@mixin pad-top {
-		padding-top: $pad-vertical;
-	}
-	@mixin pad-right {
-		padding-right: $pad-horizontal;
-	}
-	@mixin pad-bottom {
-		padding-bottom: $pad-vertical;
-	}
-	@mixin pad-left {
-		padding-left: $pad-horizontal;
-	}
+// Single
+@mixin pad-top {
+	padding-top: $pad-vertical;
+}
+@mixin pad-right {
+	padding-right: $pad-horizontal;
+}
+@mixin pad-bottom {
+	padding-bottom: $pad-vertical;
+}
+@mixin pad-left {
+	padding-left: $pad-horizontal;
+}

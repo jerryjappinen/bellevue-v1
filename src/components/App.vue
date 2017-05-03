@@ -1,37 +1,7 @@
-<template>
-
-	<div class="app" id="app">
-
-		<!-- Just a reference to static assets with resolved URLs -->
-		<!-- FIXME: how do I reference project root so that URL resolver understands this (I'd like to use the same URL regardless of where my component file is)? -->
-		<p>
-			<img class="app-logo" src="../assets/logo.png">
-			<img class="app-logo" src="../assets/some/folder/anotherlogo.png">
-		</p>
-
-		<ul>
-			<li>Global counter value "{{ globalCounterValue }}" is maintained by Vuex.</li>
-			<li><a href="#/">Welcome</a></li>
-			<li><a href="#/arbitrary">PageSomething</a></li>
-			<li>router-link: <router-link :to="customLinkTarget">{{ customLinkLabel }}</router-link></li>
-			<li>Dynamic: <a href="#" @click.prevent="onCustomLinkClick">{{ customLinkLabel }}</a></li>
-		</ul>
-
-		<!-- First-level router view -->
-		<transition name="transition-fade" mode="out-in" appear>
-			<keep-alive>
-				<router-view></router-view>
-			</keep-alive>
-		</transition>
-
-	</div>
-
-</template>
 
 <script>
 
 	export default {
-
 		name: 'app',
 
 		computed: {
@@ -65,6 +35,36 @@
 
 </script>
 
+<template>
+
+	<div class="view-app" id="app">
+
+		<!-- Just a reference to static assets with resolved URLs -->
+		<!-- FIXME: how do I reference project root so that URL resolver understands this (I'd like to use the same URL regardless of where my component file is)? -->
+		<p>
+			<img class="view-app-logo" src="../assets/logo.png">
+			<img class="view-app-logo" src="../assets/some/folder/anotherlogo.png">
+		</p>
+
+		<ul>
+			<li>Global counter value "{{ globalCounterValue }}" is maintained by Vuex.</li>
+			<li><a href="#/">Welcome</a></li>
+			<li><a href="#/arbitrary">PageSomething</a></li>
+			<li>router-link: <router-link :to="customLinkTarget">{{ customLinkLabel }}</router-link></li>
+			<li>Dynamic: <a href="#" @click.prevent="onCustomLinkClick">{{ customLinkLabel }}</a></li>
+		</ul>
+
+		<!-- First-level router view -->
+		<transition name="transition-fade" mode="out-in" appear>
+			<keep-alive>
+				<router-view></router-view>
+			</keep-alive>
+		</transition>
+
+	</div>
+
+</template>
+
 <!--
 Custom styles
 http://vuejs-templates.github.io/webpack/pre-processors.html
@@ -83,15 +83,18 @@ NOTE
 	// FIXME: do I really need this in every component definition?
 	@import '../styles/shared.scss';
 
-	.app {
+	.view-app {
 		@include buffer-relative;
 	}
 
-	.app-logo {
+	.view-app-logo {
 		height: 2em;
 	}
 
 </style>
 
-<!-- Style utilities included AFTER component code so their specificity is higher by default -->
+<!--
+Style utilities included AFTER component code so their specificity is higher by default
+FIXME: Except that this won't work: other component styles will be injected after this
+-->
 <style src="../styles/utilities.scss" lang="scss"></style>

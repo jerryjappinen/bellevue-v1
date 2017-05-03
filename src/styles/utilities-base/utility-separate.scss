@@ -1,32 +1,46 @@
 
+// Single
+
 .separate {
-	border-width: 1px;
+	border-width: $separator;
 }
-	.separate-top {
-		border-top-width: 1px;
-	}
-	.separate-right {
-		border-right-width: 1px;
-	}
-	.separate-bottom {
-		border-bottom-width: 1px;
-	}
-	.separate-left {
-		border-left-width: 1px;
-	}
+
+.separate-top {
+	border-top-width: $separator;
+}
+
+.separate-right {
+	border-right-width: $separator;
+}
+
+.separate-bottom {
+	border-bottom-width: $separator;
+}
+
+.separate-left {
+	border-left-width: $separator;
+}
+
+
+
+// Double
 
 .separate-double {
-	border-width: 2px;
+	border-width: $separator-double;
 }
-	.separate-double-top {
-		border-top-width: 2px;
-	}
-	.separate-double-right {
-		border-right-width: 2px;
-	}
-	.separate-double-bottom {
-		border-bottom-width: 2px;
-	}
-	.separate-double-left {
-		border-left-width: 2px;
-	}
+
+.separate-double-top {
+	border-top-width: $separator-double;
+}
+
+.separate-double-right {
+	border-right-width: $separator-double;
+}
+
+.separate-double-bottom {
+	border-bottom-width: $separator-double;
+}
+
+.separate-double-left {
+	border-left-width: $separator-double;
+}

@@ -1,7 +1,7 @@
 
-@mixin limit ($breakpoint) {
+@mixin limit ($breakpoint, $limit: $breakpoint) {
 	@include viewport-over($breakpoint) {
-		max-width: $breakpoint;
+		max-width: $limit;
 	}
 }
 
@@ -11,37 +11,37 @@
 
 @mixin limit-tiny {
 	@include viewport-over-tiny {
-		max-width: $breakpoint-tiny;
+		max-width: $limit-tiny;
 	}
 }
 
 @mixin limit-small {
 	@include viewport-over-small {
-		max-width: $breakpoint-small;
+		max-width: $limit-small;
 	}
 }
 
 @mixin limit-smallish {
 	@include viewport-over-smallish {
-		max-width: $breakpoint-smallish;
+		max-width: $limit-smallish;
 	}
 }
 
 @mixin limit-medium {
 	@include viewport-over-medium {
-		max-width: $breakpoint-medium;
+		max-width: $limit-medium;
 	}
 }
 
 @mixin limit-large {
 	@include viewport-over-large {
-		max-width: $breakpoint-large;
+		max-width: $limit-large;
 	}
 }
 
 @mixin limit-verylarge {
 	@include viewport-over-verylarge {
-		max-width: $breakpoint-verylarge;
+		max-width: $limit-verylarge;
 	}
 }
 

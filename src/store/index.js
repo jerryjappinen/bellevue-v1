@@ -15,7 +15,7 @@ const state = {
 };
 
 // Dynamic getters (like `computed`)
-const getters = {
+export const getters = {
 
 	canDecrementCounter: function (state, getters) {
 		return (state.counter > 1) ? true : false;
@@ -29,7 +29,7 @@ const getters = {
 
 // Mutations (like atomic methods under `methods`)
 // Use these in actions with `context.commit('increment')`
-const mutations = {
+export const mutations = {
 
 	incrementCounter: function (state) {
 		state.counter++;
@@ -44,7 +44,7 @@ const mutations = {
 // Actions (like helpers under `methods`)
 // Use these in components with `this.$store.dispatch('increment')`
 // Context includes actions and getters
-const actions = {
+export const actions = {
 
 	increment: function (context) {
 		context.commit('incrementCounter');
@@ -70,7 +70,7 @@ const actions = {
 };
 
 // State management split into smaller chunks
-const modules = {};
+export const modules = {};
 
 // Set up and export Vuex object
 const store = new Vuex.Store({
@@ -80,4 +80,6 @@ const store = new Vuex.Store({
 	actions: actions,
 	modules: modules
 });
+
+// Store is the default exported object
 export default store;
