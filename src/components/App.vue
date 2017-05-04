@@ -106,13 +106,13 @@ NOTE
 	// - We're manually prefixing our component-specific class names with `view-`
 	// - This makes it easier to distinguish between state classes, component-specific classes and utility classes.
 	// - This is especially helpful when overriding styles of child components in parents.
+	// - For some reason, @import will require '~' when using an alias (defined in Webpack's configuration, in the resolve section)
 
 	// FIXME
 	//
-	// Do I really need this in every component definition?
-	// This is just manual duplication that leads to mistakes.
-	// Also have to keep track of relative paths all the time.
-	@import '../styles/shared.scss';
+	// - Do I really need this in every component definition?
+	// - This is just manual duplication that leads to mistakes.
+	@import '~@styles/shared.scss';
 
 	.view-app {
 		@include buffer-relative;

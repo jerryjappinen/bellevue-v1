@@ -4,10 +4,20 @@
 
 ## Vue
 
-- Excellent documentation at [vuejs.org](https://vuejs.org/v2/guide/).
+- Excellent guides and documentation at [vuejs.org](https://vuejs.org/v2/guide/).
 - Curated list of awesome things related to Vue.js available at [github.com/vuejs/awesome-vue](https://github.com/vuejs/awesome-vue).
 - Looong list of popuplar components and libraries: [github.com/vuejs/awesome-vue#components--libraries](https://github.com/vuejs/awesome-vue#components--libraries)
 
+## Webpack
+
+- Webpack seems to understand the codebase very well and enable a lot of very advanced features.
+- A lot of imports have to be (manually) maintained to enable this though
+- Only seems to need restarting when core config is updated, otherwise recompiling and hot reload work out of the box very reliably
+- `vue-loader` is the thing that sits between `.vue` single file components and Webpack, which should be extended for component-specific things
+- Extending Webpack seems like a viable option for further automation in codebase
+	- Automating `.js` imports
+	- Automating `.scss` @imports
+	- Generating stats/reports (on automated features)?
 
 ## Coding conventions
 
@@ -122,7 +132,11 @@
 
 ### Pipeline
 
-- CSS linting
+- (S)CSS linting
+	- Needed for global SCSS and `.vue` files
+	- https://stylelint.io/
+	- https://github.com/vuejs/vue-loader/issues/303#issuecomment-259328193
+- HTML linting
 	- https://stylelint.io/
 - SVG pipeline
 	- Need to add via webpack
@@ -176,6 +190,7 @@ Did not test E2E, needs a JDK installed in order to be run from the command line
 	- Importing child components
 	- Explicitly renaming child components locally
 	- Importing shared SCSS
+	- Using Webpack aliases to mitigate need for relative paths (see `webpack.*.conf.js`)
 - What should our conventions be?
 	- At some point we will have a project structure and pipeline - but how do we use it effectively to write good UIs that scale?
 	- ESLint allows configuring all of them
