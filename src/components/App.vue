@@ -1,8 +1,16 @@
 
+
 <script>
 
+	// NOTE
+	//
+	// This is our app's root component. We should keep this as simple as possible, it should probably only render child components.
+
 	export default {
-		name: 'app',
+
+		// We need to use nams in order for recursive components to work, so better to just keep it consistent
+		// NOTE: Vue will standardize the casing, but we'll use the same casing as in file names here
+		name: 'App',
 
 		computed: {
 
@@ -11,14 +19,14 @@
 			},
 
 			customLinkTarget: function () {
-				var target = this.$route.name === 'PageSomething' ? 'Hello' : 'PageSomething';
+				var target = this.$route.name === 'pageSomething' ? 'hello' : 'pageSomething';
 				return {
 					name: target
 				};
 			},
 
 			customLinkLabel: function () {
-				return this.customLinkTarget.name;
+				return this.customLinkTarget.name === 'pageSomething' ? 'More stuff' : 'Welcome';
 			}
 
 		},
@@ -40,17 +48,30 @@
 	<div class="view-app" id="app">
 
 		<!-- Just a reference to static assets with resolved URLs -->
-		<!-- FIXME: how do I reference project root so that URL resolver understands this (I'd like to use the same URL regardless of where my component file is)? -->
+
+		<!--
+			FIXME
+
+			- Can I reference project root for URL resolver somehow?
+			- I'd like to use the same URL regardless of where my component file is in the project structure, as they will move around a lot when refactoring.
+			- We can maybe write a workaround in an image component that can handle SVG sprites and other things without code duplication.
+		-->
+
 		<p>
 			<img class="view-app-logo" src="../assets/logo.png">
 			<img class="view-app-logo" src="../assets/some/folder/anotherlogo.png">
+			Global counter value "{{ globalCounterValue }}" is maintained by Vuex.
 		</p>
 
-		<ul>
-			<li>Global counter value "{{ globalCounterValue }}" is maintained by Vuex.</li>
+
+
+		<!-- Sample menu with different types of links -->
+
+		<ul class="view-app-menu">
 			<li><a href="#/">Welcome</a></li>
-			<li><a href="#/arbitrary">PageSomething</a></li>
-			<li>router-link: <router-link :to="customLinkTarget">{{ customLinkLabel }}</router-link></li>
+			<li><a href="#/arbitrary">More stuff</a></li>
+			<li>router-link: <router-link :to="{ name: 'hello' }">Welcome</router-link></li>
+			<li>router-link: <router-link :to="{ name: 'pageSomething' }">More stuff</router-link></li>
 			<li>Dynamic: <a href="#" @click.prevent="onCustomLinkClick">{{ customLinkLabel }}</a></li>
 		</ul>
 
@@ -80,21 +101,71 @@ NOTE
 <!-- Root component styles -->
 <style lang="scss">
 
-	// FIXME: do I really need this in every component definition?
+	// NOTE
+	//
+	// - We're manually prefixing our component-specific class names with `view-`
+	// - This makes it easier to distinguish between state classes, component-specific classes and utility classes.
+	// - This is especially helpful when overriding styles of child components in parents.
+
+	// FIXME
+	//
+	// Do I really need this in every component definition?
+	// This is just manual duplication that leads to mistakes.
+	// Also have to keep track of relative paths all the time.
 	@import '../styles/shared.scss';
 
 	.view-app {
 		@include buffer-relative;
+
+		a {
+			display: flex;
+		}
+
 	}
 
 	.view-app-logo {
 		height: 2em;
 	}
 
+	// NOTE: clearly this stuff should be in a separate component
+	.view-app-menu {
+		list-style: none;
+
+		// FIXME: lots of nesting, which is bad
+		li {
+			@include inline-block;
+
+			&:not(:last-of-type) {
+				@include push-tight-right;
+			}
+
+			&:not(:first-of-type) {
+				@include push-tight-left;
+			}
+
+			a {
+				@include pad;
+
+				// NOTE: we try to use a small set of prefixes like .is-, .not-, .has-, or .no- in our state classes
+				&.is-exact-active {
+					text-decoration: underline;
+				}
+
+			}
+
+		}
+
+	}
+
 </style>
 
 <!--
-Style utilities included AFTER component code so their specificity is higher by default
-FIXME: Except that this won't work: other component styles will be injected after this
+FIXME
+
+- Style utilities should be included AFTER all component code.
+- This is because we want their specificity is higher than a lone component class's by default.
+- But here, from vue-loader's perspective, utilities are part of this component's code.
+- ...so other component styles will be injected AFTER the utilities in this case, which is not what we want.
+- We can use index.html but the injections there are magical and compilation won't trigger the same way.
 -->
 <style src="../styles/utilities.scss" lang="scss"></style>

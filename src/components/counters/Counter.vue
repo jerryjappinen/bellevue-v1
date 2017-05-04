@@ -17,7 +17,7 @@ If I had a lot of other components dealing with similar behavior, I'd go for the
 	// View model
 	export default {
 
-		name: 'counter',
+		name: 'Counter',
 
 		props: {
 			value: {
@@ -30,7 +30,7 @@ If I had a lot of other components dealing with similar behavior, I'd go for the
 			}
 		},
 
-		data () {
+		data: function () {
 			return {
 			};
 		},
@@ -86,8 +86,6 @@ If I had a lot of other components dealing with similar behavior, I'd go for the
 </template>
 
 <style lang="scss">
-
-	// FIXME: do I really need this in every component definition?
 	@import '../../styles/shared.scss';
 
 	.view-counter {

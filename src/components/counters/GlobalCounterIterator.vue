@@ -4,7 +4,7 @@
 	// View model
 	export default {
 
-		name: 'global-counter-iterator',
+		name: 'GlobalCounterIterator',
 
 		props: {
 			reverse: {
@@ -44,7 +44,7 @@
 
 		},
 
-		beforeCreate () {
+		beforeCreate: function () {
 			console.log(this.$store, this.$store.state);
 		}
 
@@ -69,8 +69,6 @@
 </template>
 
 <style lang="scss">
-
-	// FIXME: do I really need this in every component definition?
 	@import '../../styles/shared.scss';
 
 	.view-global-counter-iterator-button {}

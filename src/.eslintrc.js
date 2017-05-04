@@ -3,9 +3,17 @@
 //
 // NOTE
 //
-// These are the rules for our custom app code.
-// Please keep the ROOT .eslintrc.js without modifications, as it is the default for most Vue projcts.
-// You can specify further rules under /components
+// - This file should contain the rules for OUR custom JS code.
+// - The rules defined here should be accompanied with comments explaining the rationale behind the convention.
+// - You can import these rules in other places, like under tests.
+// - ESLint only supports JS, not (S)CSS or HTML.
+// - Using the severity 'error' will break builds even during development, so it's better to reserve it for most serious things only.
+// - All warnings should also be cleaned up from production code however.
+//
+// Other .eslintrc files
+//
+// - Please keep the ROOT `/.eslintrc.js` without modifications, as it is the default for most Vue projcts.
+// - You can specify further rules in .eslintrc files under sub folders for more granular, cascading rulesets.
 
 module.exports = {
 	rules: {
@@ -14,18 +22,18 @@ module.exports = {
 
 		// Indent with tabs, because spaces are not user-adjustable in IDEs, are harder to target with mouse cursors and will always have indentation errors
 		'no-tabs': ['off'],
-		'indent': ['error', 'tab'],
+		'indent': ['warn', 'tab'],
 
 		// Semi colons required to avoid any gotchas
 		'semi': [
-			'error',
+			'warn',
 			'always'
 		],
 
 		// Single quotes should be used
 		// NOTE: template literals not allowed currently, but can be enabled if we have legitimate use cases for them
 		'quotes': [
-			'error',
+			'warn',
 			'single',
 			{
 				'avoidEscape': false,
@@ -49,15 +57,25 @@ module.exports = {
 
 		// Misc.
 		'padded-blocks': 'off',        // Weird rule, we need whitespace sometimes
-		'no-empty': 'warn',         // Empty blocks should be cleaned up
-		'no-unreachable': 'warn',   // Unreachable code should be cleaned up
+		'no-empty': 'warn',            // Empty blocks should be cleaned up
+		'no-unreachable': 'warn',      // Unreachable code should be cleaned up
 		'no-else-return': 'error',     // Smelly, code will break when refactoring
 
 		// Variables should be declared when they are used for the first time, to make it easier to move them from one scope to another when refactoring
-		'one-var': ['error', 'never'],
+		'one-var': [
+			'error',
+			'never'
+		],
 
 		// config.someItems['foo'] is sometimes useful to highlight that we're referring to an item with a very specific, hardcoded name (that probably should be a variable)
 		'dot-notation': ['off'],
+
+		// Let's just use the same traditional object syntax everywhere
+		// This is because shorthand cannot always be used, so it's better to have only one format in the codebase
+		'object-shorthand': [
+			'warn',
+			'never'
+		],
 
 		// Make arrow functions slightly less dangerous and confusing
 		'no-confusing-arrow': ['error'],

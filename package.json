@@ -4,6 +4,11 @@
   "description": "A Vue.js project",
   "author": "Jerry Jäppinen <eiskis@gmail.com>",
   "private": true,
+  "browserslist": [
+    "> 4%",
+    "last 2 versions",
+    "not ie < 10"
+  ],
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",

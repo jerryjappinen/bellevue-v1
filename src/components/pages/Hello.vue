@@ -1,3 +1,41 @@
+
+<script>
+
+	// Child components
+	import Counter from '@/components/counters/Counter';
+	import GlobalCounterIterator from '@/components/counters/GlobalCounterIterator';
+	import LocalCounter from '@/components/counters/LocalCounter';
+
+	// View model
+	export default {
+
+		name: 'Hello',
+
+		components: {
+			Counter: Counter,
+			GlobalCounterIterator: GlobalCounterIterator,
+			LocalCounter: LocalCounter
+		},
+
+		data: function () {
+			return {
+				welcomeMessage: 'Welcome!',
+				someValue: 3
+			};
+		},
+
+		computed: {
+
+			globalCounterValues: function () {
+				return this.$store.state.counter + '^2 = ' + this.$store.getters.counterSquared;
+			}
+
+		}
+
+	};
+
+</script>
+
 <template>
 
 	<div class="view-hello">
@@ -23,57 +61,21 @@
 
 		<hr>
 
+		<!-- This guy knows how to iterate the counter in the global state -->
 		<p><global-counter-iterator :reverse="true"></global-counter-iterator></p>
 
 	</div>
 
 </template>
 
-<script>
-
-	// Child components
-	import Counter from '@/components/counters/Counter';
-	import GlobalCounterIterator from '@/components/counters/GlobalCounterIterator';
-	import LocalCounter from '@/components/counters/LocalCounter';
-
-	// View model
-	export default {
-
-		name: 'hello',
-
-		components: {
-			Counter,
-			GlobalCounterIterator,
-			LocalCounter
-		},
-
-		data () {
-			return {
-				welcomeMessage: 'Welcome!',
-				someValue: 3
-			};
-		},
-
-		computed: {
-
-			globalCounterValues: function () {
-				return this.$store.state.counter + '^2 = ' + this.$store.getters.counterSquared;
-			}
-
-		}
-
-	};
-
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
+	@import '../../styles/shared.scss';
 
 	.view-hello {
 
 		.view-counter-label,
 		.view-local-counter-label {
-			font-weight: bold;
+			color: inherit;
 		}
 
 	}

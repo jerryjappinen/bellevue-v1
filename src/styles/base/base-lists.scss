@@ -1,0 +1,60 @@
+
+// Lists
+ul,
+ol {
+	padding-left: 0;
+	list-style-type: none;
+
+	ul,
+	ol {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+}
+
+// Inline lists
+// NOTE: use .inline.block to keep the list item itself block element
+ul,
+ol,
+dl {
+
+	// Adjust behavior when combined with utility classes
+
+	&.inline {
+		li {
+			display: inline;
+		}
+	}
+
+	&.inline-block {
+		li {
+			display: inline-block;
+		}
+	}
+
+
+
+	// Horizontal lists with floated block elements
+	// FIXME: this should be a separate utility, now these are just magical class names
+
+	&.collapse,
+	&.collapse-right {
+		clear: none;
+		li,
+		dt,
+		dd {
+			float: left;
+			clear: none;
+		}
+	}
+
+	&.collapse {
+		@include clear-after;
+		// float: left;
+	}
+	&.collapse-right {
+		// float: right;
+	}
+
+}

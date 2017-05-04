@@ -24,7 +24,9 @@ new Vue({
 	// This app will be injected into #app (see index.html)
 	el: '#app',
 	template: '<app></app>',
-	components: { App },
+	components: {
+		App: App
+	},
 
 	// These guys are available in components as...
 	router: router,   // this.$router

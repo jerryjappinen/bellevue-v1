@@ -4,7 +4,7 @@
 	// View model
 	export default {
 
-		name: 'local-counter',
+		name: 'LocalCounter',
 
 		props: {
 			value: {
@@ -18,7 +18,7 @@
 			}
 		},
 
-		data () {
+		data: function () {
 			return {
 				ownValue: this.value
 			};
@@ -65,8 +65,6 @@
 </template>
 
 <style lang="scss">
-
-	// FIXME: do I really need this in every component definition?
 	@import '../../styles/shared.scss';
 
 	.view-local-counter {

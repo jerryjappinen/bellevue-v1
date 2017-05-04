@@ -1,46 +1,74 @@
-# Misc. notes about the project
+# Misc. notes about this project
+
+# Documentation
+
+## Vue
+
+- Excellent documentation at [vuejs.org](https://vuejs.org/v2/guide/).
+- Curated list of awesome things related to Vue.js available at [github.com/vuejs/awesome-vue](https://github.com/vuejs/awesome-vue).
+- Looong list of popuplar components and libraries: [github.com/vuejs/awesome-vue#components--libraries](https://github.com/vuejs/awesome-vue#components--libraries)
+
+
+## Coding conventions
+
+- Based on the official webpack project structure
+	- https://github.com/vuejs-templates/webpack
+	- Vuex support has been added
+	- Non-trivial global SCSS styles have been added (loaded by root component)
+	- Running tests in Chrome instead of PhantomJS (this is easily configurable)
+	- Custom components showcasing common patterns and features added
+- ESLint is extensively supported and has been has been configured
+	- Available ESLint rules: http://eslint.org/
+- Other conventions
+	- Defaults in component properties and methods
+		- Try to set boolean defaults to false.
+		- Developers then know that in order to change default behavior, they have to explicitly set something to true.
+
 
 ## Existing features
 
+- Webpack build pipeline
+	- Pipeline: http://vuejs-templates.github.io/webpack/
+	- `vue-loader`: http://vue-loader.vuejs.org/en/
+- ESLint
+	- Cascading custom configuration
+	- Detailed compilation-time error log and browser integration
+- Per-environment configuration
+	- See `config/`
 - Vue and all its goodies
 	- Named transitions with JS callbacks
 	- Prop validation
+- Single file components as `.vue` files
+	- Standard HTML, CSS and JS
 - Routing
 	- Easy-to-configure named routes
 	- Multilevel routes out of the box
 	- Selected page comparison and highlight
-- Webpack build pipeline
-- ESLint
-	- Cascading custom configuration
-	- Detailed compilation-time error log and browser integration
 - Development vs. production modes
 	- http://vuejs-templates.github.io/webpack/env.html
 - Developer tools
-	- Hot reload for development
+	- Amazing hot reload for development
 		- No browser plugin needed
-		- Preserves state
+		- Super fast
+		- Preserves state, swaps components real time
 		- Shows ESLint errors
 		- https://webpack.js.org/concepts/hot-module-replacement/
 	- Vue developer plugin for Chrome
 	- Detailed console errors from Vue
-- Unit tests
-	- `test/unit/`
-	- http://vuejs-templates.github.io/webpack/unit.html
-- E2E tests
-	- `test/e2e/`
-	- http://vuejs-templates.github.io/webpack/e2e.html
-- Good project structure documentation
-	- Pipeline: http://vuejs-templates.github.io/webpack/
-	- `vue-loader`: http://vue-loader.vuejs.org/en/
-- Per-environment configuration
-	- See `config/`
-- Single file components as `.vue` files
-	- Standard HTML, CSS and JS
+- Tests
+	- Can be run on multiple browsers
+	- Unit tests for components and Vuex
+		- `test/unit/`
+		- http://vuejs-templates.github.io/webpack/unit.html
+	- E2E tests
+		- `test/e2e/`
+		- http://vuejs-templates.github.io/webpack/e2e.html
 - Resolving asset URLs
 	- http://vue-loader.vuejs.org/en/configurations/asset-url.html
 - CSS pipeline
-	- "This boilerplate has pre-configured CSS extraction for most popular CSS pre-processors including LESS, SASS, Stylus, and PostCSS. To use a pre-processor, all you need to do is installing the appropriate webpack loader for it. For example, to use SASS"
-	- Autoprefixing
+	- CSS extraction for most popular CSS pre-processors (LESS, SASS, Stylus, and PostCSS)
+	- To use a pre-processor, all you need to do is installing the appropriate webpack loader for it
+	- Autoprefixing included
 	- http://vuejs-templates.github.io/webpack/pre-processors.html
 	- SCSS and global styling structure added (mixins, custom functions etc.)
 	- More features: http://vue-loader.vuejs.org/en/ (scoped styles etc.)
@@ -54,41 +82,102 @@
 
 ## Missing features
 
+- Better `README`
+	- How to use pipeline, how to code, how the pipeline works, how to adjust local variables etc.
+
+### Missing examples
+
+- Component template with all supported functionality
+	- $watching
+	- Lifecycle hooks
+- Unit tests for custom components
+
+### Client-side
+
+- Offline handling
+	- Requires some manifest files etc. plus UI work
 - Input validation
-	- `vue-validator` exists
+	- `vue-validator`
+- Vue directives
+	- Simple to add via `main.js`
+	- Rarely needed though
 - Backend integration, authentication and fetching data
 	- `vue-resource`
 	- http://vuejs-templates.github.io/webpack/backend.html
 	- http://vuejs-templates.github.io/webpack/proxy.html
 	- https://router.vuejs.org/en/advanced/data-fetching.html
+- Custom plugins
+	- Easy to add
+	- https://vuejs.org/v2/guide/plugins.html
+- Localisation
+	- https://github.com/vuejs/awesome-vue#i18n
+- Authentication
+	- https://github.com/vuejs/awesome-vue#authenticationauthorization
+- Persistent state
+	- Trivial, just save and load Vuex state to local storage
+- Splitting global state management
+	- Vuex supports modules
+	- Multiple stores?
+	- What are the best practices for this? Need to look at a real application
+
+### Pipeline
+
 - CSS linting
 	- https://stylelint.io/
 - SVG pipeline
 	- Need to add via webpack
-- TypeScript?
+- Do we care about using TypeScript?
+	- Can improve IDE experience
+	- Makes code more robust
+	- Rapid iteration might get more complicated
+	- Introduces some more "boilerplate" code
+	- Might make sense for more mature features, but we still want to demo and try out new things fast without cumbersome code quality requirements (same with tests)
 	- https://vuejs.org/v2/guide/typescript.html
-- Tests
-	- Vuex requires configuring Karma with Promise polyfill
-	- SCSS not loading as expected: for some reason, pipeline tries to compile all SCSS files independently?
-	- Could SCSS be tested somehow?
-	- Test cases for custom views
-	- Did not test e2e tests (Java stuff)
 - Server-side rendering
-	- https://vuejs.org/v2/guide/ssr.html
-	- http://vuejs-templates.github.io/webpack/prerender.html
-- Custom plugins
-	- Easy to add though
-	- [vuejs.org/v2/guide](https://vuejs.org/v2/guide/plugins.html)
-- Custom development docs (i.e. better `README`)
-	- How to run in all scenarios (different ports etc.)
-- Vue directives
-	- Simple to add via `main.js`
+	- We're dealing with fresh data all the time (so we need true SSR, not build-time prerendering)
+	- If we implement embedded widgets, prerendering might be useful for those (abuse report form etc.)
+	- Prerendering plugin for this pipeline: http://vuejs-templates.github.io/webpack/prerender.html
+	- About SSR on Vue: https://vuejs.org/v2/guide/ssr.html
+	- Full SSR guide for Vue: https://ssr.vuejs.org/en/
+	- Universal apps on Vue: https://nuxtjs.org/
+- Custom PostCSS configuration
+	- Need to add `.postcssrc.js` files
+	- Need to decide possible other plugins to use
+		- http://postcss.parts/
+	- Need to add custom config for Autprefixer
+	- Need to add `browserslist` in package.json
+- ESLint plugins for enhanced IDE integration
+	- Curated list of what's out there: https://github.com/dustinspecker/awesome-eslint
+	- https://github.com/amilajack/eslint-plugin-compat
+	- https://github.com/sheerun/prettier-standard
+
+Did not test E2E, needs a JDK installed in order to be run from the command line.
 
 
 
 ## Questions
 
+- What are the most relevant practical samples we should look at?
+	- https://vuejs.org/v2/examples/
+- How complex should we make global state management?
+	- Simple custom Vue services work very nicely
+	- But Vuex is the "official" solution
+	- Vuex integrates into Vue dev tools
+	- "If you’re coming from React, you may be wondering how vuex compares to redux, the most popular Flux implementation in that ecosystem. Redux is actually view-layer agnostic, so it can easily be used with Vue via some simple bindings. Vuex is different in that it knows it’s in a Vue app. This allows it to better integrate with Vue, offering a more intuitive API and improved development experience."
+- Why does the test pipeline break?
+	- For some reason, pipeline tries to compile all SCSS files independently?
+	- This will break SCSS that relies on manifest files doing imports
+	- Vuex requires configuring Karma with Promise polyfill
+- Could SCSS be tested somehow?
+	- We have some more complicated toolchains producing utility classes with responsive variants etc.
+	- http://mts.io/2014/04/02/sass-unit-testing/
+	- Also need a test page for quick manual visual testing
+- Can we improve the pipeline to automate redundant tasks
+	- Importing child components
+	- Explicitly renaming child components locally
+	- Importing shared SCSS
 - What should our conventions be?
+	- At some point we will have a project structure and pipeline - but how do we use it effectively to write good UIs that scale?
 	- ESLint allows configuring all of them
 	- ES6 requires some education and relearning, but most modern examples use it
 - Is configuration available run-time?
@@ -110,24 +199,6 @@
 		- Example 2: https://github.com/scaccogatto/vue-throttle-event/blob/master/src/index.js
 - How does API communication and resource loading work?
 	- Should we use `[vue-resource](https://github.com/pagekit/vue-resource)`
-- Offline handling
-
-
-
-# Documentation
-
-## Vue
-
-- Excellent documentation at [vuejs.org](https://vuejs.org/v2/guide/).
-- Curated list of awesome things related to Vue.js available at [github.com/vuejs/awesome-vue](https://github.com/vuejs/awesome-vue).
-- Looong list of popuplar components and libraries: [github.com/vuejs/awesome-vue#components--libraries](https://github.com/vuejs/awesome-vue#components--libraries)
-
-## Development
-
-...
-
-## Conventions
-
-- Defaults (component properties and methods)
-	- Try to set boolean defaults to false. Developers then know that in order to change default behavior, they have to explicitly set something to true.
-
+- How and where do we build for production?
+	- Local building works fine but production builds should be done via CI
+	- Do we need to test production builds separately? They can look quite different from dev builds (no hot reload module swapping, minified single-file code etc.)

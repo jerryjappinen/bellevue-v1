@@ -25,18 +25,18 @@
 
 // Make color translucent
 // FIXME: should return 0.1 for black, 0.25 for light values
-@function color-translucent ($color, $strength: 0.25) {
+@function color-translucent ($color, $strength: 0.15) {
 	@return rgba($color, $strength);
 }
 
 	// FIXME: should adjust based on hue
-	@function color-translucent-light ($color, $strength: 0.5) {
-		@return color-translucent($color, $strength);
+	@function color-translucent-light ($color) {
+		@return color-translucent($color, 0.4);
 	}
 
 	// FIXME: should adjust based on hue
-	@function color-translucent-verylight ($color, $strength: 0.9) {
-		@return color-translucent($color, $strength);
+	@function color-translucent-verylight ($color) {
+		@return color-translucent($color, 0.9);
 	}
 
 

@@ -1,2 +1,2 @@
 
-module.exports = require('../../../src/.eslintrc')
+module.exports = require('../../../src/.eslintrc');

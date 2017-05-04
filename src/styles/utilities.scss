@@ -11,7 +11,13 @@
 @import './transitions/transition-fade';
 
 // Atomic, reusable style properties
-// NOTE: these guys should mostly be written using mixins
+
+// NOTE
+// - These guys should mostly be written using mixins
+// - We currently don't prefix utility class names.
+// - Most of the specific utilities have very consistent class names however, with minor exceptions for convenience.
+// - This is OK because we prefix everything else, so all class names without any of the specific prefixes are utility classes.
+// - If we wanted, we could introduce the `.u-` prefix.
 
 // Complex utility classes
 @import './utilities-composed/utility-bodytext';

@@ -1,3 +1,40 @@
+
+<script>
+
+	// Child components
+	import Counter from '@/components/counters/Counter';
+	import GlobalCounterIterator from '@/components/counters/GlobalCounterIterator';
+	import LocalCounter from '@/components/counters/LocalCounter';
+
+	// View model
+	export default {
+
+		name: 'PageSomething',
+
+		components: {
+			Counter: Counter,
+			GlobalCounterIterator: GlobalCounterIterator,
+			LocalCounter: LocalCounter
+		},
+
+		data: function () {
+			return {
+				myValue: 20
+			};
+		},
+
+		computed: {
+
+			globalCounterValues: function () {
+				return this.$store.state.counter + ' (squared: ' + this.$store.getters.counterSquared + ')';
+			}
+
+		}
+
+	};
+
+</script>
+
 <template>
 
 	<div class="view-page-something">
@@ -36,44 +73,8 @@
 
 </template>
 
-<script>
-
-	// Child components
-	import Counter from '@/components/counters/Counter';
-	import GlobalCounterIterator from '@/components/counters/GlobalCounterIterator';
-	import LocalCounter from '@/components/counters/LocalCounter';
-
-	// View model
-	export default {
-
-		name: 'page-something',
-
-		components: {
-			Counter,
-			GlobalCounterIterator,
-			LocalCounter
-		},
-
-		data () {
-			return {
-				myValue: 20
-			};
-		},
-
-		computed: {
-
-			globalCounterValues: function () {
-				return this.$store.state.counter + ' (squared: ' + this.$store.getters.counterSquared + ')';
-			}
-
-		}
-
-	};
-
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
+	@import '../../styles/shared.scss';
 
 	.view-page-something {}
 
