@@ -6,7 +6,6 @@
 
 
 
-
 // Remove the unit of a length
 @function number ($number) {
 	@if type-of($number) == 'number' and not unitless($number) {
@@ -14,6 +13,7 @@
 	}
 	@return $number;
 }
+
 
 
 // Color handling
@@ -29,15 +29,15 @@
 	@return rgba($color, $strength);
 }
 
-	// FIXME: should adjust based on hue
-	@function color-translucent-light ($color) {
-		@return color-translucent($color, 0.4);
-	}
+// FIXME: should adjust based on hue
+@function color-translucent-light ($color) {
+	@return color-translucent($color, 0.4);
+}
 
-	// FIXME: should adjust based on hue
-	@function color-translucent-verylight ($color) {
-		@return color-translucent($color, 0.9);
-	}
+// FIXME: should adjust based on hue
+@function color-translucent-verylight ($color) {
+	@return color-translucent($color, 0.9);
+}
 
 
 

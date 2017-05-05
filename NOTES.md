@@ -1,14 +1,14 @@
 # Misc. notes about this project
 
-# Documentation
+## Development
 
-## Vue
+### Vue
 
 - Excellent guides and documentation at [vuejs.org](https://vuejs.org/v2/guide/).
 - Curated list of awesome things related to Vue.js available at [github.com/vuejs/awesome-vue](https://github.com/vuejs/awesome-vue).
 - Looong list of popuplar components and libraries: [github.com/vuejs/awesome-vue#components--libraries](https://github.com/vuejs/awesome-vue#components--libraries)
 
-## Webpack
+### Webpack
 
 - Webpack seems to understand the codebase very well and enable a lot of very advanced features.
 - A lot of imports have to be (manually) maintained to enable this though
@@ -19,7 +19,7 @@
 	- Automating `.scss` @imports
 	- Generating stats/reports (on automated features)?
 
-## Coding conventions
+### Coding conventions
 
 - Based on the official webpack project structure
 	- https://github.com/vuejs-templates/webpack
@@ -34,6 +34,54 @@
 		- Try to set boolean defaults to false.
 		- Developers then know that in order to change default behavior, they have to explicitly set something to true.
 
+### IDEs
+
+- Browser will show errors the same way regardless of IDE
+- Sublime Text
+	- Linting experience is quite good with Sublime Linter and its extensions
+	- Easy setup
+	- Lightweight development experience
+- Need to investigate Visual Studio Code
+	- Expectations
+		- Great support for modern web development
+		- Easy set-up
+		- Fast iteration cycles, meaningful updates month-over-month
+		- Well equipped for TS support
+	- Added extensions
+		- `change-case`
+		- `EditorConfig`
+		- `ESLint` (workspace config included in project)
+		- `File Utils`
+		- `Incremator`
+			- Default key bindings clash on Mac
+			- Can be easily adjusted
+			- https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-editor
+		- `stylelint` (workspace config included in project)
+		- `Sublime Text Keymap`
+		- `vue`
+		- `Vue 2 Snippets`
+	- Adjusted keybindings
+		- Mostly to match Sublime Text better
+		- Line up/down
+		- Increment and decrement
+		- Debug/launch without `F` keys
+			-
+	- Theming supported well
+		- Color schemes supported out of the box
+		- Multiple color schemes available out of the box
+		- Live preview for color schemes
+		- File icons in sidebar disabled by default
+		- Install more themes from commands
+	- Problems
+		- Does not auto indent new lines when starting from empty non-intended line inside a block
+		- Can't yet show all problems in the project at once (only open files)
+			- See https://github.com/Microsoft/vscode/issues/13953
+			- Linters will of course show all issues in terminal/browser
+- Need to investigate WebStorm
+
+
+
+# Project features
 
 ## Existing features
 
@@ -87,6 +135,16 @@
 - `[vuex](http://vuex.vuejs.org/en/intro.html)` for state management
 	- Trivial counter app example: [jsfiddle.net/n9jmu5v7/341](https://jsfiddle.net/n9jmu5v7/341/)
 	- More complex example: https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart
+- Need to add `browserslist` in package.json
+	- Used by Autoprefixer in PostCSS
+	- Can further be used by linters to warn for incompatible code
+- (S)CSS linting
+	- Works on command line
+	- Works for global `.scss` and `.vue` files
+	- Cascading configuration
+	- https://stylelint.io/
+	- https://github.com/vuejs/vue-loader/issues/303#issuecomment-259328193
+	- https://medium.com/lost-bananas/linting-css-in-vue-files-6bb20faac0f2
 
 
 
@@ -95,14 +153,7 @@
 - Better `README`
 	- How to use pipeline, how to code, how the pipeline works, how to adjust local variables etc.
 
-### Missing examples
-
-- Component template with all supported functionality
-	- $watching
-	- Lifecycle hooks
-- Unit tests for custom components
-
-### Client-side
+### Missing client-side
 
 - Offline handling
 	- Requires some manifest files etc. plus UI work
@@ -130,12 +181,10 @@
 	- Multiple stores?
 	- What are the best practices for this? Need to look at a real application
 
-### Pipeline
+### Missing in pipeline
 
-- (S)CSS linting
-	- Needed for global SCSS and `.vue` files
-	- https://stylelint.io/
-	- https://github.com/vuejs/vue-loader/issues/303#issuecomment-259328193
+- SCSS linting has unknown errors
+	- Every component gets a "Unclosed string CssSyntaxError" from `shared.scss`
 - HTML linting
 	- https://stylelint.io/
 - SVG pipeline
@@ -159,13 +208,19 @@
 	- Need to decide possible other plugins to use
 		- http://postcss.parts/
 	- Need to add custom config for Autprefixer
-	- Need to add `browserslist` in package.json
 - ESLint plugins for enhanced IDE integration
 	- Curated list of what's out there: https://github.com/dustinspecker/awesome-eslint
 	- https://github.com/amilajack/eslint-plugin-compat
 	- https://github.com/sheerun/prettier-standard
 
 Did not test E2E, needs a JDK installed in order to be run from the command line.
+
+### Missing examples
+
+- Component template with all supported functionality
+	- $watching
+	- Lifecycle hooks
+- Unit tests for custom components
 
 
 

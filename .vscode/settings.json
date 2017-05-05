@@ -1,0 +1,25 @@
+// Place your settings in this file to overwrite default and user settings.
+// NOTE: This will be in version control and apply for all devs
+{
+
+    // Settings for VS Code's ESLint extension
+    "eslint.validate": [
+
+        // Defaults
+        "javascript",
+        "javascriptreact",
+
+        // Inline HTML
+        "html",
+
+        // Should also go through .vue files
+        "vue"
+
+    ],
+
+    // CSS
+    // "css.validate": false,
+    // "scss.validate": false,
+    "stylelint.enable": true
+
+}

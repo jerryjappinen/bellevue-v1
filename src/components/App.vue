@@ -2,6 +2,8 @@
 
 <script>
 
+	import _ from 'lodash';
+
 	// NOTE
 	//
 	// This is our app's root component. We should keep this as simple as possible, it should probably only render child components.
@@ -12,7 +14,18 @@
 		// NOTE: Vue will standardize the casing, but we'll use the same casing as in file names here
 		name: 'App',
 
+		data: function () {
+			return {
+				notificationClearingSub: null,
+				notificationText: ''
+			};
+		},
+
 		computed: {
+
+			notificationShouldBeVisible: function () {
+				return _.isString(this.notificationText) && !_.isEmpty(this.notificationText);
+			},
 
 			globalCounterValue: function () {
 				return this.$store.state.counter;
@@ -33,8 +46,22 @@
 
 		methods: {
 
+			clearNotificationText: function () {
+				this.notificationText = '';
+			},
+
 			onCustomLinkClick: function () {
 				this.$router.push(this.customLinkTarget);
+			}
+
+		},
+
+		watch: {
+
+			notificationText: function (notificationText) {
+				if (_.isEmpty(notificationText)) {
+					this.notificationClearingSub = setTimeout(this.clearNotificationText, 200);
+				}
 			}
 
 		}
@@ -56,6 +83,10 @@
 			- I'd like to use the same URL regardless of where my component file is in the project structure, as they will move around a lot when refactoring.
 			- We can maybe write a workaround in an image component that can handle SVG sprites and other things without code duplication.
 		-->
+
+		<transition name="transition-fade">
+			<p v-if="notificationShouldBeVisible">{{ notificationText }}</p>
+		</transition>
 
 		<p>
 			<img class="view-app-logo" src="../assets/logo.png">
@@ -116,11 +147,6 @@ NOTE
 
 	.view-app {
 		@include buffer-relative;
-
-		a {
-			display: flex;
-		}
-
 	}
 
 	.view-app-logo {

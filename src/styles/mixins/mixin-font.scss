@@ -14,21 +14,19 @@
 		font-style: $font-style;
 
 		@if $woffdata {
-
 			src:
 				url('data:application/font-woff;charset=utf-8;base64,#{$woffdata}') format('woff'),
 				url('data:application/font-woff2;charset=utf-8;base64,#{$woff2data}') format('woff2'),
 				url('#{$filepath}.ttf') format('truetype');
+		}
 
-		} @else {
-
+		@else {
 			src:
 				url('#{$filepath}.woff') format('woff'),
 				url('#{$filepath}.woff2') format('woff2'),
 				url('#{$filepath}.ttf') format('truetype');
-
 		}
 
 	}
-	
+
 }

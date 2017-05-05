@@ -1,19 +1,20 @@
+// ESLint only supports JS, not (S)CSS or HTML.
 // http://eslint.org/docs/user-guide/configuring
+// http://eslint.org/docs/user-guide/rules
 
 //
 // NOTE
 //
 // - This file should contain the rules for OUR custom JS code.
 // - The rules defined here should be accompanied with comments explaining the rationale behind the convention.
-// - You can import these rules in other places, like under tests.
-// - ESLint only supports JS, not (S)CSS or HTML.
 // - Using the severity 'error' will break builds even during development, so it's better to reserve it for most serious things only.
 // - All warnings should also be cleaned up from production code however.
 //
-// Other .eslintrc files
+// Other linter files
 //
 // - Please keep the ROOT `/.eslintrc.js` without modifications, as it is the default for most Vue projcts.
 // - You can specify further rules in .eslintrc files under sub folders for more granular, cascading rulesets.
+// - You can import these rules in other places, like under tests.
 
 module.exports = {
 	rules: {
@@ -109,4 +110,4 @@ module.exports = {
 		'no-unneeded-ternary': ['off']
 
 	}
-}
+};

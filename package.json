@@ -5,9 +5,9 @@
   "author": "Jerry Jäppinen <eiskis@gmail.com>",
   "private": true,
   "browserslist": [
-    "> 4%",
+    "> 1%",
     "last 2 versions",
-    "not ie < 10"
+    "not ie <= 8"
   ],
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -16,7 +16,9 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
+    "lint:css": "stylelint 'src/**/*.{vue,scss}'"
   },
   "dependencies": {
     "node-sass": "^4.5.2",
@@ -83,6 +85,11 @@
     "shelljs": "^0.7.6",
     "sinon": "^2.1.0",
     "sinon-chai": "^2.8.0",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-processor-html": "^1.0.0",
+    "stylelint-scss": "^1.4.4",
+    "stylelint-webpack-plugin": "^0.7.0",
     "url-loader": "^0.5.8",
     "vue-loader": "^11.3.4",
     "vue-style-loader": "^2.0.5",
@@ -96,10 +103,5 @@
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  }
 }

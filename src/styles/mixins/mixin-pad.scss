@@ -8,6 +8,7 @@
 @mixin pad-even {
 	padding: $pad-vertical;
 }
+
 @mixin pad-even-horizontal {
 	padding: $pad-horizontal;
 }
@@ -17,6 +18,7 @@
 	padding-left: $pad-horizontal;
 	padding-right: $pad-horizontal;
 }
+
 @mixin pad-vertical {
 	padding-top: $pad-vertical;
 	padding-bottom: $pad-vertical;
@@ -26,12 +28,15 @@
 @mixin pad-top {
 	padding-top: $pad-vertical;
 }
+
 @mixin pad-right {
 	padding-right: $pad-horizontal;
 }
+
 @mixin pad-bottom {
 	padding-bottom: $pad-vertical;
 }
+
 @mixin pad-left {
 	padding-left: $pad-horizontal;
 }

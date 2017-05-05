@@ -41,17 +41,25 @@ blockquote {
 // Definition lists
 dl {
 	margin-bottom: $buffer;
+
+	// Utilities
+	&.no-push,
+	&.no-push-vertical,
+	&.no-push-top,
+	&.inline,
+	&.inline-block {
+		dt {
+			margin-top: 0;
+		}
+	}
+
 }
+
 dt {
 	margin-top: $buffer-tight;
 	margin-bottom: 0;
 }
-	dl.reset dt,
-	dl.reset-vertical dt,
-	dl.reset-top dt,
-	dl.inline dt {
-		margin-top: 0;
-	}
+
 dd {
 	margin-top: 0;
 	margin-bottom: 0;

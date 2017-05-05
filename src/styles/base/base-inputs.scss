@@ -29,9 +29,10 @@ textarea {
 		outline-width: 0;
 	}
 
-	-webkit-appearance: none;
+	appearance: none;
+
 	// &[type="search"] {
-	// 	-webkit-appearance: textfield;
+	// 	appearance: textfield;
 	// }
 
 	transition-property: color, border-color, background-color, box-shadow;

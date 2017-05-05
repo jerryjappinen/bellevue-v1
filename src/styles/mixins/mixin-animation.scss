@@ -8,9 +8,10 @@
 	// Use explicitly defined easing
 	@if $easing {
 		animation-timing-function: $easing;
+	}
 
 	// Default to linear for infinite animations
-	} @else if $count == infinite {
+	@else if $count == infinite {
 		animation-timing-function: linear;
 	}
 
