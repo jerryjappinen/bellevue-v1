@@ -1,12 +1,6 @@
 
 .clear-after {
-	*zoom: 1;
-	&:after {
-		content: " ";
-		display: table;
-		clear: both;
-	}
-
+	@include clear-after;
 }
 
 .clear {

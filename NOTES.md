@@ -65,13 +65,15 @@
 		- Line up/down
 		- Increment and decrement
 		- Debug/launch without `F` keys
-			-
 	- Theming supported well
 		- Color schemes supported out of the box
 		- Multiple color schemes available out of the box
 		- Live preview for color schemes
 		- File icons in sidebar disabled by default
 		- Install more themes from commands
+	- IntelliSense
+		- Already get some inline documentation, snippets and parameters
+		- Further configuration might be required for full support (component names, props etc.)
 	- Problems
 		- Does not auto indent new lines when starting from empty non-intended line inside a block
 		- Can't yet show all problems in the project at once (only open files)
@@ -181,10 +183,26 @@
 	- Multiple stores?
 	- What are the best practices for this? Need to look at a real application
 
-### Missing in pipeline
+### Problems/missing in pipeline
 
-- SCSS linting has unknown errors
+- SCSS
+	- Doesn't seem to play nice with PostCSS
+	- Linting has unknown errors
+	- Tests break as for some reason all SCSS gets compiled
 	- Every component gets a "Unclosed string CssSyntaxError" from `shared.scss`
+	- For some reason, pipeline tries to compile all SCSS files independently?
+	- This will break SCSS that relies on manifest files doing imports
+	- It might be worth it to switch to fully PostCSS-based pipeline with specific extra features added
+		- Variables
+		- For loops
+		- If conditions
+		- Functions
+		- Mixins
+		- Nested selectors
+		- Imports?
+- PostCSS configuration
+	- Custom config for Autoprefixer missing, probably not needed
+	- Need to decide possible other plugins to use: http://postcss.parts/
 - HTML linting
 	- https://stylelint.io/
 - SVG pipeline
@@ -203,11 +221,6 @@
 	- About SSR on Vue: https://vuejs.org/v2/guide/ssr.html
 	- Full SSR guide for Vue: https://ssr.vuejs.org/en/
 	- Universal apps on Vue: https://nuxtjs.org/
-- Custom PostCSS configuration
-	- Need to add `.postcssrc.js` files
-	- Need to decide possible other plugins to use
-		- http://postcss.parts/
-	- Need to add custom config for Autprefixer
 - ESLint plugins for enhanced IDE integration
 	- Curated list of what's out there: https://github.com/dustinspecker/awesome-eslint
 	- https://github.com/amilajack/eslint-plugin-compat
@@ -233,10 +246,6 @@ Did not test E2E, needs a JDK installed in order to be run from the command line
 	- But Vuex is the "official" solution
 	- Vuex integrates into Vue dev tools
 	- "If you’re coming from React, you may be wondering how vuex compares to redux, the most popular Flux implementation in that ecosystem. Redux is actually view-layer agnostic, so it can easily be used with Vue via some simple bindings. Vuex is different in that it knows it’s in a Vue app. This allows it to better integrate with Vue, offering a more intuitive API and improved development experience."
-- Why does the test pipeline break?
-	- For some reason, pipeline tries to compile all SCSS files independently?
-	- This will break SCSS that relies on manifest files doing imports
-	- Vuex requires configuring Karma with Promise polyfill
 - Could SCSS be tested somehow?
 	- We have some more complicated toolchains producing utility classes with responsive variants etc.
 	- http://mts.io/2014/04/02/sass-unit-testing/

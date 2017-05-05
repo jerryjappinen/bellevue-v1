@@ -6,8 +6,8 @@ Vue.use(Router);
 
 
 // Pages
-import Hello from '@/components/pages/Hello';
-import PageSomething from '@/components/pages/PageSomething';
+import Hello from '@components/pages/Hello';
+import PageSomething from '@components/pages/PageSomething';
 
 // Router options
 // See https://router.vuejs.org/en/api/options.html

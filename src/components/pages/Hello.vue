@@ -2,9 +2,9 @@
 <script>
 
 	// Child components
-	import Counter from '@/components/counters/Counter';
-	import GlobalCounterIterator from '@/components/counters/GlobalCounterIterator';
-	import LocalCounter from '@/components/counters/LocalCounter';
+	import Counter from '@components/counters/Counter';
+	import GlobalCounterIterator from '@components/counters/GlobalCounterIterator';
+	import LocalCounter from '@components/counters/LocalCounter';
 
 	// View model
 	export default {

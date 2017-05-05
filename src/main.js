@@ -7,7 +7,7 @@ import 'es6-promise/auto';
 import Vue from 'vue';
 
 // Main component to render
-import App from '@/components/App';
+import App from '@components/App';
 
 // Vue plugins
 import router from './router';

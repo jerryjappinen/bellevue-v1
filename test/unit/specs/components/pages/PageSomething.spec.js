@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import PageSomething from '@/components/pages/PageSomething';
+import PageSomething from '@components/pages/PageSomething';
 
 describe('PageSomething.vue', function () {
 

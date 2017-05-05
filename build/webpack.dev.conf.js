@@ -32,7 +32,10 @@ module.exports = merge(baseWebpackConfig, {
 			inject: true
 		}),
 		new StylelintPlugin({
-			files: ['src/**/*.{vue,css,scss}']
+			emitErrors: false,
+			// context: 'src',
+			syntax: 'scss',
+			files: ['src/**/*.{vue,scss}']
 		}),
 		new FriendlyErrorsPlugin()
 	]

@@ -21,8 +21,7 @@
     "lint:css": "stylelint 'src/**/*.{vue,scss}'"
   },
   "dependencies": {
-    "node-sass": "^4.5.2",
-    "sass-loader": "^6.0.3",
+    "es6-promise": "^4.1.0",
     "vue": "^2.2.6",
     "vue-router": "^2.3.1",
     "vuex": "^2.3.1"
@@ -34,6 +33,7 @@
     "babel-loader": "^6.2.10",
     "babel-plugin-istanbul": "^4.1.1",
     "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.3.2",
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.22.0",

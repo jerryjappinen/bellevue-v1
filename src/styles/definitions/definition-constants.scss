@@ -29,37 +29,37 @@ $color-whatsapp: #25d366;
 
 
 // Greyscale
-$color-white: 				#fff;
+$color-white: #fff;
 
-$color-verylightgrey: 		#f7f9f9;
+$color-verylightgrey: #f7f9f9;
 
-$color-lightgrey: 			#dbe5e8;
+$color-lightgrey: #dbe5e8;
 
-$color-grey: 				#a5b2b6;
-$color-grey-hint: 			color-translucent($color-grey, 0.4);
+$color-grey: #a5b2b6;
+$color-grey-hint: color-translucent($color-grey, 0.4);
 
-$color-dark: 				#0f4d62;
-$color-dark-hue: 			color-darker($color-dark);
-$color-dark-translucent: 	color-translucent($color-dark, 0.15); // same as verylightgrey on white
+$color-dark: #0f4d62;
+$color-dark-hue: color-darker($color-dark);
+$color-dark-translucent: color-translucent($color-dark, 0.15); // same as verylightgrey on white
 
-$color-black: 				#000;
-$color-black-hint: 			color-translucent($color-black, 0.1);
+$color-black: #000;
+$color-black-hint: color-translucent($color-black, 0.1);
 
 
 
 // Colors
 // Fixme: missing standard variations (translucent, light and dark tints)
-$color-red:                 $color-hermes-red;
-$color-red-hint:            color-translucent($color-red);
+$color-red: $color-hermes-red;
+$color-red-hint: color-translucent($color-red);
 
-$color-orange:              $color-hermes-orange;
+$color-orange: $color-hermes-orange;
 
-$color-yellow:              $color-hermes-yellow;
+$color-yellow: $color-hermes-yellow;
 
-$color-blue: 				$color-hermes-blue;
+$color-blue: $color-hermes-blue;
 
-$color-green:               $color-hermes-green;
-$color-green-hint:          color-translucent($color-green);
+$color-green: $color-hermes-green;
+$color-green-hint: color-translucent($color-green);
 
 
 
@@ -70,30 +70,28 @@ $color-link-active: color-darker($color-blue);
 
 
 // Fonts
-$font-sans:
-	// 'Hind',
-	// 'Noto Sans',
-	// 'Source Sans Pro',
+// 'Hind',
+// 'Noto Sans',
+// 'Source Sans Pro',
 
-	// 'Alegreya Sans',	// Quite display
-	// 'Arimo',			// Quite display
-	// 'Asap',
-	// 'Cabin',			// Rounded
-	// 'Fira Sans',
-	// 'Gudea',
-	// 'Istok Web',
-	// 'Karla',			// Display
-	// 'Maven Pro',		// Quite display
-	// 'Oxygen',
-	// 'PT Sans Caption',
-	// 'PT Sans',		// Display
-	// 'Quattrocento Sans',
-	// 'Questrial',		// One weight only
-	// 'Raleway',		// Thin
-	// 'Signika',		// Display
-	// 'Lato',
-	'Open Sans', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Segoe UI', 'Segoe WP', 'Arial', sans-serif;
-
+// 'Alegreya Sans',	// Quite display
+// 'Arimo',			// Quite display
+// 'Asap',
+// 'Cabin',			// Rounded
+// 'Fira Sans',
+// 'Gudea',
+// 'Istok Web',
+// 'Karla',			// Display
+// 'Maven Pro',		// Quite display
+// 'Oxygen',
+// 'PT Sans Caption',
+// 'PT Sans',		// Display
+// 'Quattrocento Sans',
+// 'Questrial',		// One weight only
+// 'Raleway',		// Thin
+// 'Signika',		// Display
+// 'Lato',
+$font-sans: 'Open Sans', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Segoe UI', 'Segoe WP', 'Arial', sans-serif;
 $font-serif: 'Droid Serif', 'Georgia', serif;
 $font-mono: 'Menlo', 'Monaco', 'Segoe UI Mono', 'Droid Sans Mono', 'Consolas', monospace;
 $font-display: $font-sans;
@@ -243,14 +241,14 @@ $breakpoint-totally-ridiculous: 2480px;
 // NOTE
 // - These match the breakpoints in 1rem
 // - By defining these separately, we will get em-based column widths that scale with the root font size
-$limit-tiny: (number($breakpoint-tiny)/number($font-size-default)) * 1em;
-$limit-small: (number($breakpoint-small)/number($font-size-default)) * 1em;
-$limit-smallish: (number($breakpoint-smallish)/number($font-size-default)) * 1em;
-$limit-medium: (number($breakpoint-medium)/number($font-size-default)) * 1em;
-$limit-large: (number($breakpoint-large)/number($font-size-default)) * 1em;
-$limit-verylarge: (number($breakpoint-verylarge)/number($font-size-default)) * 1em;
-$limit-ridiculous: (number($breakpoint-ridiculous)/number($font-size-default)) * 1em;
-$limit-totally-ridiculous: (number($breakpoint-totally-ridiculous)/number($font-size-default)) * 1em;
+$limit-tiny: (number($breakpoint-tiny) / number($font-size-default)) * 1em;
+$limit-small: (number($breakpoint-small) / number($font-size-default)) * 1em;
+$limit-smallish: (number($breakpoint-smallish) / number($font-size-default)) * 1em;
+$limit-medium: (number($breakpoint-medium) / number($font-size-default)) * 1em;
+$limit-large: (number($breakpoint-large) / number($font-size-default)) * 1em;
+$limit-verylarge: (number($breakpoint-verylarge) / number($font-size-default)) * 1em;
+$limit-ridiculous: (number($breakpoint-ridiculous) / number($font-size-default)) * 1em;
+$limit-totally-ridiculous: (number($breakpoint-totally-ridiculous) / number($font-size-default)) * 1em;
 
 // Viewport
 $viewport-under-tiny: '(max-width: #{$breakpoint-tiny - 1px})';

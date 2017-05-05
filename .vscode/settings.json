@@ -13,6 +13,9 @@
 		// Root only
 		// "node_modules": true,
 
+		// Build dir
+		"dist": true,
+
 		// Generated files for test reports
 		"test/unit/coverage/lcov-report/components/**/*": true,
 		"test/unit/coverage/lcov-report/router/**/*": true,
@@ -36,8 +39,8 @@
     ],
 
     // CSS
-    // "css.validate": false,
-    // "scss.validate": false,
+    "css.validate": false,
+    "scss.validate": false,
     "stylelint.enable": true
 
 }

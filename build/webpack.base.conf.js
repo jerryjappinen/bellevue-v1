@@ -1,3 +1,5 @@
+
+// Base conf
 var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
@@ -23,6 +25,8 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@styles': resolve('src/styles'),
+			'@components': resolve('src/components'),
+			'@assets': resolve('src/assets'),
       '@': resolve('src')
     }
   },
@@ -45,6 +49,12 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        include: [resolve('src'), resolve('test')]
+      },
+			// NOTE: this was added manually, is this needed?
+      {
+        test: /\.scss$/,
+				loader: 'postcss-loader',
         include: [resolve('src'), resolve('test')]
       },
       {

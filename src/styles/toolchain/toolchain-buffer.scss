@@ -32,9 +32,9 @@
 	.buffer-top#{$suffix} {
 		@include buffer-top;
 	}
-		.buffer-top-even#{$suffix} {
-			@include buffer-top-even;
-		}
+	.buffer-top-even#{$suffix} {
+		@include buffer-top-even;
+	}
 	.buffer-right#{$suffix} {
 		@include buffer-right;
 	}
@@ -70,9 +70,9 @@
 	.buffer-tight-top#{$suffix} {
 		@include buffer-tight-top;
 	}
-		.buffer-tight-top-even#{$suffix} {
-			@include buffer-tight-top-even;
-		}
+	.buffer-tight-top-even#{$suffix} {
+		@include buffer-tight-top-even;
+	}
 	.buffer-tight-right#{$suffix} {
 		@include buffer-tight-right;
 	}

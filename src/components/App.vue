@@ -2,7 +2,10 @@
 
 <script>
 
+	// Vendor code
 	import _ from 'lodash';
+
+
 
 	// NOTE
 	//

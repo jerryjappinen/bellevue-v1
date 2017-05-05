@@ -2,9 +2,9 @@
 <script>
 
 	// Child components
-	import Counter from '@/components/counters/Counter';
-	import GlobalCounterIterator from '@/components/counters/GlobalCounterIterator';
-	import LocalCounter from '@/components/counters/LocalCounter';
+	import Counter from '@components/counters/Counter';
+	import GlobalCounterIterator from '@components/counters/GlobalCounterIterator';
+	import LocalCounter from '@components/counters/LocalCounter';
 
 	// View model
 	export default {
@@ -76,6 +76,6 @@
 <style lang="scss">
 	@import '~@styles/shared.scss';
 
-	.view-page-something {}
+	// .view-page-something {}
 
 </style>

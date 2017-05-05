@@ -18,14 +18,15 @@
 module.exports = {
 
 	// Treat CSS issues as warnings rather than errors
-	// FIXME: does this actually work? Syntax errors at least show up as errors, but the project is compiled for the browser.
 	defaultSeverity: 'warning',
-	emitErrors: false,
+
+	plugins: [
+		'stylelint-scss'
+	],
 
 	rules: {
 
 		// Misc basic things
-		'string-quotes': 'single',
 		'color-no-invalid-hex': true,
 		'function-calc-no-unspaced-operator': true,
 		'number-leading-zero': 'always',
@@ -34,6 +35,12 @@ module.exports = {
 		'no-eol-whitespace': true,
 		'no-missing-end-of-source-newline': true,
 		'no-invalid-double-slash-comments': true,
+
+		// Quotes
+		// FIXME: we'd like to enforce single quotes for everything but attribute selectors, but currently this is not possible
+		// 'string-quotes': 'single',
+		'font-family-name-quotes': 'always-unless-keyword',
+		'function-url-quotes': 'always',
 
 		// At rules
 		'at-rule-name-space-after': 'always-single-line',
@@ -49,11 +56,26 @@ module.exports = {
 				]
 			}
 		],
+
+
+		// Disallow unknown code, which is probably unsupported properties, values or typos
+
+		// FIXME: can this properly detect animations defined under keyframes? If not, this needs to be disabled
+		'no-unknown-animations': true,
+
+		'property-no-unknown': [
+			true,
+			{
+				// ignoreProperties: []
+			}
+		],
+
 		'at-rule-no-unknown': [
 			true,
 			{
 
 				// SCSS
+				// FIXME: Styles should be linted for SCSS - why do I need this?
 				ignoreAtRules: [
 					'content',
 					'import',
@@ -84,9 +106,6 @@ module.exports = {
 		'property-no-vendor-prefix': true,
 		'value-no-vendor-prefix': true,
 
-		// FIXME: can this properly detect animations defined under keyframes/ ? If not, this needs to be disabled
-		'no-unknown-animations': true,
-
 		// Disallow excessive nesting
 		// NOTE
 		// - While the intention is good, a blanket limit does not do the job well
@@ -109,7 +128,22 @@ module.exports = {
 		// Allow convenient spacing, but don't go overboard
 		'max-empty-lines': [
 			3
-		]
+		],
+
+
+
+		// SCSS-specific linting
+
+		// Stylistic
+		'scss/dollar-variable-colon-space-after': 'always',
+		'scss/dollar-variable-colon-space-before': 'never',
+
+		// FIXME: would like to enable this, but breaks in cases like this:
+		// margin: -$buffer-tight -$buffer -$buffer -$buffer;
+		// 'scss/operator-no-unspaced': true,
+
+		// Confusing, not clear if compiles to shorthand or individual properties
+		'scss/declaration-nested-properties': 'never'
 
 	}
 };

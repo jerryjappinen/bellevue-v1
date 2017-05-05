@@ -173,7 +173,9 @@ audio:not([controls]) {
 }
 
 img {
+	// stylelint-disable property-no-vendor-prefix
 	-ms-interpolation-mode: bicubic;
+	// stylelint-enable property-no-vendor-prefix
 }
 
 // Correct overflows in IE9
@@ -195,12 +197,16 @@ ol {
 	list-style: decimal;
 	padding-left: 2em;
 }
-	nav ul,
-	nav ol {
-		list-style: none;
-		list-style-image: none;
-		padding-left: 0;
-	}
+
+// NOTE: disabled because unnested ul, ol is actually defaulted to no list-style none elsewhere
+// nav {
+// 	ul,
+// 	ol {
+// 		list-style: none;
+// 		list-style-image: none;
+// 		padding-left: 0;
+// 	}
+// }
 
 // Inline
 sub,
@@ -234,8 +240,7 @@ td {
 html {
 	font-size: 100%;
 	font-family: sans-serif;
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 }
 
 h1,
@@ -306,14 +311,12 @@ del {
 blockquote,
 q {
 	quotes: none;
-}
-	blockquote:before,
-	blockquote:after,
-	q:before,
-	q:after {
+	&:before,
+	&:after {
 		content: '';
 		content: none;
 	}
+}
 
 // Use the same box-model and sizing in all browsers
 button,
@@ -325,12 +328,11 @@ textarea {
 
 // Make search fields consistent with text fields on Webkit
 input[type="search"] {
-	-webkit-appearance: textfield;
-	-moz-appearance: textfield;
+	appearance: textfield;
 }
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
-	-webkit-appearance: none;
+	appearance: none;
 }
 
 // Get IE on the line with checkboxes
@@ -341,10 +343,12 @@ input[type="radio"] {
 }
 
 // Make button rendering consistent on Firefox 4+
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-	border: 0;
-	padding: 0;
+button,
+input {
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
 }
 
 // Style clickable inputs consistently on all webkits
@@ -352,7 +356,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	-webkit-appearance: button;
+	appearance: button;
 }
 
 // Buttons have center-aligned text

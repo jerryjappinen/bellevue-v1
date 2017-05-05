@@ -2,9 +2,7 @@
 	"processors": [
 		"stylelint-processor-html"
 	],
-	"plugins": [
-		"stylelint-scss"
-	],
+	"plugins": [],
 	"extends": [
 		"stylelint-config-standard"
 	],
