@@ -193,13 +193,16 @@
 	- For some reason, pipeline tries to compile all SCSS files independently?
 	- This will break SCSS that relies on manifest files doing imports
 	- It might be worth it to switch to fully PostCSS-based pipeline with specific extra features added
-		- Variables
-		- For loops
-		- If conditions
-		- Functions
-		- Mixins
-		- Nested selectors
-		- Imports?
+		- This would simplify pipeline and have less moving parts
+		- Any non-wanted/needed features would naturally not be there for abuse
+		- Features needed
+			- Variables
+			- For loops
+			- If conditions
+			- Functions
+			- Mixins
+			- Nested selectors
+			- Imports?
 - PostCSS configuration
 	- Custom config for Autoprefixer missing, probably not needed
 	- Need to decide possible other plugins to use: http://postcss.parts/
