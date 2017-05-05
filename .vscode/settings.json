@@ -1,6 +1,24 @@
 // Place your settings in this file to overwrite default and user settings.
 // NOTE: This will be in version control and apply for all devs
 {
+	"files.exclude": {
+
+		// Defaults
+		"**/.git": true,
+		"**/.DS_Store": true,
+
+		// This excludes all node_modules folders from the explore tree
+		"**/node_modules": true,
+
+		// Root only
+		// "node_modules": true,
+
+		// Generated files for test reports
+		"test/unit/coverage/lcov-report/components/**/*": true,
+		"test/unit/coverage/lcov-report/router/**/*": true,
+		"test/unit/coverage/lcov-report/store/**/*": true
+
+	},
 
     // Settings for VS Code's ESLint extension
     "eslint.validate": [

@@ -16,7 +16,12 @@
 // - You can import these rules in other places, like under tests.
 
 module.exports = {
+
+	// Treat CSS issues as warnings rather than errors
+	// FIXME: does this actually work? Syntax errors at least show up as errors, but the project is compiled for the browser.
 	defaultSeverity: 'warning',
+	emitErrors: false,
+
 	rules: {
 
 		// Misc basic things
