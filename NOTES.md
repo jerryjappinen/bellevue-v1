@@ -87,6 +87,7 @@
 
 ## Existing features
 
+- `.nvmrc` to specify node version for `nvm`
 - Webpack build pipeline
 	- Pipeline: http://vuejs-templates.github.io/webpack/
 	- `vue-loader`: http://vue-loader.vuejs.org/en/
