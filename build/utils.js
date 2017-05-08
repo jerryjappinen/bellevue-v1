@@ -25,7 +25,7 @@ exports.cssLoaders = function (options) {
     var loaders = [cssLoader]
     if (loader) {
       loaders.push({
-        loader: loader + '-loader',
+				loader: loader + '-loader' + (loader == 'postcss' ? '?parser=scss' : ''),
         options: Object.assign({}, loaderOptions, {
           sourceMap: options.sourceMap
         })

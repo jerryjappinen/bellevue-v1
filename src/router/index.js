@@ -26,8 +26,8 @@ export const options = {
 			component: Hello
 		},
 		{
-			path: '/arbitrary',
-			name: 'pageSomething',
+			path: '/arbit',
+			name: 'arbitrary',
 			component: PageSomething
 		}
 	]

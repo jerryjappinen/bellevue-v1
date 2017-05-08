@@ -29,7 +29,7 @@ new Vue({
 	},
 
 	// These guys are available in components as...
-	router: router,   // this.$router
-	store: store      // this.$store
+	router: router, // this.$router
+	store: store // this.$store
 
 });

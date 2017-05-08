@@ -1,3 +1,36 @@
+# TL-DR
+
+
+### Next steps
+
+- Integrate `vue-resource`
+- Integrate `vue-validator`
+- Store global state in localstorage or something
+	- https://github.com/vuejs/awesome-vue#persistence
+- Integrate localisation solution
+	- https://github.com/vuejs/awesome-vue#i18n
+- Add solution for including plugins
+	- Example: https://github.com/foxbenjaminfox/vue-async-computed
+	- Example: https://github.com/scaccogatto/vue-throttle-event
+	- Split route config and store from the actual plugin loading
+- Add solution for including directives
+	- Example: https://github.com/David-Desmaisons/Vue.ImagesLoaded
+	- Example: https://www.npmjs.com/package/vue-keep-scroll-position
+- Component template with all supported functionality
+	- $watching
+	- Lifecycle hooks
+
+### Known issues
+
+- For some reason all SCSS are compiled when tests are run
+	- They break as they only work when imported in a centralised manifest file
+- False positives with Stylelint from each `.vue` file
+	- `CSSSyntaxError` apparently from imported `.scss` files
+	- Lints SCSS files correctly though
+	- All code works but Stylelint breaks the builds, currently Stylelint has to be disabled
+
+
+
 # Misc. notes about this project
 
 ## Development
@@ -148,6 +181,8 @@
 	- https://stylelint.io/
 	- https://github.com/vuejs/vue-loader/issues/303#issuecomment-259328193
 	- https://medium.com/lost-bananas/linting-css-in-vue-files-6bb20faac0f2
+- Values imported and treated from custom configuration file
+	- When making edits, developers are not touching delicate configuration scripts
 
 
 
@@ -199,11 +234,18 @@
 		- Features needed
 			- Variables
 			- For loops
+			- Color functions
 			- If conditions
 			- Functions
 			- Mixins
 			- Nested selectors
 			- Imports?
+		- A lot of work migrating to non-standardized PostCSS equivalents of
+			- Variable use
+			- Interpolation
+			- Non-existant functions
+			- Mixins
+			- Missing language features required by some advanced functions/mixins (type checking etc.)
 - PostCSS configuration
 	- Custom config for Autoprefixer missing, probably not needed
 	- Need to decide possible other plugins to use: http://postcss.parts/
@@ -234,9 +276,6 @@ Did not test E2E, needs a JDK installed in order to be run from the command line
 
 ### Missing examples
 
-- Component template with all supported functionality
-	- $watching
-	- Lifecycle hooks
 - Unit tests for custom components
 
 
@@ -257,8 +296,7 @@ Did not test E2E, needs a JDK installed in order to be run from the command line
 - Can we improve the pipeline to automate redundant tasks
 	- Importing child components
 	- Explicitly renaming child components locally
-	- Importing shared SCSS
-	- Using Webpack aliases to mitigate need for relative paths (see `webpack.*.conf.js`)
+	- Importing shared SCSS in .vue files
 - What should our conventions be?
 	- At some point we will have a project structure and pipeline - but how do we use it effectively to write good UIs that scale?
 	- ESLint allows configuring all of them

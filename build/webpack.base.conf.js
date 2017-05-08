@@ -4,10 +4,30 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var customConfiguration = require('../project.config.js');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
+
+
+
+// Treat elements from custom project configuration
+
+// Aliases
+var customAliases = {
+  'vue$': 'vue/dist/vue.esm.js',
+};
+for (var key in customConfiguration.aliases) {
+
+  // Something like '@styles': resolve('src/styles'),
+  customAliases[key] = resolve(customConfiguration.aliases[key]);
+
+}
+
+
+
+// Actual configuration
 
 module.exports = {
   entry: {
@@ -22,13 +42,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.scss'],
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@styles': resolve('src/styles'),
-			'@components': resolve('src/components'),
-			'@assets': resolve('src/assets'),
-      '@': resolve('src')
-    }
+
+    // NOTE: these values come from custom configuration
+		alias: customAliases
+
   },
   module: {
     rules: [
@@ -51,10 +68,15 @@ module.exports = {
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
       },
-			// NOTE: this was added manually, is this needed?
+      // NOTE: this was added manually, is this needed?
+      {
+        test: /\.css$/,
+        loader: 'postcss-loader',
+        include: [resolve('src'), resolve('test')]
+      },
       {
         test: /\.scss$/,
-				loader: 'postcss-loader',
+        loader: 'postcss-loader?parser=scss',
         include: [resolve('src'), resolve('test')]
       },
       {

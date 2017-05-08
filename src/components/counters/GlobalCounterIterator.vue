@@ -61,7 +61,7 @@
 		</span>
 
 		<span v-else>
-			Oops! <router-link :to="{ name: 'PageSomething' }">Go to the other page</router-link> to increment global counter before decrementing it.
+			Oops! <router-link :to="{ name: 'arbitrary' }">Go to the other page</router-link> to increment global counter before decrementing it.
 		</span>
 
 	</span>

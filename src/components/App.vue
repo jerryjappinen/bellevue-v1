@@ -35,14 +35,14 @@
 			},
 
 			customLinkTarget: function () {
-				var target = this.$route.name === 'pageSomething' ? 'hello' : 'pageSomething';
+				var target = this.$route.name === 'arbitrary' ? 'hello' : 'arbitrary';
 				return {
 					name: target
 				};
 			},
 
 			customLinkLabel: function () {
-				return this.customLinkTarget.name === 'pageSomething' ? 'More stuff' : 'Welcome';
+				return this.customLinkTarget.name === 'arbitrary' ? 'More stuff' : 'Welcome';
 			}
 
 		},
@@ -103,9 +103,9 @@
 
 		<ul class="view-app-menu">
 			<li><a href="#/">Welcome</a></li>
-			<li><a href="#/arbitrary">More stuff</a></li>
+			<li><a href="#/arbit">More stuff</a></li>
 			<li>router-link: <router-link :to="{ name: 'hello' }">Welcome</router-link></li>
-			<li>router-link: <router-link :to="{ name: 'pageSomething' }">More stuff</router-link></li>
+			<li>router-link: <router-link :to="{ name: 'arbitrary' }">More stuff</router-link></li>
 			<li>Dynamic: <a href="#" @click.prevent="onCustomLinkClick">{{ customLinkLabel }}</a></li>
 		</ul>
 
