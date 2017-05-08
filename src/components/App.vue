@@ -1,5 +1,3 @@
-
-
 <script>
 
 	// Vendor code
@@ -77,8 +75,6 @@
 
 	<div class="view-app" id="app">
 
-		<!-- Just a reference to static assets with resolved URLs -->
-
 		<!--
 			FIXME
 
@@ -91,9 +87,11 @@
 			<p v-if="notificationShouldBeVisible">{{ notificationText }}</p>
 		</transition>
 
+		<!-- References to static assets with resolved URLs -->
 		<p>
 			<img class="view-app-logo" src="../assets/logo.png">
-			<img class="view-app-logo" src="../assets/some/folder/anotherlogo.png">
+			<img class="view-app-logo" src="~@assets/logo.png">
+			<img class="view-app-logo" src="~@assets/some/folder/anotherlogo.png">
 			Global counter value "{{ globalCounterValue }}" is maintained by Vuex.
 		</p>
 
@@ -132,8 +130,8 @@ NOTE
 -->
 <style src="../styles/global.scss" lang="scss"></style>
 
-<!-- Root component styles -->
 <style lang="scss">
+	// Root component styles
 
 	// NOTE
 	//

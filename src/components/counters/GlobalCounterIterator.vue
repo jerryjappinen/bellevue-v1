@@ -57,7 +57,7 @@
 	<span class="view-global-counter-iterator">
 
 		<span v-if="canOperate">
-			<button class="button" @click="onClick">Click me</button> to {{ reverse ? 'decrement' : 'increment' }} the counter in the global state.
+			<button class="view-global-counter-iterator-button button" @click="onClick">Click me</button> to <em>{{ reverse ? 'decrement' : 'increment' }}</em> the counter in the global state.
 		</span>
 
 		<span v-else>
@@ -68,9 +68,11 @@
 
 </template>
 
-<style lang="scss">
-	@import '~@styles/shared.scss';
+<style>
 
-	.view-global-counter-iterator-button {}
+	/*NOTE: this is regular CSS*/
+	.view-global-counter-iterator em {
+		color: hotpink;
+	}
 
 </style>

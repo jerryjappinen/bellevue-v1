@@ -23,12 +23,27 @@ exports.cssLoaders = function (options) {
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
     var loaders = [cssLoader]
+
+		// FIXME: hardcoding scss over sass, since someone somewhere is not passing the correct
+		// console.log('vue-loader', loader, loaderOptions);
+		if (loader == 'sass' || loader == 'scss') {
+			loaderOptions = Object.assign({}, loaderOptions, { indentedSyntax: false });
+		}
+
     if (loader) {
       loaders.push({
-				loader: loader + '-loader' + (loader == 'postcss' ? '?parser=scss' : ''),
+
+				// NOTE: a conditional parameter can be added because of this discussion:
+				// https://github.com/postcss/postcss-scss/issues/49
+				// but not sure if it's working, at least stylelint sill gives false positives from CSS syntax errors
+				// loader: loader + '-loader' + (loader == 'postcss' ? '?parser=scss' : ''),
+				// but apparently I can also do this in postcss.config.js
+
+				loader: loader + '-loader',
         options: Object.assign({}, loaderOptions, {
           sourceMap: options.sourceMap
         })
+
       })
     }
 

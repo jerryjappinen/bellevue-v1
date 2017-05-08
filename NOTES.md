@@ -25,9 +25,30 @@
 - For some reason all SCSS are compiled when tests are run
 	- They break as they only work when imported in a centralised manifest file
 - False positives with Stylelint from each `.vue` file
-	- `CSSSyntaxError` apparently from imported `.scss` files
-	- Lints SCSS files correctly though
+	- `CSSSyntaxError`s from .vue components, with and without scss
+	- Lints SCSS files correctly though, and builds work
 	- All code works but Stylelint emits warnings (as the configuration manually downgrades all errors to warnings)
+	- Suspicion: linter parses entire file instead of only style part
+
+```
+src/components/App.vue
+ 1:1  ✖  Unknown word   CssSyntaxError
+
+src/components/counters/Counter.vue
+ 89:31  ✖  Unclosed quote   CssSyntaxError
+
+src/components/counters/GlobalCounterIterator.vue
+ 7:32  ✖  Missed semicolon   CssSyntaxError
+
+src/components/counters/LocalCounter.vue
+ 7:23  ✖  Missed semicolon   CssSyntaxError
+
+src/components/pages/Hello.vue
+ 2:1  ✖  Unknown word   CssSyntaxError
+
+src/components/pages/PageSomething.vue
+ 2:1  ✖  Unknown word   CssSyntaxError
+```
 
 
 
