@@ -3,6 +3,7 @@
 
 ### Next steps
 
+- SVG sprite building and optimization
 - Integrate `vue-resource`
 - Integrate `vue-validator`
 - Store global state in localstorage or something
@@ -22,33 +23,9 @@
 
 ### Known issues
 
-- For some reason all SCSS are compiled when tests are run
+- SCSS breaks when running tests breaks still
+	- For some reason all SCSS are compiled when tests are run
 	- They break as they only work when imported in a centralised manifest file
-- False positives with Stylelint from each `.vue` file
-	- `CSSSyntaxError`s from .vue components, with and without scss
-	- Lints SCSS files correctly though, and builds work
-	- All code works but Stylelint emits warnings (as the configuration manually downgrades all errors to warnings)
-	- Suspicion: linter parses entire file instead of only style part
-
-```
-src/components/App.vue
- 1:1  ✖  Unknown word   CssSyntaxError
-
-src/components/counters/Counter.vue
- 89:31  ✖  Unclosed quote   CssSyntaxError
-
-src/components/counters/GlobalCounterIterator.vue
- 7:32  ✖  Missed semicolon   CssSyntaxError
-
-src/components/counters/LocalCounter.vue
- 7:23  ✖  Missed semicolon   CssSyntaxError
-
-src/components/pages/Hello.vue
- 2:1  ✖  Unknown word   CssSyntaxError
-
-src/components/pages/PageSomething.vue
- 2:1  ✖  Unknown word   CssSyntaxError
-```
 
 
 
@@ -239,37 +216,13 @@ src/components/pages/PageSomething.vue
 	- Vuex supports modules
 	- Multiple stores?
 	- What are the best practices for this? Need to look at a real application
+- Do we need more PostCSS functionality?
+	- http://postcss.parts/
 
 ### Problems/missing in pipeline
 
-- SCSS
-	- Doesn't seem to play nice with PostCSS
-	- Linting has unknown errors
-	- Tests break as for some reason all SCSS gets compiled
-	- Every component gets a "Unclosed string CssSyntaxError" from `shared.scss`
-	- For some reason, pipeline tries to compile all SCSS files independently?
-	- This will break SCSS that relies on manifest files doing imports
-	- It might be worth it to switch to fully PostCSS-based pipeline with specific extra features added
-		- This would simplify pipeline and have less moving parts
-		- Any non-wanted/needed features would naturally not be there for abuse
-		- Features needed
-			- Variables
-			- For loops
-			- Color functions
-			- If conditions
-			- Functions
-			- Mixins
-			- Nested selectors
-			- Imports?
-		- A lot of work migrating to non-standardized PostCSS equivalents of
-			- Variable use
-			- Interpolation
-			- Non-existant functions
-			- Mixins
-			- Missing language features required by some advanced functions/mixins (type checking etc.)
-- PostCSS configuration
-	- Custom config for Autoprefixer missing, probably not needed
-	- Need to decide possible other plugins to use: http://postcss.parts/
+- The state of modern web development: the whole pipeline is a delicate flower
+- SCSS took a lot of work to get just right in the pipeline, but now works
 - HTML linting
 	- https://stylelint.io/
 - SVG pipeline
