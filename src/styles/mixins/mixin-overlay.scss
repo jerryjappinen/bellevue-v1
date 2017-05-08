@@ -4,5 +4,6 @@
 		$direction,
 		rgba($color, 0),
 		rgba($color, ($opacity / 2)) 60%,
-		rgba($color, $opacity));
+		rgba($color, $opacity)
+	);
 }

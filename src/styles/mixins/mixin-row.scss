@@ -1,5 +1,13 @@
 
-@mixin row {}
+// NOTE:
+// we haven't finalized the actual row-column system yet
+// this is temporarily empty, but a row is a valid level of abstraction
+// hence we want to allow other elements using this
+// stylelint-disable block-no-empty
+@mixin row {
+	// @include clear-after;
+}
+// stylelint-enable block-no-empty
 
 @mixin row-content {
 

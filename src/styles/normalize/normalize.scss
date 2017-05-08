@@ -152,16 +152,11 @@ hgroup,
 menu,
 nav,
 section,
-summary {
-	display: block;
-}
-
+summary,
 audio,
 canvas,
 video {
-	display: inline-block;
-	*display: inline;
-	*zoom: 1;
+	display: block;
 }
 
 audio:not([controls]) {
@@ -314,7 +309,6 @@ q {
 	&:before,
 	&:after {
 		content: '';
-		content: none;
 	}
 }
 
@@ -371,8 +365,7 @@ input[type="submit"] {
 button,
 input,
 select {
-	vertical-align: baseline;
-	*vertical-align: middle;
+	vertical-align: middle;
 }
 
 textarea {

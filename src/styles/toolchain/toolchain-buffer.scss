@@ -2,9 +2,11 @@
 // NOTE: hardcoded buffer variants (tight, loose, relative)
 
 @mixin toolchain-buffer ($suffix: false) {
+
 	@if $suffix {
 		$suffix: "-#{$suffix}";
-	} @else {
+	}
+	@else {
 		$suffix: "";
 	}
 

@@ -3,7 +3,8 @@
 
 	@if $suffix {
 		$suffix: "-#{$suffix}";
-	} @else {
+	}
+	@else {
 		$suffix: "";
 	}
 

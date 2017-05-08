@@ -18,8 +18,8 @@
     "test": "npm run unit && npm run e2e",
     "lint": "npm run lint:js && npm run lint:styles && npm run lint:vuestyles",
     "lint:js": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "lint:styles": "stylelint 'src/**/*.scss'",
-    "lint:vuestyles": "stylelint 'src/**/*.vue'"
+    "lint:styles": "stylelint 'src/**/*.scss' --syntax scss",
+    "lint:vuestyles": "stylelint 'src/**/*.vue' --syntax scss"
   },
   "dependencies": {
     "es6-promise": "^4.1.0",

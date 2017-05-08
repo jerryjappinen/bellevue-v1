@@ -76,7 +76,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'postcss-loader?parser=scss',
+        loader: 'postcss-loader',
+				options: {
+					parser: 'scss',
+					syntax: 'scss'
+				},
         include: [resolve('src'), resolve('test')]
       },
       {

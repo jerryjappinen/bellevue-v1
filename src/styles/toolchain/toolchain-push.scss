@@ -1,8 +1,10 @@
 
 @mixin toolchain-push ($suffix: false) {
+
 	@if $suffix {
 		$suffix: "-#{$suffix}";
-	} @else {
+	}
+	@else {
 		$suffix: "";
 	}
 
