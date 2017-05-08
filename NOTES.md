@@ -27,7 +27,7 @@
 - False positives with Stylelint from each `.vue` file
 	- `CSSSyntaxError` apparently from imported `.scss` files
 	- Lints SCSS files correctly though
-	- All code works but Stylelint breaks the builds, currently Stylelint has to be disabled
+	- All code works but Stylelint emits warnings (as the configuration manually downgrades all errors to warnings)
 
 
 
