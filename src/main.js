@@ -1,5 +1,5 @@
 
-// Some vendor code
+// Vendor code
 import 'es6-promise/auto';
 
 // The Vue build version to load with the `import` command

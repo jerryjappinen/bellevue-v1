@@ -12,6 +12,9 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 	baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
 })
 
+// Load custom values from manifest
+var customConfiguration = require('./custom-config.js');
+
 module.exports = merge(baseWebpackConfig, {
 	module: {
 		rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
@@ -29,6 +32,7 @@ module.exports = merge(baseWebpackConfig, {
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: 'index.html',
+			title: 'Foo',
 			inject: true
 		}),
 		new StylelintPlugin({

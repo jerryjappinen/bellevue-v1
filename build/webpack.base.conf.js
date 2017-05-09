@@ -4,30 +4,21 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
-var customConfiguration = require('../project.config.js');
 
+// Plugins
+var SvgPlugin = require('external-svg-sprite-loader/lib/SvgStorePlugin');
+
+// Path helper
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-
-
-// Treat elements from custom project configuration
-
-// Aliases
-var customAliases = {
-  'vue$': 'vue/dist/vue.esm.js',
-};
-for (var key in customConfiguration.aliases) {
-
-  // Something like '@styles': resolve('src/styles'),
-  customAliases[key] = resolve(customConfiguration.aliases[key]);
-
-}
+// Load custom values from manifest
+var customConfiguration = require('./custom-config.js');
 
 
 
-// Actual configuration
+// Apply configuration
 
 module.exports = {
   entry: {
@@ -41,12 +32,12 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json', '.scss'],
-
-    // NOTE: these values come from custom configuration
-		alias: customAliases
-
+    extensions: ['.js', '.vue', '.json', '.css', '.scss'],
+		alias: customConfiguration.customAliases
   },
+	plugins: [
+		new SvgPlugin()
+	],
   module: {
     rules: [
       {
@@ -68,6 +59,7 @@ module.exports = {
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
       },
+
       // NOTE: this was added manually, is this needed?
       {
         test: /\.css$/,
@@ -83,8 +75,27 @@ module.exports = {
 				},
         include: [resolve('src'), resolve('test')]
       },
+
+			// SVG pipeline
+			{
+				test: /\.svg$/,
+				use: [
+
+					// https://github.com/kisenka/svg-sprite-loader
+					{
+						loader: 'external-svg-sprite-loader',
+						options: {
+							name: customConfiguration.svgSpritePath,
+							iconName: '[name]',
+							svgoOptions: customConfiguration.svgoOptions
+						}
+					}
+
+				]
+			},
+
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,

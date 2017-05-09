@@ -14,6 +14,7 @@
 @import './webfonts/webfont-open-sans';
 
 
+
 // Vendor code
 // NOTE: only include vendor code that has to go through our custom build pipeline
 
@@ -33,6 +34,7 @@
 // Global base styling
 @import './base/base-code';
 @import './base/base-colors';
+@import './base/base-images';
 @import './base/base-inputs';
 @import './base/base-links';
 @import './base/base-lists';

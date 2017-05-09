@@ -3,9 +3,10 @@
 
 ### Next steps
 
-- SVG sprite building and optimization
 - Integrate `vue-resource`
 - Integrate `vue-validator`
+- Integrate `vue-meta`
+- Add loader for web fonts
 - Store global state in localstorage or something
 	- https://github.com/vuejs/awesome-vue#persistence
 - Integrate localisation solution
@@ -18,8 +19,11 @@
 	- Example: https://github.com/David-Desmaisons/Vue.ImagesLoaded
 	- Example: https://www.npmjs.com/package/vue-keep-scroll-position
 - Component template with all supported functionality
-	- $watching
+	- `$watch`ing
 	- Lifecycle hooks
+- Clean up pipeline
+	- Move webpack scripting and other pipeline-related delicate configuration to non-confusingly named subfolders
+	- Move important configs to `project.config.js`
 
 ### Known issues
 
@@ -31,7 +35,19 @@
 
 # Misc. notes about this project
 
-## Development
+## Requirements
+
+- Node
+- Preferably `nvm`
+	- Node version is configured in `.nvmrc`
+
+## Setup
+
+See `README`.
+
+
+
+## Stack
 
 ### Vue
 
@@ -166,6 +182,10 @@
 	- More features: http://vue-loader.vuejs.org/en/ (scoped styles etc.)
 - HTML cleanup
 	- Comments => gone
+- SVG pipeline
+	- Optimization and cleanup with SVGO
+	- Sprites usable with URL resolving
+	- Dedicated component
 - `[vuex](http://vuex.vuejs.org/en/intro.html)` for state management
 	- Trivial counter app example: [jsfiddle.net/n9jmu5v7/341](https://jsfiddle.net/n9jmu5v7/341/)
 	- More complex example: https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart
@@ -227,6 +247,10 @@
 	- https://stylelint.io/
 - SVG pipeline
 	- Need to add via webpack
+- App icons for multiple platforms, devices etc.
+	- Maybe not needed
+- Manifest file generation
+	- Probably not needed
 - Do we care about using TypeScript?
 	- Can improve IDE experience
 	- Makes code more robust

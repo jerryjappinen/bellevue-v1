@@ -3,6 +3,9 @@
 	// Vendor code
 	import _ from 'lodash';
 
+	// Child components
+	import Pic from '@components/snippets/Pic';
+
 
 
 	// NOTE
@@ -14,6 +17,10 @@
 		// We need to use nams in order for recursive components to work, so better to just keep it consistent
 		// NOTE: Vue will standardize the casing, but we'll use the same casing as in file names here
 		name: 'App',
+
+		components: {
+			Pic: Pic
+		},
 
 		data: function () {
 			return {
@@ -71,6 +78,8 @@
 
 </script>
 
+
+
 <template>
 
 	<div class="view-app" id="app">
@@ -92,6 +101,7 @@
 			<img class="view-app-logo" src="../assets/logo.png">
 			<img class="view-app-logo" src="~@assets/logo.png">
 			<img class="view-app-logo" src="~@assets/some/folder/anotherlogo.png">
+			<pic class="view-app-logo" src="some/folder/anotherlogo.png"></pic>
 			Global counter value "{{ globalCounterValue }}" is maintained by Vuex.
 		</p>
 
@@ -117,6 +127,8 @@
 	</div>
 
 </template>
+
+
 
 <!--
 Custom styles

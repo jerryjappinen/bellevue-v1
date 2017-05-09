@@ -13,6 +13,9 @@ var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
 
+// Load custom values from manifest
+var customConfiguration = require('./custom-config.js');
+
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
@@ -56,6 +59,8 @@ var webpackConfig = merge(baseWebpackConfig, {
         ? 'index.html'
         : config.build.index,
       template: 'index.html',
+			title: 'Bar',
+			// title: customConfiguration.meta.title,
       inject: true,
       minify: {
         removeComments: true,
