@@ -47,8 +47,9 @@
 ### Known issues
 
 - SCSS breaks when running tests breaks still
-	- For some reason all SCSS are compiled when tests are run
-	- They break as they only work when imported in a centralised manifest file
+	- All SCSS files are compiled when tests are run
+	- But some are designed to only work when imported in a centralised manifest file, as they don't `@import` all their dependencies
+	- Possible solution: update regexp in `test/unit/index.js` that excludes main.js to also exclude these style files
 
 
 
@@ -318,6 +319,7 @@ Did not test E2E, needs a JDK installed in order to be run from the command line
 	- Explicitly renaming child components locally
 	- Importing shared SCSS in .vue files
 	- Importing directives and ensuring dependencies are up to date (directives imported in components must be installed via npm)
+	- webpack disallows dynamic requiring just like ES6 imports, but `require.context` could perhaps be used to improve automation
 - What should our conventions be?
 	- At some point we will have a project structure and pipeline - but how do we use it effectively to write good UIs that scale?
 	- ESLint allows configuring all of them

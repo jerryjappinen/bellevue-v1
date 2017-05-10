@@ -101,6 +101,19 @@ module.exports = {
 			}
 		],
 
+		'at-rule-blacklist': [
+			[
+
+				// @extend is very easy to abuse, leads to confusing order of declarations
+				// Better to avoid using it and stick to easier-to-reason-about language features
+				'extend'
+
+			],
+			{
+				severity: 'error'
+			}
+		],
+
 		'at-rule-no-unknown': [
 			true,
 			{
@@ -108,7 +121,12 @@ module.exports = {
 				// SCSS
 				// FIXME: Styles should be linted for SCSS - why do I need this?
 				ignoreAtRules: [
+					'error',
+					'warn',
+					'debug',
+
 					'content',
+					'extend',
 					'import',
 					'return',
 					'include',

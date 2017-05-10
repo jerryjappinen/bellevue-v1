@@ -10,7 +10,8 @@ import Vue from 'vue';
 import App from '@components/App';
 
 // Vue plugins
-import router from './router';
+import router from '@plugins/router';
+// import store from '@plugins/store';
 import store from './store';
 
 

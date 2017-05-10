@@ -22,9 +22,8 @@ module.exports = {
 		'@svg': 'src/svg',
 		'@components': 'src/components',
 		'@directives': 'src/directives',
-		'@styles': 'src/styles',
-		'@vueplugins': 'src/plugins',
-		'@vuedirectives': 'src/directives'
+		'@plugins': 'src/plugins',
+		'@styles': 'src/styles'
 	},
 
 	svgSpritePath: 'sprite.svg',
@@ -33,4 +32,4 @@ module.exports = {
 		removeTitle: true
 	}
 
-}
+};

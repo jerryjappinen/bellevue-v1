@@ -31,8 +31,8 @@ module.exports = merge(baseWebpackConfig, {
 		// https://github.com/ampedandwired/html-webpack-plugin
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
-			template: 'index.html',
-			title: 'Foo',
+			template: 'src/index.html',
+			title: customConfiguration.meta.title,
 			inject: true
 		}),
 		new StylelintPlugin({

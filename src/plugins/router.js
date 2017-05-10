@@ -3,11 +3,10 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
+// Import route components for vue-router
+import routes from '../config.routes.js';
 
 
-// Pages
-import Hello from '@components/pages/Hello';
-import PageSomething from '@components/pages/PageSomething';
 
 // Router options
 // See https://router.vuejs.org/en/api/options.html
@@ -19,18 +18,7 @@ export const options = {
 	linkExactActiveClass: 'is-exact-active',
 
 	// Our frontend URL scheme
-	routes: [
-		{
-			path: '/',
-			name: 'hello',
-			component: Hello
-		},
-		{
-			path: '/arbit',
-			name: 'arbitrary',
-			component: PageSomething
-		}
-	]
+	routes: routes
 
 };
 

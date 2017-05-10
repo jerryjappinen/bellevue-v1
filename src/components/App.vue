@@ -34,7 +34,10 @@
 		computed: {
 
 			notificationShouldBeVisible: function () {
-				return _.isString(this.notificationText) && !_.isEmpty(this.notificationText);
+				if (_.isString(this.notificationText) && !_.isEmpty(this.notificationText)) {
+					return true;
+				}
+				return false;
 			},
 
 			globalCounterValue: function () {
