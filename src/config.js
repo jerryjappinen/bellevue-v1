@@ -21,6 +21,7 @@ module.exports = {
 		'@assets': 'src/assets',
 		'@svg': 'src/svg',
 		'@components': 'src/components',
+		'@directives': 'src/directives',
 		'@styles': 'src/styles',
 		'@vueplugins': 'src/plugins',
 		'@vuedirectives': 'src/directives'

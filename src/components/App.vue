@@ -18,6 +18,8 @@
 		// NOTE: Vue will standardize the casing, but we'll use the same casing as in file names here
 		name: 'App',
 
+		// directives: {},
+
 		components: {
 			Pic: Pic
 		},
@@ -102,6 +104,7 @@
 			<img class="view-app-logo" src="~@assets/logo.png">
 			<img class="view-app-logo" src="~@assets/some/folder/anotherlogo.png">
 			<pic class="view-app-logo" src="some/folder/anotherlogo.png"></pic>
+			<pic class="view-app-logo" src="some/folder/anotherlogo.png" hide-until-loaded></pic>
 			Global counter value "{{ globalCounterValue }}" is maintained by Vuex.
 		</p>
 
@@ -163,7 +166,8 @@ NOTE
 	}
 
 	.view-app-logo {
-		height: 2em;
+		display: inline-block;
+		width: 2em;
 	}
 
 	// NOTE: clearly this stuff should be in a separate component

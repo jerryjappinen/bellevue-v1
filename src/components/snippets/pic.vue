@@ -1,12 +1,25 @@
 
 <script>
 
+	// FIXME
+	// - this should be a wrapper for two separate components
+	// - SVG and IMG logic tend to bloat, have nothing to share
+	// - <icon> component should then reuse <pic-svg>
+
+	// Vendor
 	import _ from 'lodash';
+
+	// Directives
+	import ImagesLoaded from '@directives/images-loaded';
 
 	// View model
 	export default {
 
 		name: 'Pic',
+
+		directives: {
+			ImagesLoaded: ImagesLoaded
+		},
 
 		props: {
 
@@ -22,6 +35,12 @@
 				required: false
 			},
 
+			// NOTE: only supported for IMG
+			hideUntilLoaded: {
+				// type: Boolean,
+				// default: false
+			},
+
 			title: {
 				type: String,
 				required: false
@@ -29,14 +48,45 @@
 
 		},
 
+		data: function () {
+			return {
+				isHidden: false
+			};
+		},
+
 		computed: {
 
 			isSvg: function () {
-				return _.isString(this.id) && !_.isEmpty(this.id);
+				if (_.isString(this.id) && !_.isEmpty(this.id)) {
+					return true;
+				}
+				return false;
 			},
 
 			isImg: function () {
-				return !this.isSvg && _.isString(this.src) && !_.isEmpty(this.src);
+				if (
+					!this.isSvg &&
+					_.isString(this.src) &&
+					!_.isEmpty(this.src)
+				) {
+					return true;
+				}
+				return false;
+			},
+
+			isAbsoluteSrc: function () {
+				if (this.isImg && this.src.substr(0, 4) === 'http') {
+					return true;
+				}
+				return false;
+			},
+
+			canBeHidden: function () {
+				return this.isImg && (this.hideUntilLoaded || _.isString(this.hideUntilLoaded));
+			},
+
+			isActuallyHidden: function () {
+				return this.canBeHidden && this.isHidden;
 			},
 
 			renderedTitle: function () {
@@ -66,8 +116,13 @@
 
 
 			// IMG
+
 			imgPath: function () {
 				if (this.isImg) {
+
+					if (this.isAbsoluteSrc) {
+						return this.src;
+					}
 
 					// NOTE
 					// this is how you resolve a URL programmatically
@@ -76,6 +131,18 @@
 
 				}
 				return null;
+			},
+
+
+
+			// For HTML
+
+			// FIXME: should have a generic utility for composing these
+			stateClasses: function () {
+				return {
+					'is-hidden': this.isActuallyHidden,
+					'was-hidden': this.canBeHidden && !this.isActuallyHidden
+				};
 			}
 
 		},
@@ -84,24 +151,28 @@
 
 			// Actions
 
-			increment: function () {
-				this.$store.dispatch('increment');
+			hide: function () {
+				this.isHidden = true;
 			},
 
-			decrement: function () {
-				this.$store.dispatch('decrement');
+			unhide: function () {
+				this.isHidden = false;
 			},
+
+
 
 			// Bindings
 
-			onClick: function (event) {
-				return this.reverse ? this.decrement() : this.increment();
+			onImgLoad: function (event) {
+				this.unhide();
 			}
 
 		},
 
-		beforeCreate: function () {
-			console.log(this.$store, this.$store.state);
+		beforeMount: function () {
+			if (this.canBeHidden) {
+				this.hide();
+			}
 		}
 
 	};
@@ -110,7 +181,7 @@
 
 <template>
 
-	<span class="view-pic">
+	<span class="view-pic" :class="stateClasses">
 
 		<!-- SVG object -->
 		<svg v-if="isSvg"
@@ -122,6 +193,7 @@
 		<!-- IMG -->
 		<img v-else
 			class="view-pic-image view-pic-image-img"
+			v-images-loaded="onImgLoad"
 			:src="imgPath"
 			:alt="renderedTitle"
 			:title="renderedTitle">
@@ -131,10 +203,23 @@
 </template>
 
 <style lang="scss">
+	@import '~@styles/shared.scss';
 
-	// .view-pic {}
+	.view-pic {
+		display: inline-block;
 
-	.view-pic-image {
+		&.is-hidden,
+		&.was-hidden {
+			@include transition-medium(opacity);
+		}
+
+		&.is-hidden {
+			opacity: 0;
+		}
+
+	}
+
+	.view-pic-image-svg {
 		width: 1em;
 		height: 1em;
 	}

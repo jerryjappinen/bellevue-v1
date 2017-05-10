@@ -1,4 +1,51 @@
 
+// Basics
+
+// NOTE: should be auto generated based on transition variables
+
+@mixin transition ($duration, $properties: false) {
+	transition-duration: $duration;
+
+	@if $properties {
+		transition-property: $properties;
+	}
+
+}
+
+// Per transition durations
+
+@mixin transition-veryveryfast ($properties) {
+	@include transition($transition-veryveryfast, $properties);
+}
+
+@mixin transition-veryfast ($properties) {
+	@include transition($transition-veryfast, $properties);
+}
+
+@mixin transition-fast ($properties) {
+	@include transition($transition-fast, $properties);
+}
+
+@mixin transition-medium ($properties) {
+	@include transition($transition-medium, $properties);
+}
+
+@mixin transition-slow ($properties) {
+	@include transition($transition-slow, $properties);
+}
+
+@mixin transition-veryslow ($properties) {
+	@include transition($transition-veryslow, $properties);
+}
+
+@mixin transition-veryveryslow ($properties) {
+	@include transition($transition-veryveryslow, $properties);
+}
+
+
+
+// Per pseudo class
+
 @mixin transition-hover {
 	transition-duration: $transition-slow;
 	&:focus,
@@ -13,6 +60,10 @@
 		transition-duration: $transition-fast;
 	}
 }
+
+
+
+// No
 
 @mixin no-transition {
 	transition-duration: 0ms;

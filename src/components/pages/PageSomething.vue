@@ -2,6 +2,7 @@
 <script>
 
 	// Child components
+	import Pic from '@components/snippets/Pic';
 	import Counter from '@components/counters/Counter';
 	import GlobalCounterIterator from '@components/counters/GlobalCounterIterator';
 	import LocalCounter from '@components/counters/LocalCounter';
@@ -12,6 +13,7 @@
 		name: 'PageSomething',
 
 		components: {
+			Pic: Pic,
 			Counter: Counter,
 			GlobalCounterIterator: GlobalCounterIterator,
 			LocalCounter: LocalCounter

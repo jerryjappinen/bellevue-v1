@@ -3,27 +3,46 @@
 
 ### Next steps
 
-- Integrate `vue-resource`
-- Integrate `vue-validator`
-- Integrate `vue-meta`
-- Add loader for web fonts
-- Store global state in localstorage or something
+- Add web font webpack loader
+- Persistent global state
+	- Just store in localstorage or something
+	- What about Vuex modules?
 	- https://github.com/vuejs/awesome-vue#persistence
-- Integrate localisation solution
-	- https://github.com/vuejs/awesome-vue#i18n
 - Add solution for including plugins
 	- Example: https://github.com/foxbenjaminfox/vue-async-computed
 	- Example: https://github.com/scaccogatto/vue-throttle-event
 	- Split route config and store from the actual plugin loading
-- Add solution for including directives
+- Add solution in pipeline for including directives
 	- Example: https://github.com/David-Desmaisons/Vue.ImagesLoaded
 	- Example: https://www.npmjs.com/package/vue-keep-scroll-position
+- Integrate `vue-resource`
+- Integrate `vue-validator`
+- Integrate `vue-meta`
+- HTML linting
+- Services/plugins/global state modules
+	- Feature detection (Wrap Modernizr?)
+	- Some kind of date/time service with current time
+	- Some kind of viewport service with screen size information (should emit throttled events perhaps?)
+		- `this.$viewport.onChangeUnder(1400, function () { ... });`???
+- More full-featured index.html templating
+	- Meta tags
+	- Asset tag placements
+	- Set `inject: false` and add template things in `index.html`
+- Integrate localisation solution
+	- https://github.com/vuejs/awesome-vue#i18n
 - Component template with all supported functionality
 	- `$watch`ing
-	- Lifecycle hooks
+	- All component lifecycle hooks
+	- Using plugins from `this`
+- Event usage examples
+	- `_.debounce`
+	- Integrate `vue-throttle-event`
+	- Component event bindings (`this.$on`, `this.$emit`)
+	- Keyboard/other event binding (will `this.$on('blur')` work out of the box for example?)
 - Clean up pipeline
 	- Move webpack scripting and other pipeline-related delicate configuration to non-confusingly named subfolders
 	- Move important configs to `project.config.js`
+- Formatted comments and intellisense for custom code
 
 ### Known issues
 
@@ -211,6 +230,9 @@ See `README`.
 
 ### Missing client-side
 
+- Manifests/meta information handling
+	- Upon page load
+	- Route-specific
 - Offline handling
 	- Requires some manifest files etc. plus UI work
 - Input validation
@@ -295,6 +317,7 @@ Did not test E2E, needs a JDK installed in order to be run from the command line
 	- Importing child components
 	- Explicitly renaming child components locally
 	- Importing shared SCSS in .vue files
+	- Importing directives and ensuring dependencies are up to date (directives imported in components must be installed via npm)
 - What should our conventions be?
 	- At some point we will have a project structure and pipeline - but how do we use it effectively to write good UIs that scale?
 	- ESLint allows configuring all of them
