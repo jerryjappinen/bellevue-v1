@@ -16,6 +16,10 @@ function resolve (dir) {
 // Load custom values from manifest
 var customConfiguration = require('./custom-config.js');
 
+// var htmllintOptions = {
+// 	config: resolve('src/.htmllintrc')
+// };
+
 
 
 // Apply configuration
@@ -49,6 +53,13 @@ module.exports = {
           formatter: require('eslint-friendly-formatter')
         }
       },
+      // {
+      //   test: /\.vue$/,
+      //   loader: 'htmllint-loader',
+      //   enforce: 'pre',
+      //   options: htmllintOptions,
+      //   include: [resolve('src'), resolve('test')]
+      // },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -60,7 +71,14 @@ module.exports = {
         include: [resolve('src'), resolve('test')]
       },
 
-      // NOTE: this was added manually, is this needed?
+      // Added manually
+      // {
+      //   test: /\.html$/,
+      //   loader: 'htmllint-loader',
+      //   enforce: 'pre',
+			// 	options: htmllintOptions,
+      //   include: [resolve('src'), resolve('test')]
+      // },
       {
         test: /\.css$/,
         loader: 'postcss-loader',

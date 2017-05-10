@@ -2,8 +2,8 @@
 @mixin animation ($name, $duration: $transition-veryveryslow, $easing: false, $count: infinite, $direction: normal) {
 	animation-name: $name;
 	animation-duration: $duration;
-	animation-direction: $direction;
 	animation-iteration-count: $count;
+	animation-direction: $direction;
 
 	// Use explicitly defined easing
 	@if $easing {

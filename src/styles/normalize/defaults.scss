@@ -3,8 +3,8 @@
 
 html {
 	cursor: default;
-	font-family: sans-serif;
 
+	font-family: sans-serif;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 
@@ -152,14 +152,14 @@ a {
 svg,
 img {
 	display: inline-block;
-	vertical-align: middle;
 	max-height: 100%;
+	vertical-align: middle;
 }
 
 abbr[title],
 dfn[title] {
-	text-decoration: underline;
 	cursor: help;
+	text-decoration: underline;
 }
 
 a,

@@ -3,12 +3,14 @@
 .button-plain,
 .button-stroke,
 .button-solid {
-	// width: auto;
-	@include border-box;
 	display: inline-block;
+	@include border-box;
+
+	// width: auto;
+	// min-width: 6em;
+
 	@include cursor-pointer;
 	@include pad;
-	// min-width: 6em;
 	@include radius;
 	text-align: center;
 

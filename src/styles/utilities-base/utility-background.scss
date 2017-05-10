@@ -2,8 +2,8 @@
 .background-contain,
 .background-cover,
 .background-fill-height {
-	background-repeat: no-repeat;
 	background-position: 50% 50%;
+	background-repeat: no-repeat;
 }
 
 .background-contain {
@@ -19,7 +19,7 @@
 }
 
 .background-fill-width {
-	background-size: 100% auto;
 	background-position: 50% 0;
+	background-size: 100% auto;
 	background-repeat: repeat-y;
 }

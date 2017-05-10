@@ -6,11 +6,13 @@ code {
 pre {
 	code {
 		display: block;
-		@include radius-loose;
-		background-color: $color-verylightgrey;
 		padding: 1.6em;
 		border-width: 1px;
+
+		@include radius-loose;
 		// border-color: $color-lightgrey;
+		background-color: $color-verylightgrey;
 		// line-height: $line-height-tight;
+
 	}
 }

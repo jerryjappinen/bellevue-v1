@@ -87,7 +87,7 @@
 
 <template>
 
-	<div class="view-app" id="app">
+	<div class="view-app">
 
 		<!--
 			FIXME
@@ -103,11 +103,11 @@
 
 		<!-- References to static assets with resolved URLs -->
 		<p>
-			<img class="view-app-logo" src="../assets/logo.png">
-			<img class="view-app-logo" src="~@assets/logo.png">
-			<img class="view-app-logo" src="~@assets/some/folder/anotherlogo.png">
-			<pic class="view-app-logo" src="some/folder/anotherlogo.png"></pic>
-			<pic class="view-app-logo" src="some/folder/anotherlogo.png" hide-until-loaded></pic>
+			<img class="view-app-logo" alt="Foo" src="../assets/logo.png">
+			<img class="view-app-logo" alt="Foo" src="~@assets/logo.png">
+			<img class="view-app-logo" alt="Foo" src="~@assets/some/folder/anotherlogo.png">
+			<pic class="view-app-logo" title="Foo" src="some/folder/anotherlogo.png"></pic>
+			<pic class="view-app-logo" title="Foo" src="some/folder/anotherlogo.png" hide-until-loaded></pic>
 			Global counter value "{{ globalCounterValue }}" is maintained by Vuex.
 		</p>
 

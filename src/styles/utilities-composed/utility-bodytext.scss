@@ -7,8 +7,8 @@
 
 	// Links
 	a {
-		color: $color-blue;
 		font-weight: 600;
+		color: $color-blue;
 		transition-property: color;
 
 		&:focus,
@@ -26,9 +26,9 @@
 		}
 	}
 	code {
+		padding: 0 0.2em;
 		@include radius-tight;
 		background-color: $color-verylightgrey;
-		padding: 0 0.2em;
 		box-shadow: 0 0 0 1px $color-lightgrey;
 	}
 	pre code {	// FIXME: duplicated from base/o-code.scss

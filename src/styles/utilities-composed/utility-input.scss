@@ -10,13 +10,13 @@
 }
 
 .input-text {
-	background-color: $color-verylightgrey;
-	@include radius;
+	box-sizing: border-box;
 
 	@include pad;
-	box-sizing: border-box;
+	@include radius;
 	border-width: 2px;
 	border-color: transparent;
+	background-color: $color-verylightgrey;
 
 	&::placeholder {
 		color: $color-grey;

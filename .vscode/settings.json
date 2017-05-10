@@ -23,6 +23,11 @@
 
 	},
 
+	"files.associations": {
+        "*.htmllintrc": "json",
+        "*.stylelintrc": "json"
+    },
+
     // Emmet should be enabled on .vue files
     "emmet.syntaxProfiles": {
         "vue-html": "html",

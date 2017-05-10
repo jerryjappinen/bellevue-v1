@@ -19,6 +19,7 @@
 - Integrate `vue-validator`
 - Integrate `vue-meta`
 - HTML linting
+	- https://www.npmjs.com/package/htmlhint-loader
 - Services/plugins/global state modules
 	- Feature detection (Wrap Modernizr?)
 	- Some kind of date/time service with current time
@@ -94,8 +95,11 @@ See `README`.
 	- Non-trivial global SCSS styles have been added (loaded by root component)
 	- Running tests in Chrome instead of PhantomJS (this is easily configurable)
 	- Custom components showcasing common patterns and features added
-- ESLint is extensively supported and has been has been configured
-	- Available ESLint rules: http://eslint.org/
+- Linting is extensively supported and has been has been configured
+	- ESLint for JavaScript: http://eslint.org/
+	- Styleling for (S)CSS
+	- htmllint for HTML (only one `.ejs` file in project which is not linted)
+	- These all work in IDEs, terminal, and also within `.vue` files (with only one minor issues: linters report wrong line numbers)
 - Other conventions
 	- Defaults in component properties and methods
 		- Try to set boolean defaults to false.

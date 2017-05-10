@@ -1,8 +1,8 @@
 
 // Font styles
 @mixin type-uppercase {
-	text-transform: uppercase;
 	font-size: $font-size-uppercase;
+	text-transform: uppercase;
 	// font-weight: 600;
 }
 
@@ -65,8 +65,8 @@
 @mixin type-h1 {
 	// @include type-serif;
 	font-size: 1.6em;
-	line-height: 1.2;
 	font-weight: inherit;
+	line-height: 1.2;
 
 	@include viewport-over-tiny {
 		font-size: 1.8em;
@@ -99,8 +99,8 @@
 }
 
 @mixin type-h5 {
-	font-weight: inherit;
 	font-size: inherit;
+	font-weight: inherit;
 	@include type-discreet;
 }
 
@@ -124,8 +124,8 @@
 }
 
 @mixin type-ellipsis {
-	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	white-space: nowrap;
 	// vertical-align: middle;
 }
