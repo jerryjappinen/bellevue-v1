@@ -3,7 +3,8 @@
 
 ### Next steps
 
-- Add web font webpack loader
+- Add web font webpack loader or other type of support
+- Respect the imports in SCSS
 - Persistent global state
 	- Just store in localstorage or something
 	- What about Vuex modules?
@@ -336,10 +337,11 @@ Did not test E2E, needs a JDK installed in order to be run from the command line
 	- http://mts.io/2014/04/02/sass-unit-testing/
 	- Also need a test page for quick manual visual testing
 - Can we improve the pipeline to automate redundant tasks
-	- Importing child components
+	- Importing and declaring child components
+	- Importing and declaring directives used in components
 	- Explicitly renaming child components locally
-	- Importing shared SCSS in .vue files
-	- Importing directives and ensuring dependencies are up to date (directives imported in components must be installed via npm)
+	- Importing shared SCSS in `.vue` files
+	- Ensuring dependencies are up to date (directives and plugins imported in components must be installed via npm and `package.json` up to date)
 	- webpack disallows dynamic requiring just like ES6 imports, but `require.context` could perhaps be used to improve automation
 - What should our conventions be?
 	- At some point we will have a project structure and pipeline - but how do we use it effectively to write good UIs that scale?

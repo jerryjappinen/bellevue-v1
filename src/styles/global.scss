@@ -1,17 +1,17 @@
 
 // Access to variables, mixins etc.
 // NOTE: shared includes no CSS output
-@import './shared';
+@import '~@styles/shared';
 
 
 
 // CSS declarations
 
 // Keyframe animations
-@import './keyframes/keyframes-spin';
+@import '~@styles/keyframes/keyframes-spin';
 
 // Web fonts
-@import './webfonts/webfont-open-sans';
+@import '~@styles/webfonts/webfont-open-sans';
 
 
 
@@ -21,23 +21,23 @@
 // Plugin overrides
 // NOTE: many times vendor CSS code causes a lot of issues and needs additional adjustments when it is included globally - this is the place for it
 // NOTE: sometimes it is even better to not include the distributed vendor CSS at all
-@import './plugin-overrides/iphone-inline-video';
+@import '~@styles/plugin-overrides/iphone-inline-video';
 
 
 
 // Base CSS
 
 // Normalizing defaults
-@import './normalize/defaults';
-@import './normalize/normalize';
+@import '~@styles/normalize/defaults';
+@import '~@styles/normalize/normalize';
 
 // Global base styling
-@import './base/base-code';
-@import './base/base-colors';
-@import './base/base-images';
-@import './base/base-inputs';
-@import './base/base-links';
-@import './base/base-lists';
-@import './base/base-rhythm';
-@import './base/base-tooltips'; // FIXME: should be Vue component/directive?
-@import './base/base-typography';
+@import '~@styles/base/base-code';
+@import '~@styles/base/base-colors';
+@import '~@styles/base/base-images';
+@import '~@styles/base/base-inputs';
+@import '~@styles/base/base-links';
+@import '~@styles/base/base-lists';
+@import '~@styles/base/base-rhythm';
+@import '~@styles/base/base-tooltips'; // FIXME: should be Vue component/directive?
+@import '~@styles/base/base-typography';

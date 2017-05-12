@@ -33,10 +33,6 @@
 
 		computed: {
 
-			throttleDebug: function () {
-				return this.$throttle ? 'Throttle available' : 'Nope';
-			},
-
 			notificationShouldBeVisible: function () {
 				if (_.isString(this.notificationText) && !_.isEmpty(this.notificationText)) {
 					return true;
@@ -100,8 +96,6 @@
 			- I'd like to use the same URL regardless of where my component file is in the project structure, as they will move around a lot when refactoring.
 			- We can maybe write a workaround in an image component that can handle SVG sprites and other things without code duplication.
 		-->
-
-		<p>{{ throttleDebug }}</p>
 
 		<transition name="transition-fade">
 			<p v-if="notificationShouldBeVisible">{{ notificationText }}</p>

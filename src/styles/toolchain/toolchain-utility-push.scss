@@ -1,5 +1,11 @@
 
-@mixin toolchain-push ($suffix: false) {
+@import '~@styles/shared';
+
+
+
+// Produce push utility classes
+
+@mixin toolchain-utility-push ($suffix: false) {
 
 	@if $suffix {
 		$suffix: "-#{$suffix}";

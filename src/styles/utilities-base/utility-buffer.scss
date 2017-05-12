@@ -1,52 +1,58 @@
 
+// To avoid code duplication, the utility classes are produced by a mixin
+@import '~@styles/shared';
+@import '~@styles/toolchain/toolchain-utility-buffer';
+
+
+
 // Default
-@include toolchain-buffer;
+@include toolchain-utility-buffer;
 
 // Responsive versions
 @include viewport-under-tiny {
-	@include toolchain-buffer('under-tiny');
+	@include toolchain-utility-buffer('under-tiny');
 }
 
 @include viewport-over-tiny {
-	@include toolchain-buffer('over-tiny');
+	@include toolchain-utility-buffer('over-tiny');
 }
 
 @include viewport-under-small {
-	@include toolchain-buffer('under-small');
+	@include toolchain-utility-buffer('under-small');
 }
 
 @include viewport-over-small {
-	@include toolchain-buffer('over-small');
+	@include toolchain-utility-buffer('over-small');
 }
 
 @include viewport-under-smallish {
-	@include toolchain-buffer('under-smallish');
+	@include toolchain-utility-buffer('under-smallish');
 }
 
 @include viewport-over-smallish {
-	@include toolchain-buffer('over-smallish');
+	@include toolchain-utility-buffer('over-smallish');
 }
 
 @include viewport-under-medium {
-	@include toolchain-buffer('under-medium');
+	@include toolchain-utility-buffer('under-medium');
 }
 
 @include viewport-over-medium {
-	@include toolchain-buffer('over-medium');
+	@include toolchain-utility-buffer('over-medium');
 }
 
 @include viewport-under-large {
-	@include toolchain-buffer('under-large');
+	@include toolchain-utility-buffer('under-large');
 }
 
 @include viewport-over-large {
-	@include toolchain-buffer('over-large');
+	@include toolchain-utility-buffer('over-large');
 }
 
 @include viewport-under-verylarge {
-	@include toolchain-buffer('under-verylarge');
+	@include toolchain-utility-buffer('under-verylarge');
 }
 
 @include viewport-over-verylarge {
-	@include toolchain-buffer('over-verylarge');
+	@include toolchain-utility-buffer('over-verylarge');
 }

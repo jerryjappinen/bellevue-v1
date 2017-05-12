@@ -2,6 +2,7 @@
 // Base conf
 var path = require('path')
 var utils = require('./utils')
+var webpack = require('webpack')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
@@ -40,7 +41,10 @@ module.exports = {
 		alias: customConfiguration.customAliases
   },
 	plugins: [
-		new SvgPlugin()
+		new SvgPlugin(),
+		new webpack.ProvidePlugin({
+        _: 'underscore'
+    })
 	],
   module: {
     rules: [
@@ -111,6 +115,13 @@ module.exports = {
 
 				]
 			},
+
+			// Independent EJS template files
+      {
+        test: /\.ejs$/,
+        loader: 'ejs-loader',
+        include: [resolve('src'), resolve('test')]
+      },
 
       {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,

@@ -26,9 +26,9 @@ exports.cssLoaders = function (options) {
 
 		// FIXME: hardcoding scss over sass, since someone somewhere is not passing the correct language option
 		// console.log('vue-loader', loader, loaderOptions);
-		if (loader == 'sass' || loader == 'scss') {
-			loaderOptions = Object.assign({}, loaderOptions, { indentedSyntax: false });
-		}
+		// if (loader == 'sass' || loader == 'scss') {
+		// 	loaderOptions = Object.assign({}, loaderOptions, { indentedSyntax: false });
+		// }
 
     if (loader) {
       loaders.push({

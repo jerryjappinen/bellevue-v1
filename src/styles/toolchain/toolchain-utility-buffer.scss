@@ -1,7 +1,12 @@
 
-// NOTE: hardcoded buffer variants (tight, loose, relative)
+@import '~@styles/shared';
 
-@mixin toolchain-buffer ($suffix: false) {
+
+
+// Produce buffer utility classes
+
+// FIXME: hardcoded buffer variants (tight, loose, relative)
+@mixin toolchain-utility-buffer ($suffix: false) {
 
 	@if $suffix {
 		$suffix: "-#{$suffix}";

@@ -1,4 +1,8 @@
 
+@import '~@styles/mixins/mixin-viewport';
+
+
+
 // Font styles
 @mixin type-uppercase {
 	font-size: $font-size-uppercase;
