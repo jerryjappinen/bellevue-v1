@@ -1,5 +1,5 @@
 
-// Vendor code
+// Magical vendor code
 import 'es6-promise/auto';
 
 // The Vue build version to load with the `import` command
@@ -11,8 +11,7 @@ import App from '@components/App';
 
 // Vue plugins
 import router from '@plugins/router';
-// import store from '@plugins/store';
-import store from './store';
+import store from '@plugins/store';
 
 
 
@@ -30,7 +29,11 @@ new Vue({
 	},
 
 	// These guys are available in components as...
-	router: router, // this.$router
-	store: store // this.$store
+
+	// this.$router
+	router: router,
+
+	// this.$store
+	store: store
 
 });

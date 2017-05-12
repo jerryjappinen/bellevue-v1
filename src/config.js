@@ -22,6 +22,7 @@ module.exports = {
 		'@svg': 'src/svg',
 		'@components': 'src/components',
 		'@directives': 'src/directives',
+		'@store': 'src/store',
 		'@plugins': 'src/plugins',
 		'@styles': 'src/styles'
 	},

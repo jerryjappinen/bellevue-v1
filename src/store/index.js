@@ -1,20 +1,16 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-
-Vue.use(Vuex);
-
-
 
 // FIXME
 //
-// Obviously this should be split into smaller modules
+// Obviously this should be split into smaller modules and multiple files
 
-// State (like `data`)
-const state = {
+
+
+// State (similar to `data` in Vue)
+export const state = {
 	counter: 1
 };
 
-// Dynamic getters (like `computed`)
+// Dynamic getters (similar to `computed` in Vue)
 export const getters = {
 
 	canDecrementCounter: function (state, getters) {
@@ -27,7 +23,7 @@ export const getters = {
 
 };
 
-// Mutations (like atomic methods under `methods`)
+// Mutations (similar to atomic methods under `methods` in Vue)
 // Use these in actions with `context.commit('increment')`
 export const mutations = {
 
@@ -41,7 +37,7 @@ export const mutations = {
 
 };
 
-// Actions (like helpers under `methods`)
+// Actions (similar to helpers under `methods` in Vue)
 // Use these in components with `this.$store.dispatch('increment')`
 // Context includes actions and getters
 export const actions = {
@@ -72,14 +68,11 @@ export const actions = {
 // State management split into smaller chunks
 export const modules = {};
 
-// Set up and export Vuex object
-const store = new Vuex.Store({
+// Export all parts as one object
+export const store = {
 	state: state,
 	getters: getters,
 	mutations: mutations,
 	actions: actions,
 	modules: modules
-});
-
-// Store is the default exported object
-export default store;
+};
