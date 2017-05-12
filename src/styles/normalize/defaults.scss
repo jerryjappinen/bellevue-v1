@@ -4,17 +4,17 @@
 html {
 	cursor: default;
 
-	font-family: sans-serif;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
+	font-family: sans-serif;
 
 	tab-size: 4;
 }
 
 // NOTE: if this works, we can simply provide transition-property to add default transitions to element
 * {
-	transition-duration: $transition-fast;
 	transition-property: none;
+	transition-duration: $transition-fast;
 	// transition-timing-function: $easing-snap;
 }
 

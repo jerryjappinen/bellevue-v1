@@ -86,22 +86,28 @@ time,
 mark,
 audio,
 video {
-	outline-width: 0;
+	vertical-align: baseline;
+
 	border-width: 0;
 	border-style: solid;
+
+	outline-width: 0;
+	outline-style: solid;
+
 	border-color: transparent;
 	background: transparent;
-	outline-style: solid;
-	vertical-align: baseline;
+
 	&:before,
 	&:after {
-		outline-width: 0;
+		vertical-align: baseline;
 		border-width: 0;
 		border-style: solid;
+
+		outline-width: 0;
+		outline-style: solid;
+
 		border-color: transparent;
 		background: transparent;
-		outline-style: solid;
-		vertical-align: baseline;
 	}
 }
 
@@ -134,8 +140,8 @@ textarea {
 }
 
 iframe {
-	width: 100%;
 	display: block;
+	width: 100%;
 }
 
 
@@ -179,18 +185,18 @@ svg:not(:root) {
 }
 
 pre {
-	white-space: pre-wrap;
 	word-wrap: break-word;
+	white-space: pre-wrap;
 }
 
 // Lists
 ul {
-	list-style: disc;
 	padding-left: 2em;
+	list-style: disc;
 }
 ol {
-	list-style: decimal;
 	padding-left: 2em;
+	list-style: decimal;
 }
 
 // NOTE: disabled because unnested ul, ol is actually defaulted to no list-style none elsewhere
@@ -219,9 +225,9 @@ sub {
 
 // Tables
 table {
-	width: 100%;
-	border-collapse: collapse;
 	border-spacing: 0;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 caption,
@@ -233,8 +239,8 @@ td {
 
 // Fonts
 html {
-	font-size: 100%;
 	font-family: sans-serif;
+	font-size: 100%;
 	text-size-adjust: 100%;
 }
 
@@ -340,8 +346,8 @@ input[type="radio"] {
 button,
 input {
 	&::-moz-focus-inner {
-		border: 0;
 		padding: 0;
+		border: 0;
 	}
 }
 

@@ -5,6 +5,7 @@
 .button-solid {
 	display: inline-block;
 	@include border-box;
+	text-align: center;
 
 	// width: auto;
 	// min-width: 6em;
@@ -12,14 +13,14 @@
 	@include cursor-pointer;
 	@include pad;
 	@include radius;
-	text-align: center;
 
 	border-color: transparent;
+	transform: scale($scale-normal);
+
 	@include transition-active;
 	transition-property: transform, border-color, background-color, box-shadow, color;
 
 	// Scale down when pressing
-	transform: scale($scale-normal);
 	&:active {
 		transform: scale($scale-small);
 	}

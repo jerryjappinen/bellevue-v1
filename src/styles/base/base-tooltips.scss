@@ -15,10 +15,10 @@
 	// Hide the tooltip content by default
 	&:before {
 		// visibility: hidden;
-		position: absolute;
-		box-sizing: border-box;
 		pointer-events: none;
+		position: absolute;
 		z-index: 25;
+		box-sizing: border-box;
 		opacity: 0;
 
 		transition-property: transform, opacity;
@@ -37,19 +37,19 @@
 
 	// Position tooltip above the element
 	&:before {
-		padding: $pad-vertical $pad-horizontal;
-		line-height: $line-height-tight;
-
-		letter-spacing: normal;
 		font-size: $font-size-default;
 		font-weight: normal;
+		line-height: $line-height-tight;
 		text-transform: none;
+		letter-spacing: normal;
+
+		padding: $pad-vertical $pad-horizontal;
 		text-align: center;
 		white-space: nowrap;
 
 		@include radius;
-		background-color: $color-dark;
 		color: $color-white;
+		background-color: $color-dark;
 	}
 
 }

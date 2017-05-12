@@ -18,8 +18,6 @@
 - Integrate `vue-resource`
 - Integrate `vue-validator`
 - Integrate `vue-meta`
-- HTML linting
-	- https://www.npmjs.com/package/htmlhint-loader
 - Services/plugins/global state modules
 	- Feature detection (Wrap Modernizr?)
 	- Some kind of date/time service with current time
@@ -162,9 +160,7 @@ See `README`.
 - Webpack build pipeline
 	- Pipeline: http://vuejs-templates.github.io/webpack/
 	- `vue-loader`: http://vue-loader.vuejs.org/en/
-- ESLint
-	- Cascading custom configuration
-	- Detailed compilation-time error log and browser integration
+- Linting via CLI and webpack
 - Per-environment configuration
 	- See `config/`
 - Vue and all its goodies
@@ -235,9 +231,7 @@ See `README`.
 
 ### Missing client-side
 
-- Manifests/meta information handling
-	- Upon page load
-	- Route-specific
+- Route-specific meta information (changing favicon, page title etc.)
 - Offline handling
 	- Requires some manifest files etc. plus UI work
 - Input validation
@@ -250,15 +244,15 @@ See `README`.
 	- http://vuejs-templates.github.io/webpack/backend.html
 	- http://vuejs-templates.github.io/webpack/proxy.html
 	- https://router.vuejs.org/en/advanced/data-fetching.html
-- Custom plugins
-	- Easy to add
+- Custom Vue plugins
+	- Relatively easy to create
 	- https://vuejs.org/v2/guide/plugins.html
 - Localisation
 	- https://github.com/vuejs/awesome-vue#i18n
 - Authentication
 	- https://github.com/vuejs/awesome-vue#authenticationauthorization
 - Persistent state
-	- Trivial, just save and load Vuex state to local storage
+	- Can be trivial, just save and load Vuex state to local storage
 - Splitting global state management
 	- Vuex supports modules
 	- Multiple stores?
@@ -270,10 +264,7 @@ See `README`.
 
 - The state of modern web development: the whole pipeline is a delicate flower
 - SCSS took a lot of work to get just right in the pipeline, but now works
-- HTML linting
-	- https://stylelint.io/
-- SVG pipeline
-	- Need to add via webpack
+- `htmllint` is not integrated with webpack 2 yet
 - App icons for multiple platforms, devices etc.
 	- Maybe not needed
 - Manifest file generation
@@ -292,7 +283,8 @@ See `README`.
 	- About SSR on Vue: https://vuejs.org/v2/guide/ssr.html
 	- Full SSR guide for Vue: https://ssr.vuejs.org/en/
 	- Universal apps on Vue: https://nuxtjs.org/
-- ESLint plugins for enhanced IDE integration
+- Additional ESLint plugins for enhanced IDE integration
+	- File name and export naming conventions: https://github.com/selaux/eslint-plugin-filenames
 	- Curated list of what's out there: https://github.com/dustinspecker/awesome-eslint
 	- https://github.com/amilajack/eslint-plugin-compat
 	- https://github.com/sheerun/prettier-standard
@@ -307,7 +299,25 @@ Did not test E2E, needs a JDK installed in order to be run from the command line
 
 ## Questions
 
-- What are the most relevant practical samples we should look at?
+- Where is the doc that explains the project pipeleline structure?
+	- Explain directories
+	- Explain how the pipeline works
+	- Explain common developer use cases (where to put files, how to name them, where and how to export and import things etc.)
+- Where is the doc that explains naming conventions?
+	- kebab-case for SCSS files
+	- kebab-case for SCSS mixins
+	- kebab-case for CSS classes
+	- kebab-case for HTML tags and attributes
+	- CapitalCamelCase for imported classes in JS
+	- CapitalCamelCase for component names and files
+	- camelCase for other JS files and variables
+	- camelCase for other exported values in JS
+	- `UPPER_CASE_WITH_UNDERSCORE` for `vuex` mutations
+	- `camelCase` for all other `vuex` keys
+- Need to write more about coding conventions to make code reviews painless
+	- Linting is a big help
+	- Tests help, but what kind of tests should we write?
+- What are the most relevant practical sample projects we should look at?
 	- https://vuejs.org/v2/examples/
 - How complex should we make global state management?
 	- Simple custom Vue services work very nicely

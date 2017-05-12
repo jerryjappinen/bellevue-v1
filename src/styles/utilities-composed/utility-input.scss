@@ -20,12 +20,12 @@
 
 	&::placeholder {
 		color: $color-grey;
-		transition-duration: $transition-veryslow;
 		transition-property: color;
+		transition-duration: $transition-veryslow;
 	}
 
-	transition-duration: $transition-slow;
 	transition-property: box-shadow, border-color, background-color, color;
+	transition-duration: $transition-slow;
 
 	&:hover,
 	&:focus {

@@ -16,7 +16,7 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "lint": "npm run lint:js && npm run lint:styles && npm run lint:vuestyles",
+    "lint": "npm run lint:js && npm run lint:styles && npm run lint:vuestyles && npm run lint:html && npm run lint:vuehtml",
     "lint:js": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "lint:html": "htmllint --cwd src/ **/*.html",
     "lint:vuehtml": "htmllint --cwd src/ **/*.vue",

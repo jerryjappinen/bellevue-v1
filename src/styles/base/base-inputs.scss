@@ -9,24 +9,26 @@ label {
 button,
 input,
 textarea {
-	border-width: 0;
-	padding: 0;
-	border-radius: 0;
-
-	border-style: solid;
-	background-color: transparent;
-	outline-color: transparent;
-	outline-style: solid;
-
-	color: inherit;
-	font-size: inherit;
 	font-family: inherit;
+	font-size: inherit;
 	line-height: inherit;
+
+	padding: 0;
 	vertical-align: middle;
 
+	border-width: 0;
+	border-style: solid;
+	outline-style: solid;
+
+	border-radius: 0;
+	color: inherit;
+	outline-color: transparent;
+
+	background-color: transparent;
+
 	&:focus {
-		outline-offset: 0;
 		outline-width: 0;
+		outline-offset: 0;
 	}
 
 	appearance: none;
@@ -41,8 +43,8 @@ textarea {
 // Dimensions
 input,
 textarea {
-	max-width: 100%;
 	box-sizing: border-box;
+	max-width: 100%;
 	// border-color: transparent;
 	// padding: ($pad-vertical - 1px) ($pad-horizontal - 1px);
 	// border-width: 1px;
