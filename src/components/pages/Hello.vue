@@ -9,7 +9,7 @@
 	// View model
 	export default {
 
-		name: 'Hello',
+		name: 'hello',
 
 		components: {
 			Counter: Counter,

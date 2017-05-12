@@ -10,8 +10,9 @@ import Vue from 'vue';
 import App from '@components/App';
 
 // Vue plugins
-import router from '@plugins/router';
-import store from '@plugins/store';
+import VueRouter from '@plugins/vue-router';
+import VueThrottleEvent from '@plugins/vue-throttle-event';
+import Vuex from '@plugins/vuex';
 
 
 
@@ -30,10 +31,13 @@ new Vue({
 
 	// These guys are available in components as...
 
+	// this.$throttle
+	throttle: VueThrottleEvent,
+
 	// this.$router
-	router: router,
+	router: VueRouter,
 
 	// this.$store
-	store: store
+	store: Vuex
 
 });

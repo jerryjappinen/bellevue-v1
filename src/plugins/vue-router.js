@@ -1,3 +1,6 @@
+
+// The officially supported router
+// https://router.vuejs.org/en/
 import Vue from 'vue';
 import Router from 'vue-router';
 

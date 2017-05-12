@@ -7,7 +7,7 @@
 	// View model
 	export default {
 
-		name: 'GlobalCounterIterator',
+		name: 'global-counter-iterator',
 
 		components: {
 			Pic: Pic

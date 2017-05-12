@@ -17,7 +17,7 @@ If I had a lot of other components dealing with similar behavior, I'd go for the
 	// View model
 	export default {
 
-		name: 'Counter',
+		name: 'counter',
 
 		props: {
 			value: {

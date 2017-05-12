@@ -8,16 +8,14 @@
 	- Just store in localstorage or something
 	- What about Vuex modules?
 	- https://github.com/vuejs/awesome-vue#persistence
-- Add solution for including plugins
-	- Example: https://github.com/foxbenjaminfox/vue-async-computed
-	- Example: https://github.com/scaccogatto/vue-throttle-event
-	- Split route config and store from the actual plugin loading
-- Add solution in pipeline for including directives
-	- Example: https://github.com/David-Desmaisons/Vue.ImagesLoaded
-	- Example: https://www.npmjs.com/package/vue-keep-scroll-position
 - Integrate `vue-resource`
-- Integrate `vue-validator`
-- Integrate `vue-meta`
+- Integrate client-side form validation
+	- https://github.com/vuejs/awesome-vue#validation
+- Integrate route-specific meta tag handling
+	- https://github.com/vuejs/awesome-vue#meta-tags
+	- Doesn't have to be a Vue-specific library
+- Integrate localisation
+	- https://github.com/vuejs/awesome-vue#i18n
 - Services/plugins/global state modules
 	- Feature detection (Wrap Modernizr?)
 	- Some kind of date/time service with current time
@@ -26,10 +24,9 @@
 - More full-featured index.html templating
 	- Meta tags
 	- Asset tag placements
+	- Favicons
 	- Set `inject: false` and add template things in `index.html`
-- Integrate localisation solution
-	- https://github.com/vuejs/awesome-vue#i18n
-- Component template with all supported functionality
+- Example component with all supported functionality
 	- `$watch`ing
 	- All component lifecycle hooks
 	- Using plugins from `this`
@@ -168,6 +165,13 @@ See `README`.
 	- Prop validation
 - Single file components as `.vue` files
 	- Standard HTML, CSS and JS
+- Solution for including Vue plugins
+	- Example: https://github.com/foxbenjaminfox/vue-async-computed
+	- Example: https://github.com/scaccogatto/vue-throttle-event
+	- Split route config and store from the actual plugin loading
+- Solution in pipeline for including Vue directives
+	- Example: https://github.com/David-Desmaisons/Vue.ImagesLoaded
+	- Example: https://www.npmjs.com/package/vue-keep-scroll-position
 - Routing
 	- Easy-to-configure named routes
 	- Multilevel routes out of the box
@@ -268,7 +272,10 @@ See `README`.
 - App icons for multiple platforms, devices etc.
 	- Maybe not needed
 - Manifest file generation
-	- Probably not needed
+	- Caches and offline stuff
+	- Web app manifests
+	- robots.txt
+	- etc.
 - Do we care about using TypeScript?
 	- Can improve IDE experience
 	- Makes code more robust

@@ -4,7 +4,7 @@
 	// View model
 	export default {
 
-		name: 'LocalCounter',
+		name: 'local-counter',
 
 		props: {
 			value: {

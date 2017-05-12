@@ -10,7 +10,7 @@
 	// View model
 	export default {
 
-		name: 'PageSomething',
+		name: 'page-something',
 
 		components: {
 			Pic: Pic,

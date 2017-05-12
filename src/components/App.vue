@@ -16,7 +16,7 @@
 
 		// We need to use nams in order for recursive components to work, so better to just keep it consistent
 		// NOTE: Vue will standardize the casing, but we'll use the same casing as in file names here
-		name: 'App',
+		name: 'app',
 
 		// directives: {},
 
@@ -32,6 +32,10 @@
 		},
 
 		computed: {
+
+			throttleDebug: function () {
+				return this.$throttle ? 'Throttle available' : 'Nope';
+			},
 
 			notificationShouldBeVisible: function () {
 				if (_.isString(this.notificationText) && !_.isEmpty(this.notificationText)) {
@@ -96,6 +100,8 @@
 			- I'd like to use the same URL regardless of where my component file is in the project structure, as they will move around a lot when refactoring.
 			- We can maybe write a workaround in an image component that can handle SVG sprites and other things without code duplication.
 		-->
+
+		<p>{{ throttleDebug }}</p>
 
 		<transition name="transition-fade">
 			<p v-if="notificationShouldBeVisible">{{ notificationText }}</p>
