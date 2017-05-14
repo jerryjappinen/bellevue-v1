@@ -3,8 +3,6 @@
 
 ### Next steps
 
-- Add web font webpack loader or other type of support
-- Respect the imports in SCSS
 - Persistent global state
 	- Just store in localstorage or something
 	- What about Vuex modules?
@@ -24,7 +22,6 @@
 		- `this.$viewport.onChangeUnder(1400, function () { ... });`???
 - More full-featured index.html templating
 	- Add more full-featured meta tags
-	- Control asset tag placements so CSS source order is under control
 	- https://github.com/jantimon/favicons-webpack-plugin
 	- https://github.com/jantimon/html-webpack-plugin#third-party-addons
 - Example component with all supported functionality
@@ -43,10 +40,18 @@
 
 ### Known issues
 
-- SCSS breaks when running tests breaks still
-	- All SCSS files are compiled when tests are run
-	- But some are designed to only work when imported in a centralised manifest file, as they don't `@import` all their dependencies
-	- Possible solution: update regexp in `test/unit/index.js` that excludes main.js to also exclude these style files
+- Desired source code order is hard to set
+	- Utility styles should come after component styles, but style source order is magical
+	- Not currently an issue with JS
+- The app icon generator webpack plugin
+	- Does not support passing all options to the plugin generating meta tags with color information etc.
+	- Does not compile a web favicon
+	- https://github.com/jantimon/favicons-webpack-plugin
+- Dev server and unit test startup time has increased dramatically
+	- Who's the culprit?
+	- With app icon builds: startup around 30 s
+	- Without: still around 10 s
+	- Compiling all SCSS is probably slow as well
 
 
 
@@ -196,6 +201,7 @@ See `README`.
 	- E2E tests
 		- `test/e2e/`
 		- http://vuejs-templates.github.io/webpack/e2e.html
+- Web fonts
 - Resolving asset URLs
 	- http://vue-loader.vuejs.org/en/configurations/asset-url.html
 - CSS pipeline

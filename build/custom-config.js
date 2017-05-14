@@ -12,6 +12,8 @@ function resolve (dir) {
 
 
 
+
+
 // Base values
 var treated = {
 
@@ -19,6 +21,9 @@ var treated = {
 	meta: Object.assign({}, values.meta),
 	svgoOptions: Object.assign({}, values.svgo),
 	svgSpritePath: values.svgSpritePath,
+
+	// Prefix some paths with src
+	appIconSourceFile: resolve('src/' + values.appIconSourceFile),
 
 	// Basics needed for tooling
 	customAliases: {

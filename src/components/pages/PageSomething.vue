@@ -19,6 +19,10 @@
 			LocalCounter: LocalCounter
 		},
 
+		metaInfo: {
+			title: 'Some page'
+		},
+
 		data: function () {
 			return {
 				myValue: 20

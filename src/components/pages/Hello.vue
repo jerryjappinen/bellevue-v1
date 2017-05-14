@@ -17,6 +17,10 @@
 			LocalCounter: LocalCounter
 		},
 
+		metaInfo: {
+			title: 'Hello world!'
+		},
+
 		data: function () {
 			return {
 				welcomeMessage: 'Welcome!',

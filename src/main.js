@@ -11,6 +11,7 @@ import App from '@components/App';
 
 // Vue plugins
 import VueRouter from '@plugins/vue-router';
+import VueMeta from '@plugins/vue-meta';
 import VueThrottleEvent from '@plugins/vue-throttle-event';
 import Vuex from '@plugins/vuex';
 
@@ -30,6 +31,9 @@ new Vue({
 	},
 
 	// These guys are available in components as...
+
+	// this.$throttle
+	meta: VueMeta,
 
 	// this.$throttle
 	throttle: VueThrottleEvent,

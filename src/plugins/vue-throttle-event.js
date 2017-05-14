@@ -4,3 +4,4 @@
 import Vue from 'vue';
 import VueThrottleEvent from 'vue-throttle-event';
 Vue.use(VueThrottleEvent);
+export default VueThrottleEvent;

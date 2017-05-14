@@ -12,6 +12,27 @@ module.exports = {
 
 	},
 
+	// https://github.com/declandewet/vue-meta#options
+	metaConfig: {
+
+		// the component option name that vue-meta looks for meta info on.
+		keyName: 'metaInfo',
+
+		// the attribute name vue-meta adds to the tags it observes
+		attribute: 'data-vue-meta',
+
+		// the attribute name that lets vue-meta know that meta info has already been server-rendered
+		ssrAttribute: 'data-vue-meta-server-rendered',
+
+		// the property name that vue-meta uses to determine whether to overwrite or append a tag
+		tagIDKeyName: 'vmid'
+
+	},
+
+	// Webpack pipeline will generate app icons for all platforms based on this
+	// FIXME: add platform-specific source files
+	appIconSourceFile: 'app-icon/app-icon.png',
+
 	// Aliases usable in codebase when doing imports and resolving URLs. From project root.
 	//
 	// Used in:

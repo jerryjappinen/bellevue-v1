@@ -1,5 +1,12 @@
 <script>
 
+	// Global styles
+	import '@styles/global';
+	import '@styles/utilities';
+
+	// Config
+	import customConfiguration from '@/config';
+
 	// Vendor code
 	import _ from 'lodash';
 
@@ -22,6 +29,12 @@
 
 		components: {
 			Pic: Pic
+		},
+
+		metaInfo: function () {
+			return {
+				title: customConfiguration.meta.title
+			};
 		},
 
 		data: function () {
@@ -146,7 +159,6 @@ NOTE
 - Target file is a manifest, which imports the actual global styles
 - You will get weird vue-style-loader issues in case the path is wrong
 -->
-<style src="../styles/global.scss" lang="scss"></style>
 
 <style lang="scss">
 	// Root component styles
@@ -214,4 +226,3 @@ FIXME
 - ...so other component styles will be injected AFTER the utilities in this case, which is not what we want.
 - We can use index.html but the injections there are magical and compilation won't trigger the same way.
 -->
-<style src="../styles/utilities.scss" lang="scss"></style>

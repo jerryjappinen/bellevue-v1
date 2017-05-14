@@ -7,7 +7,8 @@ var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
 // Plugins
-var SvgPlugin = require('external-svg-sprite-loader/lib/SvgStorePlugin');
+var SvgPlugin = require('external-svg-sprite-loader/lib/SvgStorePlugin')
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 // Path helper
 function resolve (dir) {
@@ -43,6 +44,24 @@ module.exports = {
   },
 	plugins: [
 		new SvgPlugin(),
+		// new FaviconsWebpackPlugin({
+		// 	logo: customConfiguration.appIconSourceFile,
+		// 	prefix: 'app-icons/[hash]/',
+		// 	persistentCache: true,
+		// 	title: customConfiguration.meta.title,
+		// 	icons: {
+		// 		android: true,
+		// 		appleIcon: true,
+		// 		appleStartup: true,
+		// 		coast: false,
+		// 		favicons: true,
+		// 		firefox: true,
+		// 		opengraph: false,
+		// 		twitter: false,
+		// 		yandex: false,
+		// 		windows: false
+		// 	}
+		// }),
 		new webpack.ProvidePlugin({
         _: 'underscore'
     })
@@ -76,7 +95,7 @@ module.exports = {
         include: [resolve('src'), resolve('test')]
       },
 
-      // Added manually
+      // htmllinting
       // {
       //   test: /\.html$/,
       //   loader: 'htmllint-loader',
@@ -84,30 +103,6 @@ module.exports = {
 			// 	options: htmllintOptions,
       //   include: [resolve('src'), resolve('test')]
       // },
-      {
-        test: /\.css$/,
-        loader: 'postcss-loader',
-        include: [resolve('src'), resolve('test')]
-      },
-      {
-        test: /\.scss$/,
-				use: [
-					// {
-					// 	loader: 'sass-loader',
-					// 	options: {
-					// 		indentedSyntax: true
-					// 	}
-					// },
-					{
-						loader: 'postcss-loader',
-						options: {
-							parser: 'sass',
-							syntax: 'scss'
-						}
-					}
-				],
-        include: [resolve('src'), resolve('test')]
-      },
 
 			// SVG pipeline
 			{
