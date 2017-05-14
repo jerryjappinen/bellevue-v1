@@ -17,9 +17,7 @@
 		"dist": true,
 
 		// Generated files for test reports
-		"test/unit/coverage/lcov-report/components/**/*": true,
-		"test/unit/coverage/lcov-report/router/**/*": true,
-		"test/unit/coverage/lcov-report/store/**/*": true
+		"test/unit/coverage/**/*": true
 
 	},
 

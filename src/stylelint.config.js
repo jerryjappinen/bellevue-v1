@@ -78,7 +78,7 @@ module.exports = {
 		// At rules
 		'at-rule-name-space-after': 'always-single-line',
 		'at-rule-semicolon-space-before': 'never',
-		'at-rule-name-newline-after': 'always-multi-line',
+		'at-rule-name-newline-after': null, // 'always-multi-line' is close but sometimes weird
 		'at-rule-empty-line-before': [
 			'always',
 			{

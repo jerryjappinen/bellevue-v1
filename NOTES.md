@@ -23,10 +23,10 @@
 	- Some kind of viewport service with screen size information (should emit throttled events perhaps?)
 		- `this.$viewport.onChangeUnder(1400, function () { ... });`???
 - More full-featured index.html templating
-	- Meta tags
-	- Asset tag placements
-	- Favicons
-	- Set `inject: false` and add template things in `index.html`
+	- Add more full-featured meta tags
+	- Control asset tag placements so CSS source order is under control
+	- https://github.com/jantimon/favicons-webpack-plugin
+	- https://github.com/jantimon/html-webpack-plugin#third-party-addons
 - Example component with all supported functionality
 	- `$watch`ing
 	- All component lifecycle hooks

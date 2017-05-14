@@ -1,0 +1,88 @@
+
+@import '~@styles/shared';
+
+
+
+@include font-face (
+	'Source Sans',
+	200,
+	normal,
+	'~@fonts/source-sans/sourcesanspro-extralight-webfont'
+);
+
+@include font-face (
+	'Source Sans',
+	200,
+	italic,
+	'~@fonts/source-sans/sourcesanspro-extralightitalic-webfont'
+);
+
+@include font-face (
+	'Source Sans',
+	300,
+	normal,
+	'~@fonts/source-sans/sourcesanspro-light-webfont'
+);
+
+@include font-face (
+	'Source Sans',
+	300,
+	italic,
+	'~@fonts/source-sans/sourcesanspro-lightitalic-webfont'
+);
+
+@include font-face (
+	'Source Sans',
+	400,
+	normal,
+	'~@fonts/source-sans/sourcesanspro-regular-webfont'
+);
+
+@include font-face (
+	'Source Sans',
+	400,
+	italic,
+	'~@fonts/source-sans/sourcesanspro-italic-webfont'
+);
+
+@include font-face (
+	'Source Sans',
+	500,
+	normal,
+	'~@fonts/source-sans/sourcesanspro-semibold-webfont'
+);
+
+@include font-face (
+	'Source Sans',
+	500,
+	italic,
+	'~@fonts/source-sans/sourcesanspro-semibolditalic-webfont'
+);
+
+@include font-face (
+	'Source Sans',
+	600,
+	normal,
+	'~@fonts/source-sans/sourcesanspro-bold-webfont'
+);
+
+@include font-face (
+	'Source Sans',
+	600,
+	italic,
+	'~@fonts/source-sans/sourcesanspro-bolditalic-webfont'
+);
+
+@include font-face (
+	'Source Sans',
+	700,
+	normal,
+	'~@fonts/source-sans/sourcesanspro-black-webfont'
+);
+
+@include font-face (
+	'Source Sans',
+	700,
+	italic,
+	'~@fonts/source-sans/sourcesanspro-blackitalic-webfont'
+);

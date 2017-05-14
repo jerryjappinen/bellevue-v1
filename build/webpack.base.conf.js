@@ -17,6 +17,7 @@ function resolve (dir) {
 // Load custom values from manifest
 var customConfiguration = require('./custom-config.js');
 
+// FIXME: htmllinter-loader has some issues, but we should include it here
 // var htmllintOptions = {
 // 	config: resolve('src/.htmllintrc')
 // };
@@ -90,11 +91,21 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'postcss-loader',
-				options: {
-					parser: 'scss',
-					syntax: 'scss'
-				},
+				use: [
+					// {
+					// 	loader: 'sass-loader',
+					// 	options: {
+					// 		indentedSyntax: true
+					// 	}
+					// },
+					{
+						loader: 'postcss-loader',
+						options: {
+							parser: 'sass',
+							syntax: 'scss'
+						}
+					}
+				],
         include: [resolve('src'), resolve('test')]
       },
 

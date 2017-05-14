@@ -32,8 +32,9 @@ module.exports = merge(baseWebpackConfig, {
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: 'src/index.html.ejs',
+			inject: true,
 			title: customConfiguration.meta.title,
-			inject: true
+			favicon: 'src/assets/logo.png'
 		}),
 		new StylelintPlugin({
 			emitErrors: false,

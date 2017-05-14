@@ -59,8 +59,9 @@ var webpackConfig = merge(baseWebpackConfig, {
         ? 'index.html'
         : config.build.index,
       template: 'src/index.html.ejs',
-			title: customConfiguration.meta.title,
       inject: true,
+			title: customConfiguration.meta.title,
+			favicon: 'src/assets/logo.png',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
