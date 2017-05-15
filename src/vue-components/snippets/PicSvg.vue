@@ -19,10 +19,7 @@
 
 			// https://www.npmjs.com/package/external-svg-sprite-loader
 			svgElement: function () {
-				if (this.isSvg) {
-					return require('@svg/' + this.id + '.svg');
-				}
-				return null;
+				return require('@svg/' + this.id + '.svg');
 			},
 
 			svgViewBox: function () {

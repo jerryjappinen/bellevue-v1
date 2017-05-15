@@ -57,10 +57,6 @@
 				return this.reverse ? this.decrement() : this.increment();
 			}
 
-		},
-
-		beforeCreate: function () {
-			console.log(this.$store, this.$store.state);
 		}
 
 	};

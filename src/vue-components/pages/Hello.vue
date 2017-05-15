@@ -23,7 +23,7 @@
 
 		data: function () {
 			return {
-				welcomeMessage: 'Welcome!',
+				welcomeMessage: 'Hello!',
 				someValue: 3
 			};
 		},

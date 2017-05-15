@@ -21,7 +21,7 @@
 
 	export default {
 
-		// We need to use nams in order for recursive components to work, so better to just keep it consistent
+		// We need to use names in order for recursive components to work, so better to just keep it consistent
 		// NOTE: Vue will standardize the casing, but we'll use the same casing as in file names here
 		name: 'app',
 
@@ -31,10 +31,8 @@
 			Pic: Pic
 		},
 
-		metaInfo: function () {
-			return {
-				title: customConfiguration.meta.title
-			};
+		metaInfo: {
+			title: customConfiguration.meta.title
 		},
 
 		data: function () {
@@ -138,9 +136,9 @@
 
 		<!-- First-level router view -->
 		<transition name="transition-fade" mode="out-in" appear>
-			<keep-alive>
+			<!--<keep-alive>-->
 				<router-view></router-view>
-			</keep-alive>
+			<!--</keep-alive>-->
 		</transition>
 
 	</div>

@@ -49,6 +49,9 @@
 	- With app icon builds: startup around 30 s
 	- Without: still around 10 s
 	- Compiling all SCSS is probably slow as well
+- `vue-meta`
+	1. Has issues with `keep-alive`
+	2. Parent component title will flicker when changing pages
 
 
 

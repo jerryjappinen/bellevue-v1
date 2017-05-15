@@ -20,7 +20,7 @@
 		},
 
 		metaInfo: {
-			title: 'Some page'
+			title: 'More stuff on this page'
 		},
 
 		data: function () {
