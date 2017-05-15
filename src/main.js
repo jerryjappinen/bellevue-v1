@@ -17,14 +17,17 @@ import App from '@components/App';
 
 // NOTE: plugins are NOT the same as directives. Directives add templating functionality and are imported in each component they are used in.
 
-// Officially supported router
-import VueRouter from '@plugins/vue-router';
+// HTTP service
+import '@plugins/vue-http';
 
 // Handling meta tags and <head> per component
-import VueMeta from '@plugins/vue-meta';
+import '@plugins/vue-meta';
 
 // Throttled event callbacks that use requestAnimationFrame for more performant operations
-import VueThrottleEvent from '@plugins/vue-throttle-event';
+import '@plugins/vue-throttle-event';
+
+// Officially supported router
+import VueRouter from '@plugins/vue-router';
 
 // Global state management
 import Vuex from '@plugins/vuex';
@@ -45,12 +48,6 @@ new Vue({
 	},
 
 	// These guys are available in components as...
-
-	// this.$throttle
-	meta: VueMeta,
-
-	// this.$throttle
-	throttle: VueThrottleEvent,
 
 	// this.$router
 	router: VueRouter,

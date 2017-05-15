@@ -42,6 +42,7 @@ module.exports = {
 		'@fonts': 'src/fonts',
 		'@svg': 'src/svg',
 
+		'@models': 'src/vue-models',
 		'@components': 'src/vue-components',
 		'@directives': 'src/vue-directives',
 		'@plugins': 'src/vue-plugins',

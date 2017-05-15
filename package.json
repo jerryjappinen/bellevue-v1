@@ -24,6 +24,7 @@
     "lint:vuestyles": "stylelint 'src/**/*.vue' --syntax scss"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "es6-promise": "^4.1.0",
     "vue": "^2.3.3",
     "vue-images-loaded": "^1.1.2",
