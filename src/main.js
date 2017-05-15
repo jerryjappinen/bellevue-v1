@@ -9,10 +9,24 @@ import Vue from 'vue';
 // Main component to render
 import App from '@components/App';
 
+
+
 // Vue plugins
+// These are integrated libraries that generally deliver new functionality to Vue components (or other objects)
+// Generally they inject new functionality (such as this.$route) or read new values from the view model definition (such as metaInfo)
+
+// NOTE: plugins are NOT the same as directives. Directives add templating functionality and are imported in each component they are used in.
+
+// Officially supported router
 import VueRouter from '@plugins/vue-router';
+
+// Handling meta tags and <head> per component
 import VueMeta from '@plugins/vue-meta';
+
+// Throttled event callbacks that use requestAnimationFrame for more performant operations
 import VueThrottleEvent from '@plugins/vue-throttle-event';
+
+// Global state management
 import Vuex from '@plugins/vuex';
 
 

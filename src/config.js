@@ -34,19 +34,22 @@ module.exports = {
 	appIconSourceFile: 'app-icon/app-icon.png',
 
 	// Aliases usable in codebase when doing imports and resolving URLs. From project root.
-	//
-	// Used in:
-	// - config/webpack.base.conf.js
 	aliases: {
+
 		'@': 'src',
+
 		'@assets': 'src/assets',
 		'@fonts': 'src/fonts',
 		'@svg': 'src/svg',
-		'@components': 'src/components',
-		'@directives': 'src/directives',
-		'@store': 'src/store',
-		'@plugins': 'src/plugins',
+
+		'@components': 'src/vue-components',
+		'@directives': 'src/vue-directives',
+		'@plugins': 'src/vue-plugins',
+
+		'@store': 'src/vuex-store',
+
 		'@styles': 'src/styles'
+
 	},
 
 	svgSpritePath: 'sprite.svg',

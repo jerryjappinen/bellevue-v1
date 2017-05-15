@@ -10,9 +10,6 @@
 - Integrate `vue-resource`
 - Integrate client-side form validation
 	- https://github.com/vuejs/awesome-vue#validation
-- Integrate route-specific meta tag handling
-	- https://github.com/vuejs/awesome-vue#meta-tags
-	- Doesn't have to be a Vue-specific library
 - Integrate localisation
 	- https://github.com/vuejs/awesome-vue#i18n
 - Services/plugins/global state modules
@@ -106,53 +103,6 @@ See `README`.
 		- Try to set boolean defaults to false.
 		- Developers then know that in order to change default behavior, they have to explicitly set something to true.
 
-### IDEs
-
-- Browser will show errors the same way regardless of IDE
-- Sublime Text
-	- Linting experience is quite good with Sublime Linter and its extensions
-	- Easy setup
-	- Lightweight development experience
-- Need to investigate Visual Studio Code
-	- Expectations
-		- Great support for modern web development
-		- Easy set-up
-		- Fast iteration cycles, meaningful updates month-over-month
-		- Well equipped for TS support
-	- Added extensions
-		- `change-case`
-		- `EditorConfig`
-		- `ESLint` (workspace config included in project)
-		- `File Utils`
-		- `Incremator`
-			- Default key bindings clash on Mac
-			- Can be easily adjusted
-			- https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-editor
-		- `stylelint` (workspace config included in project)
-		- `Sublime Text Keymap`
-		- `vue`
-		- `Vue 2 Snippets`
-	- Adjusted keybindings
-		- Mostly to match Sublime Text better
-		- Line up/down
-		- Increment and decrement
-		- Debug/launch without `F` keys
-	- Theming supported well
-		- Color schemes supported out of the box
-		- Multiple color schemes available out of the box
-		- Live preview for color schemes
-		- File icons in sidebar disabled by default
-		- Install more themes from commands
-	- IntelliSense
-		- Already get some inline documentation, snippets and parameters
-		- Further configuration might be required for full support (component names, props etc.)
-	- Problems
-		- Does not auto indent new lines when starting from empty non-intended line inside a block
-		- Can't yet show all problems in the project at once (only open files)
-			- See https://github.com/Microsoft/vscode/issues/13953
-			- Linters will of course show all issues in terminal/browser
-- Need to investigate WebStorm
-
 
 
 # Project features
@@ -232,7 +182,9 @@ See `README`.
 	- https://medium.com/lost-bananas/linting-css-in-vue-files-6bb20faac0f2
 - Values imported and treated from custom configuration file
 	- When making edits, developers are not touching delicate configuration scripts
-
+- Route-specific meta tag handling
+	- https://github.com/vuejs/awesome-vue#meta-tags
+	- Doesn't have to be a Vue-specific library
 
 
 ## Missing features
@@ -334,6 +286,7 @@ Did not test E2E, needs a JDK installed in order to be run from the command line
 - What are the most relevant practical sample projects we should look at?
 	- https://vuejs.org/v2/examples/
 - How complex should we make global state management?
+	- There are many standard alternatives: https://github.com/vuejs/awesome-vue#state-management
 	- Simple custom Vue services work very nicely
 	- But Vuex is the "official" solution
 	- Vuex integrates into Vue dev tools
@@ -375,3 +328,54 @@ Did not test E2E, needs a JDK installed in order to be run from the command line
 - How and where do we build for production?
 	- Local building works fine but production builds should be done via CI
 	- Do we need to test production builds separately? They can look quite different from dev builds (no hot reload module swapping, minified single-file code etc.)
+
+
+
+# IDE integration
+
+- Browser will show errors the same way regardless of IDE
+- Sublime Text
+	- Linting experience is quite good with Sublime Linter and its extensions
+	- Easy setup
+	- Lightweight development experience
+- Visual Studio Code
+	- TL;DR
+		- Great support for modern web development
+		- Easy set-up
+		- Fast iteration cycles, meaningful updates month-over-month
+		- Well equipped for TS support
+	- Added extensions
+		- `change-case`
+		- `EditorConfig`
+		- `ESLint` (workspace config included in project)
+		- `File Utils`
+		- `Incremator`
+			- Default key bindings clash on Mac
+			- Can be easily adjusted
+			- https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-editor
+		- `stylelint` (workspace config included in project)
+		- `Sublime Text Keymap`
+		- `vue`
+		- `Vue 2 Snippets`
+	- Adjusted keybindings
+		- Mostly to match Sublime Text better
+		- Line up/down
+		- Increment and decrement
+		- Debug/launch without `F` keys
+	- Theming supported well
+		- Color schemes supported out of the box
+		- Multiple color schemes available out of the box
+		- Live preview for color schemes
+		- File icons in sidebar disabled by default
+		- Install more themes from commands
+	- IntelliSense
+		- Already get some inline documentation, snippets and parameters
+		- Further configuration might be required for full support (component names, props etc.)
+	- Problems
+		- Does not auto indent new lines when starting from empty non-intended line inside a block
+		- Can't yet show all problems in the project at once (only open files)
+			- See https://github.com/Microsoft/vscode/issues/13953
+			- Linters will of course show all issues in terminal/browser
+- Need to investigate WebStorm
+
+
