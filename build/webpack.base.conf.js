@@ -16,7 +16,7 @@ function resolve (dir) {
 }
 
 // Load custom values from manifest
-var customConfiguration = require('./custom-config.js');
+var customConfiguration = require('./custom-config.js')
 
 // FIXME: htmllinter-loader has some issues, but we should include it here
 // var htmllintOptions = {

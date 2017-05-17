@@ -46,10 +46,15 @@
 							}
 						};
 
-						vm.$http.get('http://localhost:8888/app.js', options).then(function (response) {
-							vm.httpResponse = JSON.stringify(Object.create({}, response, { data: '...' }), null, 2);
-							vm.testingHttp = false;
-						});
+						vm.$http.get('http://localhost/', options)
+							.then(function (response) {
+								vm.testingHttp = false;
+								vm.httpResponse = JSON.stringify(Object.create({}, response, { data: '...' }), null, 2);
+							})
+							.catch(function (error) {
+								vm.testingHttp = false;
+								throw error;
+							});
 
 					}, 2000);
 
