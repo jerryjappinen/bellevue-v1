@@ -1,13 +1,20 @@
 # vue
 
-> A Vue.js project
+## Requirements
 
-## Build Setup
+1. [nvm](https://github.com/creationix/nvm)
+2. The Node version defined in configured in `.nvmrc`
+
+## Project setup
 
 ``` bash
 # install dependencies
 npm install
+```
 
+## Building and testing
+
+``` bash
 # serve with hot reload at localhost:8080
 npm run dev
 
@@ -27,4 +34,6 @@ npm run e2e
 npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Documentation
+
+Detailed project template docs: [gitbook.com/book/eiskis/vue-webpack-docs](https://www.gitbook.com/book/eiskis/vue-webpack-docs/details)

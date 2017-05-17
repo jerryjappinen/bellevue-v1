@@ -107,8 +107,6 @@
     "stylelint-processor-html": "^1.0.0",
     "stylelint-scss": "^1.4.4",
     "stylelint-webpack-plugin": "^0.7.0",
-    "svg-sprite-loader": "^2.0.5",
-    "svgo-loader": "^1.2.1",
     "url-loader": "^0.5.8",
     "vue-keep-scroll": "^0.1.1",
     "vue-loader": "^11.3.4",

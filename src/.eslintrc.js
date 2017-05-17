@@ -62,13 +62,15 @@ module.exports = {
 		'no-unreachable': 'warn',      // Unreachable code should be cleaned up
 		'no-else-return': 'error',     // Smelly, code will break when refactoring
 
-		// Variables should be declared when they are used for the first time, to make it easier to move them from one scope to another when refactoring
+		// Variables should be declared when they are used for the first time
+		// This makes it easier to move them from one scope to another when refactoring
 		'one-var': [
 			'error',
 			'never'
 		],
 
-		// config.someItems['foo'] is sometimes useful to highlight that we're referring to an item with a very specific, hardcoded name (that probably should be a variable)
+		// config.someItems['foo'] is sometimes useful
+		// It can highlight that we're referring to an item with a very specific, hardcoded name (that probably should be a variable)
 		'dot-notation': ['off'],
 
 		// Let's just use the same traditional object syntax everywhere
