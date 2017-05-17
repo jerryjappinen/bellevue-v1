@@ -12,10 +12,14 @@ import App from '@components/App';
 
 
 // Vue plugins
+// https://vuejs.org/v2/guide/plugins.html
 // These are integrated libraries that generally deliver new functionality to Vue components (or other objects)
 // Generally they inject new functionality (such as this.$route) or read new values from the view model definition (such as metaInfo)
 
 // NOTE: plugins are NOT the same as directives. Directives add templating functionality and are imported in each component they are used in.
+
+// Timer updating every second
+// import '@plugins/vue-current-time';
 
 // HTTP service
 import '@plugins/vue-http';
@@ -23,11 +27,11 @@ import '@plugins/vue-http';
 // Handling meta tags and <head> per component
 import '@plugins/vue-meta';
 
-// Throttled event callbacks that use requestAnimationFrame for more performant operations
-import '@plugins/vue-throttle-event';
-
 // Officially supported router
 import VueRouter from '@plugins/vue-router';
+
+// Throttled event callbacks that use requestAnimationFrame for more performant operations
+import '@plugins/vue-throttle-event';
 
 // Global state management
 import Vuex from '@plugins/vuex';

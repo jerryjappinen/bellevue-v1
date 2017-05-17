@@ -69,7 +69,7 @@
 
 		<!-- When user can increment/decrement further and button is enabled -->
 		<span v-if="canOperate">
-			<button class="view-global-counter-iterator-button button" @click="onClick">Click me <pic :id="iconId" :title="'Click to ' + label"></pic></button> to <em>{{ label }}</em> the counter in the global state.
+			<button class="view-global-counter-iterator-button button" @click="onClick">Click me <pic :asset="iconId" :title="'Click to ' + label"></pic></button> to <em>{{ label }}</em> the counter in the global state.
 		</span>
 
 		<!-- When button is disabled -->

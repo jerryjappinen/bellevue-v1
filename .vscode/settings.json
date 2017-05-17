@@ -48,9 +48,9 @@
     ],
 
     // CSS
+    "stylelint.enable": true,
     "css.validate": false,
     "scss.validate": false,
-    "stylelint.enable": true,
 
 	// Project TODO/FIXME highlighting with plugin
 	// https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight

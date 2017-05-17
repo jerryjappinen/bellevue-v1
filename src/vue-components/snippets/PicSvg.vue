@@ -8,7 +8,7 @@
 		props: {
 
 			// Id of the desired item in SVG sprite (should be same as original file name)
-			id: {
+			asset: {
 				type: String,
 				required: false
 			}
@@ -19,7 +19,7 @@
 
 			// https://www.npmjs.com/package/external-svg-sprite-loader
 			svgElement: function () {
-				return require('@svg/' + this.id + '.svg');
+				return require('@svg/' + this.asset + '.svg');
 			},
 
 			svgViewBox: function () {

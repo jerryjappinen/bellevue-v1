@@ -2,7 +2,7 @@
 // Vendor code
 import Vue from 'vue';
 
-export default Vue.extend({
+const blueprint = {
 
 	props: {
 
@@ -35,4 +35,7 @@ export default Vue.extend({
 
 	}
 
-});
+};
+
+export { blueprint };
+export default Vue.extend(blueprint);

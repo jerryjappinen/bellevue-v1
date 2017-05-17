@@ -29,10 +29,6 @@
 	// Child components
 	import Pic from '@components/snippets/Pic';
 
-	// Models
-	import Account from '@models/Account';
-	import Role from '@models/Role';
-
 
 
 	// NOTE
@@ -57,49 +53,12 @@
 
 		data: function () {
 			return {
-				httpTest: false,
 				notificationClearingSub: null,
 				notificationText: ''
 			};
 		},
 
 		computed: {
-
-			testRoleModel: function () {
-				return new Role({
-					propsData: {
-						id: 3
-					}
-				});
-			},
-
-			testRoleModel2: function () {
-				return new Role({
-					propsData: {
-						id: 128,
-						title: 'Foo'
-					}
-				});
-			},
-
-			testAccount: function () {
-				return new Account({
-					propsData: {
-						id: 900,
-						roleId: this.testRoleModel2.id,
-						email: 'esa@gmail.com',
-						name: 'Esa'
-					}
-				});
-			},
-
-			throttleDebug: function () {
-				return this.$throttle ? true : false;
-			},
-
-			httpDebug: function () {
-				return this.$http ? true : false;
-			},
 
 			notificationShouldBeVisible: function () {
 				if (_.isString(this.notificationText) && !_.isEmpty(this.notificationText)) {
@@ -127,18 +86,8 @@
 
 		methods: {
 
-			changeRoleId: function () {
-				this.testRoleModel2.id += 128;
-			},
-
 			clearNotificationText: function () {
 				this.notificationText = '';
-			},
-
-			onAccountTestClick: function () {
-				if (this.testAccount) {
-					this.testAccount.fetch(this.testAccount.id);
-				}
 			},
 
 			onCustomLinkClick: function () {
@@ -155,20 +104,6 @@
 				}
 			}
 
-		},
-
-		created: function (params) {
-			var vm = this;
-			if (this.httpDebug) {
-				this.$http.get('http://localhost:8888/app.js', {
-					params: {
-						id: 12345
-					}
-				}).then(function (response) {
-					vm.httpTest = response;
-					console.log(response);
-				});
-			}
 		}
 
 	};
@@ -189,25 +124,14 @@
 			- We can maybe write a workaround in an image component that can handle SVG sprites and other things without code duplication.
 		-->
 
-		<!--<p>{{ httpDebug }} {{ throttleDebug }}</p>-->
-
-		<p>Roles: {{ testRoleModel.sanitizedTitle }}; <strong @click="changeRoleId">{{ testRoleModel2.sanitizedTitle }} ({{ testRoleModel2.id }})</strong></p>
-
-		<p v-if="testAccount && testAccount.isValid" @click="onAccountTestClick">Click to fire failing request via <em>{{ testAccount.email }} (role ID: {{ testAccount.role.id }})</em></p>
-
 		<transition name="transition-fade">
 			<p v-if="notificationShouldBeVisible">{{ notificationText }}</p>
 		</transition>
 
+
+
 		<!-- References to static assets with resolved URLs -->
-		<p>
-			<img class="view-app-logo" alt="Foo" src="../assets/logo.png">
-			<img class="view-app-logo" alt="Foo" src="~@assets/logo.png">
-			<img class="view-app-logo" alt="Foo" src="~@assets/some/folder/anotherlogo.png">
-			<pic class="view-app-logo" title="Foo" src="some/folder/anotherlogo.png"></pic>
-			<pic class="view-app-logo" title="Foo" src="some/folder/anotherlogo.png" hide-until-loaded></pic>
-			Global counter value "{{ globalCounterValue }}" is maintained by Vuex.
-		</p>
+		<p><pic class="view-app-logo" title="Foo" src="some/folder/anotherlogo.png" hide-until-loaded></pic> Global counter value "{{ globalCounterValue }}" is maintained by Vuex.</p>
 
 
 

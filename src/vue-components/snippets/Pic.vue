@@ -20,7 +20,7 @@
 
 		// NOTE: not bothering with validation here since this is a lightweight wrapper component
 		props: [
-			'id',
+			'asset',
 			'src',
 			'hideUntilLoaded',
 			'title'
@@ -29,7 +29,7 @@
 		computed: {
 
 			useSvg: function () {
-				if (_.isString(this.id) && !_.isEmpty(this.id)) {
+				if (_.isString(this.asset) && !_.isEmpty(this.asset)) {
 					return true;
 				}
 				return false;
@@ -44,7 +44,7 @@
 <template>
 
 	<span class="view-pic">
-		<pic-svg v-if="useSvg" :id="id"></pic-svg>
+		<pic-svg v-if="useSvg" :asset="asset"></pic-svg>
 		<pic-img v-else :src="src" :title="title" :hideUntilLoaded="hideUntilLoaded"></pic-img>
 	</span>
 

@@ -77,6 +77,7 @@
 
 	.view-hello {
 
+		// Override child component styles
 		.view-counter-label,
 		.view-local-counter-label {
 			color: inherit;

@@ -52,6 +52,8 @@
 - `vue-meta`
 	1. Has issues with `keep-alive`
 	2. Parent component title will flicker when changing pages
+- The Stylelint extension for Visual Studio Code only lints `.css` and `.scss` files
+	- Linting via command line or webpack still works as expected even in `.vue` and `.html` files
 
 
 
@@ -173,7 +175,7 @@ See `README`.
 - `[vuex](http://vuex.vuejs.org/en/intro.html)` for state management
 	- Trivial counter app example: [jsfiddle.net/n9jmu5v7/341](https://jsfiddle.net/n9jmu5v7/341/)
 	- More complex example: https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart
-- Need to add `browserslist` in package.json
+- `browserslist` in package.json
 	- Used by Autoprefixer in PostCSS
 	- Can further be used by linters to warn for incompatible code
 - (S)CSS linting
@@ -188,6 +190,9 @@ See `README`.
 - Route-specific meta tag handling
 	- https://github.com/vuejs/awesome-vue#meta-tags
 	- Doesn't have to be a Vue-specific library
+- Separate business logic models as viewless Vue objects
+	- Simple to encapsulate non-view-specific business logic as objects (accounts, roles etc.)
+	- They also inherit plugins loaded into Vue
 
 
 ## Missing features

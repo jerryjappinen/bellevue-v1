@@ -5,7 +5,7 @@ import Vue from 'vue';
 // Models
 import Role from '@models/Role';
 
-export default Vue.extend({
+const blueprint = {
 
 	props: {
 
@@ -86,11 +86,11 @@ export default Vue.extend({
 			if (this.id !== data.id) {
 				this.id = data.id;
 			}
-			console.log('success', response);
+			// console.log('success', response);
 		},
 
 		onFetchFail: function (response) {
-			console.log('fail', response);
+			// console.log('fail', response);
 		},
 
 		fetch: function (id) {
@@ -107,8 +107,6 @@ export default Vue.extend({
 
 	created: function () {
 
-		window.a = this;
-
 		// If model is created with empty data but ID is available, automatically fetch the data
 		if (this.idIsValid && !this.name) {
 			this.fetch(this.id);
@@ -116,4 +114,7 @@ export default Vue.extend({
 
 	}
 
-});
+};
+
+export { blueprint };
+export default Vue.extend(blueprint);

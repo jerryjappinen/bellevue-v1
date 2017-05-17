@@ -37,6 +37,7 @@ module.exports = {
 	aliases: {
 
 		'@': 'src',
+		'@vendor': 'src/vendor',
 
 		'@assets': 'src/assets',
 		'@fonts': 'src/fonts',

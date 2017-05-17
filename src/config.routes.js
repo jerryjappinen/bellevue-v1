@@ -4,6 +4,7 @@
 // NOTE: could maybe use `require.context` to make this more dynamic
 import Hello from '@components/pages/Hello';
 import PageSomething from '@components/pages/PageSomething';
+import PageConsole from '@components/pages/PageConsole';
 
 export default [
 
@@ -17,6 +18,12 @@ export default [
 		path: '/arbit',
 		name: 'arbitrary',
 		component: PageSomething
+	},
+
+	{
+		path: '/console',
+		name: 'console',
+		component: PageConsole
 	}
 
 ];
