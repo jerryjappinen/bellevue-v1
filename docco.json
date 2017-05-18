@@ -1,0 +1,10 @@
+{
+	".vue": {
+		"name": "html",
+		"symbol": "(//)"
+	},
+	".html": {
+		"name": "html",
+		"symbol": "(//)"
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+    "target": "ES6",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true
+  },
+	"include": [
+		"src/**/*.js",
+		"src/**/*.vue"
+	]
+}

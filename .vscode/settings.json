@@ -26,21 +26,44 @@
         "*.stylelintrc": "json"
     },
 
+	// Vetur tooling
+	"vetur.format.scriptInitialIndent": true,
+	"vetur.format.styleInitialIndent": true,
+	"vetur.format.js.InsertSpaceBeforeFunctionParenthesis": true,
+	"vetur.validation.script": true,
+	"vetur.validation.style": true,
+
     // Emmet should be enabled on .vue files
     "emmet.syntaxProfiles": {
         "vue-html": "html",
         "vue": "html"
     },
 
+	"eslint.options": {
+		"extensions": [
+			".js",
+			".vue"
+		]
+	},
+
     // Settings for VS Code's ESLint extension
     "eslint.validate": [
 
         // Defaults
-        "javascript",
-        "javascriptreact",
+		{
+			"language": "javascript",
+			"autoFix": true
+		},
+		{
+			"language": "javascriptreact",
+			"autoFix": true
+		},
 
         // Inline HTML
-        "html",
+		{
+			"language": "html",
+			"autoFix": true
+		},
 
         // Should also go through .vue files
         "vue"

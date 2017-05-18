@@ -1,7 +1,7 @@
 
 // A simple running clock service
 import Vue from 'vue';
-import CurrentTime from '@vendor/current-time';
+import CurrentTime from '@vendor/CurrentTime';
 
 // Register plugin to Vue
 const Plugin = {
