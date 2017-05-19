@@ -16,7 +16,7 @@ const Plugin = {
 		});
 
 		// Expose as this.$clock in components and other Vue objects
-		Vue.prototype.$time = (new CurrentTime(options.updateInterval)).startTimer();
+		Vue.prototype.$clock = CurrentTime;
 
 	}
 };
@@ -25,8 +25,6 @@ const Plugin = {
 
 // Using the plugin
 
-Vue.use(Plugin, {
-	updateInterval: 1000
-});
+Vue.use(Plugin);
 
 export default Plugin;

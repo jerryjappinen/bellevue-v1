@@ -1,18 +1,5 @@
 
 /**
- * Test function that JSDoc should print docs for.
- *
- * @param: Just something that we check in order to print "Foo" instead of "Bar".
- * @returns {String}
- */
-function docTestFunction (foo) {
-	if (foo) {
-		return 'Foo';
-	}
-	return 'Bar';
-};
-
-/**
  * Service blueprint and exported object for the timer service.
  *
  * @name: CurrentTime

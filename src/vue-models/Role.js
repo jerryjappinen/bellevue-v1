@@ -17,16 +17,22 @@ const blueprint = {
 
 	},
 
-	data: function () {
-		return {
-			isPristine: true
-		};
-	},
+	// data: function () {
+	// 	return {
+	// 	};
+	// },
 
 	computed: {
 
+		idIsValid: function () {
+			if (typeof this.id === 'number' && this.id > -1) {
+				return true;
+			}
+			return false;
+		},
+
 		isValid: function () {
-			return this.id > -1;
+			return this.idIsValid;
 		},
 
 		sanitizedTitle: function () {
