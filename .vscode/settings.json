@@ -21,12 +21,15 @@
 
 	},
 
+	// Treat certain configuration files as JSON
 	"files.associations": {
+        "*.babelrc": "json",
+        "*.eslintrc": "json",
         "*.htmllintrc": "json",
         "*.stylelintrc": "json"
     },
 
-	// Vetur tooling
+	// Vetur tooling configuration
 	"vetur.format.scriptInitialIndent": true,
 	"vetur.format.styleInitialIndent": true,
 	"vetur.format.js.InsertSpaceBeforeFunctionParenthesis": true,
@@ -38,6 +41,11 @@
         "vue-html": "html",
         "vue": "html"
     },
+
+    // CSS linting with Stylelint extension
+    "stylelint.enable": true,
+    "css.validate": false,
+    "scss.validate": false,
 
 	"eslint.options": {
 		"extensions": [
@@ -69,11 +77,6 @@
         "vue"
 
     ],
-
-    // CSS
-    "stylelint.enable": true,
-    "css.validate": false,
-    "scss.validate": false,
 
 	// Project TODO/FIXME highlighting with plugin
 	// https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight
