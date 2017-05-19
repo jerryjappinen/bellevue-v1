@@ -33,27 +33,6 @@ module.exports = {
 	// FIXME: add platform-specific source files
 	appIconSourceFile: 'app-icon/app-icon.png',
 
-	// Aliases usable in codebase when doing imports and resolving URLs. From project root.
-	aliases: {
-
-		'@': 'src',
-		'@vendor': 'src/vendor',
-
-		'@assets': 'src/assets',
-		'@fonts': 'src/fonts',
-		'@svg': 'src/svg',
-
-		'@models': 'src/vue-models',
-		'@components': 'src/vue-components',
-		'@directives': 'src/vue-directives',
-		'@plugins': 'src/vue-plugins',
-
-		'@store': 'src/vuex-store',
-
-		'@styles': 'src/styles'
-
-	},
-
 	svgSpritePath: 'sprite.svg',
 
 	svgo: {

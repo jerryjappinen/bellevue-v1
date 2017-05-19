@@ -1,16 +1,15 @@
 
 var path = require('path')
 
-// Treat elements from custom project configuration
-var values = require('../src/config.js');
+// Get base custom project configuration values
+var values = require('../src/config.base.js');
+var aliases = require('../src/config.aliases.js');
 
 // Path helper
 // FIXME: duplicated from webpack.base.conf.js
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
-
 
 
 
@@ -32,10 +31,10 @@ var treated = {
 
 };
 
-// Treat aliases with resolve helper
+// Treat aliases with resolve helper and merge with other configuration
 // This will do '@styles': resolve('src/styles')
-for (var key in values.aliases) {
-  treated.customAliases[key] = resolve(values.aliases[key]);
+for (var key in aliases) {
+  treated.customAliases[key] = resolve(aliases[key]);
 }
 
 

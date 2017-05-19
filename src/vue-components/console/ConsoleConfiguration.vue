@@ -4,7 +4,7 @@
 	// import _ from 'lodash';
 
 	// Config
-	import customConfiguration from '@/config';
+	import customConfiguration from '@config';
 
 	export default {
 

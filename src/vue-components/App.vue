@@ -24,7 +24,7 @@
 	import _ from 'lodash';
 
 	// Config
-	import customConfiguration from '@/config';
+	import customConfiguration from '@config';
 
 	// Child components
 	import Pic from '@components/snippets/Pic';
