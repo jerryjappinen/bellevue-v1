@@ -248,7 +248,7 @@ $breakpoint-totally-ridiculous: 2480px;
 
 // Paragraph widths
 // NOTE
-// - These match the breakpoints in 1rem
+// - These match the breakpoints at 1rem
 // - By defining these separately, we will get em-based column widths that scale with the root font size
 $limit-tiny: (number($breakpoint-tiny) / number($font-size-default)) * 1em;
 $limit-small: (number($breakpoint-small) / number($font-size-default)) * 1em;

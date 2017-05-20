@@ -24,6 +24,8 @@
 		data: function () {
 			return {
 
+				controlsAreDisabled: false,
+
 				clickTestCallback: function () {
 					alert('Clicked on <click>');
 				},
@@ -41,6 +43,12 @@
 				return this.setTestValue + ' bar';
 			}
 
+		},
+
+		methods: {
+			toggleControlsDisabled: function () {
+				this.controlsAreDisabled = !this.controlsAreDisabled;
+			}
 		}
 
 	};
@@ -51,45 +59,53 @@
 
 	<div class="view-console-components">
 
-		<dl>
 
-			<dt>Images and static assets</dt>
+		<h3>Images and static assets</h3>
 
-			<!-- References to static assets with resolved URLs -->
-			<dd><img class="view-console-components-image" alt="Foo" src="../../assets/logo.png"> <code>img</code> with relative URL</dd>
-			<dd><img class="view-console-components-image" alt="Foo" src="~@assets/logo.png"> <code>img</code> with alias in URL</dd>
-			<dd><img class="view-console-components-image" alt="Foo" src="~@assets/some/folder/anotherlogo.png"> <code>img</code> in a subdirectory</dd>
-			<dd><pic class="view-console-components-image" title="Foo" src="some/folder/anotherlogo.png"></pic> <code>pic</code> with a PNG</dd>
-			<dd><pic class="view-console-components-image" title="Foo" src="some/folder/anotherlogo.png" hide-until-loaded></pic> <code>pic</code> with a PNG, hidden until loaded</dd>
-			<dd><pic class="view-console-components-image" asset="chevron-down"></pic> <code>pic</code> with an SVG</dd>
-			<dd><icon asset="chevron-down"></icon> <code>icon</code></dd>
+		<!-- References to static assets with resolved URLs -->
+		<ul>
+			<li><img class="view-console-components-image" alt="Foo" src="../../assets/logo.png"> <code>img</code> with relative URL</li>
+			<li><img class="view-console-components-image" alt="Foo" src="~@assets/logo.png"> <code>img</code> with alias in URL</li>
+			<li><img class="view-console-components-image" alt="Foo" src="~@assets/some/folder/anotherlogo.png"> <code>img</code> in a subdirectory</li>
+			<li><pic class="view-console-components-image" title="Foo" src="some/folder/anotherlogo.png"></pic> <code>pic</code> with a PNG</li>
+			<li><pic class="view-console-components-image" title="Foo" src="some/folder/anotherlogo.png" hide-until-loaded></pic> <code>pic</code> with a PNG, hidden until loaded</li>
+			<li><pic class="view-console-components-image" asset="chevron-down"></pic> <code>pic</code> with an SVG</li>
+			<li><icon asset="chevron-down"></icon> <code>icon</code></li>
+		</ul>
 
-			<dt>Spinner</dt>
 
-			<!-- Spinners of various styles -->
-			<dd><spinner class="view-console-components-spinner-1"></spinner></dd>
-			<dd><spinner class="view-console-components-spinner-2"></spinner></dd>
 
-		</dl>
+		<h3>Spinner</h3>
+
+		<!-- Spinners of various styles -->
+		<ul>
+			<li><spinner class="view-console-components-spinner-1"></spinner></li>
+			<li><spinner class="view-console-components-spinner-2"></spinner></li>
+		</ul>
+
+
 
 		<h3>Controls</h3>
 
+		<p><button class="button" @click="toggleControlsDisabled">Disable/enable controls</button> ({{ controlsAreDisabled }})</p>
+
+		<!-- Testing barebones control components -->
 		<table class="view-console-components-controls">
 			<tr>
 				<td class="pad">Click</td>
-				<td><click class="pad" :callback="clickTestCallback">Click me</click></td>
+				<td><click class="pad" :callback="clickTestCallback" :disabled="controlsAreDisabled">Click me</click></td>
 			</tr>
 			<tr>
 				<td class="pad">Set to bar</td>
-				<td><set class="pad" v-model="setTestValue" to="Bar">{{ setTestValue }}</set></td>
+				<td><set class="pad" v-model="setTestValue" to="Bar" :disabled="controlsAreDisabled">{{ setTestValue }}</set></td>
 			</tr>
 			<tr>
 				<td class="pad">Set to original + bar dynamically</td>
-				<td><set class="pad" v-model="setTestValue" :to="setTestTargetValue">{{ setTestValue }}</set></td>
+				<td><set class="pad" v-model="setTestValue" :to="setTestTargetValue" :disabled="controlsAreDisabled">{{ setTestValue }}</set></td>
 			</tr>
 			<tr>
 				<td class="pad">Toggle</td>
-				<td><toggle class="pad" v-model="toggleTestValue">{{ toggleTestValue }}</toggle></td>
+				<td><toggle class="pad" v-model="toggleTestValue" :disabled="controlsAreDisabled">{{ toggleTestValue }}</toggle></td>
 			</tr>
 		</table>
 

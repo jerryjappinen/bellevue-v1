@@ -28,12 +28,22 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 
 		data: function () {
 			return {
-				ownValue: this.value,
 				defaultValue: true
 			};
 		},
 
 		computed: {
+
+			// Writable computed
+			// NOTE: This guy handles emitting out of component scope, which makes 2-way binding work
+			ownValue: {
+				get: function () {
+					return this.value;
+				},
+				set: function (value) {
+					this.$emit('input', value);
+				}
+			},
 
 			targetValue: function () {
 				if (!_.isUndefined(this.to)) {
@@ -43,7 +53,7 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 			},
 
 			isOn: function () {
-				return this.ownValue === this.to ? true : false;
+				return this.value === this.to ? true : false;
 			},
 
 			classes: function () {
@@ -59,15 +69,9 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 
 		methods: {
 
-			set: function () {
-				this.ownValue = this.targetValue;
-				this.$emit('input', this.ownValue);
-				return this;
-			},
-
 			onClick: function () {
 				if (!this.disabled) {
-					this.set();
+					this.ownValue = this.targetValue;
 				}
 				return this;
 			}
