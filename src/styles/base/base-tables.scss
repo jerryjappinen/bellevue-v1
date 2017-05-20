@@ -1,0 +1,14 @@
+
+table {
+
+	&.separate {
+
+		td,
+		th {
+			border-width: 1px;
+			@include pad;
+		}
+
+	}
+
+}

@@ -39,7 +39,7 @@
 
 		<h1>Debug {{ title }}</h1>
 
-		<ul>
+		<ul class="inline-block">
 			<li><router-link :to="{ name: 'console' }" >Components</router-link></li>
 			<!--<li><router-link :to="{ name: 'consoleComponents' }" >Components</router-link></li>-->
 			<li><router-link :to="{ name: 'consoleConfiguration' }" >Configuration</router-link></li>

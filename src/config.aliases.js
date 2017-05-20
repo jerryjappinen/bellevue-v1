@@ -13,6 +13,7 @@ module.exports = {
 
 	// Vendor code and utilities
 	// NOTE: do we need to separate between @vendor and @util?
+	'@util': 'src/util',
 	'@vendor': 'src/vendor',
 
 	// Assets

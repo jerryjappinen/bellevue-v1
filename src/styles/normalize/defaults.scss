@@ -149,8 +149,8 @@ a {
 		text-decoration: underline;
 	}
 
-	transition-property: transform, opacity, color, background-color, border-color, box-shadow, text-shadow;
-	@include transition-hover;
+	@include transition-common-properties;
+	@include transition-hover-active;
 }
 
 svg,

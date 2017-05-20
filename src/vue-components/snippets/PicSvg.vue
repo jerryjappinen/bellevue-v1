@@ -45,11 +45,6 @@
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared.scss';
-
-	.view-pic-svg {
-		width: 1em;
-		height: 1em;
-	}
-
+	// @import '~@styles/shared.scss';
+	// .view-pic-svg {}
 </style>

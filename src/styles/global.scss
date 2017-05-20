@@ -28,8 +28,8 @@
 // Base CSS
 
 // Normalizing defaults
-@import '~@styles/normalize/defaults';
 @import '~@styles/normalize/normalize';
+@import '~@styles/normalize/defaults';
 
 // Global base styling
 @import '~@styles/base/base-code';
@@ -39,5 +39,6 @@
 @import '~@styles/base/base-links';
 @import '~@styles/base/base-lists';
 @import '~@styles/base/base-rhythm';
+@import '~@styles/base/base-tables';
 @import '~@styles/base/base-tooltips'; // FIXME: should be Vue component/directive?
 @import '~@styles/base/base-typography';

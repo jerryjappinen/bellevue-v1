@@ -24,7 +24,7 @@
 
 <template>
 
-	<table class="view-console-configuration">
+	<table class="view-console-configuration separate">
 		<tr v-for="(value, key) in configurationValues">
 			<th scope="row">{{ key }}</th>
 			<td><pre><code>{{ JSON.stringify(value, null, 2) }}</code></pre></td>
@@ -34,15 +34,6 @@
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared.scss';
-
-	.view-console-configuration {
-		td,
-		th {
-			border-width: 1px;
-			border-color: $color-lightgrey;
-			@include pad;
-		}
-	}
-
+	// @import '~@styles/shared.scss';
+	// .view-console-configuration {}
 </style>

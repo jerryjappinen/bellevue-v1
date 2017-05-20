@@ -22,6 +22,9 @@ module.exports = function (config) {
       // Required to suppress issue with ES6 Promise polyfill missing in PhantomJS
       '../../node_modules/babel-polyfill/dist/polyfill.js',
 
+      // Required to suppress weird issues when constructing new instances of objects
+      '../../node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
+
       './index.js'
     ],
     preprocessors: {

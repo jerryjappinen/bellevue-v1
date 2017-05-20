@@ -44,6 +44,26 @@
 
 
 
+// Standard property sets
+
+@mixin transition-common-properties {
+	transition-property: transform, opacity, color, background-color, border-color, box-shadow, text-shadow;
+}
+
+@mixin transition-style-properties {
+	transition-property: transform, opacity, color, background-color, border-color, box-shadow, text-shadow;
+}
+
+@mixin transition-transform-properties {
+	transition-property: transform, width, height;
+}
+
+@mixin transition-position-properties {
+	transition-property: transform, top, bottom, left, right;
+}
+
+
+
 // Per pseudo class
 
 @mixin transition-hover {
@@ -56,6 +76,15 @@
 
 @mixin transition-active {
 	transition-duration: $transition-slow;
+	&:active {
+		transition-duration: $transition-fast;
+	}
+}
+
+@mixin transition-hover-active {
+	transition-duration: $transition-slow;
+	&:focus,
+	&:hover,
 	&:active {
 		transition-duration: $transition-fast;
 	}
