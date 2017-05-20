@@ -4,12 +4,12 @@
 
 
 
-// Hermes brand
-$color-hermes-red: #f8453c;
-$color-hermes-orange: #fa8400;
-$color-hermes-yellow: #fabc00;
-$color-hermes-green: #70ca63;
-$color-hermes-blue: #00baf8;
+// Brand colors
+$color-brand-red: #f8453c;
+$color-brand-orange: #fa8400;
+$color-brand-yellow: #fabc00;
+$color-brand-green: #70ca63;
+$color-brand-blue: #00baf8;
 
 
 
@@ -54,16 +54,16 @@ $color-black-hint: color-translucent($color-black, 0.1);
 
 // Colors
 // Fixme: missing standard variations (translucent, light and dark tints)
-$color-red: $color-hermes-red;
+$color-red: $color-brand-red;
 $color-red-hint: color-translucent($color-red);
 
-$color-orange: $color-hermes-orange;
+$color-orange: $color-brand-orange;
 
-$color-yellow: $color-hermes-yellow;
+$color-yellow: $color-brand-yellow;
 
-$color-blue: $color-hermes-blue;
+$color-blue: $color-brand-blue;
 
-$color-green: $color-hermes-green;
+$color-green: $color-brand-green;
 $color-green-hint: color-translucent($color-green);
 
 
