@@ -48,7 +48,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 
 <template>
 	<div class="view-radio" :class="classes">
-		<div class="view-radio-bullet"></div>
+		<div class="view-radio-knob"></div>
 	</div>
 </template>
 
@@ -56,7 +56,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 	@import '~@styles/shared.scss';
 
 	.view-radio,
-	.view-radio-icon {
+	.view-radio-knob {
 		@include transition-fast;
 		@include transition-properties-common;
 	}
@@ -79,7 +79,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 		background-color: $color-white;
 	}
 
-	.view-radio-bullet {
+	.view-radio-knob {
 		position: absolute;
 		top: 0.2em;
 		left: 0.2em;
@@ -103,7 +103,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 	.view-radio-on {
 		border-color: $color-green;
 
-		.view-radio-bullet {
+		.view-radio-knob {
 			opacity: 1;
 			transform: scale(1);
 		}
