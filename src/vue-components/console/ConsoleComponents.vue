@@ -10,6 +10,8 @@
 	import Toggle from '@components/controls/Toggle';
 
 	import Checkbox from '@components/forms/Checkbox';
+	import Flipswitch from '@components/forms/Flipswitch';
+	import Radio from '@components/forms/Radio';
 
 	export default {
 
@@ -22,7 +24,9 @@
 			Click: Click,
 			Set: Set,
 			Toggle: Toggle,
-			Checkbox: Checkbox
+			Checkbox: Checkbox,
+			Flipswitch: Flipswitch,
+			Radio: Radio
 		},
 
 		data: function () {
@@ -97,22 +101,40 @@
 		<!-- Testing barebones control components -->
 		<table class="view-console-components-controls">
 			<tr>
-				<td colspan="2" class="pad">Click</td>
+				<td class="pad">Click</td>
 				<td><click class="pad" :callback="clickTestCallback" :disabled="controlsAreDisabled">Click me</click></td>
 			</tr>
 			<tr>
 				<td class="pad">Set to bar</td>
-				<td><checkbox :value="setTestValue === 'Bar'" :disabled="controlsAreDisabled"></checkbox></td>
-				<td><set class="pad" v-model="setTestValue" to="Bar" :disabled="controlsAreDisabled">{{ setTestValue }}</set></td>
+				<td>
+					<set class="pad" v-model="setTestValue" to="bar" :disabled="controlsAreDisabled">
+						<checkbox :value="setTestValue === 'bar'" :disabled="controlsAreDisabled"></checkbox>
+						<flipswitch :value="setTestValue === 'bar'" :disabled="controlsAreDisabled"></flipswitch>
+						{{ setTestValue }}
+					</set>
+				</td>
 			</tr>
 			<tr>
-				<td colspan="2" class="pad">Set to original + bar dynamically</td>
-				<td><set class="pad" v-model="setTestValue" :to="setTestTargetValue" :disabled="controlsAreDisabled">{{ setTestValue }}</set></td>
+				<td class="pad">Set to + bar (dynamic)</td>
+				<td>
+					<set class="pad" v-model="setTestValue" :to="setTestTargetValue" :disabled="controlsAreDisabled">
+						<radio :value="setTestValue" selected-on="foo" :disabled="controlsAreDisabled"></radio>
+						<radio :value="setTestValue" selected-on="bar" :disabled="controlsAreDisabled"></radio>
+						<radio :value="setTestValue" selected-on="foo bar" :disabled="controlsAreDisabled"></radio>
+						<radio :value="setTestValue" selected-on="bar bar" :disabled="controlsAreDisabled"></radio>
+						{{ setTestValue }}
+					</set>
+				</td>
 			</tr>
 			<tr>
 				<td class="pad">Toggle</td>
-				<td><checkbox :value="toggleTestValue" :disabled="controlsAreDisabled"></checkbox></td>
-				<td><toggle class="pad" v-model="toggleTestValue" :disabled="controlsAreDisabled">{{ toggleTestValue }}</toggle></td>
+				<td>
+					<toggle class="pad" v-model="toggleTestValue" :disabled="controlsAreDisabled">
+						<checkbox :value="toggleTestValue" :disabled="controlsAreDisabled"></checkbox>
+						<flipswitch :value="toggleTestValue" :disabled="controlsAreDisabled"></flipswitch>
+						{{ toggleTestValue }}
+					</toggle>
+				</td>
 			</tr>
 		</table>
 

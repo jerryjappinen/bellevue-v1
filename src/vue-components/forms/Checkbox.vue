@@ -59,6 +59,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 	@import '~@styles/shared.scss';
 
 	$checkbox-content-area: 0.8em;
+	$checkbox-padding: 0.2em;
 
 	.view-checkbox,
 	.view-checkbox-icon {
@@ -73,7 +74,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 
 		width: $checkbox-content-area;
 		height: $checkbox-content-area;
-		padding: 0.2em;
+		padding: $checkbox-padding;
 
 		vertical-align: middle;
 		@include radius-tight;
