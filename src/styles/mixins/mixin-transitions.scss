@@ -47,20 +47,24 @@
 // Standard property sets
 // FIXME: accept parameters that are appended to the end of list
 
+@mixin transition-properties ($properties) {
+	transition-property: $properties;
+}
+
 @mixin transition-properties-common {
-	transition-property: $transition-properties-common;
+	@include transition-properties($transition-properties-common);
 }
 
 @mixin transition-properties-style {
-	transition-property: $transition-properties-style;
+	@include transition-properties($transition-properties-style);
 }
 
 @mixin transition-properties-transform {
-	transition-property: $transition-properties-transform;
+	@include transition-properties($transition-properties-transform);
 }
 
 @mixin transition-properties-position {
-	transition-property: $transition-properties-position;
+	@include transition-properties($transition-properties-position);
 }
 
 
@@ -93,7 +97,7 @@
 
 
 
-// No
+// No transition
 
 @mixin no-transition {
 	transition-duration: 0ms;
