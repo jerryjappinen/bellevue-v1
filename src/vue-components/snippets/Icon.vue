@@ -1,8 +1,11 @@
 
-<script>
+<!--
+SVG component specifically meant for icons
 
-	// Utilities
-	import util from '@util';
+More coloring and stacking etc. options will be added in the future
+-->
+
+<script>
 
 	// Child components
 	import PicSvg from '@components/snippets/PicSvg';
@@ -17,22 +20,14 @@
 
 		// NOTE: not bothering with validation here since
 		// - asset is just passed to child component
-		// - mono is just checked for truthyness
 		props: [
 			'asset',
-			'mono'
+			'title'
 		],
 
 		computed: {
 
-			classes: function () {
-
-				// FIXME: we should write a directive that does this automatically
-				return util.dom.composeClassnames({
-					'mono': true
-				}, 'view-icon');
-
-			}
+			// classes: function () {}
 
 		}
 
@@ -42,7 +37,7 @@
 
 <template>
 
-	<pic-svg class="view-icon" :class="classes" :asset="asset"></pic-svg>
+	<pic-svg class="view-icon" :asset="asset"></pic-svg>
 
 </template>
 
@@ -51,10 +46,6 @@
 	.view-icon {
 		width: 1em;
 		height: 1em;
-	}
-
-	.view-icon-mono {
-		fill: currentColor;
 	}
 
 </style>

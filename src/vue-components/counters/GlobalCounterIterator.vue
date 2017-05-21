@@ -2,7 +2,7 @@
 <script>
 
 	// Child components
-	import Pic from '@components/snippets/Pic';
+	import Icon from '@components/snippets/Icon';
 
 	// View model
 	export default {
@@ -10,7 +10,7 @@
 		name: 'global-counter-iterator',
 
 		components: {
-			Pic: Pic
+			Icon: Icon
 		},
 
 		props: {
@@ -69,7 +69,7 @@
 
 		<!-- When user can increment/decrement further and button is enabled -->
 		<span v-if="canOperate">
-			<button class="view-global-counter-iterator-button button" @click="onClick">Click me <pic :asset="iconId" :title="'Click to ' + label"></pic></button> to <em>{{ label }}</em> the counter in the global state.
+			<button class="view-global-counter-iterator-button button" @click="onClick">Click me <icon :asset="iconId" :title="'Click to ' + label"></icon></button> to <em>{{ label }}</em> the counter in the global state.
 		</span>
 
 		<!-- When button is disabled -->

@@ -44,6 +44,12 @@
 
 		computed: {
 
+			renderedTitle: function () {
+				return _.isString(this.title) ? _.trim(this.title) : '';
+			},
+
+
+
 			// Path handling
 
 			// FIXME: quick hack
@@ -76,10 +82,6 @@
 
 			isActuallyHidden: function () {
 				return this.canBeHidden && this.isHidden;
-			},
-
-			renderedTitle: function () {
-				return _.isString(this.title) ? _.trim(this.title) : '';
 			},
 
 

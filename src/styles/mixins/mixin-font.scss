@@ -1,5 +1,5 @@
 
-@mixin font-face ($font-family, $font-weight, $font-style, $filepath, $woffdata: false, $woff2data: false) {
+@mixin font-face ($font-family, $font-weight, $font-style, $filepath, $woffdata: null, $woff2data: null) {
 
 	@font-face {
 		font-family: $font-family;

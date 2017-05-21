@@ -35,9 +35,7 @@ $color-whatsapp: #25d366;
 
 // Greyscale
 $color-white: #fff;
-
 $color-verylightgrey: #f7f9f9;
-
 $color-lightgrey: #dbe5e8;
 
 $color-grey: #a5b2b6;
@@ -45,6 +43,7 @@ $color-grey-hint: color-translucent($color-grey, 0.4);
 
 $color-dark: #0f4d62;
 $color-dark-hue: color-darker($color-dark);
+
 $color-dark-translucent: color-translucent($color-dark, 0.15); // same as verylightgrey on white
 
 $color-black: #000;
@@ -56,13 +55,9 @@ $color-black-hint: color-translucent($color-black, 0.1);
 // Fixme: missing standard variations (translucent, light and dark tints)
 $color-red: $color-brand-red;
 $color-red-hint: color-translucent($color-red);
-
 $color-orange: $color-brand-orange;
-
 $color-yellow: $color-brand-yellow;
-
 $color-blue: $color-brand-blue;
-
 $color-green: $color-brand-green;
 $color-green-hint: color-translucent($color-green);
 
@@ -193,6 +188,12 @@ $transition-slow: 450ms;
 $transition-slowish: 600ms;
 $transition-veryslow: 900ms;
 $transition-veryveryslow: 1200ms;
+
+// Transition property sets
+$transition-properties-style: opacity, color, background-color, border-color, box-shadow, text-shadow;
+$transition-properties-common: transform, $transition-properties-style;
+$transition-properties-transform: transform, width, height;
+$transition-properties-position: transform, top, bottom, left, right;
 
 // Easing functions
 $easing-ease: ease;

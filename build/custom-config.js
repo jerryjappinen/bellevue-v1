@@ -18,7 +18,6 @@ var treated = {
 
 	// No action needed
 	meta: Object.assign({}, values.meta),
-	svgoOptions: Object.assign({}, values.svgo),
 	svgSpritePath: values.svgSpritePath,
 
 	// Prefix some paths with src
@@ -30,6 +29,17 @@ var treated = {
 	}
 
 };
+
+// SVGO wants its configuration values in a really weird format
+// https://github.com/karify/external-svg-sprite-loader/blob/master/index.js
+treated.svgo = {
+	plugins: []
+};
+for (var key in values.svgo) {
+	var item = {};
+	item[key] = values.svgo[key];
+	treated.svgo.plugins.push(item);
+}
 
 // Treat aliases with resolve helper and merge with other configuration
 // This will do '@styles': resolve('src/styles')

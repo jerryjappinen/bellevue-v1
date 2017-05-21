@@ -97,7 +97,7 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 
 	.view-toggle {
 		@include transition-hover-active;
-		@include transition-common-properties;
+		@include transition-properties-common;
 	}
 
 	.view-toggle-enabled {

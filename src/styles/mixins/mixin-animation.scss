@@ -1,5 +1,5 @@
 
-@mixin animation ($name, $duration: $transition-veryveryslow, $easing: false, $count: infinite, $direction: normal) {
+@mixin animation ($name, $duration: $transition-veryveryslow, $easing: null, $count: infinite, $direction: normal) {
 	animation-name: $name;
 	animation-duration: $duration;
 	animation-iteration-count: $count;
@@ -17,11 +17,11 @@
 
 }
 
-@mixin animation-alternate ($name, $duration: $transition-veryveryslow, $easing: false, $count: infinite) {
+@mixin animation-alternate ($name, $duration: $transition-veryveryslow, $easing: null, $count: infinite) {
 	@include animation($name, $duration, $easing, $count, alternate);
 }
 
-@mixin animation-once ($name, $duration: $transition-veryveryslow, $easing: false) {
+@mixin animation-once ($name, $duration: $transition-veryveryslow, $easing: null) {
 	@include animation($name, $duration, $easing, 1);
 }
 

@@ -5,7 +5,7 @@
 
 // Produce push utility classes
 
-@mixin toolchain-utility-push ($suffix: false) {
+@mixin toolchain-utility-push ($suffix: null) {
 
 	@if $suffix {
 		$suffix: "-#{$suffix}";

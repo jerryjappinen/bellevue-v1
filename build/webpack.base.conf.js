@@ -109,13 +109,13 @@ module.exports = {
 				test: /\.svg$/,
 				use: [
 
-					// https://github.com/kisenka/svg-sprite-loader
+					// https://www.npmjs.com/package/external-svg-sprite-loader
 					{
 						loader: 'external-svg-sprite-loader',
 						options: {
 							name: customConfiguration.svgSpritePath,
 							iconName: '[name]',
-							svgoOptions: customConfiguration.svgoOptions
+							svgoOptions: customConfiguration.svgo
 						}
 					}
 

@@ -3,7 +3,7 @@
 
 // NOTE: should be auto generated based on transition variables
 
-@mixin transition ($duration, $properties: false) {
+@mixin transition ($duration, $properties: null) {
 	transition-duration: $duration;
 
 	@if $properties {
@@ -14,52 +14,53 @@
 
 // Per transition durations
 
-@mixin transition-veryveryfast ($properties) {
+@mixin transition-veryveryfast ($properties: null) {
 	@include transition($transition-veryveryfast, $properties);
 }
 
-@mixin transition-veryfast ($properties) {
+@mixin transition-veryfast ($properties: null) {
 	@include transition($transition-veryfast, $properties);
 }
 
-@mixin transition-fast ($properties) {
+@mixin transition-fast ($properties: null) {
 	@include transition($transition-fast, $properties);
 }
 
-@mixin transition-medium ($properties) {
+@mixin transition-medium ($properties: null) {
 	@include transition($transition-medium, $properties);
 }
 
-@mixin transition-slow ($properties) {
+@mixin transition-slow ($properties: null) {
 	@include transition($transition-slow, $properties);
 }
 
-@mixin transition-veryslow ($properties) {
+@mixin transition-veryslow ($properties: null) {
 	@include transition($transition-veryslow, $properties);
 }
 
-@mixin transition-veryveryslow ($properties) {
+@mixin transition-veryveryslow ($properties: null) {
 	@include transition($transition-veryveryslow, $properties);
 }
 
 
 
 // Standard property sets
+// FIXME: accept parameters that are appended to the end of list
 
-@mixin transition-common-properties {
-	transition-property: transform, opacity, color, background-color, border-color, box-shadow, text-shadow;
+@mixin transition-properties-common {
+	transition-property: $transition-properties-common;
 }
 
-@mixin transition-style-properties {
-	transition-property: transform, opacity, color, background-color, border-color, box-shadow, text-shadow;
+@mixin transition-properties-style {
+	transition-property: $transition-properties-style;
 }
 
-@mixin transition-transform-properties {
-	transition-property: transform, width, height;
+@mixin transition-properties-transform {
+	transition-property: $transition-properties-transform;
 }
 
-@mixin transition-position-properties {
-	transition-property: transform, top, bottom, left, right;
+@mixin transition-properties-position {
+	transition-property: $transition-properties-position;
 }
 
 

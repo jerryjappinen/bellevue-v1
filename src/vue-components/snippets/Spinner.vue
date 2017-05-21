@@ -60,7 +60,12 @@
 
 <template>
 
-	<svg class="view-spinner" :viewBox="viewBox" :width="this.width + 'px'" :height="this.width + 'px'">
+	<svg class="view-spinner"
+		role="img"
+		title="Loading..."
+		:viewBox="viewBox"
+		:width="this.width + 'px'"
+		:height="this.width + 'px'">
 		<circle class="view-spinner-circle"
 			:cx="circlePosition"
 			:cy="circlePosition"

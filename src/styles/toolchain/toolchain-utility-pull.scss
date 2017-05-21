@@ -5,7 +5,7 @@
 
 // Produce pull utility classes
 
-@mixin toolchain-utility-pull ($suffix: false) {
+@mixin toolchain-utility-pull ($suffix: null) {
 
 	@if $suffix {
 		$suffix: "-#{$suffix}";

@@ -91,7 +91,7 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 
 	.view-set {
 		@include transition-hover-active;
-		@include transition-common-properties;
+		@include transition-properties-common;
 	}
 
 	.view-set-enabled {

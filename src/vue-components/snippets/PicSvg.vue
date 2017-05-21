@@ -1,6 +1,9 @@
 
 <script>
 
+	// Custom utils
+	import util from '@util';
+
 	export default {
 
 		name: 'pic-svg',
@@ -11,11 +14,30 @@
 			asset: {
 				type: String,
 				required: false
+			},
+
+			title: {
+				type: String,
+				required: false
 			}
 
 		},
 
 		computed: {
+
+			renderedTitle: function () {
+				if (this.title) {
+					var title = util.string.trimWhitespace(this.title);
+					if (title.length < 0) {
+						return title;
+					}
+				}
+				return null;
+			},
+
+			ariaHiddenValue: function () {
+				return this.renderedTitle ? 'false' : 'true';
+			},
 
 			// https://www.npmjs.com/package/external-svg-sprite-loader
 			svgElement: function () {
@@ -38,7 +60,8 @@
 
 <template>
 
-	<svg class="view-pic-svg" :viewBox="svgViewBox">
+	<svg class="view-pic-svg" role="img" :viewBox="svgViewBox" :aria-hidden="ariaHiddenValue">
+		<title v-if="renderedTitle">{{ renderedTitle }}</title>
 		<use :xlink:href="svgPath"></use>
 	</svg>
 

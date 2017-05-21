@@ -149,7 +149,7 @@ a {
 		text-decoration: underline;
 	}
 
-	@include transition-common-properties;
+	@include transition-properties-common;
 	@include transition-hover-active;
 }
 
