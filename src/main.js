@@ -9,17 +9,22 @@ import 'es6-promise/auto';
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 
-// Set configuration options for Vue
-Vue.config.productionTip = false;
+// Our custom configuration
+import config from '@config';
+
+// Some of these plugins load themselves automatically, some are injected below
+import plugins from '@plugins';
+
+// Other Vue elements
+import directives from '@directives';
+import components from '@components';
+import { global as globalMixins } from '@mixins';
 
 
 
 // Register all directives and components on the top level
 // The alternative is to declare specific directives or the child components in each component manually.
 // This would lead to a lot of boilerplate code that easily gets out of date, and makes it impossible to use dynamic components.
-
-import directives from '@directives';
-import components from '@components';
 
 (function (registrees) {
 	for (var type in registrees) {
@@ -40,8 +45,6 @@ import components from '@components';
 
 // Register global mixins
 
-import { global as globalMixins } from '@mixins';
-
 (function (mixins) {
 	for (var key in mixins) {
 		Vue.mixin(mixins[key]);
@@ -50,11 +53,8 @@ import { global as globalMixins } from '@mixins';
 
 
 
-// Some of these plugins load themselves automatically, some are injected below
-import plugins from '@plugins';
-
-// Our custom configuration
-import config from '@config';
+// Set configuration options for Vue
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
