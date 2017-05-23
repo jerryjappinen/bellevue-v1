@@ -5,8 +5,8 @@ import Vue from 'vue';
 import VueMeta from 'vue-meta';
 
 // Import route components for vue-router
-import customConfig from '@config';
+import config from '@config';
 
-Vue.use(VueMeta, customConfig.metaConfig);
+Vue.use(VueMeta, config.metaConfig);
 
 export default VueMeta;

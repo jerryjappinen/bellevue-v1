@@ -2,16 +2,16 @@
 // Configuration for vue-router
 // NOTE: This is in a separate file, because pipeline has to already work for the imports
 // NOTE: could maybe use `require.context` to make this more dynamic
-import Hello from '@components/pages/Hello';
-import PageSomething from '@components/pages/PageSomething';
-import PageConsole from '@components/pages/PageConsole';
-
-// Subviews within pages
-import ConsoleComponents from '@components/console/ConsoleComponents';
-import ConsoleConfiguration from '@components/console/ConsoleConfiguration';
-import ConsoleModels from '@components/console/ConsoleModels';
-import ConsolePlugins from '@components/console/ConsolePlugins';
-import ConsoleServices from '@components/console/ConsoleServices';
+import {
+	Hello,
+	PageSomething,
+	PageConsole,
+	ConsoleComponents,
+	ConsoleConfiguration,
+	ConsoleModels,
+	ConsolePlugins,
+	ConsoleServices
+} from '@components';
 
 export default [
 

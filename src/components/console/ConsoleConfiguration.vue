@@ -4,7 +4,7 @@
 	// import _ from 'lodash';
 
 	// Config
-	import customConfiguration from '@config';
+	import config from '@config';
 
 	export default {
 
@@ -13,7 +13,7 @@
 		computed: {
 
 			configurationValues: function () {
-				return customConfiguration;
+				return config;
 			}
 
 		}

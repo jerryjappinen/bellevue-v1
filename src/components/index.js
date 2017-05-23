@@ -39,6 +39,42 @@ import PicImg from './snippets/PicImg';
 import PicSvg from './snippets/PicSvg';
 import Spinner from './snippets/Spinner';
 
+export {
+
+	App,
+
+	ConsoleComponents,
+	ConsoleConfiguration,
+	ConsoleModels,
+	ConsolePlugins,
+	ConsoleServices,
+
+	Click,
+	Set,
+	Toggle,
+
+	Counter,
+	GlobalCounterIterator,
+	LocalCounter,
+
+	Checkbox,
+	Flipswitch,
+	Radio,
+
+	Popover,
+
+	Hello,
+	PageConsole,
+	PageSomething,
+
+	Icon,
+	Pic,
+	PicImg,
+	PicSvg,
+	Spinner
+
+};
+
 export default {
 
 	App,

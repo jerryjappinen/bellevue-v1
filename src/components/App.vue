@@ -27,7 +27,7 @@
 	import { network, popovers } from '@services';
 
 	// Config
-	import customConfiguration from '@config';
+	import config from '@config';
 
 
 
@@ -49,7 +49,7 @@
 			// - route names shouldn't be used in the UI like this
 			// - BUT: we could use them as keys, as this should go through localisation anyway
 			return {
-				title: this.$route.name + ' – ' + customConfiguration.meta.title
+				title: this.$route.name + ' – ' + config.meta.title
 			};
 
 		},
