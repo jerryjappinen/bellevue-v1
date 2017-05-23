@@ -7,25 +7,10 @@
 	import util from '@util';
 
 	// Services
-	import {
-		popovers as popoverService,
-		viewport as viewportService
-	} from '@services';
-
-	// Child components
-	//
-	// FIXME
-	// - I have to explicitly import each component supported in this context
-	// - Actually want to be able to include any component dynamically
-	// - Is the only answer registering all components globally?
-	import ConsoleConfiguration from '@components/console/ConsoleConfiguration';
+	import { popovers, viewport } from '@services';
 
 	export default {
 		name: 'popover',
-
-		components: {
-			ConsoleConfiguration: ConsoleConfiguration
-		},
 
 		data: function () {
 			return {
@@ -37,7 +22,7 @@
 		computed: {
 
 			component: function () {
-				return popoverService.component;
+				return popovers.component;
 			},
 
 			key: function () {
@@ -45,11 +30,11 @@
 			},
 
 			inPlaceTarget: function () {
-				return popoverService.inPlaceTarget;
+				return popovers.inPlaceTarget;
 			},
 
 			inPlaceTargetBox: function () {
-				return popoverService.inPlaceTargetBox;
+				return popovers.inPlaceTargetBox;
 			},
 
 			targetCoordinates: _.throttle(function () {
@@ -66,8 +51,8 @@
 				return this.targetCoordinates &&
 					_.isNumber(this.targetCoordinates.x) &&
 					_.isNumber(this.targetCoordinates.y) &&
-					viewportService.width > this.inPlaceMinViewportWidth &&
-					viewportService.height > this.inPlaceMinViewportHeight
+					viewport.width > this.inPlaceMinViewportWidth &&
+					viewport.height > this.inPlaceMinViewportHeight
 						? true
 						: false;
 			},
@@ -103,7 +88,7 @@
 			},
 
 			close: function () {
-				popoverService.close();
+				popovers.close();
 			},
 
 			onClick: function () {

@@ -12,10 +12,8 @@ module.exports = {
 	'@config': 'src/config.base.js',
 
 	// Vendor code and utilities
-	// NOTE: do we need to separate between @vendor and @util?
 	'@util': 'src/util',
 	'@services': 'src/vue-services',
-	'@vendor': 'src/vendor',
 
 	// Assets
 	'@assets': 'src/assets',
@@ -23,10 +21,11 @@ module.exports = {
 	'@svg': 'src/svg',
 
 	// Application code
-	'@models': 'src/vue-models',
 	'@components': 'src/vue-components',
 	'@directives': 'src/vue-directives',
+	'@mixins': 'src/vue-mixins',
 	'@plugins': 'src/vue-plugins',
+	'@models': 'src/vue-models',
 
 	// State management
 	'@store': 'src/vuex-store',

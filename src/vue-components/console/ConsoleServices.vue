@@ -6,16 +6,9 @@
 	// Services
 	import { popovers, viewport } from '@services';
 
-	// Child components
-	import Click from '@components/controls/Click';
-
 	export default {
 
 		name: 'console-services',
-
-		components: {
-			Click: Click
-		},
 
 		computed: {
 

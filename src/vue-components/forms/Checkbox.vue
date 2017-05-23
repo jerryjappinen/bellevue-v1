@@ -10,16 +10,9 @@ This is a read-only component that visualizes state. Wrap this component in a co
 	// Utilities
 	import util from '@util';
 
-	// Child components
-	import Icon from '@components/snippets/Icon';
-
 	// View model
 	export default {
 		name: 'checkbox',
-
-		components: {
-			Icon: Icon
-		},
 
 		props: [
 			'value',

@@ -1,33 +1,8 @@
 <script>
 
-	// Child components
-	import Icon from '@components/snippets/Icon';
-	import Pic from '@components/snippets/Pic';
-	import Spinner from '@components/snippets/Spinner';
-
-	import Click from '@components/controls/Click';
-	import Set from '@components/controls/Set';
-	import Toggle from '@components/controls/Toggle';
-
-	import Checkbox from '@components/forms/Checkbox';
-	import Flipswitch from '@components/forms/Flipswitch';
-	import Radio from '@components/forms/Radio';
-
 	export default {
 
 		name: 'console-components',
-
-		components: {
-			Icon: Icon,
-			Pic: Pic,
-			Spinner: Spinner,
-			Click: Click,
-			Set: Set,
-			Toggle: Toggle,
-			Checkbox: Checkbox,
-			Flipswitch: Flipswitch,
-			Radio: Radio
-		},
 
 		data: function () {
 			return {

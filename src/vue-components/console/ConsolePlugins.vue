@@ -1,15 +1,8 @@
 <script>
 
-	// Child components
-	import Spinner from '@components/snippets/Spinner';
-
 	export default {
 
 		name: 'console-plugins',
-
-		components: {
-			Spinner: Spinner
-		},
 
 		data: function () {
 			return {

@@ -1,20 +1,10 @@
 
 <script>
 
-	// Vendor
 	import _ from 'lodash';
 
-	// Directives
-	import ImagesLoaded from '@directives/images-loaded';
-
-	// View model
 	export default {
-
 		name: 'pic-img',
-
-		directives: {
-			ImagesLoaded: ImagesLoaded
-		},
 
 		props: {
 

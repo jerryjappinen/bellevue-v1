@@ -1,17 +1,10 @@
 
 <script>
 
-	// Child components
-	import Icon from '@components/snippets/Icon';
-
 	// View model
 	export default {
 
 		name: 'global-counter-iterator',
-
-		components: {
-			Icon: Icon
-		},
 
 		props: {
 

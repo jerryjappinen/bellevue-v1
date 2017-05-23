@@ -4,19 +4,10 @@
 	// Vendor
 	import _ from 'lodash';
 
-	// Child components
-	import PicImg from '@components/snippets/PicImg';
-	import PicSvg from '@components/snippets/PicSvg';
-
 	// View model
 	export default {
 
 		name: 'pic',
-
-		components: {
-			PicImg: PicImg,
-			PicSvg: PicSvg
-		},
 
 		// NOTE: not bothering with validation here since this is a lightweight wrapper component
 		props: [

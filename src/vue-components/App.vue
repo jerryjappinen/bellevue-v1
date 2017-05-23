@@ -24,18 +24,10 @@
 	import _ from 'lodash';
 
 	// Services
-	import {
-		network as networkService,
-		popovers as popoverService
-	} from '@services';
+	import { network, popovers } from '@services';
 
 	// Config
 	import customConfiguration from '@config';
-
-	// Child components
-	import Click from '@components/controls/Click';
-	import Pic from '@components/snippets/Pic';
-	import Popover from '@components/layout/Popover';
 
 
 
@@ -50,12 +42,6 @@
 		name: 'app',
 
 		// directives: {},
-
-		components: {
-			Click: Click,
-			Pic: Pic,
-			Popover: Popover
-		},
 
 		metaInfo: function () {
 
@@ -80,7 +66,7 @@
 			// Trigger popovers
 
 			popoverShouldBeShown: function () {
-				return popoverService.component ? true : false;
+				return popovers.component ? true : false;
 			},
 
 
@@ -88,11 +74,11 @@
 			// Pseudo notification samples
 
 			networkStatus: function () {
-				return networkService.isOnline ? 'Online' : 'Offline';
+				return network.isOnline ? 'Online' : 'Offline';
 			},
 
 			networkMessage: function () {
-				return networkService.isOffline ? 'You are offline - please check your connection!' : null;
+				return network.isOffline ? 'You are offline - please check your connection!' : null;
 			},
 
 			notificationTextToRender: function () {

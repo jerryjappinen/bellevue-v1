@@ -5,6 +5,9 @@
 
 module.exports = {
 
+	rootComponentName: 'app',
+	rootComponentParentSelector: '#app',
+
 	meta: {
 
 		// Will be used in HTML template

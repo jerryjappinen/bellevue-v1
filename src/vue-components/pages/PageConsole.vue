@@ -1,23 +1,9 @@
 
 <script>
 
-	import ConsoleComponents from '@components/console/ConsoleComponents';
-	import ConsoleConfiguration from '@components/console/ConsoleConfiguration';
-	import ConsoleModels from '@components/console/ConsoleModels';
-	import ConsolePlugins from '@components/console/ConsolePlugins';
-	import ConsoleServices from '@components/console/ConsoleServices';
-
 	export default {
 
 		name: 'page-console',
-
-		components: {
-			ConsoleComponents: ConsoleComponents,
-			ConsoleConfiguration: ConsoleConfiguration,
-			ConsoleModels: ConsoleModels,
-			ConsolePlugins: ConsolePlugins,
-			ConsoleServices: ConsoleServices
-		},
 
 		computed: {
 

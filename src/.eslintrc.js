@@ -73,13 +73,6 @@ module.exports = {
 		// It can highlight that we're referring to an item with a very specific, hardcoded name (that probably should be a variable)
 		'dot-notation': ['off'],
 
-		// Let's just use the same traditional object syntax everywhere
-		// This is because shorthand cannot always be used, so it's better to have only one format in the codebase
-		'object-shorthand': [
-			'warn',
-			'never'
-		],
-
 		// Make arrow functions slightly less dangerous and confusing
 		'no-confusing-arrow': ['error'],
 		'arrow-parens': ['error', 'always'],
@@ -92,6 +85,13 @@ module.exports = {
 			}
 		],
 
+		// Would normally prefer the same traditional object syntax everywhere, because shorthand cannot always be used.
+		// It's better to have only one format in the codebase. However imports and exports have similar shorthand syntax anyway.
+		'object-shorthand': [
+			'warn',
+			'consistent'
+		],
+
 		// No destructuring assignments like
 		// 		var { bar: foo } = object;
 		// This should be written as
@@ -99,6 +99,7 @@ module.exports = {
 		// ... So it's consistent with the 99 % of other assignments
 		// Whoever thought this is a good idea in JS didn't think about the usability
 		// http://teeohhem.com/why-destructuring-is-a-terrible-idea-in-es6/
+		// 'no-useless-rename': 'warn',
 		'prefer-destructuring': [
 			'error',
 			{

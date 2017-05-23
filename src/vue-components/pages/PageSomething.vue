@@ -2,27 +2,12 @@
 <script>
 
 	// Services
-	import {
-		popovers as popoverService
-	} from '@services';
-
-	// Child components
-	import Pic from '@components/snippets/Pic';
-	import Counter from '@components/counters/Counter';
-	import GlobalCounterIterator from '@components/counters/GlobalCounterIterator';
-	import LocalCounter from '@components/counters/LocalCounter';
+	import { popovers } from '@services';
 
 	// View model
 	export default {
 
 		name: 'page-something',
-
-		components: {
-			Pic: Pic,
-			Counter: Counter,
-			GlobalCounterIterator: GlobalCounterIterator,
-			LocalCounter: LocalCounter
-		},
 
 		data: function () {
 			return {
@@ -30,11 +15,10 @@
 			};
 		},
 
-
 		computed: {
 
 			currentPopover: function () {
-				return popoverService.someOtherValue;
+				return popovers.someOtherValue;
 			},
 
 			globalCounterValues: function () {
