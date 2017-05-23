@@ -1,10 +1,12 @@
 
-// Magical vendor code
+// Vendor
+import _ from 'lodash';
+
+// Polyfills etc. magic
 import 'es6-promise/auto';
 
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import _ from 'lodash';
 import Vue from 'vue';
 
 // Set configuration options for Vue
