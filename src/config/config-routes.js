@@ -1,6 +1,6 @@
 
 // Configuration for vue-router
-// NOTE: This is in a separate file, because pipeline has to already work for the imports
+// NOTE: This is in a separate file, because pipeline has to be already running with aliases for the imports to work
 // NOTE: could maybe use `require.context` to make this more dynamic
 import {
 	Hello,
