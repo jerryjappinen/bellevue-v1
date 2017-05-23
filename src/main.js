@@ -12,21 +12,13 @@ Vue.config.productionTip = false;
 
 
 
-// Our custom configuration
-import config from '@config';
-
-// Import Vue directives and components
-// NOTE: could add mixins here as well
-import directives from '@directives';
-import components from '@components';
-import { global as globalMixins } from '@mixins';
-
-// Some of these plugins load themselves automatically, some are injected below
-import plugins from '@plugins';
-
 // Register all directives and components on the top level
 // The alternative is to declare specific directives or the child components in each component manually.
 // This would lead to a lot of boilerplate code that easily gets out of date, and makes it impossible to use dynamic components.
+
+import directives from '@directives';
+import components from '@components';
+
 (function (registrees) {
 	for (var type in registrees) {
 		for (var key in registrees[type]) {
@@ -42,12 +34,26 @@ import plugins from '@plugins';
 	component: components
 });
 
+
+
 // Register global mixins
+
+import { global as globalMixins } from '@mixins';
+
 (function (mixins) {
 	for (var key in mixins) {
 		Vue.mixin(mixins[key]);
 	}
 })(globalMixins);
+
+
+
+// Some of these plugins load themselves automatically, some are injected below
+import plugins from '@plugins';
+
+// Our custom configuration
+import config from '@config';
+
 
 
 /* eslint-disable no-new */
