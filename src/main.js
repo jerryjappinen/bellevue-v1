@@ -21,7 +21,7 @@ import directives from '@directives';
 import components from '@components';
 import { global as globalMixins } from '@mixins';
 
-// Some of plugins autoload, some are injected below
+// Some of these plugins load themselves automatically, some are injected below
 import plugins from '@plugins';
 
 // Register all directives and components on the top level

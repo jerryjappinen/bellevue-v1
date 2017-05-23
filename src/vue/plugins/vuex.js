@@ -7,9 +7,6 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 Vue.use(Vuex);
 
-// Fetch the state, actions ang getters etc. from under store/
-import {
-	store as stateManagementLogic
-} from '@store/';
-
-export default new Vuex.Store(stateManagementLogic);
+// Fetch the state, actions and getters etc. from under store/
+import { store } from '@store';
+export default new Vuex.Store(store);

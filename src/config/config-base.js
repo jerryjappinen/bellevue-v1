@@ -16,7 +16,7 @@ module.exports = {
 	},
 
 	// https://github.com/declandewet/vue-meta#options
-	metaConfig: {
+	metaInfo: {
 
 		// the component option name that vue-meta looks for meta info on.
 		keyName: 'metaInfo',
@@ -29,6 +29,15 @@ module.exports = {
 
 		// the property name that vue-meta uses to determine whether to overwrite or append a tag
 		tagIDKeyName: 'vmid'
+
+	},
+
+	router: {
+
+		// Class names used by <router-link>
+		// NOTE: these should conform to our class naming conventions
+		linkActiveClass: 'is-active',
+		linkExactActiveClass: 'is-exact-active'
 
 	},
 

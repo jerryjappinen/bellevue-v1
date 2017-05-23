@@ -7,7 +7,7 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 // Import route components for vue-router
-import { routes } from '@config';
+import config from '@config';
 
 
 
@@ -17,11 +17,11 @@ export const options = {
 
 	// Class names used by <router-link>
 	// NOTE: these should conform to our class naming conventions
-	linkActiveClass: 'is-active',
-	linkExactActiveClass: 'is-exact-active',
+	linkActiveClass: config.router.linkActiveClass,
+	linkExactActiveClass: config.router.linkExactActiveClass,
 
 	// Our frontend URL scheme
-	routes: routes
+	routes: config.routes
 
 };
 
