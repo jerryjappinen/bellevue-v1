@@ -62,8 +62,8 @@ import config from '@config';
 new Vue({
 
 	// Define root component and where to inject it in index.html.ejs
-	el: config.rootComponentParentSelector,
-	template: '<' + config.rootComponentName + '></' + config.rootComponentName + '>',
+	el: config.rootComponentParentSelector, // Something like '#app'
+	template: '<' + config.rootComponentName + '></' + config.rootComponentName + '>', // Something like '<app></app>'
 
 	// NOTE: These specific plugins apparently require us to pass these objects to the root component...
 	router: plugins.VueRouter,
