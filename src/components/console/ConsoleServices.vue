@@ -17,8 +17,6 @@
 
 					popovers: {
 						component: popovers.component,
-						inPlaceTargetType: typeof popovers.inPlaceTarget,
-						inPlaceTargetBoxType: typeof popovers.inPlaceTargetBox,
 						inPlaceTarget: popovers.inPlaceTarget,
 						inPlaceTargetBox: popovers.inPlaceTargetBox
 					},
