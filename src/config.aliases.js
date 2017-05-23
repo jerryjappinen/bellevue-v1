@@ -13,7 +13,7 @@ module.exports = {
 
 	// Vendor code and utilities
 	'@util': 'src/util',
-	'@services': 'src/vue-services',
+	'@services': 'src/services',
 
 	// Assets
 	'@assets': 'src/assets',
@@ -21,14 +21,14 @@ module.exports = {
 	'@svg': 'src/svg',
 
 	// Application code
-	'@components': 'src/vue-components',
-	'@directives': 'src/vue-directives',
-	'@mixins': 'src/vue-mixins',
-	'@plugins': 'src/vue-plugins',
-	'@models': 'src/vue-models',
+	'@components': 'src/components',
+	'@directives': 'src/vue/directives',
+	'@mixins': 'src/vue/mixins',
+	'@plugins': 'src/vue/plugins',
+	'@models': 'src/models',
 
 	// State management
-	'@store': 'src/vuex-store',
+	'@store': 'src/store',
 
 	// Global styles
 	// NOTE: we could split this further

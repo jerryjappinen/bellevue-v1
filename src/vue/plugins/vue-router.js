@@ -7,7 +7,7 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 // Import route components for vue-router
-import routes from '../config.routes.js';
+import routes from '@/config.routes.js';
 
 
 
