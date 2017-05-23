@@ -1,87 +1,72 @@
 
-/**
- * Service blueprint and exported object for the timer service.
- *
- * FIXME
- * this is custom code that is not currently functional. We're testing different patterns for writing service-style code as utilities, Vue plugins or imported Vue objects.
- *
- * @name: CurrentTime
- * @todo: This should be a constructor instead of just a blueprint.
- */
-var CurrentTime = {
+import Vue from 'vue';
 
-	/**
-	 * Current time
-	 *
-	 * @name CurrentTime#time
-	 * @todo: Is this confusingly named? Maybe `currentTime` could be better.
-	 */
-	time: null,
+export default new Vue({
 
-	/**
-	 * Timer interval object. Available after `startTimer` has been called. Can be removed with `stopTimer`.
-	 *
-	 * @name CurrentTime#_timer
-	 */
-	_timer: null,
-
-	/**
-	 * Update the current time with a new Date object
-	 */
-	setCurrentTime: function () {
-		this.time = new Date();
-		return this;
+	data: function () {
+		return {
+			current: null,
+			_timer: null
+		};
 	},
 
-	/**
-	 * Clear `time` and remove any reference to current time. If timer is running, it will still update the current time in the next update.
-	 */
-	clearCurrentTime: function () {
-		this.time = null;
-		return this;
+	computed: {
+
 	},
 
-	/**
-	 * Throttled callback for each update.
-	 */
-	onTimerUpdate: function () {
-		window.requestAnimationFrame(this.setCurrentTime);
-		return this;
-	},
+	methods: {
 
-	/**
-	 * Start timer and regular updates. Timer will run until `stopTimer` is called. If timer is already running, it will be stopped and then restarted.
-	 */
-	startTimer: function () {
-		var clock = this;
+		// Update the current time with a new Date object
+		setCurrentTime: function () {
+			this.current = new Date();
+			return this;
+		},
 
-		// Setup
-		clock.stopTimer();
+		// Clear `time` and remove any reference to current time. If timer is running, it will still update the current time in the next update.
+		clearCurrentTime: function () {
+			this.current = null;
+			return this;
+		},
 
-		// Update immediately for the first time
-		clock.onTimerUpdate();
+		// Throttled callback for each update.
+		onTimerUpdate: function () {
+			window.requestAnimationFrame(this.setCurrentTime);
+			return this;
+		},
 
-		// Start interval
-		clock._timer = setInterval(function () {
+		// Start timer and regular updates. Timer will run until `stopTimer` is called. If timer is already running, it will be stopped and then restarted.
+		startTimer: function () {
+			var clock = this;
+
+			// Setup
+			clock.stopTimer();
+
+			// Update immediately for the first time
 			clock.onTimerUpdate();
-		}, 1000);
 
-		return clock;
-	},
+			// Start interval
+			clock._timer = setInterval(function () {
+				clock.onTimerUpdate();
+			}, 1000);
 
-	/**
-	 * Stop updating the current time. `time` will keep the last time.
-	 */
-	stopTimer: function () {
+			return clock;
+		},
 
-		if (this._timer) {
-			clearInterval(this._timer);
-			this._timer = null;
+		// Stop updating the current time. `time` will keep the last time.
+		stopTimer: function () {
+
+			if (this._timer) {
+				clearInterval(this._timer);
+				this._timer = null;
+			}
+
+			return this;
 		}
 
-		return this;
+	},
+
+	created: function () {
+		this.startTimer();
 	}
 
-};
-
-export default CurrentTime;
+});

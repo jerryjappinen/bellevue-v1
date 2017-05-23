@@ -1,11 +1,7 @@
 <script>
 
-	// Models
 	import { init, Account, Role } from '@models';
 
-
-
-	// View model
 	export default {
 
 		name: 'console-models',
@@ -58,7 +54,7 @@
 
 <template>
 
-	<dl class="view-console-models">
+	<dl class="view-console-models bodytext">
 
 		<dt>Roles</dt>
 

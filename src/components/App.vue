@@ -24,7 +24,7 @@
 	import _ from 'lodash';
 
 	// Services
-	import { network, popovers } from '@services';
+	import { network, time, popovers } from '@services';
 
 	// Config
 	import config from '@config';
@@ -72,6 +72,10 @@
 
 
 			// Pseudo notification samples
+
+			currentTime: function () {
+				return time.current;
+			},
 
 			networkStatus: function () {
 				return network.isOnline ? 'Online' : 'Offline';
@@ -163,14 +167,11 @@
 
 	<div class="view-app">
 
-		<!-- Popover elements will be rendered here in the structure regardless of their positioning -->
-		<p>{{ popoverShouldBeShown }}</p>
 
+		<!-- Popover elements will be rendered here in the structure regardless of their positioning -->
 		<transition name="transition-fade">
 			<popover v-if="popoverShouldBeShown"></popover>
 		</transition>
-
-		<hr>
 
 		<!--
 			FIXME
@@ -196,7 +197,7 @@
 				<p v-else key="off" @click="setNotificationText">Set notification text</p>
 			</transition>
 			<p>
-				Network {{ networkStatus }} &bullet;
+				{{ currentTime }} Network {{ networkStatus }} &bullet;
 				<click class="inline-block radius-tight" :callback="clearNotificationText">Clear msg</click> &bullet;
 				<click class="inline-block radius-tight" :callback="setNotificationText">Set msg</click>
 			</p>

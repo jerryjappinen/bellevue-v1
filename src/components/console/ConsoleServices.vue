@@ -4,7 +4,7 @@
 	// import _ from 'lodash';
 
 	// Services
-	import { popovers, viewport } from '@services';
+	import { popovers, time, viewport } from '@services';
 
 	export default {
 
@@ -21,6 +21,10 @@
 						inPlaceTargetBoxType: typeof popovers.inPlaceTargetBox,
 						inPlaceTarget: popovers.inPlaceTarget,
 						inPlaceTargetBox: popovers.inPlaceTargetBox
+					},
+
+					time: {
+						current: time.current
 					},
 
 					viewport: {
