@@ -1,7 +1,7 @@
 
-import network from './service-network';
-import popovers from './service-popovers';
-import viewport from './service-viewport';
+import network from './network';
+import popovers from './popovers';
+import viewport from './viewport';
 
 export {
 	network,
@@ -10,7 +10,7 @@ export {
 };
 
 export default {
-	network: network,
-	popovers: popovers,
-	viewport: viewport
+	network,
+	popovers,
+	viewport
 };

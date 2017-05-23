@@ -3,7 +3,7 @@
 import Vue from 'vue';
 
 // Models
-import Role from '@models/Role';
+import { Role } from '@models';
 
 const blueprint = {
 

@@ -1,8 +1,7 @@
 <script>
 
 	// Models
-	import Account from '@models/Account';
-	import Role from '@models/Role';
+	import { init, Account, Role } from '@models';
 
 
 
@@ -14,30 +13,24 @@
 		computed: {
 
 			testRoleModel1: function () {
-				return new Role({
-					propsData: {
-						id: 3
-					}
+				return init(Role, {
+					id: 3
 				});
 			},
 
 			testRoleModel2: function () {
-				return new Role({
-					propsData: {
-						id: 128,
-						title: 'Foo'
-					}
+				return init(Role, {
+					id: 128,
+					title: 'Foo'
 				});
 			},
 
 			testAccount: function () {
-				return new Account({
-					propsData: {
-						id: 900,
-						roleId: this.testRoleModel2.id,
-						email: 'esa@gmail.com',
-						name: 'Esa'
-					}
+				return init(Account, {
+					id: 900,
+					roleId: this.testRoleModel2.id,
+					email: 'esa@gmail.com',
+					name: 'Esa'
 				});
 			}
 

@@ -1,5 +1,5 @@
 // import Vue from 'vue';
-import Role from '@models/Role';
+import { Role } from '@models';
 
 describe('Role model (harhar)', function () {
 
