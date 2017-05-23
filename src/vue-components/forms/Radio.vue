@@ -57,8 +57,13 @@ This is a read-only component that visualizes state. Wrap this component in a co
 
 	.view-radio,
 	.view-radio-knob {
-		@include transition-fast;
+		@include transition-slow;
 		@include transition-properties-common;
+	}
+
+	.view-radio-enabled.view-radio-on,
+	.view-radio-enabled.view-radio-on .view-radio-knob {
+		@include transition-fast;
 	}
 
 	.view-radio {
@@ -70,7 +75,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 		width: 1em;
 		height: 1em;
 		vertical-align: middle;
-		border-width: 1px;
+		border-width: 2px;
 
 		@include radius-round;
 
@@ -80,19 +85,15 @@ This is a read-only component that visualizes state. Wrap this component in a co
 	}
 
 	.view-radio-knob {
-		position: absolute;
-		top: 0.2em;
-		left: 0.2em;
-		width: 0.6em;
-		height: 0.6em;
-		margin-top: -1px;
-		margin-left: -1px;
+		width: 1em;
+		height: 1em;
+
 		@include radius-round;
-		background-color: $color-green;
+		background-color: $color-primary;
 
 		// Default for off state
 		opacity: 0;
-		transform: scale(0);
+		@include keep-full-center(scale(0));
 
 	}
 
@@ -101,11 +102,11 @@ This is a read-only component that visualizes state. Wrap this component in a co
 	// On/off states
 
 	.view-radio-on {
-		border-color: $color-green;
+		border-color: $color-primary;
 
 		.view-radio-knob {
 			opacity: 1;
-			transform: scale(1);
+			@include keep-full-center(scale(0.5));
 		}
 
 	}
@@ -123,9 +124,11 @@ This is a read-only component that visualizes state. Wrap this component in a co
 		&.view-radio-on {
 			border-color: $color-grey;
 			background-color: $color-lightgrey;
-			.view-radio-on {
+
+			.view-radio-knob {
 				background-color: $color-grey;
 			}
+
 		}
 
 	}
@@ -133,28 +136,16 @@ This is a read-only component that visualizes state. Wrap this component in a co
 
 
 	// Feedback under controls
+	// Utility classes should be used by the component or element that controls the behavior
+	// This is already set in the standard control components
+	.control-enabled {
+		&:hover {
 
-
-	// FIXME: these selectors should probably be a mixin that can be shared accross components
-	// Something like @selector-under-controls
-	.view-click-enabled,
-	.view-set-enabled,
-	.view-toggle-enabled {
-
-		.view-radio-enabled {
-
-			&:hover {
-				background-color: color-darken($color-lightgrey);
-			}
-
-			&.view-radio-on {
-				&:hover {
-					background-color: color-darken($color-green);
-				}
+			.view-radio-off {
+				transform: scale($scale-verylarge);
 			}
 
 		}
-
 	}
 
 </style>

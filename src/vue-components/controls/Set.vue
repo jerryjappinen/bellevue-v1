@@ -20,6 +20,11 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 	export default {
 		name: 'set',
 
+		model: {
+			prop: 'value',
+			event: 'update'
+		},
+
 		props: [
 			'value',
 			'disabled',
@@ -57,12 +62,21 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 			},
 
 			classes: function () {
-				return util.dom.composeClassnames({
+
+				// Utility classes
+				var componentClasses = util.dom.composeClassnames({
 					on: this.isOn,
 					off: !this.isOn,
 					enabled: !this.disabled,
 					disabled: this.disabled
 				}, 'view-set');
+
+				// Normal component classes
+				return componentClasses.concat(util.dom.extractClassnames({
+					'control-enabled': !this.disabled,
+					'control-disabled': this.disabled
+				}));
+
 			}
 
 		},

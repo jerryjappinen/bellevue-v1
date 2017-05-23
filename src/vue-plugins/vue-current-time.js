@@ -1,5 +1,9 @@
 
 // A simple running clock service
+
+// FIXME
+// this is custom code that is not currently functional. We're testing different patterns for writing service-style code as utilities, Vue plugins or imported Vue objects.
+
 import Vue from 'vue';
 import CurrentTime from '@vendor/CurrentTime';
 

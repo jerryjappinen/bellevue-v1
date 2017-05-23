@@ -11,6 +11,7 @@ import ConsoleComponents from '@components/console/ConsoleComponents';
 import ConsoleConfiguration from '@components/console/ConsoleConfiguration';
 import ConsoleModels from '@components/console/ConsoleModels';
 import ConsolePlugins from '@components/console/ConsolePlugins';
+import ConsoleServices from '@components/console/ConsoleServices';
 
 export default [
 
@@ -61,6 +62,12 @@ export default [
 				path: 'plugins',
 				name: 'consolePlugins',
 				component: ConsolePlugins
+			},
+
+			{
+				path: 'services',
+				name: 'consoleServices',
+				component: ConsoleServices
 			}
 
 		]

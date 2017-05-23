@@ -60,8 +60,8 @@ This is a read-only component that visualizes state. Wrap this component in a co
 		@include transition-properties-common;
 	}
 
-	.view-flipswitch-on,
-	.view-flipswitch-on .view-flipswitch-knob {
+	.view-flipswitch-enabled.view-flipswitch-on,
+	.view-flipswitch-enabled.view-flipswitch-on .view-flipswitch-knob {
 		@include transition-fast;
 	}
 
@@ -102,7 +102,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 	// On/off states
 
 	.view-flipswitch-on {
-		background-color: $color-green;
+		background-color: $color-primary;
 
 		.view-flipswitch-knob {
 			opacity: 1;
@@ -127,7 +127,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 
 		&.view-flipswitch-on {
 			&:hover {
-				background-color: color-darken($color-green);
+				background-color: color-darken($color-primary);
 			}
 		}
 
@@ -137,9 +137,24 @@ This is a read-only component that visualizes state. Wrap this component in a co
 		color: $color-grey;
 
 		&.view-flipswitch-on {
-			background-color: $color-lightgrey;
+			background-color: $color-grey;
 		}
 
+	}
+
+
+
+	// Feedback under controls
+	// Utility classes should be used by the component or element that controls the behavior
+	// This is already set in the standard control components
+	.control-enabled {
+		&:hover {
+
+			.view-flipswitch {
+				transform: scale($scale-verylarge);
+			}
+
+		}
 	}
 
 </style>

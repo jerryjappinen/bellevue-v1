@@ -22,6 +22,7 @@
 // Complex utility classes
 @import '~@styles/utilities-composed/utility-bodytext';
 @import '~@styles/utilities-composed/utility-button';
+@import '~@styles/utilities-composed/utility-control';
 @import '~@styles/utilities-composed/utility-input';
 @import '~@styles/utilities-composed/utility-inverse';
 @import '~@styles/utilities-composed/utility-link';
@@ -29,7 +30,7 @@
 @import '~@styles/utilities-composed/utility-row';
 
 // Atomic utility classes
-// NOTE: these are loaded after the complex ones so they can be used to override things easier
+// NOTE: these are loaded after the complex ones so they can be used to override things easier, as in CSS the source order matters
 @import '~@styles/utilities-base/utility-align';
 @import '~@styles/utilities-base/utility-background';
 @import '~@styles/utilities-base/utility-box-model';

@@ -1,0 +1,20 @@
+
+@import '~@styles/shared';
+
+.control {
+	@include transition-hover-active;
+	@include transition-properties-common;
+}
+
+.control-enabled {
+	@include cursor-pointer;
+
+	// Default feedback for click hitareas
+	// NOTE: might be better not to set anything here since this might need a lot of overriding in many places
+	&:active {
+		background-color: $color-feedback-dark;
+	}
+
+}
+
+// .control-disabled {}

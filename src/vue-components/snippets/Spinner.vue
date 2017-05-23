@@ -6,8 +6,6 @@
 
 		name: 'spinner',
 
-		// metaInfo: {},
-
 		// directives: {},
 
 		// components: {},

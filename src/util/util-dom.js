@@ -20,7 +20,18 @@ export default {
 
 
 
-	// Generate HTML/CSS class names based on a set of state
+	// Pick the keys of a classname hash whose values are truthy
+	extractClassnames: function (stateHash) {
+		var classes = [];
+		for (var key in stateHash) {
+			if (stateHash[key]) {
+				classes.push(key);
+			}
+		}
+		return classes;
+	},
+
+	// Generate HTML/CSS class names based on a set of state, with prefixes and negatives added
 	composeClassnames: function (stateHash, prefixPositive, prefixNegative) {
 		var classes = [];
 
@@ -70,7 +81,7 @@ export default {
 
 		}
 
-		return classes.join(' ');
+		return classes;
 	}
 
 

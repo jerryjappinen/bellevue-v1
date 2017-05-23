@@ -4,69 +4,12 @@
 
 
 
-// Brand colors
-$color-brand-red: #f8453c;
-$color-brand-orange: #fa8400;
-$color-brand-yellow: #fabc00;
-$color-brand-green: #70ca63;
-$color-brand-blue: #00baf8;
-
-
-
-// Other brands
-$color-airbnb: #fd5c63;
-$color-android: #a4c639;
-$color-behance: #005cff;
-$color-facebook: #4267b2;
-$color-goeuro: #2a84b7;
-$color-googleplay: #689f38;
-$color-instagram: #3f729b;
-$color-instapaper: #428bca;
-$color-ios: #007aff;
-$color-messenger: #007aff;
-$color-pinterest: #bd081c;
-$color-twitter: #55acee;
-$color-vue: #42b983;
-$color-whatsapp: #25d366;
-// $color-whatsapp: #075e54;
-// $color-whatsapp: #128c7e;
-
-
-
-// Greyscale
-$color-white: #fff;
-$color-verylightgrey: #f7f9f9;
-$color-lightgrey: #dbe5e8;
-
-$color-grey: #a5b2b6;
-$color-grey-hint: color-translucent($color-grey, 0.4);
-
-$color-dark: #0f4d62;
-$color-dark-hue: color-darker($color-dark);
-
-$color-dark-translucent: color-translucent($color-dark, 0.15); // same as verylightgrey on white
-
-$color-black: #000;
-$color-black-hint: color-translucent($color-black, 0.1);
-
-
-
-// Colors
-// Fixme: missing standard variations (translucent, light and dark tints)
-$color-red: $color-brand-red;
-$color-red-hint: color-translucent($color-red);
-$color-orange: $color-brand-orange;
-$color-yellow: $color-brand-yellow;
-$color-blue: $color-brand-blue;
-$color-green: $color-brand-green;
-$color-green-hint: color-translucent($color-green);
-
-
-
 // Functional colors
 
-$color-link: $color-blue;
-$color-link-active: color-darker($color-blue);
+$color-primary: $color-blue;
+
+$color-link: $color-primary;
+$color-link-active: color-darker($color-primary);
 
 $color-feedback-dark: color-translucent($color-dark, 0.05);
 $color-feedback-light: color-translucent($color-white, 0.05);
@@ -139,7 +82,7 @@ $z-panel: 20;
 $z-overlay: 30;
 $z-tabbar: 40;
 $z-controls: 50;
-$z-popups: 70;
+$z-popovers: 70;
 $z-tour: 80;
 $z-indicators: 100;
 $z-os: 100;
@@ -151,6 +94,7 @@ $scale-verysmall: 0.9;
 $scale-small: 0.96;
 $scale-normal: 1;
 $scale-large: 1.04;
+$scale-verylarge: 1.1;
 
 
 

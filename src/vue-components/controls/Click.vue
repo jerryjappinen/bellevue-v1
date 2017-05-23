@@ -19,18 +19,30 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 	export default {
 		name: 'click',
 
-		props: [
-			'callback',
-			'disabled'
-		],
+		props: {
+			callback: {
+				type: Function,
+				required: true
+			},
+			disabled: {}
+		},
 
 		computed: {
 
 			classes: function () {
-				return util.dom.composeClassnames({
+
+				// Utility classes
+				var componentClasses = util.dom.composeClassnames({
 					enabled: !this.disabled,
 					disabled: this.disabled
 				}, 'view-click');
+
+				// Normal component classes
+				return componentClasses.concat(util.dom.extractClassnames({
+					'control-enabled': !this.disabled,
+					'control-disabled': this.disabled
+				}));
+
 			}
 
 		},
@@ -50,28 +62,14 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 </script>
 
 <template>
-	<div class="view-click" :class="classes" @click="onClick"><slot></slot></div>
+	<div class="view-click control" :class="classes" @click="onClick"><slot></slot></div>
 </template>
 
 <style lang="scss">
 	@import '~@styles/shared.scss';
 
-	.view-click {
-		@include transition-hover-active;
-		@include transition-properties-common;
-	}
-
-	.view-click-enabled {
-		@include cursor-pointer;
-
-		// Default feedback for click hitareas
-		// NOTE: might be better not to set anything here since this might need a lot of overriding in many places
-		&:active {
-			background-color: $color-feedback-dark;
-		}
-
-	}
-
+	// .view-click {}
+	// .view-click-enabled {}
 	// .view-click-disabled {}
 
 </style>

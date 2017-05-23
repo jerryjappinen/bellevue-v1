@@ -2,6 +2,9 @@
 /**
  * Service blueprint and exported object for the timer service.
  *
+ * FIXME
+ * this is custom code that is not currently functional. We're testing different patterns for writing service-style code as utilities, Vue plugins or imported Vue objects.
+ *
  * @name: CurrentTime
  * @todo: This should be a constructor instead of just a blueprint.
  */

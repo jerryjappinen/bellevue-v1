@@ -23,11 +23,19 @@
 	// Vendor code
 	import _ from 'lodash';
 
+	// Services
+	import {
+		network as networkService,
+		popovers as popoverService
+	} from '@services';
+
 	// Config
 	import customConfiguration from '@config';
 
 	// Child components
+	import Click from '@components/controls/Click';
 	import Pic from '@components/snippets/Pic';
+	import Popover from '@components/layout/Popover';
 
 
 
@@ -44,32 +52,70 @@
 		// directives: {},
 
 		components: {
-			Pic: Pic
+			Click: Click,
+			Pic: Pic,
+			Popover: Popover
 		},
 
-		metaInfo: {
-			title: customConfiguration.meta.title
+		metaInfo: function () {
+
+			// NOTE
+			// - route names shouldn't be used in the UI like this
+			// - BUT: we could use them as keys, as this should go through localisation anyway
+			return {
+				title: this.$route.name + ' – ' + customConfiguration.meta.title
+			};
+
 		},
 
 		data: function () {
 			return {
-				notificationClearingSub: null,
-				notificationText: ''
+				notificationClearingTimeout: null,
+				notificationText: null
 			};
 		},
 
 		computed: {
 
+			// Trigger popovers
+
+			popoverShouldBeShown: function () {
+				return popoverService.component ? true : false;
+			},
+
+
+
+			// Pseudo notification samples
+
+			networkStatus: function () {
+				return networkService.isOnline ? 'Online' : 'Offline';
+			},
+
+			networkMessage: function () {
+				return networkService.isOffline ? 'You are offline - please check your connection!' : null;
+			},
+
+			notificationTextToRender: function () {
+				return this.notificationText ? this.notificationText : this.networkMessage;
+			},
+
 			notificationShouldBeVisible: function () {
-				if (_.isString(this.notificationText) && !_.isEmpty(this.notificationText)) {
+				if (_.isString(this.notificationTextToRender) && !_.isEmpty(this.notificationTextToRender)) {
 					return true;
 				}
 				return false;
 			},
 
+
+			// Counter samples
+
 			globalCounterValue: function () {
 				return this.$store.state.counter;
 			},
+
+
+
+			// Menu samples
 
 			customLinkTarget: function () {
 				var target = this.$route.name === 'arbitrary' ? 'hello' : 'arbitrary';
@@ -86,9 +132,19 @@
 
 		methods: {
 
+			// Notification samples
+
 			clearNotificationText: function () {
-				this.notificationText = '';
+				this.notificationText = null;
 			},
+
+			setNotificationText: function () {
+				this.notificationText = 'This is a text message.';
+			},
+
+
+
+			// Menu samples
 
 			onCustomLinkClick: function () {
 				this.$router.push(this.customLinkTarget);
@@ -98,13 +154,18 @@
 
 		watch: {
 
-			notificationText: function (notificationText) {
-				if (_.isEmpty(notificationText)) {
-					this.notificationClearingSub = setTimeout(this.clearNotificationText, 200);
+			// Quick and dirty: clear notification (doesn't update if notificationText changes during delay)
+			notificationText: function (value) {
+				if (value) {
+					this.notificationClearingTimeout = setTimeout(this.clearNotificationText, 4 * 1000); // 4s delay
 				}
 			}
 
 		}
+
+		// created: function () {},
+
+		// beforeDestroy: function () {}
 
 	};
 
@@ -116,6 +177,15 @@
 
 	<div class="view-app">
 
+		<!-- Popover elements will be rendered here in the structure regardless of their positioning -->
+		<p>{{ popoverShouldBeShown }}</p>
+
+		<transition name="transition-fade">
+			<popover v-if="popoverShouldBeShown"></popover>
+		</transition>
+
+		<hr>
+
 		<!--
 			FIXME
 
@@ -124,19 +194,36 @@
 			- We can maybe write a workaround in an image component that can handle SVG sprites and other things without code duplication.
 		-->
 
-		<transition name="transition-fade">
-			<p v-if="notificationShouldBeVisible">{{ notificationText }}</p>
-		</transition>
+		<!--
 
+			NOTE
+			- Example of how to use the key attribute to enable transitioning to elements of the same type.
+			- Also enables transitioning out an element that contains a value whose value has already changed: Vue will keep the old value in the scope until the exit transition is complete.
 
+			FIXME
+			- this should be mentioned in guide about transitions
+
+		-->
+		<div>
+			<transition name="transition-fade" mode="out-in">
+				<p v-if="notificationShouldBeVisible" :key="'on-' + notificationTextToRender">{{ notificationTextToRender }}</p>
+				<p v-else key="off" @click="setNotificationText">Set notification text</p>
+			</transition>
+			<p>
+				Network {{ networkStatus }} &bullet;
+				<click class="inline-block radius-tight" :callback="clearNotificationText">Clear msg</click> &bullet;
+				<click class="inline-block radius-tight" :callback="setNotificationText">Set msg</click>
+			</p>
+		</div>
+
+		<hr>
 
 		<!-- References to static assets with resolved URLs -->
 		<p><pic class="view-app-logo" title="Foo" src="some/folder/anotherlogo.png" hide-until-loaded></pic> Global counter value "{{ globalCounterValue }}" is maintained by Vuex.</p>
 
+		<hr>
 
-
-		<!-- Sample menu with different types of links -->
-
+		<!-- Quick-and-dirty sample menu with different types of links. Normally you would render a list like this with a separate component. -->
 		<ul class="view-app-menu">
 			<li><a href="#/">Welcome</a></li>
 			<li><a href="#/arbit">More stuff</a></li>
