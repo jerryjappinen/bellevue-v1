@@ -26,7 +26,7 @@ import plugins from '@plugins';
 
 // Register all directives and components on the top level
 // The alternative is to declare specific directives or the child components in each component manually.
-// This leads to a lot of boilerplate code that is easily out of date, and makes it impossible to use dynamic components.
+// This would lead to a lot of boilerplate code that is easily out of date, and makes it impossible to use dynamic components.
 (function (registrees) {
 	for (var type in registrees) {
 		for (var key in registrees[type]) {
