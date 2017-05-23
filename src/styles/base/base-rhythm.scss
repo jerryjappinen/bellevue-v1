@@ -82,8 +82,8 @@ td {
 
 // Lines
 hr {
-	border-style: solid;
 	border-width: 1px 0 0 0;
+	border-style: solid;
 	border-color: $color-dark-translucent;
-	@include push-vertical
+	@include push-vertical;
 }

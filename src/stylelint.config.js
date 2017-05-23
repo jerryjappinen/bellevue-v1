@@ -150,7 +150,8 @@ module.exports = {
 		'value-keyword-case': 'lower',
 		'at-rule-name-case': 'lower',
 
-		// More rules
+		// Misc rules
+		'shorthand-property-no-redundant-values': null,
 		'number-no-trailing-zeros': null,
 		'selector-pseudo-element-colon-notation': 'single',
 
