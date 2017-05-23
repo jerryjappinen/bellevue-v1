@@ -56,14 +56,12 @@ import plugins from '@plugins';
 // Our custom configuration
 import config from '@config';
 
-
-
 /* eslint-disable no-new */
 new Vue({
 
-	// Define root component and where to inject it in index.html.ejs
-	el: config.rootComponentParentSelector, // Something like '#app'
-	template: '<' + config.rootComponentName + '></' + config.rootComponentName + '>', // Something like '<app></app>'
+	// Absolute basic options to initialize the app
+	el: config.rootComponentParentSelector,
+	template: '<' + config.rootComponentName + '></' + config.rootComponentName + '>',
 
 	// NOTE: These specific plugins apparently require us to pass these objects to the root component...
 	router: plugins.VueRouter,
