@@ -50,7 +50,7 @@
 			<li><img class="view-console-components-image" alt="Foo" src="../../assets/logo.png"> <code>img</code> with relative URL</li>
 			<li><img class="view-console-components-image" alt="Foo" src="~@assets/logo.png"> <code>img</code> with alias in URL</li>
 			<li><img class="view-console-components-image" alt="Foo" src="~@assets/some/folder/anotherlogo.png"> <code>img</code> in a subdirectory</li>
-			<li><pic class="view-console-components-image" title="Foo" src="some/folder/anotherlogo.png"></pic> <code>pic</code> with a PNG</li>
+			<li><pic class="view-console-components-image" title="Foo" src="logo.png"></pic> <code>pic</code> with a PNG</li>
 			<li><pic class="view-console-components-image" title="Foo" src="some/folder/anotherlogo.png" hide-until-loaded></pic> <code>pic</code> with a PNG, hidden until loaded</li>
 			<li><pic class="view-console-components-image" asset="chevron-down"></pic> <code>pic</code> with an SVG</li>
 			<li><icon asset="chevron-down"></icon> <code>icon</code></li>

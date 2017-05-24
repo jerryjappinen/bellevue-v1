@@ -14,6 +14,7 @@ import Click from './controls/Click';
 import Set from './controls/Set';
 import Toggle from './controls/Toggle';
 
+// Counters
 import Counter from './counters/Counter';
 import GlobalCounterIterator from './counters/GlobalCounterIterator';
 import LocalCounter from './counters/LocalCounter';
@@ -25,7 +26,7 @@ import Radio from './forms/Radio';
 
 // Layout
 import Popover from './layout/Popover';
-// import Header from './layout/Header';
+import Titlebar from './layout/Titlebar';
 
 // Pages
 import Hello from './pages/Hello';
@@ -62,6 +63,7 @@ export {
 	Radio,
 
 	Popover,
+	Titlebar,
 
 	Hello,
 	PageConsole,
@@ -98,6 +100,7 @@ export default {
 	Radio,
 
 	Popover,
+	Titlebar,
 
 	Hello,
 	PageConsole,

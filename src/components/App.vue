@@ -167,66 +167,66 @@
 
 	<div class="view-app">
 
+		<titlebar></titlebar>
 
 		<!-- Popover elements will be rendered here in the structure regardless of their positioning -->
 		<transition name="transition-fade">
 			<popover v-if="popoverShouldBeShown"></popover>
 		</transition>
 
-		<!--
-			FIXME
+		<div class="view-app-content">
 
-			- Can I reference project root for URL resolver somehow?
-			- I'd like to use the same URL regardless of where my component file is in the project structure, as they will move around a lot when refactoring.
-			- We can maybe write a workaround in an image component that can handle SVG sprites and other things without code duplication.
-		-->
+			<!--
 
-		<!--
+				NOTE
+				- Example of how to use the key attribute to enable transitioning to elements of the same type.
+				- Also enables transitioning out an element that contains a value whose value has already changed: Vue will keep the old value in the scope until the exit transition is complete.
 
-			NOTE
-			- Example of how to use the key attribute to enable transitioning to elements of the same type.
-			- Also enables transitioning out an element that contains a value whose value has already changed: Vue will keep the old value in the scope until the exit transition is complete.
+				FIXME
+				- this should be mentioned in guide about transitions
 
-			FIXME
-			- this should be mentioned in guide about transitions
+			-->
+			<div>
+				<transition name="transition-fade" mode="out-in">
+					<p v-if="notificationShouldBeVisible" :key="'on-' + notificationTextToRender">{{ notificationTextToRender }}</p>
+					<p v-else key="off" @click="setNotificationText">Set notification text</p>
+				</transition>
+				<p>
+					{{ currentTime }} Network {{ networkStatus }} &bullet;
+					<click class="inline-block radius-tight" :callback="clearNotificationText">Clear msg</click> &bullet;
+					<click class="inline-block radius-tight" :callback="setNotificationText">Set msg</click>
+				</p>
+			</div>
 
-		-->
-		<div>
-			<transition name="transition-fade" mode="out-in">
-				<p v-if="notificationShouldBeVisible" :key="'on-' + notificationTextToRender">{{ notificationTextToRender }}</p>
-				<p v-else key="off" @click="setNotificationText">Set notification text</p>
+			<hr>
+
+			<!--
+				References to static assets with resolved URLs
+			-->
+			<p><pic class="view-app-logo" title="Foo" src="some/folder/anotherlogo.png" hide-until-loaded></pic> Global counter value "{{ globalCounterValue }}" is maintained by Vuex.</p>
+
+			<hr>
+
+			<!--
+				Quick-and-dirty sample menu with different types of links. Normally you would render a list like this with a separate component.
+			-->
+			<ul class="view-app-menu">
+				<li><a href="#/">Welcome</a></li>
+				<li><a href="#/arbit">More stuff</a></li>
+				<li><a href="#/console">Console</a></li>
+				<li>router-link: <router-link :to="{ name: 'hello' }">Welcome</router-link></li>
+				<li>router-link: <router-link :to="{ name: 'arbitrary' }">More stuff</router-link></li>
+				<li>Dynamic: <a href="#" @click.prevent="onCustomLinkClick">{{ customLinkLabel }}</a></li>
+			</ul>
+
+			<!-- First-level router view -->
+			<transition name="transition-fade" mode="out-in" appear>
+				<!--<keep-alive>-->
+					<router-view></router-view>
+				<!--</keep-alive>-->
 			</transition>
-			<p>
-				{{ currentTime }} Network {{ networkStatus }} &bullet;
-				<click class="inline-block radius-tight" :callback="clearNotificationText">Clear msg</click> &bullet;
-				<click class="inline-block radius-tight" :callback="setNotificationText">Set msg</click>
-			</p>
+
 		</div>
-
-		<hr>
-
-		<!-- References to static assets with resolved URLs -->
-		<p><pic class="view-app-logo" title="Foo" src="some/folder/anotherlogo.png" hide-until-loaded></pic> Global counter value "{{ globalCounterValue }}" is maintained by Vuex.</p>
-
-		<hr>
-
-		<!-- Quick-and-dirty sample menu with different types of links. Normally you would render a list like this with a separate component. -->
-		<ul class="view-app-menu">
-			<li><a href="#/">Welcome</a></li>
-			<li><a href="#/arbit">More stuff</a></li>
-			<li><a href="#/console">Console</a></li>
-			<li>router-link: <router-link :to="{ name: 'hello' }">Welcome</router-link></li>
-			<li>router-link: <router-link :to="{ name: 'arbitrary' }">More stuff</router-link></li>
-			<li>Dynamic: <a href="#" @click.prevent="onCustomLinkClick">{{ customLinkLabel }}</a></li>
-		</ul>
-
-		<!-- First-level router view -->
-		<transition name="transition-fade" mode="out-in" appear>
-			<!--<keep-alive>-->
-				<router-view></router-view>
-			<!--</keep-alive>-->
-		</transition>
-
 	</div>
 
 </template>
@@ -249,7 +249,13 @@
 	// - This is just manual duplication that leads to mistakes.
 	@import '~@styles/shared.scss';
 
+	// Required for titlebar spacing
+	// FIXME: hacky solution, can't be transitioned and is not 100 % accurate
 	.view-app {
+		padding-top: 1em + (2 * $buffer-tight);
+	}
+
+	.view-app-content {
 		@include buffer-relative;
 	}
 
