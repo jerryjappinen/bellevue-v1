@@ -27,11 +27,11 @@ export const getters = {
 // Use these in actions with `context.commit('increment')`
 export const mutations = {
 
-	incrementCounter: function (state) {
+	'INCREMENT_COUNTER': function (state) {
 		state.counter++;
 	},
 
-	decrementCounter: function (state) {
+	'DECREMENT_COUNTER': function (state) {
 		state.counter--;
 	}
 
@@ -43,12 +43,12 @@ export const mutations = {
 export const actions = {
 
 	increment: function (context) {
-		context.commit('incrementCounter');
+		context.commit('INCREMENT_COUNTER');
 	},
 
 	decrement: function (context) {
 		if (context.getters.canDecrementCounter) {
-			context.commit('decrementCounter');
+			context.commit('DECREMENT_COUNTER');
 		}
 	},
 
