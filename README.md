@@ -7,7 +7,7 @@ Detailed project template docs: [gitbook.com/book/eiskis/vue-webpack-docs](https
 ## Requirements
 
 1. [nvm](https://github.com/creationix/nvm)
-2. The Node version defined in configured in `.nvmrc`
+2. The Node version defined in `.nvmrc`
 
 ## Project setup
 
