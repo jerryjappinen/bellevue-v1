@@ -5,8 +5,12 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
-Vue.use(Vuex);
 
 // Fetch the state, actions and getters etc. from under store/
 import { store } from '@store';
+
+// Autoload plugin
+Vue.use(Vuex);
+
+// Export a new plugin instance
 export default new Vuex.Store(store);

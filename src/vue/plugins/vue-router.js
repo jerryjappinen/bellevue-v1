@@ -4,14 +4,15 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-Vue.use(Router);
-
 // Import route components for vue-router
 import config from '@config';
 
 
 
-// Router options
+// Autoload plugin
+Vue.use(Router);
+
+// Set up router options
 // See https://router.vuejs.org/en/api/options.html
 export const options = {
 
@@ -25,4 +26,5 @@ export const options = {
 
 };
 
+// Export a new plugin instance
 export default new Router(options);

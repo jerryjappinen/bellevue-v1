@@ -17,6 +17,9 @@
 // - You can import these rules in other places, like under tests.
 
 module.exports = {
+	plugins: [
+		'import'
+	],
 	rules: {
 
 		// Stylistic issues
@@ -110,7 +113,36 @@ module.exports = {
 
 		// Allow long ternary (not always 'unneeded')
 		// See http://stackoverflow.com/questions/2100758/javascript-or-variable-assignment-explanation
-		'no-unneeded-ternary': ['off']
+		'no-unneeded-ternary': ['off'],
+
+
+
+		// Rules for imports plugin
+		// https://github.com/benmosher/eslint-plugin-import
+
+		// FIXME: we should enable these once this issue with aliases is resolved:
+		// https://github.com/benmosher/eslint-plugin-import/issues/779
+		// 'import/named': ['error'],
+		// 'import/default': ['error'],
+		// 'import/no-extraneous-dependencies': ['error'],
+
+		'import/no-absolute-path': ['error'],
+		'import/no-webpack-loader-syntax': ['error'],
+		'import/export': ['warn'],
+		'import/no-named-as-default': ['warn'],
+		'import/first': ['warn'],
+		'import/no-duplicates': ['warn'],
+		'import/extensions': [
+			'warn',
+			'never',
+			{
+				'svg': 'always'
+			}
+		],
+
+		// We turn this off, as sometimes we want default to be an object containing all the named exports
+		'import/no-named-as-default-member': ['off'],
+
 
 	}
 };

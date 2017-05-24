@@ -2,7 +2,7 @@
 import Account from './Account';
 import Role from './Role';
 
-import { init } from './helpers.js';
+import { init } from './helpers';
 
 export {
 	init,
