@@ -2,7 +2,6 @@
 	"processors": [
 		"stylelint-processor-html"
 	],
-	"plugins": [],
 	"extends": "stylelint-config-standard",
 	"rules": {
 		"no-empty-source": null
