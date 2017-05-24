@@ -1,5 +1,5 @@
 
-import ImagesLoaded from '@directives/images-loaded';
+import ImagesLoaded from '@vuedirectives/images-loaded';
 
 export {
 	ImagesLoaded

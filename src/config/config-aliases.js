@@ -23,9 +23,9 @@ module.exports = {
 
 	// Vue application code
 	'@components': 'src/components',
-	'@directives': 'src/vue/directives',
-	'@mixins': 'src/vue/mixins',
-	'@plugins': 'src/vue/plugins',
+	'@vuedirectives': 'src/vue/directives',
+	'@vuemixins': 'src/vue/mixins',
+	'@vueplugins': 'src/vue/plugins',
 
 	// State management
 	'@store': 'src/store',
