@@ -15,7 +15,9 @@
 
 				setTestValue: 'foo',
 
-				toggleTestValue: true
+				toggleTestValue: true,
+
+				textinputTestValue: ''
 
 			};
 		},
@@ -75,6 +77,8 @@
 
 		<!-- Testing barebones control components -->
 		<table class="view-console-components-controls">
+
+			<!--Clicking-->
 			<tr>
 				<td class="pad">Click</td>
 				<td><click class="pad" :callback="clickTestCallback" :disabled="controlsAreDisabled">Click me</click></td>
@@ -89,6 +93,8 @@
 					</set>
 				</td>
 			</tr>
+
+			<!--Switches and toggles-->
 			<tr>
 				<td class="pad">Set to + bar (dynamic)</td>
 				<td>
@@ -101,6 +107,7 @@
 					</set>
 				</td>
 			</tr>
+
 			<tr>
 				<td class="pad">Toggle</td>
 				<td>
@@ -111,6 +118,46 @@
 					</toggle>
 				</td>
 			</tr>
+
+
+
+			<!--Textinput-->
+
+			<tr>
+				<td class="pad">{{ textinputTestValue }}</td>
+				<td>
+
+					<!--NOTE: using v-model-->
+					<label class="block pad">
+						<textinput
+							v-model="textinputTestValue"
+							:disabled="controlsAreDisabled"
+							:clear="true"
+							:sanitize="true">
+						</textinput>
+					</label>
+
+				</td>
+			</tr>
+
+			<tr>
+				<td class="pad">{{ textinputTestValue }}</td>
+				<td>
+
+					<!--NOTE: using v-model-->
+					<label class="block pad">
+						<textinput
+							v-model="textinputTestValue"
+							type="multiline"
+							:disabled="controlsAreDisabled"
+							:clear="true"
+							:sanitize="true">
+						</textinput>
+					</label>
+
+				</td>
+			</tr>
+
 		</table>
 
 	</div>

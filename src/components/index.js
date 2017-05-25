@@ -12,6 +12,7 @@ import ConsoleServices from './console/ConsoleServices';
 // Controls
 import Click from './controls/Click';
 import Set from './controls/Set';
+import Textinput from './controls/Textinput';
 import Toggle from './controls/Toggle';
 
 // Counters
@@ -52,6 +53,7 @@ export {
 
 	Click,
 	Set,
+	Textinput,
 	Toggle,
 
 	Counter,
@@ -89,6 +91,7 @@ export default {
 
 	Click,
 	Set,
+	Textinput,
 	Toggle,
 
 	Counter,

@@ -1,0 +1,39 @@
+
+@import '~@styles/shared';
+
+// Shared, defaults
+.transition-scale-fade-enter,
+.transition-scale-fade-enter-active,
+.transition-scale-fade-leave,
+.transition-scale-fade-leave-active {
+	transition-property: opacity, transform;
+}
+
+.transition-scale-fade-enter,
+.transition-scale-fade-enter-active {
+	@include transition-fast;
+}
+
+.transition-scale-fade-leave,
+.transition-scale-fade-leave-active {
+	@include transition-slow;
+}
+
+// Default state to transition a) to when entering and b) from when leaving
+.transition-scale-fade-enter-active,
+.transition-scale-fade-leave {
+	opacity: 1;
+	transform: scale(1);
+}
+
+// Start state when entering
+.transition-scale-fade-enter {
+	opacity: 0;
+	transform: scale($scale-large);
+}
+
+// Out
+.transition-scale-fade-leave-active {
+	opacity: 0;
+	transform: scale($scale-small);
+}

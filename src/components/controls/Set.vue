@@ -46,7 +46,7 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 					return this.value;
 				},
 				set: function (value) {
-					this.$emit('input', value);
+					this.$emit('update', value);
 				}
 			},
 
