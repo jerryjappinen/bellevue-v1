@@ -1,23 +1,13 @@
 <script>
 
-	// Vendor
-	import _ from 'lodash';
-
 	// Custom utilities
-	import util from '@util';
+	import { dom } from '@util';
 
 	// Services
-	import { popovers, viewport } from '@services';
+	import { popovers } from '@services';
 
 	export default {
 		name: 'popover',
-
-		data: function () {
-			return {
-				inPlaceMinViewportWidth: 800,
-				inPlaceMinViewportHeight: 400
-			};
-		},
 
 		computed: {
 
@@ -25,36 +15,9 @@
 				return popovers.component;
 			},
 
+			// NOTE: this won't trigger transition if reopening the popup with the same component
 			key: function () {
-				return this.component;
-			},
-
-			inPlaceTarget: function () {
-				return popovers.inPlaceTarget;
-			},
-
-			inPlaceTargetBox: function () {
-				return popovers.inPlaceTargetBox;
-			},
-
-			targetCoordinates: _.throttle(function () {
-				if (this.inPlaceTargetBox) {
-					return {
-						x: this.inPlaceTargetBox.x,
-						y: this.inPlaceTargetBox.y
-					};
-				}
-				return null;
-			}, 1, { leading: true }),
-
-			shouldRenderInPlace: function () {
-				return this.targetCoordinates &&
-					_.isNumber(this.targetCoordinates.x) &&
-					_.isNumber(this.targetCoordinates.y) &&
-					viewport.width > this.inPlaceMinViewportWidth &&
-					viewport.height > this.inPlaceMinViewportHeight
-						? true
-						: false;
+				return 'popover-' + this.component;
 			},
 
 
@@ -62,17 +25,17 @@
 			// Binding helpers
 
 			classes: function () {
-				return util.dom.composeClassnames({
+				return dom.composeClassnames({
+					inPlace: popovers.isInPlace,
 					on: this.component,
-					off: !this.component,
-					inPlace: this.shouldRenderInPlace
+					off: !this.component
 				}, 'view-popover');
 			},
 
-			popoverStyleBinding: function () {
-				if (this.shouldRenderInPlace) {
+			positionStyleBinding: function () {
+				if (popovers.isInPlace) {
 					return {
-						transform: 'translate3d(' + this.targetCoordinates.x + 'px, ' + this.targetCoordinates.y + 'px, 0)'
+						transform: 'translate3d(' + popovers.targetCoordinates.x + 'px, ' + popovers.targetCoordinates.y + 'px, 0)'
 					};
 				}
 			}
@@ -89,6 +52,10 @@
 
 			close: function () {
 				popovers.close();
+			},
+
+			onOverlayClick: function () {
+				this.close();
 			},
 
 			onClick: function () {
@@ -119,15 +86,21 @@
 
 <template>
 
-	<div class="view-popover" :class="classes" :data-popover-component="component ? component : 'no component'">
+	<div class="view-popover" :class="classes">
+		<div class="view-popover-content" :style="positionStyleBinding">
+			<div class="view-popover-content-relative">
 
-		<!--This allows us to transition from one component to another while this wrapper is still active-->
-		<transition name="transition-fade" mode="out-in">
+				<!--This allows us to transition from one component to another while this wrapper is still active-->
+				<transition name="transition-fade-snap" mode="out-in">
 
-			<!-- FIXME: how to pass propsData to child component? -->
-			<component :is="component" :key="key"></component>
+					<!-- FIXME: how to pass propsData to child component? -->
+					<component :is="component" :key="key"></component>
 
-		</transition>
+				</transition>
+
+			</div>
+		</div>
+		<div class="view-popover-overlay" @click="onOverlayClick"></div>
 	</div>
 
 </template>
@@ -137,8 +110,89 @@
 <style lang="scss">
 	@import '~@styles/shared.scss';
 
+
+
+	// Base styling
+
 	.view-popover {
+		@include fill-fixed;
 		z-index: $z-popovers;
+		overflow: hidden;
+	}
+
+	.view-popover-content {
+		@include border-box;
+		@include limit-small;
+		position: absolute;
+		z-index: 2;
+		overflow: hidden;
+	}
+
+	.view-popover-content-relative {
+		@include border-box;
+		@include fill-relative;
+		overflow: auto;
+		@include clear-after;
+
+		border-width: 1px;
+		border-color: $color-dark-translucent;
+		background-color: $color-white;
+		@include background-clip-padding-box;
+		@include radius;
+		@include shadow;
+	}
+
+	.view-popover-overlay {
+		@include fill;
+		z-index: 1;
+		background-color: color-translucent($color-dark, 0.05);
+	}
+
+
+
+	// On-off states
+
+	// .view-popover-on {}
+
+	// .view-popover-off {}
+
+
+
+	// In-place popover vs. modal design
+
+	.view-popover-in-place {
+
+		.view-popover-content {
+			@include transform-origin-top-left;
+			max-height: 12em;
+
+			// // Whoops, I don't want this
+			// > * {
+			// 	position: relative;
+			// }
+
+		}
+
+	}
+
+	.view-popover-not-in-place {
+
+		.view-popover-overlay {
+			background-color: color-translucent($color-dark, 0.15);
+		}
+
+		.view-popover-content {
+			@include keep-full-center;
+			height: 90%;
+		}
+
+		.view-popover-content-relative {
+			@include keep-center;
+			width: 90%;
+			max-height: 100%;
+			@include radius-loose;
+		}
+
 	}
 
 </style>

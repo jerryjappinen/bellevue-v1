@@ -1,25 +1,26 @@
 
 @import '~@styles/shared';
 
-
-
-// Transition code
-// https://vuejs.org/v2/guide/transitions.html
-// https://vuejs.org/images/transition.png
-
-// While either transition is playing
 // FIXME: would be better to not specify the opacity value 1, but let the default or component's defined value stand
 .transition-fade-enter-active,
 .transition-fade-leave-active {
 	opacity: 1;
-	@include transition-fast;
+}
+
+.transition-fade-enter,
+.transition-fade-leave-to {
+	opacity: 0;
+}
+
+.transition-fade-enter-active,
+.transition-fade-leave-active {
 	@include transition-properties(opacity);
 }
 
-// Start state for enter
-.transition-fade-enter,
+.transition-fade-enter-active {
+	@include transition-fast;
+}
 
-// End state for exit
-.transition-fade-leave-to {
-	opacity: 0;
+.transition-fade-leave-active {
+	@include transition-slow;
 }

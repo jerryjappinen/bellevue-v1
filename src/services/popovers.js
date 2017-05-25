@@ -3,10 +3,15 @@ import _ from 'lodash';
 import Vue from 'vue';
 import throttle from 'raf';
 
+import { viewport } from '@services';
+
 export default new Vue({
 
 	data: function () {
 		return {
+			inPlaceMinViewportWidth: 800,
+			inPlaceMinViewportHeight: 400,
+
 			component: null,
 			inPlaceTarget: null,
 			inPlaceTargetBox: null,
@@ -14,7 +19,33 @@ export default new Vue({
 		};
 	},
 
-	// computed: {},
+	computed: {
+
+		shouldBeShown: function () {
+			return this.component ? true : false;
+		},
+
+		targetCoordinates: _.throttle(function () {
+			if (this.inPlaceTargetBox) {
+				return {
+					x: this.inPlaceTargetBox.left,
+					y: this.inPlaceTargetBox.top
+				};
+			}
+			return null;
+		}, 1, { leading: true }),
+
+		isInPlace: function () {
+			return this.targetCoordinates &&
+				_.isNumber(this.targetCoordinates.x) &&
+				_.isNumber(this.targetCoordinates.y) &&
+				viewport.width > this.inPlaceMinViewportWidth &&
+				viewport.height > this.inPlaceMinViewportHeight
+					? true
+					: false;
+		}
+
+	},
 
 	methods: {
 
@@ -58,6 +89,10 @@ export default new Vue({
 
 		},
 
+
+
+		// API
+
 		open: function (component, inPlaceTarget) {
 
 			if (component) {
@@ -76,6 +111,7 @@ export default new Vue({
 						this.clearInterval();
 						this._interval = throttle(this.updateInPlaceTargetBox);
 					}
+
 
 				// Ensure there's no in-place target left over
 				} else {

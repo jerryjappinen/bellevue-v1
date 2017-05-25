@@ -60,13 +60,14 @@
 
 	.view-titlebar {
 		@include fill-width-fixed;
+		line-height: 1;
 		top: 0;
 		z-index: $z-titlebar;
+
 		background-color: $color-white;
 
-		line-height: 1;
-
 		@include shadow;
+		@include transition-slow;
 		@include transition-properties-common;
 
 		ul,
@@ -98,9 +99,9 @@
 		display: inline-block;
 		width: 1em;
 		height: 1em;
-		transform: scale(1.5);
 		margin-left: 0.25em;
 		margin-right: 0.25em;
+		transform: scale(1.5);
 	}
 
 </style>

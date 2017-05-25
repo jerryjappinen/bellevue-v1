@@ -43,7 +43,11 @@
 
 		methods: {
 
-			openPopover: function (event) {
+			openPopover: function () {
+				popovers.open('ConsoleConfiguration');
+			},
+
+			openPopoverInPlace: function (event) {
 				popovers.open('ConsoleConfiguration', event.target, {
 					someParameter: 'Foo'
 				});
@@ -59,7 +63,10 @@
 
 	<div class="view-console-services">
 
-		<p><click :callback="openPopover"><button>Open popover</button></click></p>
+		<ul>
+			<li><click :callback="openPopover"><button>Open popover</button></click></li>
+			<li><click :callback="openPopoverInPlace"><button>Open popover in-place</button></click></li>
+		</ul>
 
 		<template v-for="(values, serviceName) in dump">
 

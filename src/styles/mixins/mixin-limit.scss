@@ -3,6 +3,8 @@
 
 
 
+// Limit width of an element when viewport is big enough
+
 @mixin limit ($breakpoint, $limit: $breakpoint) {
 	@include viewport-over($breakpoint) {
 		max-width: $limit;
@@ -51,4 +53,14 @@
 
 @mixin no-limit {
 	max-width: none;
+}
+
+
+
+// Limit height of an element when viewport is big enough
+
+@mixin limit-height ($breakpoint, $limit: $breakpoint) {
+	@include viewport-height-over($breakpoint) {
+		max-height: $limit;
+	}
 }

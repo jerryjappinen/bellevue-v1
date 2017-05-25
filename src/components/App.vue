@@ -63,10 +63,14 @@
 
 		computed: {
 
-			// Trigger popovers
+			// Orchestrate layout elements
 
 			popoverShouldBeShown: function () {
-				return popovers.component ? true : false;
+				return popovers.shouldBeShown ? true : false;
+			},
+
+			titlebarShouldBeShown: function () {
+				return this.popoverShouldBeShown && !popovers.isInPlace ? false : true;
 			},
 
 
@@ -167,10 +171,12 @@
 
 	<div class="view-app">
 
-		<titlebar></titlebar>
+		<transition name="transition-fade" appear>
+			<titlebar v-if="titlebarShouldBeShown"></titlebar>
+		</transition>
 
 		<!-- Popover elements will be rendered here in the structure regardless of their positioning -->
-		<transition name="transition-fade">
+		<transition name="transition-fade" mode="out-in" appear>
 			<popover v-if="popoverShouldBeShown"></popover>
 		</transition>
 
@@ -186,7 +192,7 @@
 				- this should be mentioned in guide about transitions
 
 			-->
-			<div>
+			<div class="view-app-foooo">
 				<transition name="transition-fade" mode="out-in">
 					<p v-if="notificationShouldBeVisible" :key="'on-' + notificationTextToRender">{{ notificationTextToRender }}</p>
 					<p v-else key="off" @click="setNotificationText">Set notification text</p>
