@@ -115,7 +115,7 @@
 	// Base styling
 
 	.view-popover {
-		@include fill-fixed;
+		@include fill;
 		z-index: $z-popovers;
 		overflow: hidden;
 	}
@@ -173,13 +173,14 @@
 
 		}
 
+		.view-popover-overlay {
+			position: fixed;
+		}
+
 	}
 
 	.view-popover-not-in-place {
-
-		.view-popover-overlay {
-			background-color: color-translucent($color-dark, 0.15);
-		}
+		@include fill-fixed;
 
 		.view-popover-content {
 			@include keep-full-center;
@@ -191,6 +192,10 @@
 			width: 90%;
 			max-height: 100%;
 			@include radius-loose;
+		}
+
+		.view-popover-overlay {
+			background-color: color-translucent($color-dark, 0.15);
 		}
 
 	}

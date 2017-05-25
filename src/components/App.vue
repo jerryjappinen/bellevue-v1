@@ -171,13 +171,14 @@
 
 	<div class="view-app">
 
-		<transition name="transition-fade" appear>
-			<titlebar v-if="titlebarShouldBeShown"></titlebar>
-		</transition>
-
 		<!-- Popover elements will be rendered here in the structure regardless of their positioning -->
 		<transition name="transition-fade" mode="out-in" appear>
 			<popover v-if="popoverShouldBeShown"></popover>
+		</transition>
+
+		<!--Title bar-->
+		<transition name="transition-hide-up" appear>
+			<titlebar v-if="titlebarShouldBeShown"></titlebar>
 		</transition>
 
 		<div class="view-app-content">

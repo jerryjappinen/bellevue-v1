@@ -1,0 +1,17 @@
+
+@import '~@styles/shared';
+
+
+
+.transition-hide-up-enter-active,
+.transition-hide-up-leave-active {
+	@include transition-slow;
+	@include transition-properties(transform);
+
+	@include no-translate;
+}
+
+.transition-hide-up-enter,
+.transition-hide-up-leave-to {
+	@include translate-up;
+}

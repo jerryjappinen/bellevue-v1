@@ -76,6 +76,12 @@
 			@include no-push-vertical;
 		}
 
+		// FIXME: I'd like to have generic transition classes here even if I've chosen to use a named transition in the parent component
+		&.transition-hide-up-enter,
+		&.transition-hide-up-leave-to {
+			@include shadow-transparent;
+		}
+
 	}
 
 	.view-titlebar-scrolled {

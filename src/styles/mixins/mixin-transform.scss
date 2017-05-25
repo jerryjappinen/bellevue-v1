@@ -7,6 +7,36 @@
 
 
 //
+// Translate3d
+//
+
+@mixin translate ($x, $y, $z: 0, $properties...) {
+	@include transform(translate3d($x, $y, $z) $properties...);
+}
+
+@mixin translate-up ($y: 100%, $properties...) {
+	@include translate(0, -$y, 0, $properties...);
+}
+
+@mixin translate-down ($y: 100%, $properties...) {
+	@include translate(0, $y, 0, $properties...);
+}
+
+@mixin translate-left ($x: 100%, $properties...) {
+	@include translate(-$x, 0, 0, $properties...);
+}
+
+@mixin translate-right ($x: 100%, $properties...) {
+	@include translate($x, 0, 0, $properties...);
+}
+
+@mixin no-translate ($properties...) {
+	@include transform(translate3d(0, 0, 0) $properties...);
+}
+
+
+
+//
 // Transform origin
 //
 
