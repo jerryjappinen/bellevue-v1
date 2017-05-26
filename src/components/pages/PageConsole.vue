@@ -24,8 +24,7 @@
 		<h1>Debug {{ title }}</h1>
 
 		<ul class="view-page-console-menu inline-block">
-			<li><router-link :to="{ name: 'console' }" >Components</router-link></li>
-			<!--<li><router-link :to="{ name: 'consoleComponents' }" >Components</router-link></li>-->
+			<li><router-link :to="{ name: 'consoleComponents' }" >Components</router-link></li>
 			<li><router-link :to="{ name: 'consoleConfiguration' }" >Configuration</router-link></li>
 			<li><router-link :to="{ name: 'consoleModels' }" >Models</router-link></li>
 			<li><router-link :to="{ name: 'consolePlugins' }" >Plugins</router-link></li>
@@ -41,7 +40,7 @@
 </template>
 
 <style lang="scss">
-	// @import '~@styles/shared.scss';
+	// @import '~@styles/shared';
 	.view-page-console-menu {
 		.is-exact-active {
 			text-decoration: underline;

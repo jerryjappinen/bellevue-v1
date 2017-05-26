@@ -26,6 +26,8 @@ import Flipswitch from './forms/Flipswitch';
 import Radio from './forms/Radio';
 
 // Layout
+import Notification from './layout/Notification';
+import Panel from './layout/Panel';
 import Popover from './layout/Popover';
 import Titlebar from './layout/Titlebar';
 
@@ -34,7 +36,14 @@ import Hello from './pages/Hello';
 import PageConsole from './pages/PageConsole';
 import PageSomething from './pages/PageSomething';
 
-// Pages
+// Panels
+import PanelConsole from './panels/PanelConsole';
+
+// Popovers
+import PopoverCounter from './popovers/PopoverCounter';
+import PopoverMainMenu from './popovers/PopoverMainMenu';
+
+// Snippets
 import Icon from './snippets/Icon';
 import Pic from './snippets/Pic';
 import PicImg from './snippets/PicImg';
@@ -64,12 +73,19 @@ export {
 	Flipswitch,
 	Radio,
 
+	Notification,
+	Panel,
 	Popover,
 	Titlebar,
 
 	Hello,
 	PageConsole,
 	PageSomething,
+
+	PanelConsole,
+
+	PopoverCounter,
+	PopoverMainMenu,
 
 	Icon,
 	Pic,
@@ -102,12 +118,19 @@ export default {
 	Flipswitch,
 	Radio,
 
+	Notification,
+	Panel,
 	Popover,
 	Titlebar,
 
 	Hello,
 	PageConsole,
 	PageSomething,
+
+	PanelConsole,
+
+	PopoverCounter,
+	PopoverMainMenu,
 
 	Icon,
 	Pic,

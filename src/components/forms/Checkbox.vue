@@ -49,7 +49,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared.scss';
+	@import '~@styles/shared';
 
 	$checkbox-content-area: 0.8em;
 	$checkbox-padding: 0.2em;

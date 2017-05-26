@@ -4,7 +4,7 @@
 	// import _ from 'lodash';
 
 	// Services
-	import { popovers, time, viewport } from '@services';
+	import { network, notifications, panels, popovers, time, viewport } from '@services';
 
 	export default {
 
@@ -14,6 +14,21 @@
 
 			dump: function () {
 				return {
+
+					network: {
+						isConnecting: network.isConnecting,
+						isOnline: network.isOnline,
+						isOffline: network.isOffline
+					},
+
+					notifications: {
+						message: notifications.message,
+						shouldBeShown: notifications.shouldBeShown
+					},
+
+					panels: {
+						component: panels.component
+					},
 
 					popovers: {
 						component: popovers.component,
@@ -43,12 +58,24 @@
 
 		methods: {
 
+			setNotificationText: function () {
+				notifications.show('This is a text message.');
+			},
+
+			clearNotificationText: function () {
+				notifications.close();
+			},
+
+			openPanel: function () {
+				panels.open('PanelConsole');
+			},
+
 			openPopover: function () {
-				popovers.open('ConsoleConfiguration');
+				popovers.open('PopoverCounter');
 			},
 
 			openPopoverInPlace: function (event) {
-				popovers.open('ConsoleConfiguration', event.target, {
+				popovers.open('PopoverCounter', event.target, {
 					someParameter: 'Foo'
 				});
 			}
@@ -63,10 +90,22 @@
 
 	<div class="view-console-services">
 
+		<h2>Test services</h2>
+
+			<div class="view-app-foooo">
+				<p>
+				</p>
+			</div>
+
 		<ul>
+			<li><click :callback="setNotificationText">Set notification text</click></li>
+			<li><click :callback="clearNotificationText">Clear notification</click></li>
+			<li><click :callback="openPanel"><button>Open panel</button></click></li>
 			<li><click :callback="openPopover"><button>Open popover</button></click></li>
-			<li><click :callback="openPopoverInPlace"><button>Open popover in-place</button></click></li>
+			<li><click :callback="openPopoverInPlace"><button>Open popover in-place</button> (doesn't work reliably yet)</click></li>
 		</ul>
+
+		<h2>Services state</h2>
 
 		<template v-for="(values, serviceName) in dump">
 
@@ -86,7 +125,7 @@
 </template>
 
 <style lang="scss">
-	// @import '~@styles/shared.scss';
+	// @import '~@styles/shared';
 	.view-console-services {
 		th,
 		td {

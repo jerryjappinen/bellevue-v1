@@ -15,10 +15,14 @@
 				return popovers.component;
 			},
 
-			// NOTE: this won't trigger transition if reopening the popup with the same component
+			// NOTE: this won't trigger transition if reopening the same component
 			key: function () {
 				return 'popover-' + this.component;
 			},
+
+			// overlayIsShown: function () {
+			// 	return !popovers.isInPlace;
+			// },
 
 
 
@@ -44,39 +48,33 @@
 
 		methods: {
 
-			clickIsOnOutside: function (event) {
-				// event.target vs. event.currentTarget
-				// event.target.contains() ??
-				// event.target.parentNode ??
-			},
+			// clickIsOnOutside: function (event) {
+			// 	// event.target vs. event.currentTarget
+			// 	// event.target.contains() ??
+			// 	// event.target.parentNode ??
+			// },
 
 			close: function () {
 				popovers.close();
 			},
 
+			// onClick: function () {
+			// 	if (util.events.clickIsOnOutside(this.$el)) {
+			// 		this.close();
+			// 	}
+			// }
+
 			onOverlayClick: function () {
 				this.close();
-			},
-
-			onClick: function () {
-				if (this.clickIsOnOutside) {
-					this.close();
-				}
 			}
 
-		},
-
-		watch: {
-
-		},
-
-		created: function () {
-
-		},
-
-		beforeDestroy: function () {
-
 		}
+
+		// watch: {},
+
+		// created: function () {},
+
+		// beforeDestroy: function () {}
 
 	};
 
@@ -91,7 +89,7 @@
 			<div class="view-popover-content-relative">
 
 				<!--This allows us to transition from one component to another while this wrapper is still active-->
-				<transition name="transition-fade-snap" mode="out-in">
+				<transition name="transition-fade" mode="out-in">
 
 					<!-- FIXME: how to pass propsData to child component? -->
 					<component :is="component" :key="key"></component>
@@ -108,7 +106,7 @@
 
 
 <style lang="scss">
-	@import '~@styles/shared.scss';
+	@import '~@styles/shared';
 
 
 
@@ -116,7 +114,6 @@
 
 	.view-popover {
 		@include fill;
-		z-index: $z-popovers;
 		overflow: hidden;
 	}
 
@@ -125,7 +122,7 @@
 		@include limit-small;
 		position: absolute;
 		z-index: 2;
-		overflow: hidden;
+		// overflow: hidden;
 	}
 
 	.view-popover-content-relative {
@@ -134,18 +131,19 @@
 		overflow: auto;
 		@include clear-after;
 
-		border-width: 1px;
-		border-color: $color-dark-translucent;
 		background-color: $color-white;
-		@include background-clip-padding-box;
-		@include radius;
 		@include shadow;
+
+		@include viewport-over-tiny {
+			@include radius;
+		}
+
 	}
 
 	.view-popover-overlay {
 		@include fill;
 		z-index: 1;
-		background-color: color-translucent($color-dark, 0.05);
+		background-color: $color-overlay;
 	}
 
 
@@ -164,6 +162,8 @@
 
 		.view-popover-content {
 			@include transform-origin-top-left;
+			min-width: 8em;
+			max-width: 24em;
 			max-height: 12em;
 
 			// // Whoops, I don't want this
@@ -173,8 +173,9 @@
 
 		}
 
+		// FIXME: we don't have accurate view handling yet so we have to have an invisible overlay
 		.view-popover-overlay {
-			position: fixed;
+			background-color: transparent;
 		}
 
 	}
@@ -183,19 +184,33 @@
 		@include fill-fixed;
 
 		.view-popover-content {
-			@include keep-full-center;
-			height: 90%;
+			position: absolute;
+			top: 0;
+			left: 50%;
+
+			width: 100%;
+			max-height: 80%;
+
+			transform: translate3d(-50%, 0, 0);
+
+			@include viewport-over-tiny {
+				top: 50%;
+				width: 90%;
+				max-height: 90%;
+				transform: translate3d(-50%, -50%, 0);
+			}
+
 		}
 
 		.view-popover-content-relative {
 			@include keep-center;
-			width: 90%;
+			min-height: 16em;
 			max-height: 100%;
-			@include radius-loose;
-		}
 
-		.view-popover-overlay {
-			background-color: color-translucent($color-dark, 0.15);
+			@include viewport-over-tiny {
+				@include radius-loose;
+			}
+
 		}
 
 	}

@@ -34,6 +34,6 @@
 </template>
 
 <style lang="scss">
-	// @import '~@styles/shared.scss';
+	// @import '~@styles/shared';
 	// .view-console-configuration {}
 </style>

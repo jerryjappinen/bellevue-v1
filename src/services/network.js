@@ -6,7 +6,7 @@ export default new Vue({
 	data: function () {
 		return {
 			isOnline: false,
-			connecting: true
+			isConnecting: true
 		};
 	},
 
@@ -53,7 +53,7 @@ export default new Vue({
 
 	created: function () {
 		this.updateOnlineStatus();
-		this.connecting = false;
+		this.isConnecting = false;
 		this.setListeners();
 	},
 

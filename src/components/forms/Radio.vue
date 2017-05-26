@@ -53,7 +53,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared.scss';
+	@import '~@styles/shared';
 
 	.view-radio,
 	.view-radio-knob {

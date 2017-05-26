@@ -31,9 +31,11 @@
 		},
 
 		methods: {
+
 			toggleControlsDisabled: function () {
 				this.controlsAreDisabled = !this.controlsAreDisabled;
 			}
+
 		}
 
 	};
@@ -165,7 +167,7 @@
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared.scss';
+	@import '~@styles/shared';
 
 	.view-console-components-spinner-1 {
 		width: 1em;

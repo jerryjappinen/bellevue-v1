@@ -1,19 +1,25 @@
 
 import network from './network';
-import time from './time';
+import notifications from './notifications';
+import panels from './panels';
 import popovers from './popovers';
+import time from './time';
 import viewport from './viewport';
 
 export {
 	network,
-	time,
+	notifications,
+	panels,
 	popovers,
+	time,
 	viewport
 };
 
 export default {
 	network,
-	time,
+	notifications,
+	panels,
 	popovers,
+	time,
 	viewport
 };
