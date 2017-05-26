@@ -4,6 +4,17 @@ import events from './util-events';
 
 export default {
 
+	clearSelection: function () {
+		if (window.document.selection && window.document.selection.empty) {
+			window.document.selection.empty();
+		} else if (window.getSelection) {
+			var sel = window.getSelection();
+			sel.removeAllRanges();
+		}
+	},
+
+
+
 	// Determine if a link element should be considered external or internal
 	linkIsExternal: function (element) {
 		if (
