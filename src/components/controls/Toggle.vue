@@ -13,7 +13,7 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 <script>
 
 	// Utilities
-	import util from '@util';
+	import { dom } from '@util';
 
 	// View model
 	export default {
@@ -28,6 +28,12 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 			'value',
 			'disabled'
 		],
+
+		data: function () {
+			return {
+				mouseDown: false
+			};
+		},
 
 		computed: {
 
@@ -52,15 +58,16 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 			classes: function () {
 
 				// Utility classes
-				var componentClasses = util.dom.composeClassnames({
+				var componentClasses = dom.composeClassnames({
 					on: this.isOn,
 					off: !this.isOn,
 					enabled: !this.disabled,
-					disabled: this.disabled
+					disabled: this.disabled,
+					mouseDown: this.mouseDown
 				}, 'view-toggle');
 
 				// Normal component classes
-				return componentClasses.concat(util.dom.extractClassnames({
+				return componentClasses.concat(dom.extractClassnames({
 					'control-enabled': !this.disabled,
 					'control-disabled': this.disabled
 				}));
@@ -89,6 +96,14 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 				return this.isOn ? this.toggleOff() : this.toggleOn();
 			},
 
+			onMouseDown: function () {
+				this.mouseDown = true;
+			},
+
+			onMouseUp: function () {
+				this.mouseDown = false;
+			},
+
 			onClick: function () {
 				if (!this.disabled) {
 					this.toggle();
@@ -103,11 +118,13 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 </script>
 
 <template>
-	<div class="view-toggle control" :class="classes" @click="onClick"><slot></slot></div>
+	<div class="view-toggle control" :class="classes" @click="onClick" @mousedown="onMouseDown" @mouseup="onMouseUp">
+		<slot></slot>
+	</div>
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared.scss';
+	@import '~@styles/shared';
 
 	.view-toggle {
 		@include transition-hover-active;
@@ -123,6 +140,10 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 			background-color: $color-feedback-dark;
 		}
 
+	}
+
+	.view-toggle-mouse-down {
+		user-select: none;
 	}
 
 </style>

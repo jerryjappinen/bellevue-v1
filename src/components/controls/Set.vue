@@ -101,7 +101,7 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared.scss';
+	@import '~@styles/shared';
 
 	.view-set {
 		@include transition-hover-active;
