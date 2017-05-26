@@ -1,0 +1,33 @@
+
+@import '~@styles/shared';
+
+.transition-hide-up-enter-active,
+.transition-hide-up-leave-active,
+.transition-hide-right-enter-active,
+.transition-hide-right-leave-active {
+	@include transition-slow;
+	@include transition-properties(transform);
+	@include no-translate;
+}
+
+// Open by moving down, close by moving up
+
+// .transition-hide-up-enter-active,
+// .transition-hide-up-leave-active {}
+
+.transition-hide-up-enter,
+.transition-hide-up-leave-to {
+	@include translate-up;
+}
+
+
+
+// Open from right to left, close to the right
+
+// .transition-hide-right-enter-active,
+// .transition-hide-right-leave-active {}
+
+.transition-hide-right-enter,
+.transition-hide-right-leave-to {
+	@include translate-right;
+}
