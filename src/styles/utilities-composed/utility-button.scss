@@ -24,7 +24,7 @@
 	border-color: transparent;
 	transform: scale($scale-normal);
 
-	@include transition-active;
+	@include transition-hover-active;
 	transition-property: transform, border-color, background-color, box-shadow, color;
 
 	// Scale down when pressing
@@ -67,7 +67,7 @@
 
 	// Text color
 	&:active {
-		background-color: $color-dark-translucent;
+		background-color: $color-verylightgrey;
 	}
 
 }
@@ -92,6 +92,11 @@
 	color: $color-white;
 	border-color: $color-link;
 	background-color: $color-link;
+
+	// FIXME: shouldn't have to do this, this file is a mess
+	&:hover {
+		color: $color-white;
+	}
 
 	&:active {
 		background-color: $color-link-active;

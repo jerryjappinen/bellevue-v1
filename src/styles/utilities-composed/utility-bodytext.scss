@@ -11,7 +11,7 @@
 
 	// Links
 	a {
-		font-weight: 600;
+		font-weight: 500;
 		color: $color-blue;
 		transition-property: color;
 
@@ -19,6 +19,10 @@
 		&:hover {
 			color: color-darken($color-blue);
 		}
+	}
+
+	strong {
+		font-weight: 600;
 	}
 
 	// Code
@@ -29,16 +33,21 @@
 			text-transform: none;
 		}
 	}
+
 	code {
 		padding: 0 0.2em;
 		@include radius-tight;
 		background-color: $color-verylightgrey;
 		box-shadow: 0 0 0 1px $color-lightgrey;
 	}
-	pre code {	// FIXME: duplicated from base/o-code.scss
-		@include radius-loose;
-		padding: 1.6em;
-		box-shadow: none;
+
+	// FIXME: duplicated from base/o-code.scss
+	pre {
+		code {
+			@include radius-loose;
+			padding: 1.6em;
+			box-shadow: none;
+		}
 	}
 
 
