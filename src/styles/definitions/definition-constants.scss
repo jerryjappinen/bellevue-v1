@@ -7,6 +7,7 @@
 // Functional colors
 
 $color-primary: $color-blue;
+$color-overlay: color-translucent($color-grey, 0.2);
 
 $color-link: $color-primary;
 $color-link-active: color-darker($color-primary);
@@ -78,14 +79,14 @@ $z-tertiary: 8;
 $z-debug: 400;
 
 $z-titlebar: 10;
-$z-panel: 20;
+$z-panels: 20;
 $z-overlay: 30;
 $z-tabbar: 40;
 $z-controls: 50;
 $z-popovers: 70;
 $z-tour: 80;
 $z-indicators: 100;
-$z-os: 100;
+$z-os: 110;
 
 
 
