@@ -7,11 +7,11 @@ a {
 	font-weight: 500;
 	color: $color-link;
 
-	&:focus,
 	&:hover {
 		color: $color-link-active;
 	}
 
+	// FIXME: should be a defined utility instead a magical modifier
 	&.plain {
 		color: inherit;
 	}
