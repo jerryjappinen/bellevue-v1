@@ -1,33 +1,34 @@
 
 // This shared.scss can easily be imported in components and global style files to ensure all mixins and constants are available
+// NOTE: shared SCSS should NOT output any CSS. This way it can be imported anywhere without duplicating output.
 
 // Constants, functions etc.
-@import '~@styles/definitions/definition-functions';
-@import '~@styles/definitions/definition-palette';
-@import '~@styles/definitions/definition-constants';
+@import './definitions/definition-functions';
+@import './definitions/definition-palette';
+@import './definitions/definition-constants';
 
 // Atomic style properties as mixins
-@import '~@styles/mixins/mixin-animation';
-@import '~@styles/mixins/mixin-box-model';
-@import '~@styles/mixins/mixin-buffer';
-@import '~@styles/mixins/mixin-clear';
-@import '~@styles/mixins/mixin-cursor';
-@import '~@styles/mixins/mixin-display';
-@import '~@styles/mixins/mixin-fill';
-@import '~@styles/mixins/mixin-font';
-@import '~@styles/mixins/mixin-hide';
-@import '~@styles/mixins/mixin-keep';
-@import '~@styles/mixins/mixin-limit';
-@import '~@styles/mixins/mixin-overflow';
-@import '~@styles/mixins/mixin-overlay';
-@import '~@styles/mixins/mixin-pad';
-@import '~@styles/mixins/mixin-pull';
-@import '~@styles/mixins/mixin-push';
-@import '~@styles/mixins/mixin-radius';
-@import '~@styles/mixins/mixin-rhythm';
-@import '~@styles/mixins/mixin-row';
-@import '~@styles/mixins/mixin-shadow';
-@import '~@styles/mixins/mixin-transform';
-@import '~@styles/mixins/mixin-transitions';
-@import '~@styles/mixins/mixin-type';
-@import '~@styles/mixins/mixin-viewport';
+@import './mixins/mixin-animation';
+@import './mixins/mixin-box-model';
+@import './mixins/mixin-buffer';
+@import './mixins/mixin-clear';
+@import './mixins/mixin-cursor';
+@import './mixins/mixin-display';
+@import './mixins/mixin-fill';
+@import './mixins/mixin-font';
+@import './mixins/mixin-hide';
+@import './mixins/mixin-keep';
+@import './mixins/mixin-limit';
+@import './mixins/mixin-overflow';
+@import './mixins/mixin-overlay';
+@import './mixins/mixin-pad';
+@import './mixins/mixin-pull';
+@import './mixins/mixin-push';
+@import './mixins/mixin-radius';
+@import './mixins/mixin-rhythm';
+@import './mixins/mixin-row';
+@import './mixins/mixin-shadow';
+@import './mixins/mixin-transform';
+@import './mixins/mixin-transitions';
+@import './mixins/mixin-type';
+@import './mixins/mixin-viewport';

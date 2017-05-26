@@ -1,16 +1,16 @@
 
 // Access to variables, mixins etc.
 // NOTE: shared includes no CSS output
-@import '~@styles/shared';
+@import './shared';
 
 
 
 // Class-name based CSS
 
 // Transitions
-@import '~@styles/transitions/transition-fade';
-@import '~@styles/transitions/transition-hide-up';
-@import '~@styles/transitions/transition-scale-fade';
+@import './transitions/transition-fade';
+@import './transitions/transition-hide';
+@import './transitions/transition-scale-fade';
 
 // Atomic, reusable style properties
 
@@ -22,33 +22,33 @@
 // - If we wanted, we could introduce the `.u-` prefix.
 
 // Complex utility classes
-@import '~@styles/utilities-composed/utility-bodytext';
-@import '~@styles/utilities-composed/utility-button';
-@import '~@styles/utilities-composed/utility-control';
-@import '~@styles/utilities-composed/utility-input';
-@import '~@styles/utilities-composed/utility-inverse';
-@import '~@styles/utilities-composed/utility-link';
-@import '~@styles/utilities-composed/utility-list';
-@import '~@styles/utilities-composed/utility-row';
+@import './utilities-composed/utility-bodytext';
+@import './utilities-composed/utility-button';
+@import './utilities-composed/utility-control';
+@import './utilities-composed/utility-input';
+@import './utilities-composed/utility-inverse';
+@import './utilities-composed/utility-link';
+@import './utilities-composed/utility-list';
+@import './utilities-composed/utility-row';
 
 // Atomic utility classes
 // NOTE: these are loaded after the complex ones so they can be used to override things easier, as in CSS the source order matters
-@import '~@styles/utilities-base/utility-align';
-@import '~@styles/utilities-base/utility-background';
-@import '~@styles/utilities-base/utility-box-model';
-@import '~@styles/utilities-base/utility-buffer';
-@import '~@styles/utilities-base/utility-clear';
-@import '~@styles/utilities-base/utility-cursor';
-@import '~@styles/utilities-base/utility-display';
-@import '~@styles/utilities-base/utility-fill';
-@import '~@styles/utilities-base/utility-hide';
-@import '~@styles/utilities-base/utility-keep';
-@import '~@styles/utilities-base/utility-limit';
-@import '~@styles/utilities-base/utility-pad';
-@import '~@styles/utilities-base/utility-position';
-@import '~@styles/utilities-base/utility-pull';
-@import '~@styles/utilities-base/utility-push';
-@import '~@styles/utilities-base/utility-radius';
-@import '~@styles/utilities-base/utility-rhythm';
-@import '~@styles/utilities-base/utility-separate';
-@import '~@styles/utilities-base/utility-type';
+@import './utilities-base/utility-align';
+@import './utilities-base/utility-background';
+@import './utilities-base/utility-box-model';
+@import './utilities-base/utility-buffer';
+@import './utilities-base/utility-clear';
+@import './utilities-base/utility-cursor';
+@import './utilities-base/utility-display';
+@import './utilities-base/utility-fill';
+@import './utilities-base/utility-hide';
+@import './utilities-base/utility-keep';
+@import './utilities-base/utility-limit';
+@import './utilities-base/utility-pad';
+@import './utilities-base/utility-position';
+@import './utilities-base/utility-pull';
+@import './utilities-base/utility-push';
+@import './utilities-base/utility-radius';
+@import './utilities-base/utility-rhythm';
+@import './utilities-base/utility-separate';
+@import './utilities-base/utility-type';
