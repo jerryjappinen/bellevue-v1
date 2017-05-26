@@ -5,7 +5,7 @@ export default new Vue({
 
 	data: function () {
 		return {
-			current: null,
+			current: new Date(),
 			_timer: null
 		};
 	},
@@ -19,12 +19,6 @@ export default new Vue({
 		// Update the current time with a new Date object
 		setCurrentTime: function () {
 			this.current = new Date();
-			return this;
-		},
-
-		// Clear `time` and remove any reference to current time. If timer is running, it will still update the current time in the next update.
-		clearCurrentTime: function () {
-			this.current = null;
 			return this;
 		},
 
@@ -66,6 +60,7 @@ export default new Vue({
 	},
 
 	created: function () {
+		this.onTimerUpdate();
 		this.startTimer();
 	}
 
