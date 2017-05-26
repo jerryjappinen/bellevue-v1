@@ -42,7 +42,7 @@
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared.scss';
+	@import '~@styles/shared';
 
 	.view-pic {
 		display: inline-block;
