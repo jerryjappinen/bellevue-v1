@@ -20,11 +20,8 @@
 
 
 
-	// Vendor code
-	import _ from 'lodash';
-
 	// Services
-	import { network, time, popovers } from '@services';
+	import { notifications, panels, popovers } from '@services';
 
 	// Config
 	import config from '@config';
@@ -41,125 +38,54 @@
 		// NOTE: Vue will standardize the casing, but we'll use the same casing as in file names here
 		name: 'app',
 
-		// directives: {},
-
 		metaInfo: function () {
 
 			// NOTE
 			// - route names shouldn't be used in the UI like this
 			// - BUT: we could use them as keys, as this should go through localisation anyway
 			return {
-				title: this.$route.name + ' – ' + config.meta.title
+				title: this.pageTitle
 			};
 
 		},
 
-		data: function () {
-			return {
-				notificationClearingTimeout: null,
-				notificationText: null
-			};
-		},
+		// data: function () {
+		// 	return {};
+		// },
 
 		computed: {
 
+			// Meta information
+
+			pageTitle: function () {
+				return this.$route.name + ' – ' + config.meta.title;
+			},
+
+			titlebarTitle: function () {
+				return this.$route.name;
+			},
+
+
+
 			// Orchestrate layout elements
+
+			notificationShouldBeShown: function () {
+				return notifications.shouldBeShown ? true : false;
+			},
+
+			panelShouldBeShown: function () {
+				return panels.shouldBeShown ? true : false;
+			},
 
 			popoverShouldBeShown: function () {
 				return popovers.shouldBeShown ? true : false;
 			},
 
 			titlebarShouldBeShown: function () {
-				return this.popoverShouldBeShown && !popovers.isInPlace ? false : true;
-			},
-
-
-
-			// Pseudo notification samples
-
-			currentTime: function () {
-				return time.current;
-			},
-
-			networkStatus: function () {
-				return network.isOnline ? 'Online' : 'Offline';
-			},
-
-			networkMessage: function () {
-				return network.isOffline ? 'You are offline - please check your connection!' : null;
-			},
-
-			notificationTextToRender: function () {
-				return this.notificationText ? this.notificationText : this.networkMessage;
-			},
-
-			notificationShouldBeVisible: function () {
-				if (_.isString(this.notificationTextToRender) && !_.isEmpty(this.notificationTextToRender)) {
-					return true;
-				}
-				return false;
-			},
-
-
-			// Counter samples
-
-			globalCounterValue: function () {
-				return this.$store.state.counter;
-			},
-
-
-
-			// Menu samples
-
-			customLinkTarget: function () {
-				var target = this.$route.name === 'arbitrary' ? 'hello' : 'arbitrary';
-				return {
-					name: target
-				};
-			},
-
-			customLinkLabel: function () {
-				return this.customLinkTarget.name === 'arbitrary' ? 'More stuff' : 'Welcome';
-			}
-
-		},
-
-		methods: {
-
-			// Notification samples
-
-			clearNotificationText: function () {
-				this.notificationText = null;
-			},
-
-			setNotificationText: function () {
-				this.notificationText = 'This is a text message.';
-			},
-
-
-
-			// Menu samples
-
-			onCustomLinkClick: function () {
-				this.$router.push(this.customLinkTarget);
-			}
-
-		},
-
-		watch: {
-
-			// Quick and dirty: clear notification (doesn't update if notificationText changes during delay)
-			notificationText: function (value) {
-				if (value) {
-					this.notificationClearingTimeout = setTimeout(this.clearNotificationText, 4 * 1000); // 4s delay
-				}
+				return (this.popoverShouldBeShown && !popovers.isInPlace) ? false : true;
 			}
 
 		}
-
-		// created: function () {},
-
-		// beforeDestroy: function () {}
 
 	};
 
@@ -171,60 +97,28 @@
 
 	<div class="view-app">
 
+		<!-- Notifications -->
+		<transition name="transition-hide-right" mode="out-in">
+			<notification v-if="notificationShouldBeShown"></notification>
+		</transition>
+
+		<!-- Panels will be rendered here when they open -->
+		<transition name="transition-fade" mode="out-in">
+			<panel v-if="panelShouldBeShown"></panel>
+		</transition>
+
 		<!-- Popover elements will be rendered here in the structure regardless of their positioning -->
-		<transition name="transition-fade" mode="out-in" appear>
+		<transition name="transition-fade" mode="out-in">
 			<popover v-if="popoverShouldBeShown"></popover>
 		</transition>
 
-		<!--Title bar-->
+		<!-- Title bar -->
 		<transition name="transition-hide-up" appear>
-			<titlebar v-if="titlebarShouldBeShown"></titlebar>
+			<titlebar v-if="titlebarShouldBeShown" :title="titlebarTitle"></titlebar>
 		</transition>
 
+		<!-- Main content area that can be padded -->
 		<div class="view-app-content">
-
-			<!--
-
-				NOTE
-				- Example of how to use the key attribute to enable transitioning to elements of the same type.
-				- Also enables transitioning out an element that contains a value whose value has already changed: Vue will keep the old value in the scope until the exit transition is complete.
-
-				FIXME
-				- this should be mentioned in guide about transitions
-
-			-->
-			<div class="view-app-foooo">
-				<transition name="transition-fade" mode="out-in">
-					<p v-if="notificationShouldBeVisible" :key="'on-' + notificationTextToRender">{{ notificationTextToRender }}</p>
-					<p v-else key="off" @click="setNotificationText">Set notification text</p>
-				</transition>
-				<p>
-					{{ currentTime }} Network {{ networkStatus }} &bullet;
-					<click class="inline-block radius-tight" :callback="clearNotificationText">Clear msg</click> &bullet;
-					<click class="inline-block radius-tight" :callback="setNotificationText">Set msg</click>
-				</p>
-			</div>
-
-			<hr>
-
-			<!--
-				References to static assets with resolved URLs
-			-->
-			<p><pic class="view-app-logo" title="Foo" src="some/folder/anotherlogo.png" hide-until-loaded></pic> Global counter value "{{ globalCounterValue }}" is maintained by Vuex.</p>
-
-			<hr>
-
-			<!--
-				Quick-and-dirty sample menu with different types of links. Normally you would render a list like this with a separate component.
-			-->
-			<ul class="view-app-menu">
-				<li><a href="#/">Welcome</a></li>
-				<li><a href="#/arbit">More stuff</a></li>
-				<li><a href="#/console">Console</a></li>
-				<li>router-link: <router-link :to="{ name: 'hello' }">Welcome</router-link></li>
-				<li>router-link: <router-link :to="{ name: 'arbitrary' }">More stuff</router-link></li>
-				<li>Dynamic: <a href="#" @click.prevent="onCustomLinkClick">{{ customLinkLabel }}</a></li>
-			</ul>
 
 			<!-- First-level router view -->
 			<transition name="transition-fade" mode="out-in" appear>
@@ -254,15 +148,33 @@
 	//
 	// - Do I really need this in every component definition?
 	// - This is just manual duplication that leads to mistakes.
-	@import '~@styles/shared.scss';
+	@import '~@styles/shared';
 
 	// Required for titlebar spacing
 	// FIXME: hacky solution, can't be transitioned and is not 100 % accurate
 	.view-app {
 		padding-top: 1em + (2 * $buffer-tight);
+
+		.view-notification {
+			z-index: $z-indicators;
+		}
+
+		.view-panel {
+			z-index: $z-panels;
+		}
+
+		.view-popover {
+			z-index: $z-popovers;
+		}
+
+		.view-titlebar {
+			z-index: $z-titlebar;
+		}
+
 	}
 
 	.view-app-content {
+		margin-top: 6px; // Titlebar link borders
 		@include buffer-relative;
 	}
 
@@ -273,7 +185,6 @@
 
 	// NOTE: clearly this stuff should be in a separate component
 	.view-app-menu {
-		list-style: none;
 
 		// FIXME: lots of nesting, which is bad
 		li {
