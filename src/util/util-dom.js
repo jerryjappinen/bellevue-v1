@@ -18,11 +18,11 @@ export default {
 	// Determine if a link element should be considered external or internal
 	linkIsExternal: function (element) {
 		if (
-			element.href &&                             // Is link
-			(element.hostname !== location.hostname) && // Is external
-			!events.eventHasMetaKey(event) &&      // Not using meta key
+			element.href &&                                  // Is link
+			(element.hostname !== location.hostname) &&      // Is external
+			!events.eventHasMetaKey(event) &&                // Not using meta key
 			(!element.target || element.target === '') &&    // No target specified
-			(element.protocol.substr(0, 4) === 'http')  // Is an http(s) link
+			(element.protocol.substr(0, 4) === 'http')       // Is an http(s) link
 		) {
 			return true;
 		}
