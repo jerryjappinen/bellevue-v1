@@ -58,7 +58,7 @@
 			<li><pic class="view-console-components-image" title="Foo" src="some/folder/anotherlogo.png" hide-until-loaded></pic> <code>pic</code> with a PNG, hidden until loaded</li>
 			<li><pic class="view-console-components-image" asset="chevron-down"></pic> <code>pic</code> with an SVG</li>
 			<li><icon asset="chevron-down"></icon> <code>icon</code></li>
-			<li style="color: red;"><icon asset="chevron-down"></icon> <code>icon</code> with an asset that supports currentColor</li>
+			<li class="view-console-components-highlight"><icon asset="chevron-down"></icon> <code>icon</code> with an asset that supports currentColor</li>
 		</ul>
 
 
@@ -168,6 +168,10 @@
 
 <style lang="scss">
 	@import '~@styles/shared';
+
+	.view-console-components-highlight {
+		color: $color-red;
+	}
 
 	.view-console-components-spinner-1 {
 		width: 1em;

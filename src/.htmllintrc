@@ -44,7 +44,7 @@
 	"indent-style": "tabs",
 	"indent-width-cont": true,
 	"input-req-label": false,
-	"label-req-for": true,
+	"label-req-for": false,
 	"lang-style": "case",
 	"line-end-style": "lf",
 	"line-max-len": false,
@@ -52,7 +52,7 @@
 	"page-title": true,
 	"spec-char-escape": false,
 	"table-req-caption": false,
-	"table-req-header": true,
+	"table-req-header": false,
 	"tag-bans": [
 		"b",
 		"i",
