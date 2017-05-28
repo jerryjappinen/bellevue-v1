@@ -154,6 +154,7 @@ module.exports = {
 		'shorthand-property-no-redundant-values': null,
 		'number-no-trailing-zeros': null,
 		'selector-pseudo-element-colon-notation': 'single',
+		'declaration-block-no-redundant-longhand-properties': null,
 
 		// No vendor prefixes in source
 		// This is because Autoprefixer enforces correct vendor prefixes better than us humans and will remove them up anyway
