@@ -7,7 +7,6 @@
 	import { network, notifications, panels, popovers, time, viewport } from '@services';
 
 	export default {
-
 		name: 'console-services',
 
 		computed: {

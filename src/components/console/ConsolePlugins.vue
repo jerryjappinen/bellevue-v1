@@ -1,7 +1,6 @@
 <script>
 
 	export default {
-
 		name: 'console-plugins',
 
 		data: function () {

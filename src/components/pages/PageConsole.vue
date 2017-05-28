@@ -2,8 +2,34 @@
 <script>
 
 	export default {
-
 		name: 'page-console',
+
+		data: function () {
+			return {
+				tabs: [
+					{
+						label: 'Components',
+						route: 'consoleComponents'
+					},
+					{
+						label: 'Configuration',
+						route: 'consoleConfiguration'
+					},
+					{
+						label: 'Models',
+						route: 'consoleModels'
+					},
+					{
+						label: 'Plugins',
+						route: 'consolePlugins'
+					},
+					{
+						label: 'Services',
+						route: 'consoleServices'
+					}
+				]
+			};
+		},
 
 		computed: {
 
@@ -23,13 +49,7 @@
 
 		<h1>Debug {{ title }}</h1>
 
-		<ul class="view-page-console-menu inline-block">
-			<li><router-link :to="{ name: 'consoleComponents' }" >Components</router-link></li>
-			<li><router-link :to="{ name: 'consoleConfiguration' }" >Configuration</router-link></li>
-			<li><router-link :to="{ name: 'consoleModels' }" >Models</router-link></li>
-			<li><router-link :to="{ name: 'consolePlugins' }" >Plugins</router-link></li>
-			<li><router-link :to="{ name: 'consoleServices' }" >Services</router-link></li>
-		</ul>
+		<tabs :links="tabs"></tabs>
 
 		<transition name="transition-fade" mode="out-in">
 			<router-view></router-view>
@@ -41,9 +61,4 @@
 
 <style lang="scss">
 	// @import '~@styles/shared';
-	.view-page-console-menu {
-		.is-exact-active {
-			text-decoration: underline;
-		}
-	}
 </style>

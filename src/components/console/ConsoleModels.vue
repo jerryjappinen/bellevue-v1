@@ -3,7 +3,6 @@
 	import { init, Account, Role } from '@models';
 
 	export default {
-
 		name: 'console-models',
 
 		computed: {

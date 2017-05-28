@@ -7,7 +7,6 @@
 	import config from '@config';
 
 	export default {
-
 		name: 'console-configuration',
 
 		computed: {
