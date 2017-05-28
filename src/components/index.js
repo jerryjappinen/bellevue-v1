@@ -29,6 +29,7 @@ import Radio from './forms/Radio';
 import Notification from './layout/Notification';
 import Panel from './layout/Panel';
 import Popover from './layout/Popover';
+import Tabs from './layout/Tabs';
 import Titlebar from './layout/Titlebar';
 
 // Pages
@@ -76,6 +77,7 @@ export {
 	Notification,
 	Panel,
 	Popover,
+	Tabs,
 	Titlebar,
 
 	Hello,
@@ -121,6 +123,7 @@ export default {
 	Notification,
 	Panel,
 	Popover,
+	Tabs,
 	Titlebar,
 
 	Hello,
