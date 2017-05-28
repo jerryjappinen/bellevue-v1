@@ -48,13 +48,6 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 				}
 			},
 
-			state: function () {
-				return {
-					on: this.value,
-					disabled: this.disabled
-				};
-			},
-
 			classes: function () {
 
 				// Utility classes
@@ -62,14 +55,14 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 					on: this.isOn,
 					off: !this.isOn,
 					enabled: !this.disabled,
-					disabled: this.disabled,
-					mouseDown: this.mouseDown
+					disabled: this.disabled
 				}, 'view-toggle');
 
 				// Normal component classes
 				return componentClasses.concat(dom.extractClassnames({
 					'control-enabled': !this.disabled,
-					'control-disabled': this.disabled
+					'control-disabled': this.disabled,
+					'control-mouse-down': this.mouseDown
 				}));
 
 			}
@@ -118,9 +111,7 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 </script>
 
 <template>
-	<div class="view-toggle control" :class="classes" @click="onClick" @mousedown="onMouseDown" @mouseup="onMouseUp">
-		<slot></slot>
-	</div>
+	<div class="view-toggle control" :class="classes" @click="onClick" @mousedown="onMouseDown" @mouseup="onMouseUp"><slot></slot></div>
 </template>
 
 <style lang="scss">
@@ -140,10 +131,6 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 			background-color: $color-feedback-dark;
 		}
 
-	}
-
-	.view-toggle-mouse-down {
-		user-select: none;
 	}
 
 </style>

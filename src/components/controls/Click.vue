@@ -27,6 +27,12 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 			disabled: {}
 		},
 
+		data: function () {
+			return {
+				mouseDown: false
+			};
+		},
+
 		computed: {
 
 			classes: function () {
@@ -40,7 +46,8 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 				// Normal component classes
 				return componentClasses.concat(util.dom.extractClassnames({
 					'control-enabled': !this.disabled,
-					'control-disabled': this.disabled
+					'control-disabled': this.disabled,
+					'control-mouse-down': this.mouseDown
 				}));
 
 			}
@@ -48,6 +55,14 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 		},
 
 		methods: {
+
+			onMouseDown: function () {
+				this.mouseDown = true;
+			},
+
+			onMouseUp: function () {
+				this.mouseDown = false;
+			},
 
 			onClick: function (event) {
 				if (!this.disabled) {
@@ -62,7 +77,7 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 </script>
 
 <template>
-	<div class="view-click control" :class="classes" @click="onClick"><slot></slot></div>
+	<div class="view-click control" :class="classes" @click="onClick" @mousedown="onMouseDown" @mouseup="onMouseUp"><slot></slot></div>
 </template>
 
 <style lang="scss">
@@ -71,5 +86,9 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 	// .view-click {}
 	// .view-click-enabled {}
 	// .view-click-disabled {}
+
+	.view-click-mouse-down {
+		user-select: none;
+	}
 
 </style>
