@@ -2,7 +2,7 @@
 
 Full-featured Vue project template on webpack. Adapted from the official Vue Weback template. Edit
 
-Detailed project template docs: [gitbook.com/book/eiskis/vue-webpack-docs](https://www.gitbook.com/book/eiskis/vue-webpack-docs/details)
+Documentation: [eiskis.gitbooks.io/vue-webpack-docs](https://eiskis.gitbooks.io/vue-webpack-docs/)
 
 ## Requirements
 
