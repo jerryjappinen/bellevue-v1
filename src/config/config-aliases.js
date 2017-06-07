@@ -10,6 +10,7 @@ module.exports = {
 	// The base configuration (alias is mostly for the client)
 	// NOTE: for client-side code it would be better to use a JS utility that reads configuration (merging values from multiple sources) instead of using these raw values in application code
 	'@config': 'src/config',
+	'@locales': 'src/locales',
 
 	// Vendor code, services, utilities etc.
 	'@util': 'src/util',

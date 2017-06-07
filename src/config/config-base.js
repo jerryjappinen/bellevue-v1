@@ -10,6 +10,9 @@ module.exports = {
 	rootComponentName: 'app',
 	rootComponentParentSelector: '#app',
 
+	defaultLocale: 'es',
+	fallbackLocale: 'en',
+
 	// Will be used in base HTML templating
 	meta: {
 		title: 'My app'

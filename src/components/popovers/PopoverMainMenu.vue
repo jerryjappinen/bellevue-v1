@@ -24,9 +24,9 @@
 
 	<div class="view-popover-main-menu">
 		<ul class="buffer-even no-push-vertical">
-			<li><router-link :to="{ name: 'home' }" @click="onMenuItemClick">Hello</router-link></li>
-			<li><router-link :to="{ name: 'arbitrary' }" @click="onMenuItemClick">More stuff</router-link></li>
-			<li><router-link :to="{ name: 'console' }" @click="onMenuItemClick">Console</router-link></li>
+			<li><router-link :to="{ name: 'home' }" @click.native="onMenuItemClick">Hello</router-link></li>
+			<li><router-link :to="{ name: 'arbitrary' }" @click.native="onMenuItemClick">More stuff</router-link></li>
+			<li><router-link :to="{ name: 'console' }" @click.native="onMenuItemClick">Console</router-link></li>
 		</ul>
 	</div>
 

@@ -25,7 +25,10 @@
 				if (this.title) {
 					var title = string.trimWhitespace(this.title);
 					if (title.length) {
-						return title;
+
+						// NOTE: localised title
+						return this.$t(title);
+
 					}
 				}
 				return config.meta.title;
@@ -35,11 +38,9 @@
 				return network.isOnline ? 'Online' : 'Offline';
 			},
 
-			// FIXME: this should be localised
+			// NOTE: localised timestamp
 			timeToShow: function () {
-				var min = time.current.getMinutes();
-				var s = time.current.getSeconds();
-				return time.current.getHours() + ':' + (min < 10 ? '0' : '') + min + ':' + (s < 10 ? '0' : '') + s;
+				return this.$d(time.current, 'short', 'ja-JP');
 			},
 
 			globalCounterValue: function () {

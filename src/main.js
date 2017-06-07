@@ -63,8 +63,9 @@ new Vue({
 	el: config.rootComponentParentSelector,
 	template: '<' + config.rootComponentName + '></' + config.rootComponentName + '>',
 
-	// NOTE: These specific plugins apparently require us to pass these objects to the root component...
+	// NOTE: These specific plugins require us to pass these objects to the root component
 	router: plugins.VueRouter,
-	store: plugins.Vuex
+	store: plugins.Vuex,
+	i18n: plugins.VueI18n
 
 });

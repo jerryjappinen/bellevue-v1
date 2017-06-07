@@ -1,5 +1,5 @@
 
-// Component-specific meta tags
+// Handling meta tags and <head> per component
 // https://github.com/declandewet/vue-meta
 import Vue from 'vue';
 import VueMeta from 'vue-meta';

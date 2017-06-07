@@ -62,7 +62,8 @@
 			},
 
 			titlebarTitle: function () {
-				return this.$route.name;
+				// FIXME: route names are not supposed to be user-facing. They can be used as localisation keys though.
+				return 'titlebar.' + this.$route.name;
 			},
 
 
