@@ -7,7 +7,29 @@
 
 		data: function () {
 			return {
-				component: 'console-components'
+				component: 'console-components',
+				tabs: [
+					{
+						label: 'Components',
+						component: 'consoleComponents'
+					},
+					{
+						label: 'Configuration',
+						component: 'consoleConfiguration'
+					},
+					{
+						label: 'Models',
+						component: 'consoleModels'
+					},
+					{
+						label: 'Plugins',
+						component: 'consolePlugins'
+					},
+					{
+						label: 'Services',
+						component: 'consoleServices'
+					}
+				]
 			};
 		},
 
@@ -21,8 +43,12 @@
 
 		methods: {
 
-			setComponent: function (component) {
-				this.component = component;
+			getTabSelectedOn: function (link) {
+				return link.component === this.component ? true : false;
+			},
+
+			setComponent: function (link) {
+				this.component = link.component;
 			}
 
 		}
@@ -38,13 +64,15 @@
 
 			<h2>{{ title }}</h2>
 
-			<ul class="view-panel-console-menu inline-block">
+			<tabs :links="tabs" :callback="setComponent" :selectedOn="getTabSelectedOn"></tabs>
+
+			<!-- <ul class="view-panel-console-menu inline-block">
 				<li><a href="" @click.prevent="setComponent('console-components')">Components</a></li>
 				<li><a href="" @click.prevent="setComponent('console-configuration')">Configuration</a></li>
 				<li><a href="" @click.prevent="setComponent('console-models')">Models</a></li>
 				<li><a href="" @click.prevent="setComponent('console-plugins')">Plugins</a></li>
 				<li><a href="" @click.prevent="setComponent('console-services')">Services</a></li>
-			</ul>
+			</ul>-->
 
 			<!--NOTE: routing not supported here-->
 			<transition name="transition-fade" mode="out-in">

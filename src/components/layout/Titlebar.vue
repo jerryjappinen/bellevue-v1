@@ -104,7 +104,7 @@
 		<ul class="view-titlebar-list-primary hide-over-small">
 			<li class="view-titlebar-list-item">
 				<a href="/" class="view-titlebar-link" @click="onMenuTriggerClick">
-					<icon asset="check"></icon>
+					<icon asset="hamburger"></icon>
 					<pic-img class="view-titlebar-link-image" title="Foo" src="logo.png" hide-until-loaded></pic-img> {{ titleToRender }}
 				</a>
 			</li>

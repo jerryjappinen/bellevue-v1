@@ -12,6 +12,7 @@
 			//     selectedOn: 'Foo',
 			//     callback: 'Foo'
 			// }
+			// You can include other parameters here as well, and they will be passed to your custom callbacks
 			links: {
 				type: Array,
 				required: true
