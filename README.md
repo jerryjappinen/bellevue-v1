@@ -1,4 +1,5 @@
-# Vue Webpack
+
+# `Eiskis/vue-webpack`
 
 Full-featured Vue project template on webpack. Adapted from the official Vue Weback template. Edit
 
