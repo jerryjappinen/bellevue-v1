@@ -1,7 +1,7 @@
 
-import dom from './util-dom';
-import events from './util-events';
-import string from './util-string';
+import dom from './dom';
+import events from './events';
+import string from './string';
 
 export {
 	dom,
