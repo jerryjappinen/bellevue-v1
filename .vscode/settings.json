@@ -16,6 +16,9 @@
 		// Build dir
 		"dist": true,
 
+		// Generated docs
+		"docs": true,
+
 		// Generated files for test reports
 		"test/unit/coverage/**/*": true
 
