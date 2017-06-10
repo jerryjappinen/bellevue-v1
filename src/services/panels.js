@@ -21,7 +21,6 @@ export default new Vue({
 				};
 			},
 			set: function (serialized) {
-				console.log('panels set', serialized);
 				this.component = serialized.component;
 			}
 		},
