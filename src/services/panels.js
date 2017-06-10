@@ -2,9 +2,9 @@
 import _ from 'lodash';
 import Vue from 'vue';
 
-// FIXME: would be nice if this was based in routed views
-
 export default new Vue({
+
+	// FIXME: would be nice if this was based in routed views
 
 	data: function () {
 		return {
@@ -13,6 +13,18 @@ export default new Vue({
 	},
 
 	computed: {
+
+		serialized: {
+			get: function () {
+				return {
+					component: this.component
+				};
+			},
+			set: function (serialized) {
+				console.log('panels set', serialized);
+				this.component = serialized.component;
+			}
+		},
 
 		shouldBeShown: function () {
 			return this.component ? true : false;
@@ -23,11 +35,9 @@ export default new Vue({
 	methods: {
 
 		open: function (component) {
-
 			if (component) {
 				this.component = _.kebabCase(component);
 			}
-
 		},
 
 		close: function () {

@@ -1,5 +1,4 @@
 
-// Vendor
 import _ from 'lodash';
 import Vue from 'vue';
 
@@ -95,7 +94,7 @@ export default new Vue({
 		this.updateScrollValues();
 
 		// Bind listeners
-		// FIXME: can I use this.$on?
+		// FIXME: can/should I use this.$on (i.e. Vue's vustom events, NOT a wrapper for addEventListener)?
 		window.addEventListener('resize', this.onResize);
 		window.addEventListener('scroll', this.onScroll);
 

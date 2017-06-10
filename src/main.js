@@ -20,12 +20,14 @@ import components from '@components';
 import directives from '@vuedirectives';
 import { global as globalMixins } from '@vuemixins';
 
+// Services
+import services from '@services';
+
 
 
 // Register all directives and components on the top level
 // The alternative is to declare specific directives or the child components in each component manually.
 // This would lead to a lot of boilerplate code that easily gets out of date, and makes it impossible to use dynamic components.
-
 (function (registrees) {
 	for (var type in registrees) {
 		for (var key in registrees[type]) {
@@ -44,7 +46,6 @@ import { global as globalMixins } from '@vuemixins';
 
 
 // Register global mixins
-
 (function (mixins) {
 	for (var key in mixins) {
 		Vue.mixin(mixins[key]);
@@ -66,6 +67,74 @@ new Vue({
 	// NOTE: These specific plugins require us to pass these objects to the root component
 	router: plugins.VueRouter,
 	store: plugins.Vuex,
-	i18n: plugins.VueI18n
+	i18n: plugins.VueI18n,
+
+	// Using computed here let's us track the app state to enable high-level features
+	computed: {
+		serialized: {
+
+			// Track the `serialized` property of each service
+			get: function () {
+				var serialized = {};
+
+				// Collect serialized state data form each custom service
+				for (var serviceName in services) {
+					var service = services[serviceName];
+					if (service.serialized) {
+						serialized[serviceName] = service.serialized;
+					}
+				}
+
+				return serialized;
+			},
+
+			// Allow passing the full batch of serialized service data and load it with the unserialization callback of each service
+			// NOTE: the `serialized` property of each service must be a writable computed
+			set: function (serialized) {
+				console.log('main set', serialized);
+
+				// Call the serialized setter for each service
+				for (var serviceName in services) {
+					var service = services[serviceName];
+					if (serialized[serviceName] && service.serialized) {
+						service.serialized = serialized[serviceName];
+					}
+				}
+
+			}
+
+		}
+	},
+
+	watch: {
+
+		// Store serialized data into localStorage when it changes (throttled)
+		serialized: _.debounce(function (data) {
+			localStorage.setItem('serializedServiceStateData', JSON.stringify(data));
+		}, 500)
+
+	},
+
+	mounted: function () {
+
+		// Load serialized data from localStorage
+		// NOTE: this is a synchronous operation
+		var data = localStorage.getItem('serializedServiceStateData');
+
+		if (data) {
+			try {
+				data = JSON.parse(data);
+
+				// We found data in local storage, let's load it up
+				if (data) {
+					this.serialized = data;
+				}
+
+			} catch (error) {
+				console.log(error);
+			}
+		}
+
+	}
 
 });

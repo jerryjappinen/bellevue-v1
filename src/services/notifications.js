@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import Vue from 'vue';
 
-var delay = 6 * 1000;
+const delay = 6 * 1000;
 
 export default new Vue({
 
