@@ -11,23 +11,23 @@
 				tabs: [
 					{
 						label: 'Components',
-						component: 'consoleComponents'
+						component: 'console-components'
 					},
 					{
 						label: 'Configuration',
-						component: 'consoleConfiguration'
+						component: 'console-configuration'
 					},
 					{
 						label: 'Models',
-						component: 'consoleModels'
+						component: 'console-models'
 					},
 					{
 						label: 'Plugins',
-						component: 'consolePlugins'
+						component: 'console-plugins'
 					},
 					{
 						label: 'Services',
-						component: 'consoleServices'
+						component: 'console-services'
 					}
 				]
 			};
@@ -47,7 +47,7 @@
 				return link.component === this.component ? true : false;
 			},
 
-			setComponent: function (link) {
+			setComponent: function (event, link) {
 				this.component = link.component;
 			}
 

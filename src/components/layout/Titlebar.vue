@@ -2,7 +2,7 @@
 <script>
 
 	import { dom, events, string } from '@util';
-	import { network, popovers, time, viewport } from '@services';
+	import { network, panels, popovers, time, viewport } from '@services';
 	import config from '@config';
 
 	export default {
@@ -40,7 +40,7 @@
 
 			// NOTE: localised timestamp
 			timeToShow: function () {
-				return this.$d(time.current, 'short', 'ja-JP');
+				return this.$d(time.current, 'short');
 			},
 
 			globalCounterValue: function () {
@@ -60,6 +60,10 @@
 		},
 
 		methods: {
+
+			onTimestampClick: function () {
+				panels.open('PanelConsole');
+			},
 
 			onMenuTriggerClick: function (event) {
 
@@ -126,15 +130,15 @@
 				<router-link class="view-titlebar-link" :to="{ name: 'arbitrary' }">More stuff</router-link>
 			</li>
 
-			<li class="view-titlebar-list-item">
+			<!--<li class="view-titlebar-list-item">
 				<router-link class="view-titlebar-link" :to="{ name: 'console' }">Console</router-link>
-			</li>
+			</li>-->
 
 		</ul>
 
 		<!-- Secondary elements -->
 		<ul class="view-titlebar-list-secondary">
-			<li class="view-titlebar-list-item-content" v-if="timeToShow">
+			<li class="view-titlebar-list-item-content" v-if="timeToShow" @click="onTimestampClick">
 				{{ networkStatus }} &bullet; {{ globalCounterValue }}  &bullet; {{ timeToShow }}
 			</li>
 		</ul>

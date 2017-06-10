@@ -39,9 +39,9 @@
 
 			getCustomLinkIsSelected: function (link) {
 				if (link.selectedOn) {
-					return link.selectedOn();
+					return link.selectedOn(link);
 				} else if (this.selectedOn) {
-					return this.selectedOn();
+					return this.selectedOn(link);
 				}
 			},
 
@@ -86,9 +86,9 @@
 				v-else
 				class="view-tabs-link"
 				:class="{
-					'view-tabs-link-active': getCustomLinkIsSelected()
+					'view-tabs-link-active': getCustomLinkIsSelected(link)
 				}"
-				@click.prevent="onCustomLinkClick(event, link, index)">
+				@click.prevent="function (event) { onCustomLinkClick(event, link, index) }">
 				{{ link.label }}
 			</a>
 
