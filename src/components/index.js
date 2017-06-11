@@ -33,7 +33,7 @@ import Tabs from './layout/Tabs';
 import Titlebar from './layout/Titlebar';
 
 // Pages
-import Hello from './pages/Hello';
+import PageHome from './pages/PageHome';
 import PageConsole from './pages/PageConsole';
 import PageSomething from './pages/PageSomething';
 
@@ -80,7 +80,7 @@ export {
 	Tabs,
 	Titlebar,
 
-	Hello,
+	PageHome,
 	PageConsole,
 	PageSomething,
 
@@ -126,7 +126,7 @@ export default {
 	Tabs,
 	Titlebar,
 
-	Hello,
+	PageHome,
 	PageConsole,
 	PageSomething,
 

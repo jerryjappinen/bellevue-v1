@@ -4,7 +4,7 @@
 export default {
 
 	titlebar: {
-		hello: '¡Hola!',
+		home: '¡Hola!',
 		arbitrary: 'Una pagina',
 		console: 'Consolas',
 

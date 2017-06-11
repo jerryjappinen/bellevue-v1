@@ -97,7 +97,7 @@
 			<li><a href="#/">Welcome</a></li>
 			<li><a href="#/arbit">More stuff</a></li>
 			<li><a href="#/console">Console</a></li>
-			<li>router-link: <router-link :to="{ name: 'hello' }">Welcome</router-link></li>
+			<li>router-link: <router-link :to="{ name: 'root' }">Home</router-link></li>
 			<li>router-link: <router-link :to="{ name: 'arbitrary' }">More stuff</router-link></li>
 			<li>Dynamic: <a href="#" @click.prevent="onCustomLinkClick">{{ customLinkLabel }}</a></li>
 		</ul>
@@ -120,7 +120,7 @@
 
 			<!-- Logo and home link -->
 			<li class="view-titlebar-list-item">
-				<router-link class="view-titlebar-link" :to="{ name: 'hello' }">
+				<router-link class="view-titlebar-link" :to="{ name: 'root' }">
 					<pic-img class="view-titlebar-link-image" title="Foo" src="logo.png" hide-until-loaded-img></pic-img> Home
 				</router-link>
 			</li>
@@ -138,8 +138,10 @@
 
 		<!-- Secondary elements -->
 		<ul class="view-titlebar-list-secondary">
-			<li class="view-titlebar-list-item-content" v-if="timeToShow" @click="onTimestampClick">
-				{{ networkStatus }} &bullet; {{ globalCounterValue }}  &bullet; {{ timeToShow }}
+			<li class="view-titlebar-list-item">
+				<click class="view-titlebar-list-item-content" :callback="onTimestampClick">
+					{{ networkStatus }} &bullet; {{ globalCounterValue }}  &bullet; {{ timeToShow }}
+				</click>
 			</li>
 		</ul>
 

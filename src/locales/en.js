@@ -6,7 +6,7 @@ export default {
 	titlebar: {
 
 		// Top-level pages
-		hello: 'Hello!',
+		home: 'Hello!',
 		arbitrary: 'Some page',
 		console: 'Console',
 

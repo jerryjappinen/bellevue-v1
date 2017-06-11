@@ -4,11 +4,11 @@
 	// View model
 	export default {
 
-		name: 'hello',
+		name: 'page-home',
 
 		data: function () {
 			return {
-				welcomeMessage: 'Hello!',
+				welcomeMessage: 'Hello world!',
 				someValue: 3
 			};
 		},
@@ -27,7 +27,7 @@
 
 <template>
 
-	<div class="view-hello">
+	<div class="view-page-home">
 
 		<h1>{{ welcomeMessage }} ({{ globalCounterValues }})</h1>
 
@@ -60,7 +60,7 @@
 <style lang="scss">
 	@import '~@styles/shared';
 
-	.view-hello {
+	.view-page-home {
 
 		// Override child component styles
 		.view-counter-label,
