@@ -36,19 +36,17 @@
 		<h2>Fun with counters {{ myValue }}</h2>
 
 		<dl>
-			<dt>LocalCounter (for 1-way bindings)</dt>
-
 			<!-- Simple counter example with only ONE-WAY data binding -->
 			<!-- NOTE: passing the same value to two components like this would be confusing in production -->
+			<dt>LocalCounter (for 1-way bindings)</dt>
 			<dd><local-counter label="Nothing passed (iterates a default value)"></local-counter></dd>
 			<dd><local-counter label="myValue passed as value" :value="myValue"></local-counter></dd>
 
 			<!-- Simple counter example with TWO-WAY data binding, i.e. the child component mutates the value of this component -->
 			<!-- https://vuejs.org/v2/guide/components.html#Form-Input-Components-using-Custom-Events -->
+			<dt>Counter (for 2-way bindings)</dt>
 			<dd><counter class="view-page-something-counter-1" label="Counter: Two-way binding to myValue" v-model="myValue"></counter></dd>
 			<dd><counter class="view-page-something-counter-2" label="Counter: Two-way binding to myValue" v-model="myValue"></counter></dd>
-
-			<dt>Counter (for 2-way bindings)</dt>
 		</dl>
 
 	</div>
