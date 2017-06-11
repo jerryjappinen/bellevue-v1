@@ -9,7 +9,7 @@
 
 ## Requirements
 
-1. The Node version defined in `.nvmrc`
+1. The Node version defined in [`.nvmrc`](./.nvmrc)
 
 The easiest way to manage node versions is using [nvm](https://github.com/creationix/nvm).
 
