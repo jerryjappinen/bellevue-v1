@@ -10,7 +10,8 @@
 ## Requirements
 
 1. The Node version defined in `.nvmrc`
-2. Optional: [nvm](https://github.com/creationix/nvm)
+
+The easiest way to manage node versions is using [nvm](https://github.com/creationix/nvm).
 
 ## Project setup
 
