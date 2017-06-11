@@ -104,15 +104,16 @@
 
 	.view-tabs {
 		@include no-push-vertical;
-		@include inline-block;
 		@include radius-loose;
+		display: flex;
 		border-width: 2px;
 		border-color: $color-dark;
 		background-color: $color-white;
 	}
 
 	.view-tabs-tab {
-		@include inline-block;
+		flex-grow: 1;
+		text-align: center;
 
 		+ .view-tabs-tab {
 			.view-tabs-link {
@@ -123,10 +124,11 @@
 	}
 
 	.view-tabs-link {
+		display: block;
 		padding-top: $pad-vertical - 2px;
 		padding-bottom: $pad-vertical - 2px;
-		padding-left: $pad-horizontal;
-		padding-right: $pad-horizontal;
+		padding-left: ($pad-horizontal / 2);
+		padding-right: ($pad-horizontal / 2);
 	}
 
 	.view-tabs-link-active {
