@@ -67,7 +67,7 @@
 
 		<!-- When button is disabled -->
 		<span v-else>
-			Oops! <router-link :to="{ name: 'arbitrary' }">Go to the other page</router-link> to increment global counter before decrementing it.
+			Oops! The counter in Vuex's state can't be decremented further. You should find a way to increment it!
 		</span>
 
 	</span>

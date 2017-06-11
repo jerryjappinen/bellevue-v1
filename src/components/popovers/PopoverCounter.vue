@@ -19,8 +19,9 @@
 
 	<div class="view-popover-counter">
 		<div class="buffer-tight">
-			Counter iterator embedded in popover {{ valueToShow }}
-			<global-counter-iterator></global-counter-iterator>
+			<p>Vuex counter value: {{ valueToShow }}</p>
+			<p><global-counter-iterator></global-counter-iterator></p>
+			<p><global-counter-iterator :reverse="true"></global-counter-iterator></p>
 		</div>
 	</div>
 

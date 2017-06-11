@@ -23,12 +23,12 @@
 
 <template>
 
-	<table class="view-console-configuration separate">
-		<tr v-for="(value, key) in configurationValues">
-			<th scope="row">{{ key }}</th>
-			<td><pre><code>{{ JSON.stringify(value, null, 2) }}</code></pre></td>
-		</tr>
-	</table>
+	<dl class="view-console-configuration">
+		<template v-for="(value, key) in configurationValues">
+			<dt scope="row">{{ key }}</dt>
+			<dd><pre><code>{{ JSON.stringify(value, null, 2) }}</code></pre></dd>
+		</template>
+	</dl>
 
 </template>
 

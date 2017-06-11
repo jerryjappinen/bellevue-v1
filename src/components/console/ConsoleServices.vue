@@ -91,11 +91,6 @@
 
 		<h2>Test services</h2>
 
-			<div class="view-app-foooo">
-				<p>
-				</p>
-			</div>
-
 		<ul>
 			<li><click :callback="setNotificationText">Set notification text</click></li>
 			<li><click :callback="clearNotificationText">Clear notification</click></li>
@@ -106,18 +101,14 @@
 
 		<h2>Services state</h2>
 
-		<template v-for="(values, serviceName) in dump">
-
-			<h3><code>{{ serviceName }}</code></h3>
-
-			<table class="separate">
-				<tr v-for="(value, key) in values">
-					<td><code>{{ key }}</code></td>
-					<td><pre><code>{{ JSON.stringify(value, null, 2) }}</code></pre></td>
-				</tr>
-			</table>
-
-		</template>
+		<dl>
+			<template v-for="(values, serviceName) in dump">
+				<template v-for="(value, key) in values">
+					<dt><code>{{ serviceName }}.{{ key }}</code></dt>
+					<dd><pre><code>{{ JSON.stringify(value, null, 2) }}</code></pre></dd>
+				</template>
+			</template>
+		</dl>
 
 	</div>
 
@@ -125,12 +116,5 @@
 
 <style lang="scss">
 	// @import '~@styles/shared';
-	.view-console-services {
-		th,
-		td {
-			&:first-child {
-				width: 10em;
-			}
-		}
-	}
+	// .view-console-services {}
 </style>
