@@ -58,12 +58,12 @@
 			// Meta information
 
 			pageTitle: function () {
-				return this.$route.name + ' – ' + config.meta.title;
+				return this.$t('pageTitles.' + this.$route.name) + ' – ' + config.meta.title;
 			},
 
+			// NOTE: route names are NOT user-facing. They can be used as localisation keys though.
 			titlebarTitle: function () {
-				// FIXME: route names are not supposed to be user-facing. They can be used as localisation keys though.
-				return 'titlebar.' + this.$route.name;
+				return this.$t('pageTitles.' + this.$route.name);
 			},
 
 

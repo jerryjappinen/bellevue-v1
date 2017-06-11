@@ -3,7 +3,7 @@
 
 export default {
 
-	titlebar: {
+	pageTitles: {
 		home: '¡Hola!',
 		arbitrary: 'Una pagina',
 		console: 'Consolas',

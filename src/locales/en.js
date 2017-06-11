@@ -3,7 +3,7 @@ export default {
 
 	// Titlebar titles
 	// NOTE: each named route should have a corresponding title here
-	titlebar: {
+	pageTitles: {
 
 		// Top-level pages
 		home: 'Hello!',

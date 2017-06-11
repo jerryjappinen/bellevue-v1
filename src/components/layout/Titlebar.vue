@@ -25,10 +25,7 @@
 				if (this.title) {
 					var title = string.trimWhitespace(this.title);
 					if (title.length) {
-
-						// NOTE: localised title
-						return this.$t(title);
-
+						return title;
 					}
 				}
 				return config.meta.title;
