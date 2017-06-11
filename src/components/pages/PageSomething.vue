@@ -1,30 +1,13 @@
 
 <script>
 
-	// Services
-	import { popovers } from '@services';
-
-	// View model
 	export default {
-
 		name: 'page-something',
 
 		data: function () {
 			return {
 				myValue: 20
 			};
-		},
-
-		computed: {
-
-			currentPopover: function () {
-				return popovers.someOtherValue;
-			},
-
-			globalCounterValues: function () {
-				return this.$store.state.counter + ' (squared: ' + this.$store.getters.counterSquared + ')';
-			}
-
 		}
 
 	};
@@ -35,45 +18,38 @@
 
 	<div class="view-page-something">
 
+		<h1>1-way and 2-way bindings</h1>
+
 		<div class="bodytext" v-once>
 
-			<h1 class="view-page-something-title">More stuff</h1>
+			<p>Here we iterate counters in a few different ways. We're using two different child components, <code>&lt;local-counter&gt;</code>, and <code>&lt;counter&gt;</code>, that are set up for 1-way and 2-way bindings respectively:</p>
 
-			<p>{{ currentPopover }}</p>
+			<ul>
+				<li>1-way binding is the default in Vue. It means that if you pass a value from a parent component to a child component, the child component can change that value but the parent component will not receive these updates. Vue has scoped both values and they are independent.</li>
+				<li>2-way binding means that any changes the child makes to the value are also reflected in the parent scope. Vue requires you to explicitly fire update events to the parent scope, and the parent component to react to those events.</li>
+			</ul>
 
-			<p>Vue (pronounced /vjuː/, like <strong>view</strong>) is a <strong>progressive framework</strong> for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is very easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with <a href="single-file-components.html">modern tooling</a> and <a href="https://github.com/vuejs/awesome-vue#components--libraries" target="_blank" rel="external">supporting libraries</a>.</p>
-
-			<p>If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the <a href="comparison.html">Comparison with Other Frameworks</a>.</p>
-
-			<p>The easiest way to try out Vue.js is using the <a href="https://jsfiddle.net/chrisvfritz/50wL7mdz/" target="_blank" rel="external">JSFiddle Hello World example</a>. Feel free to open it in another tab and follow along as we go through some basic examples. Or, you can simply create an <code>.html</code> file and include Vue with:</p>
-
-			<pre><code>&lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;</code></pre>
+			<p>While it requires a bit more work to set up and keep track of 2-way bindings this way, it also makes the code less magical and allows more granular control over how parent components should react to child components' update events. Vue comes with some syntactic sugar to make this easier, and you can limit using 2-way bindings in <code>control</code> components to make it clear which components are read-only and which mutate values in parent scope.</p>
 
 		</div>
 
-		<hr>
+		<h2>Fun with counters {{ myValue }}</h2>
 
-		<h2>More counters {{ myValue }}</h2>
+		<dl>
+			<dt>LocalCounter (for 1-way bindings)</dt>
 
-		<hr>
+			<!-- Simple counter example with only ONE-WAY data binding -->
+			<!-- NOTE: passing the same value to two components like this would be confusing in production -->
+			<dd><local-counter label="Nothing passed (iterates a default value)"></local-counter></dd>
+			<dd><local-counter label="myValue passed as value" :value="myValue"></local-counter></dd>
 
-		<p>Global counter {{ globalCounterValues }}</p>
+			<!-- Simple counter example with TWO-WAY data binding, i.e. the child component mutates the value of this component -->
+			<!-- https://vuejs.org/v2/guide/components.html#Form-Input-Components-using-Custom-Events -->
+			<dd><counter class="view-page-something-counter-1" label="Counter: Two-way binding to myValue" v-model="myValue"></counter></dd>
+			<dd><counter class="view-page-something-counter-2" label="Counter: Two-way binding to myValue" v-model="myValue"></counter></dd>
 
-		<hr>
-
-		<p><global-counter-iterator></global-counter-iterator></p>
-
-		<hr>
-
-		<!-- Simple counter example with only ONE-WAY data binding -->
-		<!-- NOTE: passing the same value to two components like this would be confusing in production -->
-		<p><local-counter label="One-way with default value"></local-counter></p>
-
-		<hr>
-
-		<!-- Simple counter example with TWO-WAY data binding, i.e. the child component mutates the value of this components -->
-		<!-- https://vuejs.org/v2/guide/components.html#Form-Input-Components-using-Custom-Events -->
-		<p><counter label="Two-way binding to myValue" v-model="myValue"></counter></p>
+			<dt>Counter (for 2-way bindings)</dt>
+		</dl>
 
 	</div>
 
@@ -82,6 +58,13 @@
 <style lang="scss">
 	@import '~@styles/shared';
 
-	// .view-page-something {}
+	// Override child component styles per context
+	.view-page-something-counter-2 {
+
+		.view-counter-label {
+			color: $color-green;
+		}
+
+	}
 
 </style>

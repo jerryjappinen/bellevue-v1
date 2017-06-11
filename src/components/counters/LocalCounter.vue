@@ -57,10 +57,10 @@
 
 <template>
 
-	<span class="view-local-counter" @click="increment">
+	<click class="view-local-counter" :callback="increment">
 		<span class="view-local-counter-label" v-if="shouldRenderLabel">{{ label }}: </span>
 		<span class="view-local-counter-value">{{ valueToRender }}</span>
-	</span>
+	</click>
 
 </template>
 
@@ -70,10 +70,6 @@
 	.view-local-counter {
 		display: inline-block;
 		padding: 0.25em 0.5em;
-	}
-
-	.view-local-counter-label {
-		color: purple;
 	}
 
 	.view-local-counter-value {

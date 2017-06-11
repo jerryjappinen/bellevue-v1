@@ -1,5 +1,5 @@
 
-// Global state management for complex use cases
+// State management library
 // https://vuex.vuejs.org/en/
 // NOTE: This file is only initializes the plugin, the state management logic is under store/
 

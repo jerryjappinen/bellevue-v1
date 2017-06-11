@@ -28,6 +28,10 @@
 					{
 						label: 'Services',
 						component: 'console-services'
+					},
+					{
+						label: 'Vuex',
+						component: 'console-vuex'
 					}
 				]
 			};

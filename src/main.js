@@ -91,7 +91,6 @@ new Vue({
 			// Allow passing the full batch of serialized service data and load it with the unserialization callback of each service
 			// NOTE: the `serialized` property of each service must be a writable computed
 			set: function (serialized) {
-				console.log('main set', serialized);
 
 				// Call the serialized setter for each service
 				for (var serviceName in services) {

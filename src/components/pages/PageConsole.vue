@@ -26,6 +26,10 @@
 					{
 						label: 'Services',
 						route: 'consoleServices'
+					},
+					{
+						label: 'Vuex',
+						route: 'consoleVuex'
 					}
 				]
 			};

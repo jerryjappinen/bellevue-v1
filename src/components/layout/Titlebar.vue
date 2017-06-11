@@ -40,10 +40,6 @@
 				return this.$d(time.current, 'short');
 			},
 
-			globalCounterValue: function () {
-				return this.$store.state.counter;
-			},
-
 			isScrolled: function () {
 				return viewport.isScrolled;
 			},
@@ -64,13 +60,11 @@
 
 			onMenuTriggerClick: function (event) {
 
-				// FIXME: We should write this as a custom modifier for Vue
+				// FIXME: This should be written as a custom modifier for Vue if possible
 				// E.g. @click.meta="onMenuTriggerClick"
 				if (!events.eventHasMetaKey(event)) {
 					event.preventDefault();
-
 					popovers.open('PopoverMainMenu');
-
 				}
 
 			}
@@ -92,10 +86,10 @@
 		<!--
 		<ul>
 			<li><a href="#/">Welcome</a></li>
-			<li><a href="#/arbit">More stuff</a></li>
+			<li><a href="#/arbit">Sample page</a></li>
 			<li><a href="#/console">Console</a></li>
 			<li>router-link: <router-link :to="{ name: 'root' }">Home</router-link></li>
-			<li>router-link: <router-link :to="{ name: 'arbitrary' }">More stuff</router-link></li>
+			<li>router-link: <router-link :to="{ name: 'arbitrary' }">Sample page</router-link></li>
 			<li>Dynamic: <a href="#" @click.prevent="onCustomLinkClick">{{ customLinkLabel }}</a></li>
 		</ul>
 		-->
@@ -124,7 +118,7 @@
 
 			<!-- Menu items -->
 			<li class="view-titlebar-list-item">
-				<router-link class="view-titlebar-link" :to="{ name: 'arbitrary' }">More stuff</router-link>
+				<router-link class="view-titlebar-link" :to="{ name: 'arbitrary' }">Sample page</router-link>
 			</li>
 
 			<!--<li class="view-titlebar-list-item">
@@ -137,7 +131,7 @@
 		<ul class="view-titlebar-list-secondary">
 			<li class="view-titlebar-list-item">
 				<click class="view-titlebar-list-item-content" :callback="onTimestampClick">
-					{{ networkStatus }} &bullet; {{ globalCounterValue }}  &bullet; {{ timeToShow }}
+					{{ networkStatus }}  &bullet; {{ timeToShow }}
 				</click>
 			</li>
 		</ul>

@@ -11,11 +11,12 @@ export default {
 		console: 'Console',
 
 		// Console sub pages
-		consoleComponents: '@:titlebar.console',
-		consoleConfiguration: '@:titlebar.console',
-		consoleModels: '@:titlebar.console',
-		consolePlugins: '@:titlebar.console',
-		consoleServices: '@:titlebar.console'
+		consoleComponents: '@:pageTitles.console',
+		consoleConfiguration: '@:pageTitles.console',
+		consoleModels: '@:pageTitles.console',
+		consolePlugins: '@:pageTitles.console',
+		consoleServices: '@:pageTitles.console',
+		consoleVuex: '@:pageTitles.console'
 
 	}
 

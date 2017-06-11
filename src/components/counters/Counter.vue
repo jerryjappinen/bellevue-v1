@@ -78,10 +78,10 @@ If I had a lot of other components dealing with similar behavior, I'd go for the
 
 <template>
 
-	<span class="view-counter" @click="increment">
+	<click class="view-counter" :callback="increment">
 		<span class="view-counter-label" v-if="shouldRenderLabel">{{ label }}: </span>
 		<span class="view-counter-value">{{ valueToRender }}</span>
-	</span>
+	</click>
 
 </template>
 
@@ -91,10 +91,6 @@ If I had a lot of other components dealing with similar behavior, I'd go for the
 	.view-counter {
 		display: inline-block;
 		padding: 0.25em 0.5em;
-	}
-
-	.view-counter-label {
-		color: green;
 	}
 
 	.view-counter-value {

@@ -74,6 +74,12 @@ export default [
 				path: 'services',
 				name: 'consoleServices',
 				component: components.ConsoleServices
+			},
+
+			{
+				path: 'vuex',
+				name: 'consoleVuex',
+				component: components.ConsoleVuex
 			}
 
 		]

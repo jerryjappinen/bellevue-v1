@@ -9,10 +9,6 @@
 			valueToShow: function () {
 				return this.$store.state.counter;
 			}
-		},
-
-		methods: {
-
 		}
 
 	};

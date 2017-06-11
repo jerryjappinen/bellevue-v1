@@ -8,6 +8,7 @@ import ConsoleConfiguration from './console/ConsoleConfiguration';
 import ConsoleModels from './console/ConsoleModels';
 import ConsolePlugins from './console/ConsolePlugins';
 import ConsoleServices from './console/ConsoleServices';
+import ConsoleVuex from './console/ConsoleVuex';
 
 // Controls
 import Click from './controls/Click';
@@ -60,6 +61,7 @@ export {
 	ConsoleModels,
 	ConsolePlugins,
 	ConsoleServices,
+	ConsoleVuex,
 
 	Click,
 	Set,
@@ -106,6 +108,7 @@ export default {
 	ConsoleModels,
 	ConsolePlugins,
 	ConsoleServices,
+	ConsoleVuex,
 
 	Click,
 	Set,
