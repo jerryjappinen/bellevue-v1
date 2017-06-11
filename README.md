@@ -36,5 +36,13 @@ npm run unit
 npm run e2e
 
 # run all tests
-npm test
+npm run test
+
+# generate all docs
+npm run docs
+
+# run all linters
+npm run lint
 ```
+
+See all scripts in [`package.json`](./package.json).
