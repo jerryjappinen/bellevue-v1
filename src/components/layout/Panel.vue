@@ -98,7 +98,7 @@
 		z-index: 2;
 		overflow: hidden;
 
-		width: 32em;
+		width: 36em;
 		max-width: 100%;
 		height: 100%;
 
