@@ -1,7 +1,7 @@
 
 # `Eiskis/vue-webpack`
 
-Full-featured Vue project template on webpack. Adapted from the official Vue Weback template. Edit
+`Eiskis/vue-webpack` is an advanced, opinionated Webpack project template for complex Vue projects based on the official Vue Weback template.
 
 - Demo: [vue.netlify.com](https://vue.netlify.com/)
 - Documentation: [eiskis.gitbooks.io/vue-webpack-docs](https://eiskis.gitbooks.io/vue-webpack-docs/)
