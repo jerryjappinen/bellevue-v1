@@ -184,33 +184,4 @@
 		width: 2em;
 	}
 
-	// NOTE: clearly this stuff should be in a separate component
-	.view-app-menu {
-
-		// FIXME: lots of nesting, which is bad
-		li {
-			@include inline-block;
-
-			&:not(:last-of-type) {
-				@include push-tight-right;
-			}
-
-			&:not(:first-of-type) {
-				@include push-tight-left;
-			}
-
-			a {
-				@include pad;
-
-				// NOTE: we try to use a small set of prefixes like .is-, .not-, .has-, or .no- in our state classes
-				&.is-exact-active {
-					text-decoration: underline;
-				}
-
-			}
-
-		}
-
-	}
-
 </style>

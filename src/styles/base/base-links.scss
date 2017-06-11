@@ -1,19 +1,13 @@
 
 @import '~@styles/shared';
 
-
-
 a {
-	font-weight: 500;
-	color: $color-link;
+	color: inherit;
+	// font-weight: 500;
+	// color: $color-link;
 
-	&:hover {
-		color: $color-link-active;
-	}
-
-	// FIXME: should be a defined utility instead a magical modifier
-	&.plain {
-		color: inherit;
-	}
+	// &:hover {
+	// 	color: $color-link-active;
+	// }
 
 }

@@ -69,30 +69,22 @@
 <template>
 
 	<ul class="view-tabs">
-		<li class="view-tabs-tab" v-for="(link, index) in links">
 
-			<!-- Router links -->
-			<router-link
-				v-if="!link.callback && !callback"
-				class="view-tabs-link"
-				active-class="view-tabs-link-active"
-				:to="{ name: link.route }"
-				>
-				{{ link.label }}
+		<template v-for="(link, index) in links">
+
+			<!-- Router link passed -->
+			<router-link v-if="!link.callback && !callback" class="view-tabs-tab" active-class="view-tabs-tab-active" :to="{ name: link.route }">
+				<a href="" class="view-tabs-link">{{ link.label }}</a>
 			</router-link>
 
-			<!-- Custom link -->
-			<a
-				v-else
-				class="view-tabs-link"
-				:class="{
-					'view-tabs-link-active': getCustomLinkIsSelected(link)
-				}"
-				@click.prevent="function (event) { onCustomLinkClick(event, link, index) }">
-				{{ link.label }}
-			</a>
+			<!-- Custom link passed -->
+			<li v-else class="view-tabs-tab" :class="{ 'view-tabs-tab-active': getCustomLinkIsSelected(link) }">
+				<a class="view-tabs-link" @click.prevent="function (event) { onCustomLinkClick(event, link, index) }">
+					{{ link.label }}
+				</a>
+			</li>
 
-		</li>
+		</template>
 	</ul>
 
 </template>
@@ -115,30 +107,37 @@
 		flex-grow: 1;
 		text-align: center;
 
+		@include transition-properties-common;
+
 		+ .view-tabs-tab {
-			.view-tabs-link {
-				border-left-width: 1px;
-			}
+			border-left-width: 1px;
+		}
+
+	}
+
+	.view-tabs-tab-active {
+		color: $color-white;
+		border-color: $color-dark;
+		background-color: $color-dark;
+		@include transition-fast;
+
+		// &:hover {}
+
+		// Link next to active link
+		+ .view-tabs-tab {
+			border-color: $color-dark;
+			@include transition-fast;
 		}
 
 	}
 
 	.view-tabs-link {
 		display: block;
+		@include no-transition;
 		padding-top: $pad-vertical - 2px;
 		padding-bottom: $pad-vertical - 2px;
 		padding-left: ($pad-horizontal / 2);
 		padding-right: ($pad-horizontal / 2);
-	}
-
-	.view-tabs-link-active {
-		color: $color-white;
-		background-color: $color-dark;
-
-		&:hover {
-			color: $color-white;
-		}
-
 	}
 
 </style>

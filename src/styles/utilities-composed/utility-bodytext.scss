@@ -12,13 +12,13 @@
 	// Links
 	a {
 		font-weight: 500;
-		color: $color-blue;
-		transition-property: color;
+		color: $color-link;
 
-		&:focus,
-		&:hover {
-			color: color-darken($color-blue);
+		&:hover,
+		&:active {
+			color: $color-link-active;
 		}
+
 	}
 
 	strong {

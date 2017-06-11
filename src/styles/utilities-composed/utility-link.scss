@@ -4,13 +4,13 @@
 
 
 .link {
-	box-sizing: border-box;
-	// display: inline-block;
+	// box-sizing: border-box;
+	display: inline-block;
 	@include cursor-pointer;
 
-	// Link color
 	color: $color-link;
-	&:focus,
+
+	&:hover,
 	&:active {
 		color: $color-link-active;
 	}
@@ -18,12 +18,12 @@
 	// Disabled state
 	&.is-disabled,
 	&[disabled] {
-		@include cursor-default;
+		@include cursor-inherit;
 		@include type-discreet;
 	}
 
 	// border-color: transparent;
-	@include transition-active;
-	transition-property: transform, border-color, background-color, box-shadow, color;
+	@include transition-hover-active;
+	@include transition-properties-common;
 
 }
