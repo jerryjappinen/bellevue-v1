@@ -41,7 +41,7 @@
 				// Artificial lag
 				setTimeout(function () {
 
-					var url = 'http://localhost/';
+					var url = 'https://jsonplaceholder.typicode.com';
 
 					var options = {
 						params: {

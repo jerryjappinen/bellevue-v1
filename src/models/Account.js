@@ -29,7 +29,7 @@ export default Vue.extend({
 
 	data: function () {
 		return {
-			getPath: 'http://localhost:8888/foo/bar'
+			getPath: 'https://jsonplaceholder.typicode.com'
 		};
 	},
 

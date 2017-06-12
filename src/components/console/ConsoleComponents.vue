@@ -5,19 +5,10 @@
 
 		data: function () {
 			return {
-
 				controlsAreDisabled: false,
-
-				clickTestCallback: function () {
-					alert('Clicked on <click>');
-				},
-
 				setTestValue: 'foo',
-
 				toggleTestValue: true,
-
 				textinputTestValue: ''
-
 			};
 		},
 
@@ -30,6 +21,10 @@
 		},
 
 		methods: {
+
+			clickTestCallback: function () {
+				alert('Clicked on <click>');
+			},
 
 			toggleControlsDisabled: function () {
 				this.controlsAreDisabled = !this.controlsAreDisabled;

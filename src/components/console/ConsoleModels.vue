@@ -66,7 +66,7 @@
 			<dt>Accounts</dt>
 
 			<dd><em>{{ testAccount.email }}</em> (role ID <em>{{ testAccount.role.id }}</em>)</dd>
-			<dd><strong @click="onAccountTestClick">Click me</strong> to fire a failing HTTP request via <code>testAccount</code></dd>
+			<dd><strong @click="onAccountTestClick">Click me</strong> to fire a HTTP request via <code>testAccount</code></dd>
 
 		</template>
 
