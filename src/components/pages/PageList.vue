@@ -47,8 +47,6 @@
 
 		<h1>List sample</h1>
 
-		<pre><code>{{ sampleDataPath }}</code></pre>
-
 		<ul>
 			<li v-for="i in numberOfPages"><router-link :to="{ name: 'listpage', params: { page: i } }">{{ i }}</router-link></li>
 		</ul>
