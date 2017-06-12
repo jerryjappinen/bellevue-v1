@@ -17,7 +17,7 @@
 				required: false
 			},
 			callbackLabel: {
-				type: Function,
+				type: String,
 				required: false
 			}
 		},
