@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import PageHome from '@components/pages/PageHome';
+import PageHome from '@vue-components/pages/PageHome';
 
 describe('PageHome.vue', function () {
 

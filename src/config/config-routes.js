@@ -2,7 +2,7 @@
 // Configuration for vue-router
 // NOTE: This is in a separate file, because pipeline has to be already running with aliases for the imports to work
 // NOTE: could maybe use `require.context` to make this more dynamic
-import components from '@components';
+import components from '@vue-components';
 
 export default [
 

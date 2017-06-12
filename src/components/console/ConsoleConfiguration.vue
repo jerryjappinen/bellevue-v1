@@ -33,6 +33,6 @@
 </template>
 
 <style lang="scss">
-	// @import '~@styles/shared';
+	// @import '~@shared-styles';
 	// .view-console-configuration {}
 </style>

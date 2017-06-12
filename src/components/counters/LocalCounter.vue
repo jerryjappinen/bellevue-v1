@@ -65,7 +65,7 @@
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared';
+	@import '~@shared-styles';
 
 	.view-local-counter {
 		display: inline-block;

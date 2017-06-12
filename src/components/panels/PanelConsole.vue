@@ -89,7 +89,7 @@
 </template>
 
 <style lang="scss">
-	// @import '~@styles/shared';
+	// @import '~@shared-styles';
 	.view-panel-console-menu {
 		.is-active {
 			text-decoration: underline;

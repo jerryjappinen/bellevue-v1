@@ -92,7 +92,7 @@
 
 
 <style lang="scss">
-	@import '~@styles/shared';
+	@import '~@shared-styles';
 
 	.view-tabs {
 		@include no-push-vertical;

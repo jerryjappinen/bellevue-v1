@@ -23,16 +23,17 @@ module.exports = {
 	'@svg': 'src/svg',
 
 	// Vue application code
-	'@components': 'src/components',
-	'@vuedirectives': 'src/vue/directives',
-	'@vuemixins': 'src/vue/mixins',
-	'@vueplugins': 'src/vue/plugins',
+	'@vue-components': 'src/components',
+	'@vue-directives': 'src/vue/directives',
+	'@vue-mixins': 'src/vue/mixins',
+	'@vue-plugins': 'src/vue/plugins',
 
 	// State management
 	'@store': 'src/store',
 
 	// Global styles
 	// NOTE: we could split this further
-	'@styles': 'src/styles'
+	'@styles': 'src/styles',
+	'@shared-styles': 'src/styles/shared'
 
 };

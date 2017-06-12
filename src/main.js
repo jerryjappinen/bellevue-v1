@@ -13,12 +13,12 @@ import Vue from 'vue';
 import config from '@config';
 
 // Some of these plugins load themselves automatically, some are injected below
-import plugins from '@vueplugins';
+import plugins from '@vue-plugins';
 
 // Other Vue elements
-import components from '@components';
-import directives from '@vuedirectives';
-import { global as globalMixins } from '@vuemixins';
+import components from '@vue-components';
+import directives from '@vue-directives';
+import { global as globalMixins } from '@vue-mixins';
 
 // Services
 import services from '@services';

@@ -149,7 +149,7 @@
 	//
 	// - Do I really need this in every component definition?
 	// - This is just manual duplication that leads to mistakes.
-	@import '~@styles/shared';
+	@import '~@shared-styles';
 
 	// Required for titlebar spacing
 	// FIXME: hacky solution, can't be transitioned and is not 100 % accurate

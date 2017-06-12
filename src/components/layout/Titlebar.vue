@@ -141,7 +141,7 @@
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared';
+	@import '~@shared-styles';
 
 	.view-titlebar {
 		@include fill-width-fixed;

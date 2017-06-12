@@ -86,7 +86,7 @@ If I had a lot of other components dealing with similar behavior, I'd go for the
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared';
+	@import '~@shared-styles';
 
 	.view-counter {
 		display: inline-block;

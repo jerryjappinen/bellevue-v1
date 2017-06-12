@@ -68,6 +68,6 @@
 </template>
 
 <style lang="scss">
-	// @import '~@styles/shared';
+	// @import '~@shared-styles';
 	// .view-pic-svg {}
 </style>

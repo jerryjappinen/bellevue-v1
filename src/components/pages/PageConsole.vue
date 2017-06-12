@@ -64,5 +64,5 @@
 </template>
 
 <style lang="scss">
-	// @import '~@styles/shared';
+	// @import '~@shared-styles';
 </style>

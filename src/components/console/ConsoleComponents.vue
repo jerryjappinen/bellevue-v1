@@ -166,7 +166,7 @@
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared';
+	@import '~@shared-styles';
 
 	.view-console-components-highlight {
 		color: $color-red;

@@ -54,7 +54,7 @@
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared';
+	@import '~@shared-styles';
 
 	// Override child component styles per context
 	.view-page-something-counter-2 {

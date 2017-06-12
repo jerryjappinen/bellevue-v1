@@ -79,7 +79,7 @@
 
 
 <style lang="scss">
-	@import '~@styles/shared';
+	@import '~@shared-styles';
 
 	.view-notification {
 		position: absolute;

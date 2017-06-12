@@ -32,6 +32,6 @@
 </template>
 
 <style lang="scss">
-	// @import '~@styles/shared';
+	// @import '~@shared-styles';
 	// .view-popover-main-menu {}
 </style>

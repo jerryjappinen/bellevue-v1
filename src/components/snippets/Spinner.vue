@@ -75,7 +75,7 @@
 </template>
 
 <style lang="scss">
-	@import '~@styles/shared';
+	@import '~@shared-styles';
 
 	$spinnerSize: 48;
 	$spinnerRadius: ($spinnerSize / 2) * 1px;
