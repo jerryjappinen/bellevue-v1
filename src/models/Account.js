@@ -1,11 +1,9 @@
 
-// Vendor code
 import Vue from 'vue';
 
-// Models
 import { Role } from '@models';
 
-const blueprint = {
+export default Vue.extend({
 
 	props: {
 
@@ -114,7 +112,4 @@ const blueprint = {
 
 	}
 
-};
-
-export { blueprint };
-export default Vue.extend(blueprint);
+});
