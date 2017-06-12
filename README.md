@@ -2,7 +2,7 @@
 
 - Demo: [vue.netlify.com](https://vue.netlify.com/)
 - Documentation: [eiskis.gitbooks.io/vue-webpack-docs](https://eiskis.gitbooks.io/vue-webpack-docs/)
-- Source: [github.com/Eiskis/vue-webpack](https://github.com/Eiskis/vue-webpack)
+- Source and issues: [github.com/Eiskis/vue-webpack](https://github.com/Eiskis/vue-webpack)
 
 ## Requirements
 
