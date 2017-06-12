@@ -18,11 +18,11 @@
 		computed: {
 
 			currentPage: function () {
-				return this.$route.params.page ? this.$route.params.page : 1;
+				return parseInt(this.$route.params.page ? this.$route.params.page : 1);
 			},
 
 			numberOfItems: function () {
-				return this.allItems.length;
+				return this.allItems && this.allItems.length ? this.allItems.length : 0;
 			},
 
 			isEmpty: function () {
@@ -39,6 +39,14 @@
 				return this.allItems.slice(start, end);
 			}
 
+		},
+
+		methods: {
+
+			clearData: function () {
+				this.allItems = [];
+			}
+
 		}
 
 	};
@@ -51,22 +59,37 @@
 
 		<h1>List sample</h1>
 
-		<blank-state v-if="isEmpty" title="No items found" description="This text should tell you how to create items."></blank-state>
+		<transition name="transition-fade" mode="out-in">
 
-		<template v-else>
+			<blank-state
+				v-if="isEmpty"
+				title="No items found"
+				description="This text should tell you how to create items.">
+			</blank-state>
 
-			<ul>
-				<li v-for="i in numberOfPages"><router-link :to="{ name: 'listpage', params: { page: i } }">{{ i }}</router-link></li>
-			</ul>
+			<div v-else>
 
-			<table class="separate">
-				<tr v-for="(item, index) in itemsOnPage">
-					<td>{{ item.name }}</td>
-					<td>{{ item.email }}</td>
-				</tr>
-			</table>
+				<!-- FIXME: should be a pagination component similar to <tabs> -->
+				<ul class="inline-block">
+					<li v-for="i in numberOfPages">
+						<router-link
+							class="button"
+							:to="{
+								name: 'listpage',
+								params: {
+									page: i
+								}
+							}">
+							{{ i }}
+						</router-link>
+					</li>
+					<li><a href="#" @click.prevent="clearData">Clear items</a></li>
+				</ul>
 
-		</template>
+				<list :items="allItems" :current-page="currentPage"></list>
+
+			</div>
+		</transition>
 
 	</div>
 

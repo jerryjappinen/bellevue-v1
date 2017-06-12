@@ -49,6 +49,7 @@ import PopoverMainMenu from './popovers/PopoverMainMenu';
 // Snippets
 import BlankState from './snippets/BlankState';
 import Icon from './snippets/Icon';
+import List from './snippets/List';
 import Pic from './snippets/Pic';
 import PicImg from './snippets/PicImg';
 import PicSvg from './snippets/PicSvg';
@@ -95,6 +96,7 @@ export {
 
 	BlankState,
 	Icon,
+	List,
 	Pic,
 	PicImg,
 	PicSvg,
@@ -142,6 +144,7 @@ export default {
 
 	BlankState,
 	Icon,
+	List,
 	Pic,
 	PicImg,
 	PicSvg,
