@@ -1,10 +1,14 @@
 <script>
 
+	import _ from 'lodash';
+	import axios from 'axios';
+
 	export default {
 		name: 'console-plugins',
 
 		data: function () {
 			return {
+				httpError: null,
 				httpResponse: null,
 				testingHttp: false
 			};
@@ -12,12 +16,18 @@
 
 		computed: {
 
-			throttleIsAvailable: function () {
-				return this.$throttle ? true : false;
+			httpResult: function () {
+				if (this.httpError) {
+					window.a = this.httpError;
+					return this.httpError.message;
+				} else if (this.httpResponse) {
+					return JSON.stringify(this.httpResponse, null, 2);
+				}
+				return null;
 			},
 
-			httpIsAvailable: function () {
-				return this.$http ? true : false;
+			throttleIsAvailable: function () {
+				return this.$throttle ? true : false;
 			}
 
 		},
@@ -25,32 +35,50 @@
 		methods: {
 
 			testHttp: function () {
-				if (this.httpIsAvailable) {
-					var vm = this;
-					this.testingHttp = true;
+				var vm = this;
+				this.testingHttp = true;
 
-					// Artificial lag
-					setTimeout(function () {
+				// Artificial lag
+				setTimeout(function () {
 
-						var options = {
-							params: {
-								id: 12345
+					var url = 'http://localhost/';
+
+					var options = {
+						params: {
+							id: 12345
+						}
+					};
+
+					axios.get(url, options)
+						.then(function (response) {
+							vm.testingHttp = false;
+							vm.httpResponse = _.merge({}, response, { data: '...' });
+						})
+						.catch(function (error) {
+							vm.testingHttp = false;
+							vm.httpError = error;
+
+							// The request was made and the server responded with a status code
+							// that falls out of the range of 2xx
+							if (error.response) {
+								console.log('error.response', error.response.data, error.response.status, error.response.headers);
+
+							// The request was made but no response was received
+							// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+							// http.ClientRequest in node.js
+							} else if (error.request) {
+								console.log('error.request', error.request);
+
+							// Something happened in setting up the request that triggered an Error
+							} else {
+								console.log('error.message', error.message);
 							}
-						};
 
-						vm.$http.get('http://localhost/', options)
-							.then(function (response) {
-								vm.testingHttp = false;
-								vm.httpResponse = JSON.stringify(Object.create({}, response, { data: '...' }), null, 2);
-							})
-							.catch(function (error) {
-								vm.testingHttp = false;
-								throw error;
-							});
+							console.log('error.config', error.config);
+						});
 
-					}, 2000);
+				}, 2000);
 
-				}
 			}
 
 		},
@@ -65,38 +93,24 @@
 
 <template>
 
-	<table class="view-console-plugins">
+	<dl>
 
 		<!-- Throttle -->
-		<tr>
-			<th scope="row"><code>$throttle</code></th>
-			<td><code>{{ throttleIsAvailable }}</code></td>
-		</tr>
+		<dt><code>$throttle</code></dt>
+		<dd><pre><code>{{ throttleIsAvailable }}</code></pre></dd>
 
 		<!-- http -->
-		<tr>
-			<th scope="row"><code>$http</code></th>
-			<td><code>{{ httpIsAvailable }}</code></td>
-		</tr>
-		<tr v-if="httpResponse || testingHttp">
-			<td colspan="2">
-
-				<transition name="transition-fade">
-
-					<div key="testingHttpPlaceholder" v-if="testingHttp">
-						<spinner></spinner> Testing <code>$http</code>...
-					</div>
-
-					<div key="testingHttpResult" v-else>
-						<pre><code>{{ httpResponse }}</code></pre>
-					</div>
-
+		<template v-if="httpResult || testingHttp">
+			<dt>Testing Axios <spinner v-if="testingHttp"></spinner></dt>
+			<dd>
+				<transition name="transition-fade" mode="out-in">
+					<pre key="testingHttpPlaceholder" v-if="testingHttp"><code>http get...</code></pre>
+					<pre key="testingHttpResult" v-else><code>{{ httpResult }}</code></pre>
 				</transition>
+			</dd>
+		</template>
 
-			</td>
-		</tr>
-
-	</table>
+	</dl>
 
 </template>
 

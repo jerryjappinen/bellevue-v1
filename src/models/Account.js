@@ -1,5 +1,6 @@
 
 import Vue from 'vue';
+import axios from 'axios';
 
 import { Role } from '@models';
 
@@ -97,7 +98,7 @@ export default Vue.extend({
 				id: id
 			};
 
-			this.$http.get(this.getPath, params, this.onFetchSuccess, this.onFetchFail);
+			axios.get(this.getPath, params, this.onFetchSuccess, this.onFetchFail);
 
 		}
 
