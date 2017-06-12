@@ -1,16 +1,14 @@
 
 <script>
-	import sampleData from '@assets/sample-data';
+	import axios from 'axios';
 
 	export default {
 		name: 'page-list',
 
 		data: function () {
 			return {
-				itemsPerPage: 7,
-
+				itemsPerPage: 15,
 				allItems: []
-
 			};
 		},
 
@@ -42,9 +40,13 @@
 
 		methods: {
 
-			// FIXME: hackerman
-			resetData: function () {
-				this.allItems = sampleData.concat(sampleData, sampleData, sampleData, sampleData, sampleData, sampleData, sampleData, sampleData, sampleData);
+			fetchData: function () {
+				var vm = this;
+				axios.get('https://jsonplaceholder.typicode.com/posts').then(function (response) {
+					vm.allItems = response.data;
+				}).catch(function (error) {
+					console.log(error);
+				});
 			},
 
 			clearData: function () {
@@ -54,7 +56,7 @@
 		},
 
 		created: function () {
-			this.resetData();
+			this.fetchData();
 		}
 
 	};
@@ -67,13 +69,15 @@
 
 		<h1>List sample</h1>
 
+		<p class="bodytext">Fetching sample data from <code>jsonplaceholder.typicode.com</code></p>
+
 		<transition name="transition-fade" mode="out-in">
 
 			<blank-state
 				v-if="isEmpty"
 				title="No items found"
 				description="This text should tell you how to create items."
-				:callback="resetData"
+				:callback="fetchData"
 				callbackLabel="Reset list items">
 			</blank-state>
 
@@ -96,7 +100,14 @@
 					<li><a href="#" @click.prevent="clearData">Clear items</a></li>
 				</ul>
 
-				<list :items="allItems" :current-page="currentPage"></list>
+				<list :items="allItems" :current-page="currentPage" :items-per-page="itemsPerPage">
+
+					<!-- https://vuejs.org/v2/guide/components.html#Scoped-Slots -->
+					<template scope="props">
+						{{ props.item.id }}: {{ props.item.title }}
+					</template>
+
+				</list>
 
 			</div>
 		</transition>

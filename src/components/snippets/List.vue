@@ -12,7 +12,7 @@
 
 			itemsPerPage: {
 				type: Number,
-				default: 7
+				default: 10
 			},
 
 			currentPage: {
@@ -40,8 +40,7 @@
 
 	<table class="view-list separate">
 		<tr v-for="(item, index) in itemsOnPage">
-			<td>{{ item.name }}</td>
-			<td>{{ item.email }}</td>
+			<td><slot :item="item" :index="index"></slot></td>
 		</tr>
 	</table>
 
