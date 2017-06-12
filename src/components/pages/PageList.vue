@@ -17,7 +17,7 @@
 
 		computed: {
 
-			page: function () {
+			currentPage: function () {
 				return this.$route.params.page ? this.$route.params.page : 1;
 			},
 
@@ -25,13 +25,17 @@
 				return this.allItems.length;
 			},
 
+			isEmpty: function () {
+				return this.numberOfItems < 1;
+			},
+
 			numberOfPages: function () {
 				return Math.ceil(this.numberOfItems / this.itemsPerPage);
 			},
 
 			itemsOnPage: function () {
-				var start = (this.page - 1) * this.itemsPerPage;
-				var end = this.page * this.itemsPerPage;
+				var start = (this.currentPage - 1) * this.itemsPerPage;
+				var end = this.currentPage * this.itemsPerPage;
 				return this.allItems.slice(start, end);
 			}
 
@@ -47,16 +51,22 @@
 
 		<h1>List sample</h1>
 
-		<ul>
-			<li v-for="i in numberOfPages"><router-link :to="{ name: 'listpage', params: { page: i } }">{{ i }}</router-link></li>
-		</ul>
+		<blank-state v-if="isEmpty" title="No items found" description="This text should tell you how to create items."></blank-state>
 
-		<table class="separate">
-			<tr v-for="(item, index) in itemsOnPage">
-				<td>{{ item.name }}</td>
-				<td>{{ item.email }}</td>
-			</tr>
-		</table>
+		<template v-else>
+
+			<ul>
+				<li v-for="i in numberOfPages"><router-link :to="{ name: 'listpage', params: { page: i } }">{{ i }}</router-link></li>
+			</ul>
+
+			<table class="separate">
+				<tr v-for="(item, index) in itemsOnPage">
+					<td>{{ item.name }}</td>
+					<td>{{ item.email }}</td>
+				</tr>
+			</table>
+
+		</template>
 
 	</div>
 

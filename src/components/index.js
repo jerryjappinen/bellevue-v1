@@ -47,6 +47,7 @@ import PopoverCounter from './popovers/PopoverCounter';
 import PopoverMainMenu from './popovers/PopoverMainMenu';
 
 // Snippets
+import BlankState from './snippets/BlankState';
 import Icon from './snippets/Icon';
 import Pic from './snippets/Pic';
 import PicImg from './snippets/PicImg';
@@ -92,6 +93,7 @@ export {
 	PopoverCounter,
 	PopoverMainMenu,
 
+	BlankState,
 	Icon,
 	Pic,
 	PicImg,
@@ -138,6 +140,7 @@ export default {
 	PopoverCounter,
 	PopoverMainMenu,
 
+	BlankState,
 	Icon,
 	Pic,
 	PicImg,
