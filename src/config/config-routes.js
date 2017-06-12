@@ -34,6 +34,23 @@ export default [
 	},
 
 	{
+		path: '/list',
+		name: 'list',
+		redirect: {
+			name: 'listpage',
+			params: {
+				page: 1
+			}
+		}
+	},
+
+	{
+		path: '/list/:page',
+		name: 'listpage',
+		component: components.PageList
+	},
+
+	{
 		path: '/console',
 		name: 'console',
 		component: components.PageConsole,

@@ -1,9 +1,6 @@
 
 <script>
-
-	// View model
 	export default {
-
 		name: 'page-home',
 
 		data: function () {
@@ -13,7 +10,6 @@
 		}
 
 	};
-
 </script>
 
 <template>
@@ -42,7 +38,5 @@
 
 <style lang="scss">
 	@import '~@shared-styles';
-
 	// .view-page-home {}
-
 </style>

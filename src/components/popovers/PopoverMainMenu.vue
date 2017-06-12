@@ -1,31 +1,17 @@
 
 <script>
-
-	import { popovers } from '@services';
-
 	export default {
-		name: 'popover-main-menu',
-
-		computed: {},
-
-		methods: {
-
-			onMenuItemClick: function () {
-				popovers.close();
-			}
-
-		}
-
+		name: 'popover-main-menu'
 	};
-
 </script>
 
 <template>
 
 	<div class="view-popover-main-menu">
 		<ul class="buffer-even no-push-vertical">
-			<li><router-link :to="{ name: 'root' }" @click.native="onMenuItemClick">Home</router-link></li>
-			<li><router-link :to="{ name: 'arbitrary' }" @click.native="onMenuItemClick">Sample page</router-link></li>
+			<li><router-link :to="{ name: 'root' }">Home</router-link></li>
+			<li><router-link :to="{ name: 'arbitrary' }">Sample page</router-link></li>
+			<li><router-link :to="{ name: 'list' }">List</router-link></li>
 		</ul>
 	</div>
 

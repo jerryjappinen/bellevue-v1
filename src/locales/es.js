@@ -7,6 +7,8 @@ export default {
 		home: '¡Hola!',
 		arbitrary: 'Una pagina',
 		console: 'Consolas',
+		list: 'List',
+		listpage: '@:pageTitles.list',
 
 		// NOTE
 		// - I'd like to not have to replicate this

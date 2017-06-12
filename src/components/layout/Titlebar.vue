@@ -120,6 +120,9 @@
 			<li class="view-titlebar-list-item">
 				<router-link class="view-titlebar-link" :to="{ name: 'arbitrary' }">Sample page</router-link>
 			</li>
+			<li class="view-titlebar-list-item">
+				<router-link class="view-titlebar-link" :to="{ name: 'list' }">List</router-link>
+			</li>
 
 			<!--<li class="view-titlebar-list-item">
 				<router-link class="view-titlebar-link" :to="{ name: 'console' }">Console</router-link>

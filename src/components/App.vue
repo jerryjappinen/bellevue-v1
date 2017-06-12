@@ -86,6 +86,16 @@
 				return (this.popoverShouldBeShown && !popovers.isInPlace) ? false : true;
 			}
 
+		},
+
+		watch: {
+
+			// When navigating, close popovers and panels
+			'$route': function () {
+				panels.close();
+				popovers.close();
+			}
+
 		}
 
 	};

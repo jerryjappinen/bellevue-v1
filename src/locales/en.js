@@ -9,6 +9,8 @@ export default {
 		home: 'Hello!',
 		arbitrary: 'Some page',
 		console: 'Console',
+		list: 'List',
+		listpage: '@:pageTitles.list',
 
 		// Console sub pages
 		consoleComponents: '@:pageTitles.console',

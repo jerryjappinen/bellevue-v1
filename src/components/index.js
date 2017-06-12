@@ -34,8 +34,9 @@ import Tabs from './layout/Tabs';
 import Titlebar from './layout/Titlebar';
 
 // Pages
-import PageHome from './pages/PageHome';
 import PageConsole from './pages/PageConsole';
+import PageHome from './pages/PageHome';
+import PageList from './pages/PageList';
 import PageSomething from './pages/PageSomething';
 
 // Panels
@@ -53,7 +54,6 @@ import PicSvg from './snippets/PicSvg';
 import Spinner from './snippets/Spinner';
 
 export {
-
 	App,
 
 	ConsoleComponents,
@@ -82,8 +82,9 @@ export {
 	Tabs,
 	Titlebar,
 
-	PageHome,
 	PageConsole,
+	PageHome,
+	PageList,
 	PageSomething,
 
 	PanelConsole,
@@ -96,11 +97,9 @@ export {
 	PicImg,
 	PicSvg,
 	Spinner
-
 };
 
 export default {
-
 	App,
 
 	ConsoleComponents,
@@ -129,8 +128,9 @@ export default {
 	Tabs,
 	Titlebar,
 
-	PageHome,
 	PageConsole,
+	PageHome,
+	PageList,
 	PageSomething,
 
 	PanelConsole,
@@ -143,5 +143,4 @@ export default {
 	PicImg,
 	PicSvg,
 	Spinner
-
 };
