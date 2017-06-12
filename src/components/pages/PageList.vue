@@ -9,8 +9,7 @@
 			return {
 				itemsPerPage: 7,
 
-				// FIXME: hackerman
-				allItems: sampleData.concat(sampleData, sampleData, sampleData, sampleData, sampleData, sampleData, sampleData, sampleData, sampleData)
+				allItems: []
 
 			};
 		},
@@ -43,10 +42,19 @@
 
 		methods: {
 
+			// FIXME: hackerman
+			resetData: function () {
+				this.allItems = sampleData.concat(sampleData, sampleData, sampleData, sampleData, sampleData, sampleData, sampleData, sampleData, sampleData);
+			},
+
 			clearData: function () {
 				this.allItems = [];
 			}
 
+		},
+
+		created: function () {
+			this.resetData();
 		}
 
 	};
@@ -64,7 +72,9 @@
 			<blank-state
 				v-if="isEmpty"
 				title="No items found"
-				description="This text should tell you how to create items.">
+				description="This text should tell you how to create items."
+				:callback="resetData"
+				callbackLabel="Reset list items">
 			</blank-state>
 
 			<div v-else>
