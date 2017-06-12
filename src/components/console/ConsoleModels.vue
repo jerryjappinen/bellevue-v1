@@ -24,8 +24,8 @@
 				return init(Account, {
 					id: 900,
 					roleId: this.testRoleModel2.id,
-					email: 'esa@gmail.com',
-					name: 'Esa'
+					email: 'bar@gmail.com',
+					name: 'Bar'
 				});
 			}
 
