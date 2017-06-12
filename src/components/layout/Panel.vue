@@ -83,6 +83,7 @@
 
 			.view-panel-content {
 				@include translate-right;
+				@include shadow-loose-transparent;
 			}
 
 		}
@@ -101,6 +102,7 @@
 		width: 36em;
 		max-width: 100%;
 		height: 100%;
+		@include shadow-loose;
 
 		@include no-translate;
 		@include transition-slow;
