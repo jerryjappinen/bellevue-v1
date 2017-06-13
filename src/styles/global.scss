@@ -1,7 +1,7 @@
 
 // Access to variables, mixins etc.
 // NOTE: shared includes no CSS output
-@import './shared';
+@import '~@shared-styles';
 
 
 
@@ -16,12 +16,19 @@
 
 
 // Vendor code
-// NOTE: only include vendor code that has to go through our custom build pipeline
+//
+// NOTE
+// - only include vendor code that has to go through our custom build pipeline
+// - precompiled vendor code should be included in index.html.ejs
+// @import './vendor/bootstrap-source';
 
-// Plugin overrides
-// NOTE: many times vendor CSS code causes a lot of issues and needs additional adjustments when it is included globally - this is the place for it
-// NOTE: sometimes it is even better to not include the distributed vendor CSS at all
-@import './plugin-overrides/iphone-inline-video';
+// Vendor overrides
+//
+// NOTE
+// - many times the CSS code delivered with plugins causes a lot of issues and needs additional adjustments when it is included globally
+// - this is the place for it, so all these hacky overrides are in one place
+// - sometimes it is even better to not include the distributed vendor CSS at all and just rewrite the CSS without having to override anything
+@import './vendor-overrides/iphone-inline-video';
 
 
 
