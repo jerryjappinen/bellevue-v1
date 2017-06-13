@@ -34,6 +34,22 @@
 				var start = (this.currentPage - 1) * this.itemsPerPage;
 				var end = this.currentPage * this.itemsPerPage;
 				return this.allItems.slice(start, end);
+			},
+
+			paginationLinks: function () {
+				var links = [];
+				for (var i = 0; i < this.numberOfPages; i++) {
+					links.push({
+						label: (i + 1),
+						route: {
+							name: 'listpage',
+							params: {
+								page: (i + 1)
+							}
+						}
+					});
+				}
+				return links;
 			}
 
 		},
@@ -83,22 +99,12 @@
 
 			<div v-else>
 
-				<!-- FIXME: should be a pagination component similar to <tabs> -->
-				<ul class="inline-block">
-					<li v-for="i in numberOfPages">
-						<router-link
-							class="button"
-							:to="{
-								name: 'listpage',
-								params: {
-									page: i
-								}
-							}">
-							{{ i }}
-						</router-link>
-					</li>
-					<li><a href="#" @click.prevent="clearData">Clear items</a></li>
-				</ul>
+				<p><button class="button-solid" @click="clearData">Clear items</button></p>
+
+				<!-- FIXME: should be a pagination component that wraps (removing excess links, adding next/previous etc.) <tabs> -->
+				<p class="view-page-list-navigation">
+					<tabs :links="paginationLinks"></tabs>
+				</p>
 
 				<list :items="allItems" :current-page="currentPage" :items-per-page="itemsPerPage">
 
@@ -118,5 +124,9 @@
 
 <style lang="scss">
 	// @import '~@shared-styles';
-	// .view-page-list {}
+	.view-page-list-navigation {
+		.view-tabs {
+			display: inline-flex;
+		}
+	}
 </style>
