@@ -1,7 +1,6 @@
 
 import _ from 'lodash';
 import Vue from 'vue';
-import throttle from 'raf';
 
 import { viewport } from '@services';
 
@@ -25,7 +24,7 @@ export default new Vue({
 			return this.component ? true : false;
 		},
 
-		targetCoordinates: _.throttle(function () {
+		targetCoordinates: _.debounce(function () {
 			if (this.inPlaceTargetBox) {
 				return {
 					x: this.inPlaceTargetBox.left,
@@ -51,7 +50,8 @@ export default new Vue({
 
 		clearInterval: function () {
 			if (this._interval) {
-				throttle.cancel(this._interval);
+				clearInterval(this._interval);
+				this._interval = null;
 			}
 		},
 
@@ -109,9 +109,11 @@ export default new Vue({
 					// FLAG: brute force approach...
 					if (this.inPlaceTargetBox) {
 						this.clearInterval();
-						this._interval = throttle(this.updateInPlaceTargetBox);
+						var vm = this;
+						this._interval = setInterval(function () {
+							_.debounce(vm.updateInPlaceTargetBox);
+						}, 50);
 					}
-
 
 				// Ensure there's no in-place target left over
 				} else {
