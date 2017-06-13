@@ -168,7 +168,7 @@
 			:maxlength="maxlengthValue"
 			:placeholder="placeholder"
 			@focus="onFocus"
-			@focusout="onFocusOut" />
+			@focusout="onFocusOut">
 
 		<input
 			v-else
@@ -178,7 +178,7 @@
 			:maxlength="maxlengthValue"
 			:placeholder="placeholder"
 			@focus="onFocus"
-			@focusout="onFocusOut" />
+			@focusout="onFocusOut">
 
 	</span>
 
