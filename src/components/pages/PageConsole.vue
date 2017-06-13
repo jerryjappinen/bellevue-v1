@@ -9,27 +9,39 @@
 				tabs: [
 					{
 						label: 'Components',
-						route: 'consoleComponents'
+						route: {
+							name: 'consoleComponents'
+						}
 					},
 					{
 						label: 'Configuration',
-						route: 'consoleConfiguration'
+						route: {
+							name: 'consoleConfiguration'
+						}
 					},
 					{
 						label: 'Models',
-						route: 'consoleModels'
+						route: {
+							name: 'consoleModels'
+						}
 					},
 					{
 						label: 'Plugins',
-						route: 'consolePlugins'
+						route: {
+							name: 'consolePlugins'
+						}
 					},
 					{
 						label: 'Services',
-						route: 'consoleServices'
+						route: {
+							name: 'consoleServices'
+						}
 					},
 					{
 						label: 'Vuex',
-						route: 'consoleVuex'
+						route: {
+							name: 'consoleVuex'
+						}
 					}
 				]
 			};

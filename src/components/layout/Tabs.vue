@@ -8,7 +8,7 @@
 			// List of links to render. Each should be an object with
 			// {
 			//     label: 'Foo',
-			//     route: 'Foo',
+			//     route: { name: 'Foo' },
 			//     selectedOn: 'Foo',
 			//     callback: 'Foo'
 			// }
@@ -73,7 +73,7 @@
 		<template v-for="(link, index) in links">
 
 			<!-- Router link passed -->
-			<router-link v-if="!link.callback && !callback" class="view-tabs-tab" active-class="view-tabs-tab-active" :to="{ name: link.route }">
+			<router-link v-if="link.route" class="view-tabs-tab" active-class="view-tabs-tab-active" :to="link.route">
 				<a href="" class="view-tabs-link">{{ link.label }}</a>
 			</router-link>
 
