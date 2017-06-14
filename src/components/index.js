@@ -12,6 +12,7 @@ import ConsoleVuex from './console/ConsoleVuex';
 
 // Controls
 import Click from './controls/Click';
+import ClickButton from './controls/ClickButton';
 import Set from './controls/Set';
 import Textinput from './controls/Textinput';
 import Toggle from './controls/Toggle';
@@ -66,6 +67,7 @@ export {
 	ConsoleVuex,
 
 	Click,
+	ClickButton,
 	Set,
 	Textinput,
 	Toggle,
@@ -114,6 +116,7 @@ export default {
 	ConsoleVuex,
 
 	Click,
+	ClickButton,
 	Set,
 	Textinput,
 	Toggle,

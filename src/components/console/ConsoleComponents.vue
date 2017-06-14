@@ -40,6 +40,14 @@
 
 	<div class="view-console-components">
 
+		<p>
+			<click-button icon="check"></click-button>
+			<click-button icon="check"></click-button>
+			<click-button icon="check">Bar</click-button>
+			<click-button icon="check" theme="plain">Bar</click-button>
+			<click-button icon="check" theme="stroke">Bar</click-button>
+			<click-button icon="check" theme="solid">Bar</click-button>
+		</p>
 
 		<h3>Images and static assets</h3>
 
