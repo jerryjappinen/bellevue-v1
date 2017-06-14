@@ -4,8 +4,6 @@ import Vue from 'vue';
 
 export default new Vue({
 
-	// FIXME: would be nice if this was based in routed views
-
 	data: function () {
 		return {
 			component: null
@@ -21,6 +19,12 @@ export default new Vue({
 				};
 			},
 			set: function (serialized) {
+
+				// FIXME
+				// - would like to only set this if the route is the same as it was when closed
+				// - but how do I access the router from the root Vue object?
+				// - would it work if I injected services into the root Vue and set {parent: foo} for them?
+
 				this.component = serialized.component;
 			}
 		},
