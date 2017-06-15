@@ -3,7 +3,6 @@
 
 	// View model
 	export default {
-
 		name: 'spinner',
 
 		// directives: {},
@@ -84,7 +83,7 @@
 
 	.view-spinner-circle {
 		fill: transparent;
-		stroke: $color-dark;
+		stroke: currentColor;
 
 		stroke-dasharray: (3.14 * $spinnerSize) * 1px;
 		stroke-dashoffset: 0;

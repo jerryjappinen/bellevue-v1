@@ -40,15 +40,6 @@
 
 	<div class="view-console-components">
 
-		<p>
-			<click-button icon="check"></click-button>
-			<click-button icon="check"></click-button>
-			<click-button icon="check">Bar</click-button>
-			<click-button icon="check" theme="plain">Bar</click-button>
-			<click-button icon="check" theme="stroke">Bar</click-button>
-			<click-button icon="check" theme="solid">Bar</click-button>
-		</p>
-
 		<h3>Images and static assets</h3>
 
 		<!-- References to static assets with resolved URLs -->
@@ -68,10 +59,13 @@
 		<h3>Spinner</h3>
 
 		<!-- Spinners of various styles -->
-		<ul>
-			<li><spinner class="view-console-components-spinner-1"></spinner></li>
-			<li><spinner class="view-console-components-spinner-2"></spinner></li>
-		</ul>
+		<p>
+			<spinner></spinner>
+			<spinner-small></spinner-small>
+			<spinner class="view-console-components-spinner-1"></spinner>
+			<spinner class="view-console-components-spinner-2"></spinner>
+			<spinner class="view-console-components-spinner-3"></spinner>
+		</p>
 
 
 
@@ -164,6 +158,36 @@
 
 		</table>
 
+
+
+		<h3>Buttons</h3>
+
+		<p>
+			<click-button>Bar</click-button>
+			<click-button theme="stroke">Bar</click-button>
+			<click-button theme="plain">Bar</click-button>
+			<click-button icon="check"></click-button>
+			<click-button icon="check">Bar</click-button>
+		</p>
+
+		<p>
+			<click-button color="green">Bar</click-button>
+			<click-button color="green" theme="stroke">Bar</click-button>
+			<click-button color="green" theme="plain">Bar</click-button>
+		</p>
+
+		<p>
+			<click-button color="red">Bar</click-button>
+			<click-button color="red" theme="stroke">Bar</click-button>
+			<click-button color="red" theme="plain">Bar</click-button>
+		</p>
+
+		<p>
+			<click-button :disabled="true">Bar</click-button>
+			<click-button :disabled="true" theme="stroke">Bar</click-button>
+			<click-button :disabled="true" theme="plain">Bar</click-button>
+		</p>
+
 	</div>
 
 </template>
@@ -176,15 +200,17 @@
 	}
 
 	.view-console-components-spinner-1 {
-		width: 1em;
+		width: 1.5em;
 	}
 
 	.view-console-components-spinner-2 {
+		color: $color-green;
+	}
 
+	.view-console-components-spinner-3 {
 		.view-spinner-circle {
 			stroke: $color-red;
 		}
-
 	}
 
 	.view-console-components-image {

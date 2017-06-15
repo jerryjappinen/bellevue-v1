@@ -101,7 +101,7 @@
 
 		<!-- http -->
 		<template v-if="httpResult || testingHttp">
-			<dt>Testing Axios <spinner v-if="testingHttp"></spinner></dt>
+			<dt>Testing Axios <spinner-small v-if="testingHttp"></spinner-small></dt>
 			<dd>
 				<transition name="transition-fade" mode="out-in">
 					<pre key="testingHttpPlaceholder" v-if="testingHttp"><code>http get...</code></pre>
