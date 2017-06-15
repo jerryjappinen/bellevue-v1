@@ -31,10 +31,6 @@
 ## Application code
 
 - [ ] Move panel persistence to `<App>`
-- [ ] Add `color` to click-button
-- [ ] Use `ClickButton` throughout instead of the utility
-- [ ] Write howto about wrapper components
-- [ ] Add `<spinner-small>`
 - [ ] Integrate client-side form/input validation
 	- https://github.com/vuejs/awesome-vue#validation
 - [ ] Some kind of env/device service
@@ -64,9 +60,8 @@
 - [ ] Prevent double click text select in all controls
 - [ ] Tabs
 
-## Examples and docs
+## Examples
 
-- [ ] Write about controls vs form elements
 - [ ] Event usage examples
 	- `_.debounce`
 	- Using `vue-throttle-event`
