@@ -3,57 +3,40 @@
 
 ## Pipeline
 
-- [ ] Upgrade to node 8
+- [ ] Upgrade to Node 8
+- [ ] Enable app icon generation based on config rather than crudely commenting it out
 - [ ] Support local Webpack config files outside of version control
-	- Need to be able to set different ports for development for example
-- [ ] More full-featured index.html templating
+	- Example: set different ports for local dev server
+- [ ] Inject vendor script/style links to HTML based on configuration instead of manually adding them to `index.html.ejs`
+- [ ] More full-featured `index.html.ejs` templating
 	- Add more full-featured meta tags
 	- https://github.com/jantimon/favicons-webpack-plugin
 	- https://github.com/jantimon/html-webpack-plugin#third-party-addons
-- [ ] Enable app icon generation based on config rather than crudely commenting it out
-- [ ] Inject vendor script/style links to HTML based on configuration instead of manually adding them to `index.html.ejs`
-- [ ] Rename `build/` and `config/` on root level
-
-### Automation
-
-Can we improve the pipeline to automate redundant tasks? Things such as the following cause a lot of boilerplate code that has to be manually maintained:
-
-- [x] Importing and declaring child components
-- [x] Importing and declaring directives used in components
-- [x] Explicitly renaming child components locally
-- [ ] Explicitly exporting components/directives/plugins/services/models in index files
-- [ ] Explicitly importing services in each component
-- [ ] Explicitly importing shared SCSS in `.vue` files
-- [ ] Ensuring dependencies are up to date (directives and plugins imported in components must be installed via npm and `package.json` up to date)
-- [ ] Webpack disallows dynamic requiring just like ES6 imports, but `require.context` could perhaps be used to improve automation
+- [ ] Move `build/` and `config/` on root level under `webpack/`
+	- Ensure path helpers work under subfolders
 
 ## Application code
 
 - [ ] Move panel persistence to `<App>`
-- [ ] Integrate client-side form/input validation
-	- https://github.com/vuejs/awesome-vue#validation
+- [ ] Refactor `pad.scss`
+	- Stay consistent with the tight-loose pattern used elsewhere
+	- Allow setting vertical and horizontal in constants
 - [ ] Some kind of env/device service
 	- Feature detection
 	- Touch vs. no touch
 	- Wrap Modernizr?
+- [ ] Integrate client-side form/input validation
+	- https://github.com/vuejs/awesome-vue#validation
 - [ ] Try `vue-supply`, `vue-apollo` and GraphQL
 	- https://github.com/Akryum/vue-supply
 - [ ] Support lazy loading localisation files
 	- Docs: http://kazupon.github.io/vue-i18n/en/
 	- Simple example: https://kazupon.github.io/vue-i18n/en/migrations.html#features
-- [ ] Refactor `pad.scss`
-	- Stay consistent with the tight-loose pattern used elsewhere
-	- Allow setting vertical and horizontal in constants
 
 ## Vuex
 
-- [ ] Split Vuex state management
-	- Vuex supports splitting modules
-	- Actions, getters, etc. can also be split into different files easily
-	- Is using multiple stores an antipattern?
-	- What are the best practices for this? Need to look at a real application.
-- [ ] Persistent Vuex  state
-	- https://github.com/vuejs/awesome-vue#persistence
+- [ ] Split Vuex state management into modules and perhaps multiple files
+- [ ] Persist Vuex state: https://github.com/vuejs/awesome-vue#persistence
 
 ## Test automation
 
@@ -107,3 +90,15 @@ Makes code more robust, can improve IDE experience. Rapid iteration might get mo
 Some parts of the codebase, like models, utility libraries, state management, might benefit a lot from this. On the other hand simple single-file Vue components are mostly template and style-driven, and the view model code is almost never accessed by anything outside the component. Vue components have props (input), for which Vue has a validation feature.
 
 TS features can be introduced gradually as features mature, but we still want to demo and try out new things fast without cumbersome code quality requirements (situation is similar with automated tests).
+
+### Automation
+
+Can we improve the pipeline to automate redundant tasks? Things such as the following cause a lot of boilerplate code that has to be manually maintained:
+
+- [x] Importing and declaring child components
+- [x] Importing and declaring directives used in components
+- [x] Explicitly renaming child components locally
+- [ ] Explicitly importing services in each component
+- [ ] Explicitly importing shared SCSS in `.vue` files
+- [ ] Ensuring dependencies are up to date (directives and plugins imported in components must be installed via npm and `package.json` up to date)
+- [ ] Webpack disallows dynamic requiring just like ES6 imports, but `require.context` could perhaps be used to improve automation
