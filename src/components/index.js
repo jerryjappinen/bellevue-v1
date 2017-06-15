@@ -55,6 +55,7 @@ import Pic from './snippets/Pic';
 import PicImg from './snippets/PicImg';
 import PicSvg from './snippets/PicSvg';
 import Spinner from './snippets/Spinner';
+import SpinnerSmall from './snippets/SpinnerSmall';
 
 export {
 	App,
@@ -102,7 +103,8 @@ export {
 	Pic,
 	PicImg,
 	PicSvg,
-	Spinner
+	Spinner,
+	SpinnerSmall
 };
 
 export default {
@@ -151,5 +153,6 @@ export default {
 	Pic,
 	PicImg,
 	PicSvg,
-	Spinner
+	Spinner,
+	SpinnerSmall
 };

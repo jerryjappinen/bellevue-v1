@@ -33,6 +33,14 @@
 				}
 			},
 
+			color: {
+				type: String,
+				required: false,
+				validator: function (value) {
+					return _.includes(['blue', 'green', 'red'], value);
+				}
+			},
+
 			// Callback is not required, as sometimes a button might be wrapped in another control
 			// NOTE: use <link-button> for routed or normal links
 			callback: {
@@ -49,8 +57,14 @@
 					disabled: this.disabled,
 					enabled: !this.disabled
 				};
-				var style = this.style ? this.style : 'solid';
-				classnames[style] = true;
+
+				// Include theme and color classnames
+				var theme = this.theme ? this.theme : 'solid';
+				var color = this.color ? this.color : 'blue';
+				classnames[theme] = true;
+				classnames[color] = true;
+				classnames[theme + '-' + color] = true;
+
 				return util.dom.composeClassnames(classnames, 'view-button');
 			}
 
@@ -71,22 +85,53 @@
 		class="view-button"
 		:class="classes"
 		:disabled="disabled ? true : false"
-		@click="onActivate"><icon class="view-button-icon" v-if="icon" :asset="icon"></icon><slot></slot></button>
+		@click="onActivate"><icon class="view-button-icon" v-if="icon" :asset="icon"></icon> <slot></slot></button>
 </template>
 
 <style lang="scss">
 	@import '~@shared-styles';
 
+	// Used below for enabled buttons
+	@mixin button-colors ($color-name, $color-value) {
+
+		&.view-button-plain-#{$color-name},
+		&.view-button-stroke-#{$color-name} {
+			color: $color-value;
+			&:hover {
+				color: color-saturate($color-value);
+			}
+		}
+
+		&.view-button-stroke-#{$color-name},
+		&.view-button-solid-#{$color-name} {
+			border-color: $color-value;
+			&:hover {
+				border-color: color-saturate($color-value);
+			}
+		}
+
+		&.view-button-solid-#{$color-name} {
+			background-color: $color-value;
+			&:hover {
+				background-color: color-saturate($color-value);
+			}
+		}
+
+	}
+
+
+
 	.view-button {
 		@include border-box;
-		@include pad;
 		@include radius;
 
 		font-weight: 500;
+		line-height: 1;
 
 		display: inline-block;
-		text-align: center;
+		padding: ($pad-vertical * 2) $pad-horizontal;
 		border-width: 2px;
+		text-align: center;
 
 		border-color: transparent;
 		transform: scale($scale-normal);
@@ -100,6 +145,14 @@
 		}
 
 	}
+
+	.view-button-icon {
+		vertical-align: top;
+	}
+
+
+
+	// Theme variation baseline
 
 	.view-button-plain {
 		border-color: transparent;
@@ -118,44 +171,22 @@
 			transform: scale($scale-small);
 		}
 
-		// Color variations
-
 		&.view-button-plain,
 		&.view-button-stroke {
-			color: $color-link;
-
 			&:hover {
-				color: $color-link-active;
-				background-color: $color-dark-translucent;
+				background-color: color-translucent($color-dark, 0.05);
 			}
-
 		}
 
-		&.view-button-stroke,
-		&.view-button-solid {
-			border-color: $color-primary;
-
-			&:hover {
-				border-color: color-saturate($color-primary);
-			}
-
-		}
-
-		&.view-button-solid {
-			background-color: $color-primary;
-
-			&:hover {
-				background-color: color-saturate($color-primary);
-			}
-
-		}
+		// Color variations
+		@include button-colors('blue', $color-blue);
+		@include button-colors('green', $color-green);
+		@include button-colors('red', $color-red);
 
 	}
 
 	// Only disabled
 	.view-button-disabled {
-
-		// Color variations
 
 		&.view-button-plain,
 		&.view-button-stroke {
