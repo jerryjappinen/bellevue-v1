@@ -93,8 +93,6 @@
 
 		<h1>List sample</h1>
 
-		<p class="bodytext">Fetching sample data from <code>jsonplaceholder.typicode.com</code></p>
-
 		<transition name="transition-fade" mode="out-in">
 
 			<template v-if="isLoaded">
@@ -107,6 +105,8 @@
 				</blank-state>
 
 				<div v-else>
+
+					<p class="bodytext">Sample data comes from <code>jsonplaceholder.typicode.com</code></p>
 
 					<p><click-button :callback="clearData">Clear items</click-button></p>
 

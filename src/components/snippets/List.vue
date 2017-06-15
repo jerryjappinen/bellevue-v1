@@ -38,15 +38,26 @@
 
 <template>
 
-	<table class="view-list separate">
-		<tr v-for="(item, index) in itemsOnPage">
-			<td><slot :item="item" :index="index"></slot></td>
-		</tr>
-	</table>
+	<div class="view-list">
+		<div class="view-list-item" v-for="(item, index) in itemsOnPage">
+			<slot :item="item" :index="index"></slot>
+		</div>
+	</div>
 
 </template>
 
 <style lang="scss">
-	// @import '~@shared-styles';
-	// .view-page-list {}
+	@import '~@shared-styles';
+
+	.view-list {
+		border-top-width: 1px;
+		border-left-width: 1px;
+		border-right-width: 1px;
+	}
+
+	.view-list-item {
+		@include pad;
+		border-bottom-width: 1px;
+	}
+
 </style>
