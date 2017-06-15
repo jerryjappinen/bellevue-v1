@@ -39,6 +39,20 @@
 
 		computed: {
 
+			// Remember current tab
+			persist: {
+				get: function () {
+					return {
+						component: this.component
+					};
+				},
+				set: function (persist) {
+					if (persist.component) {
+						this.component = persist.component;
+					}
+				}
+			},
+
 			title: function () {
 				return this.component;
 			}
