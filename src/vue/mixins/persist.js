@@ -5,26 +5,32 @@ import _ from 'lodash';
 // https://vuejs.org/v2/guide/mixins.html
 export default {
 
+	computed: {
+
+		// NOTE: This can be undefined especially for non-components
+		persistKey: function () {
+			return this.$options.name;
+		}
+
+	},
+
 	watch: {
 
 		// Store serialized data into localStorage when it changes (throttled)
 		persist: _.debounce(function (data) {
-			console.log('persist data changed', this.$options.name);
-			if (this.$options.name) {
-				console.log('setItem', this.$options.name, data);
-				localStorage.setItem(this.$options.name, JSON.stringify(data));
+			if (this.persistKey) {
+				localStorage.setItem(this.persistKey, JSON.stringify(data));
 			}
 		}, 500)
 
 	},
 
 	created: function () {
-		if (this.$options.name && this.persist) {
+		if (this.persistKey && this.persist) {
 
 			// Load serialized data from localStorage
 			// NOTE: this is a synchronous operation
-			var data = localStorage.getItem(this.$options.name);
-			console.log('object with persist created, getItem', this.$options.name, data);
+			var data = localStorage.getItem(this.persistKey);
 
 			if (data) {
 				try {
@@ -36,7 +42,7 @@ export default {
 					}
 
 				} catch (error) {
-					console.log(error);
+					console.error(error);
 				}
 			}
 

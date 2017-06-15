@@ -75,32 +75,30 @@ new Vue({
 		// Use persistance functionality here to support serialization in services
 		persist: {
 
-			// Track the `serialized` property of each service
+			// Track the `persist` property of each service
 			get: function () {
-				var serialized = {};
+				var persist = {};
 
 				// Collect serialized state data form each custom service
 				for (var serviceName in services) {
 					var service = services[serviceName];
 					if (service.persist) {
-						serialized[serviceName] = service.persist;
+						persist[serviceName] = service.persist;
 					}
 				}
 
-				console.log('main.js', serialized);
-
-				return serialized;
+				return persist;
 			},
 
 			// Allow passing the full batch of serialized service data and load it with the unserialization callback of each service
 			// NOTE: the `serialized` property of each service must be a writable computed
-			set: function (serialized) {
+			set: function (persist) {
 
-				// Call the serialized setter for each service
+				// Call the `persist` setter for each service
 				for (var serviceName in services) {
 					var service = services[serviceName];
-					if (serialized[serviceName] && service.persist) {
-						service.persist = serialized[serviceName];
+					if (persist[serviceName] && service.persist) {
+						service.persist = persist[serviceName];
 					}
 				}
 

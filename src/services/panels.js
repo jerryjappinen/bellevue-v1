@@ -23,7 +23,8 @@ export default new Vue({
 				// FIXME
 				// - would like to only set this if the route is the same as it was when closed
 				// - but how do I access the router from the root Vue object?
-				// - would it work if I injected services into the root Vue and set {parent: foo} for them?
+				// - if we changed the architecture so that services were injected into the root Vue object, this might be possible
+				// - but it might be better to persist the panel state in App.vue whose role is orchestrating the rendering, using services
 
 				this.component = serialized.component;
 			}
