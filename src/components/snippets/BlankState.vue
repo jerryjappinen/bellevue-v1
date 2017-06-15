@@ -43,7 +43,7 @@
 	<div class="view-blank-state">
 		<h2 class="view-blank-state-title">{{ title }}</h2>
 		<p v-if="hasDescription" class="view-blank-state-description">{{ description }}</p>
-		<p v-if="hasCallback"><button class="button-solid" @click="callback">{{ callbackLabel }}</button></p>
+		<p v-if="hasCallback"><click-button :callback="callback">{{ callbackLabel }}</click-button></p>
 	</div>
 
 </template>

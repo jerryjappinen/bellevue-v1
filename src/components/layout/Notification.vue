@@ -67,7 +67,7 @@
 			<transition name="transition-fade" mode="out-in">
 				<div v-if="message" :key="key">
 					<div>{{ message }}</div>
-					<div><a href="" class="button-solid" @click.prevent="close">Close</a></div>
+					<div><click-button :callback="close">Close</click-button></div>
 				</div>
 			</transition>
 

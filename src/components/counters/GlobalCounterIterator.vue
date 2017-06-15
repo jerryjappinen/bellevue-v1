@@ -62,7 +62,7 @@
 
 		<!-- When user can increment/decrement further and button is enabled -->
 		<span v-if="canOperate">
-			<button class="view-global-counter-iterator-button button" @click="onClick">Click me <icon :asset="iconId" :title="'Click to ' + label"></icon></button> to <em>{{ label }}</em> the counter in Vuex.
+			<click-button class="view-global-counter-iterator-button" :callback="onClick" theme="plain">Click me <icon :asset="iconId" :title="'Click to ' + label"></icon></click-button> to <em>{{ label }}</em> the counter in Vuex.
 		</span>
 
 		<!-- When button is disabled -->

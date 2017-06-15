@@ -69,8 +69,9 @@
 <template>
 	<button
 		class="view-button"
+		:class="classes"
 		:disabled="disabled ? true : false"
-		:class="classes"><icon class="view-button-icon" v-if="icon" :asset="icon"></icon><slot></slot></button>
+		@click="onActivate"><icon class="view-button-icon" v-if="icon" :asset="icon"></icon><slot></slot></button>
 </template>
 
 <style lang="scss">

@@ -77,7 +77,7 @@
 
 		<h3>Controls</h3>
 
-		<p><button class="button" @click="toggleControlsDisabled">Disable/enable controls</button> ({{ controlsAreDisabled }})</p>
+		<p><click-button :callback="toggleControlsDisabled">Disable/enable controls</click-button> ({{ controlsAreDisabled }})</p>
 
 		<!-- Testing barebones control components -->
 		<table class="view-console-components-controls">

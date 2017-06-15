@@ -108,7 +108,7 @@
 
 				<div v-else>
 
-					<p><button class="button-solid" @click="clearData">Clear items</button></p>
+					<p><click-button :callback="clearData">Clear items</click-button></p>
 
 					<!-- FIXME: should be a pagination component that wraps (removing excess links, adding next/previous etc.) <tabs> -->
 					<p class="view-page-list-navigation">
