@@ -8,6 +8,27 @@
 			return {
 				myValue: 20
 			};
+		},
+
+		computed: {
+			persist: {
+				get: function () {
+					console.log('persisted component state collected', this.myValue);
+					return {
+						myValue: this.myValue
+					};
+				},
+				set: function (stored) {
+					console.log('persisted component state found', stored);
+					if (stored.myValue) {
+						this.myValue = stored.myValue;
+					}
+				}
+			}
+		},
+
+		mounted: function () {
+			window.a = this;
 		}
 
 	};

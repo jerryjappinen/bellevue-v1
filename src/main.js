@@ -61,6 +61,7 @@ Vue.config.productionTip = false;
 new Vue({
 
 	// Absolute basic options to initialize the app
+	name: 'main',
 	el: config.rootComponentParentSelector,
 	template: '<' + config.rootComponentName + '></' + config.rootComponentName + '>',
 
@@ -69,9 +70,10 @@ new Vue({
 	store: plugins.Vuex,
 	i18n: plugins.VueI18n,
 
-	// Using computed here let's us track the app state to enable high-level features
 	computed: {
-		serialized: {
+
+		// Use persistance functionality here to support serialization in services
+		persist: {
 
 			// Track the `serialized` property of each service
 			get: function () {
@@ -80,10 +82,12 @@ new Vue({
 				// Collect serialized state data form each custom service
 				for (var serviceName in services) {
 					var service = services[serviceName];
-					if (service.serialized) {
-						serialized[serviceName] = service.serialized;
+					if (service.persist) {
+						serialized[serviceName] = service.persist;
 					}
 				}
+
+				console.log('main.js', serialized);
 
 				return serialized;
 			},
@@ -95,45 +99,14 @@ new Vue({
 				// Call the serialized setter for each service
 				for (var serviceName in services) {
 					var service = services[serviceName];
-					if (serialized[serviceName] && service.serialized) {
-						service.serialized = serialized[serviceName];
+					if (serialized[serviceName] && service.persist) {
+						service.persist = serialized[serviceName];
 					}
 				}
 
 			}
 
 		}
-	},
-
-	watch: {
-
-		// Store serialized data into localStorage when it changes (throttled)
-		serialized: _.debounce(function (data) {
-			localStorage.setItem('serializedServiceStateData', JSON.stringify(data));
-		}, 500)
-
-	},
-
-	mounted: function () {
-
-		// Load serialized data from localStorage
-		// NOTE: this is a synchronous operation
-		var data = localStorage.getItem('serializedServiceStateData');
-
-		if (data) {
-			try {
-				data = JSON.parse(data);
-
-				// We found data in local storage, let's load it up
-				if (data) {
-					this.serialized = data;
-				}
-
-			} catch (error) {
-				console.log(error);
-			}
-		}
-
 	}
 
 });

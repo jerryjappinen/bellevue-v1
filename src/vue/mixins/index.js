@@ -1,21 +1,18 @@
 
-// import someMixin from './someMixin';
-// import someGlobalMixin from './someGlobalMixin';
+import persist from './persist';
+
+export const local = {};
+
+export const global = {
+	persist
+};
 
 export {
 	// someMixin
-	// someGlobalMixin
-};
-
-export const local = {
-	// someMixin
-};
-
-export const global = {
-	// someGlobalMixin
+	persist
 };
 
 export default {
 	// someMixin
-	// someGlobalMixin
+	persist
 };

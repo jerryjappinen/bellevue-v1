@@ -12,7 +12,7 @@ export default new Vue({
 
 	computed: {
 
-		serialized: {
+		persist: {
 			get: function () {
 				return {
 					component: this.component
@@ -47,6 +47,10 @@ export default new Vue({
 			this.component = null;
 		}
 
+	},
+
+	created: function () {
+		window.b = this;
 	}
 
 });
