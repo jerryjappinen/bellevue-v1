@@ -87,26 +87,26 @@ time,
 mark,
 audio,
 video {
-	vertical-align: baseline;
-
 	border-width: 0;
 	border-style: solid;
 
 	outline-width: 0;
 	outline-style: solid;
 
+	vertical-align: baseline;
+
 	border-color: transparent;
 	background: transparent;
 
 	&:before,
 	&:after {
-		vertical-align: baseline;
 		border-width: 0;
 		border-style: solid;
 
 		outline-width: 0;
 		outline-style: solid;
 
+		vertical-align: baseline;
 		border-color: transparent;
 		background: transparent;
 	}

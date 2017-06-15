@@ -363,21 +363,6 @@ module.exports = {
 			'padding-left',
 			'padding-right',
 
-			// Text alignment
-			'text-align',
-			'-webkit-text-align-last',
-			'-moz-text-align-last',
-			'-ms-text-align-last',
-			'text-align-last',
-			'text-indent',
-			'text-justify',
-			'white-space',
-			'vertical-align',
-			'list-style',
-			'list-style-position',
-			'list-style-type',
-			'list-style-image',
-
 			// Background & borders
 			'border',
 
@@ -408,6 +393,21 @@ module.exports = {
 			'border-top-right-radius',
 			'border-bottom-left-radius',
 			'border-bottom-right-radius',
+
+			// Text alignment
+			'text-align',
+			'-webkit-text-align-last',
+			'-moz-text-align-last',
+			'-ms-text-align-last',
+			'text-align-last',
+			'text-indent',
+			'text-justify',
+			'white-space',
+			'vertical-align',
+			'list-style',
+			'list-style-position',
+			'list-style-type',
+			'list-style-image',
 
 			// Colors
 			'color',
