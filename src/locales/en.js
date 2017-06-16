@@ -11,6 +11,7 @@ export default {
 		console: 'Console',
 		list: 'List',
 		listpage: '@:pageTitles.list',
+		notFound: 'Page not found',
 
 		// Console sub pages
 		consoleComponents: '@:pageTitles.console',

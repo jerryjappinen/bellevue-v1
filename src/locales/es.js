@@ -9,6 +9,7 @@ export default {
 		console: 'Consolas',
 		list: 'List',
 		listpage: '@:pageTitles.list',
+		notFound: 'Pagina no fundo',
 
 		// NOTE
 		// - I'd like to not have to replicate this

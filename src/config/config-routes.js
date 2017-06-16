@@ -7,6 +7,12 @@ import components from '@vue-components';
 export default [
 
 	{
+		path: '*',
+		name: 'notFound',
+		component: components.PageNotFound
+	},
+
+	{
 		path: '/',
 		name: 'root',
 

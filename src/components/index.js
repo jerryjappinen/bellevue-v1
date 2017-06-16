@@ -38,6 +38,7 @@ import Titlebar from './layout/Titlebar';
 import PageConsole from './pages/PageConsole';
 import PageHome from './pages/PageHome';
 import PageList from './pages/PageList';
+import PageNotFound from './pages/PageNotFound';
 import PageSomething from './pages/PageSomething';
 
 // Panels
@@ -90,6 +91,7 @@ export {
 	PageConsole,
 	PageHome,
 	PageList,
+	PageNotFound,
 	PageSomething,
 
 	PanelConsole,
@@ -140,6 +142,7 @@ export default {
 	PageConsole,
 	PageHome,
 	PageList,
+	PageNotFound,
 	PageSomething,
 
 	PanelConsole,
