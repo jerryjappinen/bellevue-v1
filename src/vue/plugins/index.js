@@ -1,7 +1,7 @@
 
 // Vue plugins
 // https://vuejs.org/v2/guide/plugins.html
-// https://eiskis.gitbooks.io/vue-webpack-docs/app/vue.html
+// https://eiskis.gitbooks.io/bellevue/app/vue.html
 
 // NOTE:
 // - These are integrated libraries that generally deliver new functionality to Vue components (or other objects)
