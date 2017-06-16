@@ -5,10 +5,12 @@
 
 
 // Functional colors
+// FIXME: codebase still uses a mix of these and original palette values
 
 $color-discreet: $color-grey;
 
 $color-primary: $color-blue;
+
 $color-overlay: color-translucent($color-grey, 0.2);
 
 $color-link: $color-primary;
@@ -19,28 +21,7 @@ $color-feedback-light: color-translucent($color-white, 0.05);
 
 
 
-// Fonts
-// 'Hind',
-// 'Noto Sans',
-// 'Source Sans Pro',
-
-// 'Alegreya Sans',	// Quite display
-// 'Arimo',			// Quite display
-// 'Asap',
-// 'Cabin',			// Rounded
-// 'Fira Sans',
-// 'Gudea',
-// 'Istok Web',
-// 'Karla',			// Display
-// 'Maven Pro',		// Quite display
-// 'Oxygen',
-// 'PT Sans Caption',
-// 'PT Sans',		// Display
-// 'Quattrocento Sans',
-// 'Questrial',		// One weight only
-// 'Raleway',		// Thin
-// 'Signika',		// Display
-// 'Lato',
+// Font families
 $font-sans: 'Source Sans', 'Open Sans', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Segoe UI', 'Segoe WP', 'Arial', sans-serif;
 $font-serif: 'Droid Serif', 'Georgia', serif;
 $font-mono: 'Menlo', 'Monaco', 'Segoe UI Mono', 'Droid Sans Mono', 'Consolas', monospace;
@@ -112,7 +93,7 @@ $pad-tight-horizontal: 4px;
 $pad-vertical: 4px;
 $pad-horizontal: 8px;
 $pad-loose-vertical: 8px;
-$pad-loose-horizontal: 16px;
+$pad-loose-horizontal: 12px;
 
 $buffer-verytight: 0.4em;
 $buffer-tight: $buffer-verytight * 2; 	// 0.8em
