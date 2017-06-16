@@ -13,18 +13,16 @@ export default [
 	},
 
 	{
-		path: '/',
-		name: 'root',
-
 		// NOTE
-		// - We could just display the Hello component with this route
-		// - But in this case the router will think all top-level pages are children of that
+		// - We could just display the home page component with this route
+		// - But if we did, the router will think all top-level pages are children of that
 		// - We also generally don't want more than one route for the same page
 		// - So to allow users to use index paths, it's better to redirect to the default child page
+		path: '/',
+		name: 'root',
 		redirect: {
 			name: 'home'
 		}
-
 	},
 
 	{

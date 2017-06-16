@@ -9,6 +9,8 @@
 
 ## Tooling
 
+- [ ] Enable building web app manifest
+	- https://www.npmjs.com/package/webpack-manifest-plugin
 - [ ] Enable app icon generation based on config rather than crudely commenting it out
 - [ ] Support local Webpack config files outside of version control
 	- Example: set different ports for local dev server

@@ -17,7 +17,7 @@ $color-error: $color-red;
 $color-overlay: color-translucent($color-grey, 0.2);
 
 $color-link: $color-primary;
-$color-link-active: color-darker($color-link, 0.4);
+$color-link-active: color-saturate($color-link);
 
 $color-feedback-dark: color-translucent($color-dark, 0.05);
 $color-feedback-light: color-translucent($color-white, 0.05);

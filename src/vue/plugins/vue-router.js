@@ -13,7 +13,6 @@ import config from '@config';
 Vue.use(Router);
 
 // Set up router options
-// See https://router.vuejs.org/en/api/options.html
 export const options = {
 
 	// Class names used by <router-link>
