@@ -132,12 +132,12 @@
 	}
 
 	.view-tabs-link {
+		line-height: 1;
 		display: block;
 		@include no-transition;
-		padding-top: $pad-vertical - 2px;
-		padding-bottom: $pad-vertical - 2px;
-		padding-left: ($pad-horizontal / 2);
-		padding-right: ($pad-horizontal / 2);
+
+		@include pad-loose;
+
 	}
 
 </style>

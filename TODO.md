@@ -17,9 +17,6 @@
 
 ## Application code
 
-- [ ] Refactor `pad.scss`
-	- Stay consistent with the tight-loose pattern used elsewhere
-	- Allow setting vertical and horizontal in constants
 - [ ] Some kind of env/device service
 	- Feature detection
 	- Touch vs. no touch

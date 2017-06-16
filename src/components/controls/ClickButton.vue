@@ -129,7 +129,7 @@
 		line-height: 1;
 
 		display: inline-block;
-		padding: ($pad-vertical * 2) $pad-horizontal;
+		@include pad-loose;
 		border-width: 2px;
 		text-align: center;
 
