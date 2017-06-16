@@ -43,3 +43,94 @@
 .pad-left {
 	@include pad-left;
 }
+
+
+
+// Tight
+
+.pad-tight {
+	@include pad-tight;
+}
+
+
+
+.pad-tight-horizontal {
+	@include pad-tight-horizontal;
+}
+.pad-tight-vertical {
+	@include pad-tight-vertical;
+}
+
+
+
+.pad-tight-even {
+	@include pad-tight-even;
+}
+
+.pad-tight-even-max {
+	@include pad-tight-even-max;
+}
+
+
+
+.pad-tight-top {
+	@include pad-tight-top;
+}
+
+.pad-tight-right {
+	@include pad-tight-right;
+}
+
+.pad-tight-bottom {
+	@include pad-tight-bottom;
+}
+
+.pad-tight-left {
+	@include pad-tight-left;
+}
+
+
+
+// Loose
+
+.pad-loose {
+	@include pad-loose;
+}
+
+
+
+.pad-loose-horizontal {
+	@include pad-loose-horizontal;
+}
+
+.pad-loose-vertical {
+	@include pad-loose-vertical;
+}
+
+
+
+.pad-loose-even {
+	@include pad-loose-even;
+}
+
+.pad-loose-even-max {
+	@include pad-loose-even-max;
+}
+
+
+
+.pad-loose-top {
+	@include pad-loose-top;
+}
+
+.pad-loose-right {
+	@include pad-loose-right;
+}
+
+.pad-loose-bottom {
+	@include pad-loose-bottom;
+}
+
+.pad-loose-left {
+	@include pad-loose-left;
+}
