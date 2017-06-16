@@ -5,7 +5,9 @@
 - Documentation: [eiskis.gitbooks.io/bellevue](https://eiskis.gitbooks.io/bellevue/)
 - Source and issues: [github.com/Eiskis/bellevue](https://github.com/Eiskis/bellevue)
 
-Bellevue is based on the official `vuejs-templates/webpack` template.
+Bellevue is based on the official `vuejs-templates/webpack` template, but extends it with many additional tooling features such as preconfigured SCSS support, SVG sprites, more full-featured linting and centralised configuration.
+
+But the real difference is in the application code structure: while the official template only produces a Hello world out of the box, Bellevue offers a full set of features and patterns for building a complex application such as routing, state management, persistence, localisation and more. Take a look at the [project structure](https://eiskis.gitbooks.io/bellevue/overview/source) and [feature comparison](https://eiskis.gitbooks.io/bellevue/overview/comparison) to get an overview of what's included.
 
 ## Requirements
 
