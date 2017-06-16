@@ -17,7 +17,6 @@
 
 ## Application code
 
-- [ ] Move panel persistence to `<App>`
 - [ ] Refactor `pad.scss`
 	- Stay consistent with the tight-loose pattern used elsewhere
 	- Allow setting vertical and horizontal in constants
