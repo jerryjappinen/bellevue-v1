@@ -35,9 +35,9 @@
     "es6-promise": "^4.1.0",
     "lodash": "^4.17.4",
     "vue": "^2.3.4",
-    "vue-i18n": "^7.0.2",
+    "vue-i18n": "^7.0.3",
     "vue-images-loaded": "^1.1.2",
-    "vue-meta": "^0.5.6",
+    "vue-meta": "^1.0.4",
     "vue-router": "^2.5.3",
     "vue-throttle-event": "^1.4.0",
     "vuex": "^2.3.1"
