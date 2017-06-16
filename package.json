@@ -3,11 +3,11 @@
   "version": "0.2.0",
   "description": "A full-featured frontend project template for modern single-page applications built on Vue.js and Webpack.",
   "author": "Jerry Jäppinen <eiskis@gmail.com>",
-  "private": true,
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Eiskis/bellevue.git"
-	},
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Eiskis/bellevue.git"
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
