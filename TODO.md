@@ -12,8 +12,6 @@
 	- Add more full-featured meta tags
 	- https://github.com/jantimon/favicons-webpack-plugin
 	- https://github.com/jantimon/html-webpack-plugin#third-party-addons
-- [ ] Move `build/` and `config/` on root level under `webpack/`
-	- Ensure path helpers work under subfolders
 
 ## Application code
 
