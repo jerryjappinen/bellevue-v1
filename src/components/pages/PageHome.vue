@@ -20,7 +20,7 @@
 
 		<div class="bodytext" v-once>
 
-			<p>Thank you for using <code>Eiskis/vue-webpack</code>! To get started, please refer to the documentation at <a href="https://eiskis.gitbooks.io/vue-webpack-docs/">eiskis.gitbooks.io/vue-webpack-docs</a>. Happy hacking! :)</p>
+			<p>Thank you for using <strong>Bellevue</strong>! To get started, please refer to the documentation at <a href="https://eiskis.gitbooks.io/bellevue/">eiskis.gitbooks.io/bellevue</a>. Happy hacking! :)</p>
 
 			<h2>About Vue</h2>
 
