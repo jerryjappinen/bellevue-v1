@@ -3,6 +3,8 @@
 
 ## Pipeline
 
+- [ ] Upgrade Chai, Mocha and Karma
+- [ ] Upgrade ESLint to version 4
 - [ ] Enable app icon generation based on config rather than crudely commenting it out
 - [ ] Support local Webpack config files outside of version control
 	- Example: set different ports for local dev server
