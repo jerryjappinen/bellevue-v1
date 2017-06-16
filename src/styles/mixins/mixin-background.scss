@@ -1,0 +1,40 @@
+
+@mixin background-contain {
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+@mixin background-cover {
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+
+
+@mixin background-fill-height {
+	background-position: 0 50%;
+	background-size: auto 100%;
+	background-repeat: repeat-x;
+}
+
+@mixin background-fill-width {
+	background-position: 50% 0;
+	background-size: 100% auto;
+	background-repeat: repeat-y;
+}
+
+
+
+// NOTE
+// - @mixin no-background is intentionally missing
+// - please use either `-color` or `-image` or both explicitly
+
+@mixin no-background-color {
+	background-color: transparent;
+}
+
+@mixin no-background-image {
+	background-image: none;
+}

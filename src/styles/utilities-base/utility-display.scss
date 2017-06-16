@@ -16,3 +16,11 @@
 .block {
 	@include block;
 }
+
+.flex {
+	@include flex;
+}
+
+.inline-flex {
+	@include inline-flex;
+}

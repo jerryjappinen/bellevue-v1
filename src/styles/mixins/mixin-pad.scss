@@ -1,19 +1,10 @@
 
-// Buffers
 @mixin pad {
 	padding: $pad-vertical $pad-horizontal;
 }
 
-// Buffers
-@mixin pad-even {
-	padding: $pad-vertical;
-}
 
-@mixin pad-even-horizontal {
-	padding: $pad-horizontal;
-}
 
-// Pane
 @mixin pad-horizontal {
 	padding-left: $pad-horizontal;
 	padding-right: $pad-horizontal;
@@ -24,7 +15,18 @@
 	padding-bottom: $pad-vertical;
 }
 
-// Single
+
+
+@mixin pad-even {
+	padding: min($pad-vertical, $pad-horizontal);
+}
+
+@mixin pad-even-max {
+	padding: max($pad-vertical, $pad-horizontal);
+}
+
+
+
 @mixin pad-top {
 	padding-top: $pad-vertical;
 }

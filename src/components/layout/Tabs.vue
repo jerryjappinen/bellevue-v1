@@ -97,7 +97,7 @@
 	.view-tabs {
 		@include no-push-vertical;
 		@include radius-loose;
-		display: flex;
+		@include flex;
 		border-width: 2px;
 		border-color: $color-dark;
 		background-color: $color-white;

@@ -84,14 +84,6 @@
 
 			<tabs :links="tabs" :callback="setComponent" :selectedOn="getTabSelectedOn"></tabs>
 
-			<!-- <ul class="view-panel-console-menu inline-block">
-				<li><a href="" @click.prevent="setComponent('console-components')">Components</a></li>
-				<li><a href="" @click.prevent="setComponent('console-configuration')">Configuration</a></li>
-				<li><a href="" @click.prevent="setComponent('console-models')">Models</a></li>
-				<li><a href="" @click.prevent="setComponent('console-plugins')">Plugins</a></li>
-				<li><a href="" @click.prevent="setComponent('console-services')">Services</a></li>
-			</ul>-->
-
 			<!--NOTE: routing not supported here-->
 			<transition name="transition-fade" mode="out-in">
 				<component :is="component" :key="component"></component>

@@ -1,7 +1,7 @@
 
 // Access to variables, mixins etc.
 // NOTE: shared includes no CSS output
-@import './shared';
+@import '~@shared-styles';
 
 
 
@@ -13,42 +13,48 @@
 @import './transitions/transition-scale-fade';
 
 // Atomic, reusable style properties
-
+//
 // NOTE
-// - These guys should mostly be written using mixins
-// - We currently don't prefix utility class names.
-// - Most of the specific utilities have very consistent class names however, with minor exceptions for convenience.
-// - This is OK because we prefix everything else, so all class names without any of the specific prefixes are utility classes.
-// - If we wanted, we could introduce the `.u-` prefix.
+//
+// - About utilities
+//     - Utilities are commonly used, atomic stylistic properties and behaviors
+//     - They are loaded after the complex ones so they can be used to override things easier, as in CSS the source order matters
+//     - Utilities should have corresponding mixins (with matching names), and should be written using them
+//     - Utility class names are NOT prefixed, but they could be (.u-)
+//     - This is ok, as the naming convention is still consistent with only minor exceptions for convenience)
+// - When using using utilities in components
+//     - It's harder for parent components to override child component styles
+//     - It's harder for a developer to get an overview of component styles, since some behavior is not apparent in the style section
+// - Payload
+//     - These CSS utilities WILL be printed in the output CSS files, and will increase the payload users have to download
+//     - However, duplicating this code in components via mixins or otherwise increases the size much more
+//     - It's tempting to enable these to make hacking easier
+//     - But you should make a conscious choice of what kind of styling code you want to write in your components
 
 // Complex utility classes
 @import './utilities-composed/utility-bodytext';
-@import './utilities-composed/utility-button';
 @import './utilities-composed/utility-control';
-@import './utilities-composed/utility-input';
 @import './utilities-composed/utility-inverse';
-@import './utilities-composed/utility-link';
-@import './utilities-composed/utility-list';
 @import './utilities-composed/utility-row';
 
 // Atomic utility classes
-// NOTE: these are loaded after the complex ones so they can be used to override things easier, as in CSS the source order matters
-@import './utilities-base/utility-align';
-@import './utilities-base/utility-background';
-@import './utilities-base/utility-box-model';
+
+// @import './utilities-base/utility-align';
+// @import './utilities-base/utility-background';
+// @import './utilities-base/utility-box-model';
 @import './utilities-base/utility-buffer';
 @import './utilities-base/utility-clear';
-@import './utilities-base/utility-cursor';
+// @import './utilities-base/utility-cursor';
 @import './utilities-base/utility-display';
-@import './utilities-base/utility-fill';
+// @import './utilities-base/utility-fill';
 @import './utilities-base/utility-hide';
-@import './utilities-base/utility-keep';
-@import './utilities-base/utility-limit';
+// @import './utilities-base/utility-keep';
+// @import './utilities-base/utility-limit';
 @import './utilities-base/utility-pad';
-@import './utilities-base/utility-position';
-@import './utilities-base/utility-pull';
+// @import './utilities-base/utility-position';
+// @import './utilities-base/utility-pull';
 @import './utilities-base/utility-push';
-@import './utilities-base/utility-radius';
-@import './utilities-base/utility-rhythm';
-@import './utilities-base/utility-separate';
-@import './utilities-base/utility-type';
+// @import './utilities-base/utility-radius';
+// @import './utilities-base/utility-rhythm';
+// @import './utilities-base/utility-separate';
+// @import './utilities-base/utility-type';

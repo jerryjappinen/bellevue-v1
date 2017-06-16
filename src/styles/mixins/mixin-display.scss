@@ -10,3 +10,11 @@
 @mixin block {
 	display: block;
 }
+
+@mixin flex {
+	display: flex;
+}
+
+@mixin inline-flex {
+	display: inline-flex;
+}

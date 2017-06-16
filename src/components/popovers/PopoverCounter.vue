@@ -18,16 +18,18 @@
 <template>
 
 	<div class="view-popover-counter">
-		<div class="buffer-tight">
-			<p>Vuex counter value: {{ valueToShow }}</p>
-			<p><global-counter-iterator></global-counter-iterator></p>
-			<p><global-counter-iterator :reverse="true"></global-counter-iterator></p>
-		</div>
+		<p>Vuex counter value: {{ valueToShow }}</p>
+		<p><global-counter-iterator></global-counter-iterator></p>
+		<p><global-counter-iterator :reverse="true"></global-counter-iterator></p>
 	</div>
 
 </template>
 
 <style lang="scss">
-	// @import '~@shared-styles';
-	// .view-popover-counter {}
+	@import '~@shared-styles';
+
+	.view-popover-counter {
+		@include buffer-tight;
+	}
+
 </style>

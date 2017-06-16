@@ -3,7 +3,6 @@
 
 
 
-// Box sizing
 .content-box {
 	@include content-box;
 }
@@ -14,7 +13,6 @@
 
 
 
-// Border-collapse
 .border-collapse {
 	@include border-collapse;
 }
@@ -25,7 +23,6 @@
 
 
 
-// Background-clip
 .background-clip-content-box {
 	@include background-clip-content-box;
 }

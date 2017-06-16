@@ -7,13 +7,7 @@
 	@include pad;
 }
 
-.pad-even {
-	@include pad-even;
-}
 
-.pad-even-horizontal {
-	@include pad-even-horizontal;
-}
 
 .pad-horizontal {
 	@include pad-horizontal;
@@ -24,7 +18,15 @@
 
 
 
-// Single direction
+.pad-even {
+	@include pad-even;
+}
+
+.pad-even-max {
+	@include pad-even-max;
+}
+
+
 
 .pad-top {
 	@include pad-top;

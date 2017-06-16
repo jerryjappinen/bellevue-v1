@@ -8,7 +8,7 @@
 <template>
 
 	<div class="view-popover-main-menu">
-		<ul class="buffer-even no-push-vertical">
+		<ul class="no-push-vertical">
 			<li><router-link :to="{ name: 'root' }">Home</router-link></li>
 			<li><router-link :to="{ name: 'arbitrary' }">Sample page</router-link></li>
 			<li><router-link :to="{ name: 'list' }">List</router-link></li>
@@ -18,6 +18,10 @@
 </template>
 
 <style lang="scss">
-	// @import '~@shared-styles';
-	// .view-popover-main-menu {}
+	@import '~@shared-styles';
+
+	.view-popover-main-menu {
+		@include buffer-even;
+	}
+
 </style>

@@ -51,6 +51,7 @@
 }
 
 @mixin type-discreet {
+	font-weight: 500;
 	color: $color-grey;
 	@include type-small;
 }
@@ -66,6 +67,7 @@
 
 
 // Headings
+
 @mixin type-h1 {
 	// @include type-serif;
 	font-size: 1.6em;
@@ -106,6 +108,15 @@
 	font-size: inherit;
 	font-weight: inherit;
 	@include type-discreet;
+}
+
+
+
+// Other elements
+
+@mixin type-link {
+	font-weight: 500;
+	color: $color-link;
 }
 
 
