@@ -13,7 +13,7 @@
 //
 // NOTE
 //
-// - only include vendor code that has to go through our custom build pipeline
+// - only include vendor code that you want to build with the custom build pipeline (probably rarely if ever)
 // - precompiled vendor code should be included in index.html.ejs
 
 // @import './vendor/bootstrap-source';

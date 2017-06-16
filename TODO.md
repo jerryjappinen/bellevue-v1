@@ -1,10 +1,13 @@
 
 # To do
 
-## Pipeline
+## Dependencies
 
 - [ ] Upgrade Chai, Mocha and Karma
 - [ ] Upgrade ESLint to version 4
+
+## Tooling
+
 - [ ] Enable app icon generation based on config rather than crudely commenting it out
 - [ ] Support local Webpack config files outside of version control
 	- Example: set different ports for local dev server
@@ -59,7 +62,7 @@
 ## Investigate
 
 - [ ] Preconfiguring server-side rendering
-	- Prerendering plugin for this pipeline: http://vuejs-templates.github.io/webpack/prerender.html
+	- Prerendering plugin for Webpack: http://vuejs-templates.github.io/webpack/prerender.html
 	- About SSR on Vue: https://vuejs.org/v2/guide/ssr.html
 	- Full SSR guide for Vue: https://ssr.vuejs.org/en/
 	- Universal apps on Vue: https://nuxtjs.org/

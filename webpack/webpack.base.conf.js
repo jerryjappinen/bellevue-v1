@@ -104,7 +104,7 @@ module.exports = {
       //   include: [resolve('src'), resolve('test')]
       // },
 
-			// SVG pipeline
+			// SVG optimisation and compilation
 			{
 				test: /\.svg$/,
 				use: [

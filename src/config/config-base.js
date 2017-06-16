@@ -1,9 +1,9 @@
 
 // This is our custom project configuration
 // Any configuration items that you expect people to be aware of and edit should be included here.
-// The tooling pipeline will import these settings where appropriate so devs don't have to touch the actual files and potentially cause errors.
+// Webpack config files will import these settings where appropriate so devs don't have to touch the actual files and potentially cause errors.
 
-// NOTE: the pipeline will break if we use ES6 export here, so let's stick to module.exports
+// NOTE: tooling will break if we use ES6 export here, so let's stick to module.exports
 module.exports = {
 
 	// Set the root component and where to inject it
@@ -44,7 +44,7 @@ module.exports = {
 
 	},
 
-	// Webpack pipeline will generate app icons for all platforms based on this
+	// Webpack will generate app icons for all platforms based on this
 	// FIXME: no support for platform-specific source files yet
 	appIconSourceFile: 'app-icon/app-icon.png',
 
