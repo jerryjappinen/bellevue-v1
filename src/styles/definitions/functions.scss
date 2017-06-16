@@ -42,8 +42,8 @@
 
 
 // Make color darker
-@function color-darker ($color, $strength: 20%) {
-	@return saturate($color, $strength);
+@function color-darker ($color, $strength: 10%) {
+	@return darken($color, $strength);
 }
 
 // Make color more saturated

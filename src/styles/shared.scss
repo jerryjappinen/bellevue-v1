@@ -3,9 +3,9 @@
 // NOTE: shared SCSS should NOT output any CSS. This way it can be imported anywhere without duplicating output.
 
 // Constants, functions etc.
-@import './definitions/definition-functions';
-@import './definitions/definition-palette';
-@import './definitions/definition-constants';
+@import './definitions/functions';
+@import './definitions/palette';
+@import './definitions/constants';
 
 // Atomic style properties as mixins
 @import './mixins/mixin-animation';
