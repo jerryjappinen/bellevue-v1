@@ -3,12 +3,11 @@
 
 ## Pipeline
 
-- [ ] Upgrade to Node 8
 - [ ] Enable app icon generation based on config rather than crudely commenting it out
 - [ ] Support local Webpack config files outside of version control
 	- Example: set different ports for local dev server
-- [ ] Inject vendor script/style links to HTML based on configuration instead of manually adding them to `index.html.ejs`
 - [ ] More full-featured `index.html.ejs` templating
+	- [ ] Inject vendor script/style links to HTML based on configuration instead of manually adding them to `index.html.ejs`
 	- Add more full-featured meta tags
 	- https://github.com/jantimon/favicons-webpack-plugin
 	- https://github.com/jantimon/html-webpack-plugin#third-party-addons
