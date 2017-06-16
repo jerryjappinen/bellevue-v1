@@ -94,8 +94,8 @@
 		<h1>List sample</h1>
 
 		<transition name="transition-fade" mode="out-in">
-
 			<template v-if="isLoaded">
+
 				<blank-state
 					v-if="isEmpty"
 					title="No items found"
@@ -115,16 +115,15 @@
 						<tabs :links="paginationLinks"></tabs>
 					</p>
 
+					<!-- https://vuejs.org/v2/guide/components.html#Scoped-Slots -->
 					<list :items="allItems" :current-page="currentPage" :items-per-page="itemsPerPage">
-
-						<!-- https://vuejs.org/v2/guide/components.html#Scoped-Slots -->
 						<template scope="props">
 							{{ props.item.id }}: {{ props.item.title }}
 						</template>
-
 					</list>
 
 				</div>
+
 			</template>
 		</transition>
 

@@ -7,6 +7,14 @@
 			requestedAddress: function () {
 				return this.$route.fullPath;
 			}
+		},
+
+		methods: {
+			backToHome: function () {
+				this.$router.push({
+					name: 'home'
+				});
+			}
 		}
 
 	};
@@ -16,11 +24,12 @@
 
 	<div class="view-page-not-found">
 
-		<h1>Page not found</h1>
-
-		<p>Looks like this page doesn't exist. 😕</p>
-
-		<p><code>{{ requestedAddress }}</code></p>
+		<blank-state
+			title="Page not found"
+			description="Looks like this page doesn't exist. 😕"
+			:callback="backToHome"
+			callbackLabel="Back to home page">
+		</blank-state>
 
 	</div>
 

@@ -29,7 +29,7 @@
 	font-size: $font-size-display;
 	font-weight: inherit;
 
-	line-height: $line-height-loose;
+	line-height: $line-height-tight;
 
 	@include viewport-over-tiny {
 		font-size: 1.4em;

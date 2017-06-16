@@ -7,8 +7,8 @@
 
 <template>
 
-	<div class="view-popover-main-menu">
-		<ul class="no-push-vertical">
+	<div class="view-popover-main-menu no-rhythm">
+		<ul>
 			<li><router-link :to="{ name: 'root' }">Home</router-link></li>
 			<li><router-link :to="{ name: 'arbitrary' }">Sample page</router-link></li>
 			<li><router-link :to="{ name: 'list' }">List</router-link></li>
