@@ -1,6 +1,6 @@
 var utils = require('./utils')
 var webpack = require('webpack')
-var config = require('./config')
+var config = require('./env')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
