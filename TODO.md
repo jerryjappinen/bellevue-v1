@@ -12,6 +12,10 @@
 	- Add more full-featured meta tags
 	- https://github.com/jantimon/favicons-webpack-plugin
 	- https://github.com/jantimon/html-webpack-plugin#third-party-addons
+- [ ] Add some way of ensuring SCSS imports are correct
+	- If SCSS dependencies are not correct, tests might fail (as tests compile SCSS files independently, for some reason)
+	- During normal development, user might get no indication that imports are missing in source files because SCSS is normally compiled via `global.scss` or `utilities.scss` where dependencies tend to always be available
+	- If we had a command for compiling all SCSS files independently outside of tests, we could test this
 
 ## Application code
 
