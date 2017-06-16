@@ -55,6 +55,25 @@
 
 		computed: {
 
+			persist: {
+				get: function () {
+					return {
+						panelComponent: panels.component,
+						route: this.$route.name
+					};
+				},
+				set: function (persist) {
+
+					// Reopen panel if user reloaded the page
+					if (persist.route === this.$route.name) {
+						panels.open(persist.panelComponent);
+					}
+
+				}
+			},
+
+
+
 			// Meta information
 
 			pageTitle: function () {
