@@ -21,6 +21,7 @@
 	- Feature detection
 	- Touch vs. no touch
 	- Wrap Modernizr?
+- [ ] Add responsive thresholds to `viewport` service
 - [ ] Integrate client-side form/input validation
 	- https://github.com/vuejs/awesome-vue#validation
 - [ ] Try `vue-supply`, `vue-apollo` and GraphQL
