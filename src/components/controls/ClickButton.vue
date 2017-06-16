@@ -15,7 +15,7 @@
 				type: String,
 				required: false
 
-				// FIXME: should check if slot is empty, but have no access to this :(
+				// FIXME: should check if slot is empty, but validators have no access to `this` :(
 				// validator: function (value) {
 				// 	if (!value && !this.$slots.default) {
 				// 		return false;
