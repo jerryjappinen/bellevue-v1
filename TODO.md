@@ -3,8 +3,9 @@
 
 ## Dependencies
 
-- [ ] Upgrade Chai, Mocha and Karma
 - [ ] Upgrade ESLint to version 4
+	- `eslint-plugin-node` might still has issues (as of 16 June 2017)
+- [ ] Upgrade Webpack loaders
 
 ## Tooling
 
