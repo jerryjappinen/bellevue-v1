@@ -71,9 +71,9 @@ This is a read-only component that visualizes state. Wrap this component in a co
 
 		width: 54px;
 		height: 32px;
-		vertical-align: middle;
 
 		border-radius: 16px;
+		vertical-align: middle;
 
 		// Default for enabled, off state
 		background-color: $color-lightgrey;

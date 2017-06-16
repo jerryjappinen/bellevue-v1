@@ -74,8 +74,8 @@ This is a read-only component that visualizes state. Wrap this component in a co
 
 		width: 1em;
 		height: 1em;
-		vertical-align: middle;
 		border-width: 2px;
+		vertical-align: middle;
 
 		@include radius-round;
 
