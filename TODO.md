@@ -42,7 +42,10 @@
 
 - [ ] Get unit tests to work as expected
 - [ ] Add tests for services
-- [ ] Update E2E tests to pass
+- [ ] Testing SCSS
+	- Visual testing has to be easy with sandbox pages etc.
+	- We have some more complicated toolchains producing utility classes with responsive variants etc.
+	- http://mts.io/2014/04/02/sass-unit-testing/
 
 ## Components
 
@@ -55,6 +58,16 @@
 
 ## Investigate
 
+- [ ] Preconfiguring server-side rendering
+	- Prerendering plugin for this pipeline: http://vuejs-templates.github.io/webpack/prerender.html
+	- About SSR on Vue: https://vuejs.org/v2/guide/ssr.html
+	- Full SSR guide for Vue: https://ssr.vuejs.org/en/
+	- Universal apps on Vue: https://nuxtjs.org/
+- [ ] Manifest file generation?
+	- Caches and offline stuff
+	- Web app manifests
+	- robots.txt
+- [ ] ESLint plugin: File name and export naming conventions: https://github.com/selaux/eslint-plugin-filenames
 - [ ] Running only some tests from command line
 - [ ] Prerendering
 - [ ] Exposing configuration values to SCSS
@@ -79,10 +92,10 @@
 
 ### TypeScript support?
 
-- Integrate `.ts` support into pipeline
-- Integrate `.ts` support in Vue components, services, models...
-- Convert existing code into TS
-- Provide type hints etc.
+- Integrating `.ts` support into pipeline
+- Integrating `.ts` support in Vue components, services, models...
+- Converting existing code into TS
+- Providing type hints etc.
 - https://vuejs.org/v2/guide/typescript.html
 
 Makes code more robust, can improve IDE experience. Rapid iteration might get more complicated, introduces some more "boilerplate" code that needs to be manually maintained.
