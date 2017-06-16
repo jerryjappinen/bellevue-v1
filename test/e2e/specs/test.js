@@ -10,10 +10,9 @@ module.exports = {
 
     browser
       .url(devServer)
-      .waitForElementVisible('#app', 5000)
-      .assert.elementPresent('.view-hello')
-      .assert.containsText('h1', 'Welcome!')
-      .assert.elementCount('img', 2)
+      .waitForElementVisible('.view-app', 5000)
+      .assert.elementPresent('.view-page-home')
+      .assert.containsText('h1', 'Hello world!')
       .end()
   }
 }
