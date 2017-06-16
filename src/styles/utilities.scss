@@ -1,10 +1,4 @@
 
-// Access to variables, mixins etc.
-// NOTE: shared includes no CSS output
-@import '~@shared-styles';
-
-
-
 // Class-name based CSS
 
 // Transitions
@@ -17,19 +11,22 @@
 // NOTE
 //
 // - About utilities
-//     - Utilities are commonly used, atomic stylistic properties and behaviors
-//     - They are loaded after the complex ones so they can be used to override things easier, as in CSS the source order matters
-//     - Utilities should have corresponding mixins (with matching names), and should be written using them
-//     - Utility class names are NOT prefixed, but they could be (.u-)
-//     - This is ok, as the naming convention is still consistent with only minor exceptions for convenience)
+//     - Utilities are small CSS classes that encapsulates a commonly used, atomic style behavior
+//     - Many utilities come with viewport variations that let's you apply them responsively
+//     - Utilities usually have corresponding mixins (with matching names), and should be written using them
+//     - Both utilities and mixins have their place, don't try to use only one or the other
+//     - Utility classnames are NOT prefixed, but they could be (e.g. .u-hide-under-small)
+//         - This is ok, as the naming convention is still consistent with only minor exceptions for convenience)
+//     - Utilities can be used in many ways in component style selectors, not just directly attaching style to an element
+//         - Example: see how .control is used in Toggle component
 // - When using using utilities in components
 //     - It's harder for parent components to override child component styles
 //     - It's harder for a developer to get an overview of component styles, since some behavior is not apparent in the style section
 // - Payload
 //     - These CSS utilities WILL be printed in the output CSS files, and will increase the payload users have to download
 //     - However, duplicating this code in components via mixins or otherwise increases the size much more
-//     - It's tempting to enable these to make hacking easier
-//     - But you should make a conscious choice of what kind of styling code you want to write in your components
+//     - You should make a conscious choice of what kind of styling code you want to write in your components
+//     - It's tempting to enable these to make hacking easier, but you should think about end-users and production code more
 
 // Complex utility classes
 @import './utilities-composed/utility-bodytext';
@@ -38,6 +35,7 @@
 @import './utilities-composed/utility-row';
 
 // Atomic utility classes
+// NOTE: These are loaded after the complex ones so they can be used to override things easier, as in CSS the source order matters
 
 // @import './utilities-base/utility-align';
 // @import './utilities-base/utility-background';

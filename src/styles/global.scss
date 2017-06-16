@@ -1,10 +1,4 @@
 
-// Access to variables, mixins etc.
-// NOTE: shared includes no CSS output
-@import '~@shared-styles';
-
-
-
 // CSS declarations
 
 // Keyframe animations
@@ -18,9 +12,13 @@
 // Vendor code
 //
 // NOTE
+//
 // - only include vendor code that has to go through our custom build pipeline
 // - precompiled vendor code should be included in index.html.ejs
+
 // @import './vendor/bootstrap-source';
+
+
 
 // Vendor overrides
 //
@@ -28,6 +26,7 @@
 // - many times the CSS code delivered with plugins causes a lot of issues and needs additional adjustments when it is included globally
 // - this is the place for it, so all these hacky overrides are in one place
 // - sometimes it is even better to not include the distributed vendor CSS at all and just rewrite the CSS without having to override anything
+
 @import './vendor-overrides/iphone-inline-video';
 
 
@@ -47,5 +46,5 @@
 @import './base/base-lists';
 @import './base/base-rhythm';
 @import './base/base-tables';
-@import './base/base-tooltips'; // FIXME: should be Vue component/directive?
+@import './base/base-tooltips';
 @import './base/base-typography';
