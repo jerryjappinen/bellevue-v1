@@ -115,7 +115,7 @@
     "style-loader": "^0.17.0",
     "stylelint": "^7.11.1",
     "stylelint-config-standard": "^16.0.0",
-    "stylelint-order": "^0.4.4",
+    "stylelint-order": "^0.5.0",
     "stylelint-processor-html": "^1.0.0",
     "stylelint-scss": "^1.4.4",
     "stylelint-webpack-plugin": "^0.7.0",
