@@ -17,37 +17,41 @@ The easiest way to manage node versions is using [nvm](https://github.com/creati
 
 ## Project setup
 
-``` bash
-# install dependencies
+```sh
+# Clone repo
+git clone git@github.com:Eiskis/bellevue.git my-app
+mkdir my-app
+
+# Install dependencies
 npm install
 ```
 
 ## Building and testing
 
-``` bash
-# serve with hot reload at localhost:8080
+```sh
+# Serve with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification
+# Build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
+# Build for production and view the bundle analyzer report
 npm run build --report
 
-# run unit tests
+# Run all linters
+npm run lint
+
+# Run unit tests
 npm run unit
 
-# run e2e tests
+# Run e2e tests
 npm run e2e
 
-# run all tests
+# Run all tests
 npm run test
 
-# generate all docs
+# Generate all docs
 npm run docs
-
-# run all linters
-npm run lint
 ```
 
 See all scripts in [`package.json`](./package.json).
