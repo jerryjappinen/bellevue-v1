@@ -145,7 +145,7 @@
 				v-if="clear && !isEmpty"
 				class="view-textinput-clear"
 				@click="onClear">
-					<icon asset="check"></icon>
+					<icon asset="cross"></icon>
 				</span>
 		</transition>
 
