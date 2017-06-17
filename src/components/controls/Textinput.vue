@@ -234,7 +234,7 @@
 		height: 100%;
 
 		.view-icon {
-			@include pad;
+			padding: $pad-vertical / 2;
 
 			color: $color-white;
 			background-color: $color-dark;
