@@ -208,9 +208,4 @@
 		@include buffer-relative;
 	}
 
-	.view-app-logo {
-		display: inline-block;
-		width: 2em;
-	}
-
 </style>
