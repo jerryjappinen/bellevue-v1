@@ -4,7 +4,7 @@
   "description": "A full-featured frontend project template for modern single-page applications built on Vue.js and Webpack.",
   "author": "Jerry Jäppinen <eiskis@gmail.com>",
   "private": false,
-	"license": "MIT",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Eiskis/bellevue.git"
