@@ -99,7 +99,7 @@
 		z-index: 2;
 		overflow: hidden;
 
-		width: 36em;
+		width: $width-body-loose;
 		max-width: 100%;
 		height: 100%;
 		@include shadow-loose;
