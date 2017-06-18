@@ -55,3 +55,12 @@ npm run docs
 ```
 
 See all scripts in [`package.json`](./package.json).
+
+## Contributing
+
+Do you want to contribute to the template?
+
+- Please [file an issue](https://github.com/Eiskis/bellevue/issues) if you have a suggestion, bug report or a question.
+- Send a [pull request](https://github.com/Eiskis/bellevue/pulls) to contribute code.
+
+You can also [help improve the documentation on GitHub](https://github.com/Eiskis/bellevue-docs).
