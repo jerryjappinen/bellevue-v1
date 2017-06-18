@@ -5,12 +5,7 @@ import _ from 'lodash';
 import aliases from './config-aliases';
 import base from './config-base';
 import routes from './config-routes';
-
-export {
-	aliases,
-	base,
-	routes
-};
+import styles from './config-styles';
 
 // Export base config, with aliases and routes added
-export default _.merge({}, base, { aliases, routes });
+export default _.merge({}, base, { aliases, routes, styles });

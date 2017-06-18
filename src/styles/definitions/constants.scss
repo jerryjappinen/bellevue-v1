@@ -1,4 +1,6 @@
 
+// NOTE: Do NOT comment out variables here. The loader that exposes these variables to JS has a bug and will break if you do.
+
 // Functions are used here to generate some colors
 @import './functions';
 @import './palette';
@@ -110,10 +112,10 @@ $buffer-relative: 6%;
 
 // Rhythm
 // TODO: implement these
-// $rhythm-tight-half: 0.4em;
-// $rhythm-tight: 0.8em;
-// $rhythm-base: 1.6em;
-// $rhythm-loose: 3.2em;
+$rhythm-tight-half: 0.4em;
+$rhythm-tight: 0.8em;
+$rhythm-base: 1.6em;
+$rhythm-loose: 3.2em;
 
 // Transition durations
 $transition-veryveryfast: 25ms;

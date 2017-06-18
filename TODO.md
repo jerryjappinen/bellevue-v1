@@ -23,10 +23,11 @@
 
 ## Application code
 
-- [ ] Some kind of env/device service
-	- Feature detection
-	- Touch vs. no touch
-	- Wrap Modernizr?
+- [x] Some kind of env/device service
+	- [x] OS detection
+	- [ ] Feature detection
+	- [ ] Touch vs. no touch
+	- [ ] Wrap Modernizr?
 - [ ] Add responsive thresholds to `viewport` service
 - [ ] Integrate client-side form/input validation
 	- https://github.com/vuejs/awesome-vue#validation
@@ -74,7 +75,6 @@
 - [ ] Running only some tests from command line
 - [ ] Prerendering
 - [ ] Exposing configuration values to SCSS
-- [ ] Exposing SCSS constants with JS
 - [ ] Injecting services into root Vue object
 	- Better to have them consistently accessed via `this.$popovers` than locally renamed each time?
 	- Could they be created with root object as `parent`?
