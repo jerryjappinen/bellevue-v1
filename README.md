@@ -29,8 +29,11 @@ npm install
 ## Building and testing
 
 ```sh
-# Serve with hot reload at localhost:8080
+# Serve with hot reload
 npm run dev
+
+# Serve with hot reload on a specific port
+PORT=1234 npm run dev
 
 # Build for production with minification
 npm run build
