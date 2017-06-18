@@ -21,6 +21,20 @@ module.exports = {
 	defaultLocale: 'es',
 	fallbackLocale: 'en',
 
+	// Link to native iOS app's App Store page
+	appStore: {
+		appId: '',
+		affiliate: '',
+		appArgument: ''
+	},
+
+	// Link to related native Android app's Google Play page
+	googlePlay: {
+		appId: '',
+		affiliate: '',
+		appArgument: ''
+	},
+
 	// Will be used in base HTML templating
 	meta: {
 		title: 'My app',

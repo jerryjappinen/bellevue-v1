@@ -23,6 +23,26 @@
 			</style>
 		<% } %>
 
+		<%
+			var appStoreDefinitions = [];
+			if (
+				htmlWebpackPlugin.options.config.appStore &&
+				htmlWebpackPlugin.options.config.appStore.appId &&
+				('' + htmlWebpackPlugin.options.config.appStore.appId).length
+			) {
+				appStoreDefinitions.push('app-id=' + htmlWebpackPlugin.options.config.appStore.appId);
+				if (htmlWebpackPlugin.options.config.appStore.affiliate && htmlWebpackPlugin.options.config.appStore.affiliate.length) {
+					appStoreDefinitions.push('affiliate-data=' + htmlWebpackPlugin.options.config.appStore.affiliate);
+				}
+				if (htmlWebpackPlugin.options.config.appStore.affiliate && htmlWebpackPlugin.options.config.appStore.affiliate.length) {
+					appStoreDefinitions.push('app-argument=' + htmlWebpackPlugin.options.config.appStore.appArgument);
+				}
+			}
+		%>
+		<% if (appStoreDefinitions.length) { %>
+			<meta name="apple-itunes-app" content="<%= appStoreDefinitions.join(', ') %>">
+		<% } %>
+
 		<% /* Touch highlight settings */ %>
 		<% if (!htmlWebpackPlugin.options.config.defaultTouchHighlight) { %>
 			<meta name="msapplication-tap-highlight" content="no">
