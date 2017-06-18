@@ -5,6 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title><%= htmlWebpackPlugin.options.title %></title>
 
+		<% /* Theme color */ %>
+		<% if (htmlWebpackPlugin.options.config.meta.themeColor && htmlWebpackPlugin.options.config.meta.themeColor.length) { %>
+			<meta name="theme-color" content="<%= htmlWebpackPlugin.options.config.meta.themeColor %>">
+		<% } %>
+
 		<% /* Prefetch meta tags */ %>
 		<% for (var i = 0; i < htmlWebpackPlugin.options.config.prefetch.length; i++) { %>
 			<link rel="prefetch" href="<%= htmlWebpackPlugin.options.config.prefetch[i] %>">
