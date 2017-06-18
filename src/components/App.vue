@@ -115,6 +115,14 @@
 				popovers.close();
 			}
 
+		},
+
+		created: function () {
+
+			// Hack to enable :active CSS on iOS
+			// https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
+			window.document.addEventListener('touchstart', function () {}, true);
+
 		}
 
 	};
