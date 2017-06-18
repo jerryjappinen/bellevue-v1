@@ -4,6 +4,12 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title><%= htmlWebpackPlugin.options.title %></title>
+
+		<% /* Prefetch meta tags */ %>
+		<% for (var i = 0; i < htmlWebpackPlugin.options.config.prefetch.length; i++) { %>
+			<link rel="prefetch" href="<%= htmlWebpackPlugin.options.config.prefetch[i] %>">
+		<% } %>
+
 	</head>
 	<body>
 		<div id="app"></div>

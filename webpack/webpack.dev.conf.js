@@ -13,7 +13,8 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 })
 
 // Load custom values from manifest
-var customConfiguration = require('./custom-config.js');
+var normalizedConfig = require('./custom-config.js');
+var configForTemplate = require('../src/config/config-base.js');
 
 module.exports = merge(baseWebpackConfig, {
 	module: {
@@ -33,8 +34,9 @@ module.exports = merge(baseWebpackConfig, {
 			filename: 'index.html',
 			template: 'src/index.html.ejs',
 			inject: true,
-			title: customConfiguration.meta.title,
-			favicon: 'src/app-icon/favicon.png'
+			title: normalizedConfig.meta.title,
+			favicon: 'src/app-icon/favicon.png',
+			config: configForTemplate
 		}),
 		new StylelintPlugin({
 			emitErrors: false,

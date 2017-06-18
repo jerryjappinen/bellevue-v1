@@ -6,6 +6,17 @@
 // NOTE: tooling will break if we use ES6 export here, so let's stick to module.exports
 module.exports = {
 
+	// You can disable compiling app icons here, per environment, to speed up compilation
+	// NOTE: it's better to leave these be and only disable these on local config
+	// FIXME: this does not yet work
+	// FIXME: local unversioned config is not yet implemented either
+	// https://github.com/Eiskis/bellevue/issues/6
+	// compileAppIcons: {
+	// 	dev: true,
+	// 	prod: true,
+	// 	test: true
+	// },
+
 	// Set the root component and where to inject it
 	rootComponentName: 'app',
 	rootComponentParentSelector: '#app',
@@ -17,6 +28,10 @@ module.exports = {
 	meta: {
 		title: 'My app'
 	},
+
+	// List of URLs to add a prefetch meta tag for
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
+	prefetch: [],
 
 	// https://github.com/declandewet/vue-meta#options
 	metaInfo: {

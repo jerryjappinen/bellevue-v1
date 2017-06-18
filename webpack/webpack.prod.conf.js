@@ -14,7 +14,8 @@ var env = process.env.NODE_ENV === 'testing'
   : config.build.env
 
 // Load custom values from manifest
-var customConfiguration = require('./custom-config.js');
+var normalizedConfig = require('./custom-config.js');
+var configForTemplate = require('../src/config/config-base.js');
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -60,7 +61,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         : config.build.index,
       template: 'src/index.html.ejs',
       inject: true,
-			title: customConfiguration.meta.title,
+			title: normalizedConfig.meta.title,
 			favicon: 'src/app-icon/favicon.png',
       minify: {
         removeComments: true,
@@ -70,7 +71,8 @@ var webpackConfig = merge(baseWebpackConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
+      chunksSortMode: 'dependency',
+			config: normalizedConfig
     }),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({

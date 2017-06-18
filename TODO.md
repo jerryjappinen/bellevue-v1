@@ -9,17 +9,19 @@
 
 ## Tooling
 
+- [ ] Enable app icon generation based on config rather than crudely commenting it out
 - [ ] Enable building web app manifest
 	- https://www.npmjs.com/package/webpack-manifest-plugin
-- [ ] Enable app icon generation based on config rather than crudely commenting it out
 - [ ] Support local Webpack config files outside of version control
 	- Example: set different ports for local dev server
 - [ ] Add [`eslint-plugin-vue`](https://github.com/vuejs/eslint-plugin-vue)
 - [ ] More full-featured `index.html.ejs` templating
-	- [ ] Inject vendor script/style links to HTML based on configuration instead of manually adding them to `index.html.ejs`
-	- Add more full-featured meta tags
-	- https://github.com/jantimon/favicons-webpack-plugin
-	- https://github.com/jantimon/html-webpack-plugin#third-party-addons
+	- [x] Need to find a way to pass custom config to template
+	- [ ] Inject vendor script/style links to HTML based on config instead of manually adding them to `index.html.ejs`
+	- [ ] Add mobile meta tags based on config
+	- [x] Add prefetch meta tags based on config
+	- [ ] Add theme color meta tags based on config
+	- [ ] https://github.com/jantimon/html-webpack-plugin#third-party-addons
 - [ ] Add some way of ensuring SCSS imports are correct
 	- If SCSS dependencies are not correct, tests might fail (as tests compile SCSS files independently, for some reason)
 	- During normal development, user might get no indication that imports are missing in source files because SCSS is normally compiled via `global.scss` or `utilities.scss` where dependencies tend to always be available
