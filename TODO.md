@@ -15,20 +15,11 @@
 - [ ] Support local Webpack config files outside of version control
 	- Example: set different ports for local dev server
 - [ ] Add [`eslint-plugin-vue`](https://github.com/vuejs/eslint-plugin-vue)
-- [ ] More full-featured `index.html.ejs` templating
-	- [x] Need to find a way to pass custom config to template
-	- [ ] Inject vendor script/style links to HTML based on config instead of manually adding them to `index.html.ejs`
-	- [ ] Add App Store meta tags
-	- [x] Add mobile meta tags based on config
-	- [x] Add prefetch meta tags based on config
-	- [x] Add theme color meta tags based on config
-	- https://github.com/jantimon/html-webpack-plugin#third-party-addons
-	- https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/
-	- https://github.com/Eiskis/vue-project-template/blob/master/source/main/frame/mobile.swig
 - [ ] Add some way of ensuring SCSS imports are correct
 	- If SCSS dependencies are not correct, tests might fail (as tests compile SCSS files independently, for some reason)
 	- During normal development, user might get no indication that imports are missing in source files because SCSS is normally compiled via `global.scss` or `utilities.scss` where dependencies tend to always be available
 	- If we had a command for compiling all SCSS files independently outside of tests, we could test this
+- [ ] More thorough set of app icons and tiles for various platforms
 
 ## Application code
 

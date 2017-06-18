@@ -28,6 +28,19 @@ module.exports = {
 		appArgument: ''
 	},
 
+	// Links to static or externally hosted JS that need a script tag in index.html
+	scriptLinks: [
+		// '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js',
+		// '/static/vendor.js'
+	],
+
+	// Links to static or externally hosted CSS that need a style tag in index.html
+	styleLinks: [
+		// '//fonts.googleapis.com/css?family=Overpass',
+		// '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+		// '/static/vendor.css'
+	],
+
 	// Will be used in base HTML templating
 	meta: {
 		title: 'My app',

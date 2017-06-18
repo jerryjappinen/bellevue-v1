@@ -130,9 +130,21 @@
 			<link rel="prefetch" href="<%= htmlWebpackPlugin.options.config.prefetch[i] %>">
 		<% } %>
 
+		<% /* Links to static CSS files */ %>
+		<% for (var i = 0; i < htmlWebpackPlugin.options.config.styleLinks.length; i++) { %>
+			<link rel="stylesheet" type="text/css" href="<%= htmlWebpackPlugin.options.config.styleLinks[i] %>">
+		<% } %>
+
 	</head>
 	<body>
 		<div id="app"></div>
-		<!-- built files will be auto injected -->
+
+		<% /* Built files will be auto injected */ %>
+
+		<% /* Links to static JS files */ %>
+		<% for (var i = 0; i < htmlWebpackPlugin.options.config.scriptLinks.length; i++) { %>
+			<script type="text/javascript" src="<%= htmlWebpackPlugin.options.config.scriptLinks[i] %>"></script>
+		<% } %>
+
 	</body>
 </html>
