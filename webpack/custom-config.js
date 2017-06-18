@@ -23,6 +23,8 @@ var treated = {
 	// No action needed
 	meta: Object.assign({}, values.meta),
 	svgSpritePath: values.svgSpritePath,
+	compileAppIcons: values.compileAppIcons,
+	appIconPlatforms: values.appIconPlatforms,
 
 	// Prefix some paths with src
 	appIconSourceFile: resolve('src/' + values.appIconSourceFile),
@@ -33,6 +35,9 @@ var treated = {
 	}
 
 };
+
+// We use a separate plugin for favicons
+treated.appIconPlatforms.favicons = false;
 
 // SVGO wants its configuration values in a really weird format
 // https://github.com/karify/external-svg-sprite-loader/blob/master/index.js

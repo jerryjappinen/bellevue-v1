@@ -8,7 +8,6 @@ var vueLoaderConfig = require('./vue-loader.conf')
 
 // Plugins
 var SvgPlugin = require('external-svg-sprite-loader/lib/SvgStorePlugin')
-var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 // Path helper
 function resolve (dir) {
@@ -44,24 +43,6 @@ module.exports = {
   },
 	plugins: [
 		new SvgPlugin(),
-		// new FaviconsWebpackPlugin({
-		// 	logo: customConfiguration.appIconSourceFile,
-		// 	prefix: 'app-icons/[hash]/',
-		// 	persistentCache: true,
-		// 	title: customConfiguration.meta.title,
-		// 	icons: {
-		// 		android: true,
-		// 		appleIcon: true,
-		// 		appleStartup: true,
-		// 		coast: false,
-		// 		favicons: true,
-		// 		firefox: true,
-		// 		opengraph: false,
-		// 		twitter: false,
-		// 		yandex: false,
-		// 		windows: false
-		// 	}
-		// }),
 		new webpack.ProvidePlugin({
         _: 'underscore'
     })

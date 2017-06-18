@@ -6,6 +6,7 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 var StylelintPlugin = require('stylelint-webpack-plugin')
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -16,7 +17,7 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 var normalizedConfig = require('./custom-config.js');
 var configForTemplate = require('../src/config/config-base.js');
 
-module.exports = merge(baseWebpackConfig, {
+var webpackConfig = merge(baseWebpackConfig, {
 	module: {
 		rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
 	},
@@ -47,3 +48,17 @@ module.exports = merge(baseWebpackConfig, {
 		new FriendlyErrorsPlugin()
 	]
 })
+
+if (normalizedConfig.compileAppIcons.dev) {
+	webpackConfig.plugins.push(
+		new FaviconsWebpackPlugin({
+			logo: normalizedConfig.appIconSourceFile,
+			prefix: 'app-icons/[hash]/',
+			persistentCache: true,
+			title: normalizedConfig.meta.title,
+			icons: normalizedConfig.appIconPlatforms
+		}),
+	)
+}
+
+module.exports = webpackConfig

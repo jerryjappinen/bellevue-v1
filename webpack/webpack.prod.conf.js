@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 var env = process.env.NODE_ENV === 'testing'
   ? require('./env/test.env')
@@ -104,6 +105,18 @@ var webpackConfig = merge(baseWebpackConfig, {
     ])
   ]
 })
+
+if (normalizedConfig.compileAppIcons.prod) {
+  webpackConfig.plugins.push(
+		new FaviconsWebpackPlugin({
+			logo: normalizedConfig.appIconSourceFile,
+			prefix: 'app-icons/[hash]/',
+			persistentCache: true,
+			title: normalizedConfig.meta.title,
+			icons: normalizedConfig.appIconPlatforms
+		}),
+	)
+}
 
 if (config.build.productionGzip) {
   var CompressionWebpackPlugin = require('compression-webpack-plugin')
