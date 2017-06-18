@@ -28,13 +28,6 @@ module.exports = {
 		appArgument: ''
 	},
 
-	// Link to related native Android app's Google Play page
-	googlePlay: {
-		appId: '',
-		affiliate: '',
-		appArgument: ''
-	},
-
 	// Will be used in base HTML templating
 	meta: {
 		title: 'My app',
