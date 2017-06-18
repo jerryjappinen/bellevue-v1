@@ -26,7 +26,8 @@ module.exports = {
 
 	// Will be used in base HTML templating
 	meta: {
-		title: 'My app'
+		title: 'My app',
+		themeColor: '#00baf8'
 	},
 
 	// List of URLs to add a prefetch meta tag for
