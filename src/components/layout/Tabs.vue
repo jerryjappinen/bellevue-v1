@@ -98,6 +98,7 @@
 		@include no-push-vertical;
 		@include radius-loose;
 		@include flex;
+		overflow-x: auto;
 		border-width: 2px;
 		border-color: $color-dark;
 		background-color: $color-white;
