@@ -2,12 +2,107 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+		<% /* Meta info */ %>
 		<title><%= htmlWebpackPlugin.options.title %></title>
+		<% if (htmlWebpackPlugin.options.config.meta.description && htmlWebpackPlugin.options.config.meta.description.length) { %>
+			<meta name="description" content="<%= htmlWebpackPlugin.options.config.meta.description %>">
+		<% } %>
+
+		<% /* Mobile tags */ %>
+		<% if (htmlWebpackPlugin.options.config.mobile) { %>
+			<meta name="apple-mobile-web-app-capable" content="yes">
+			<style type="text/css">
+				body {
+					-webkit-text-size-adjust: none;
+					-moz-text-size-adjust: none;
+					-ms-text-size-adjust: none;
+				}
+			</style>
+		<% } %>
+
+		<% /* Touch highlight settings */ %>
+		<% if (!htmlWebpackPlugin.options.config.defaultTouchHighlight) { %>
+			<meta name="msapplication-tap-highlight" content="no">
+			<style>body { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-tap-highlight-color: transparent; }</style>
+		<% } %>
+
+		<% /* Format detection meta tags */ %>
+		<% if (htmlWebpackPlugin.options.config.formatDetection) { %>
+			<%
+				var formatDetectionRuleStrings = [];
+				for (var key in htmlWebpackPlugin.options.config.formatDetection) {
+					if (
+						htmlWebpackPlugin.options.config.formatDetection[key] !== null &&
+						htmlWebpackPlugin.options.config.formatDetection[key] !== undefined
+					) {
+						formatDetectionRuleStrings.push(key + '=' + htmlWebpackPlugin.options.config.formatDetection[key]);
+					}
+				}
+			%>
+			<meta name="format-detection" content="<%= formatDetectionRuleStrings.join(', ') %>">
+		<% } %>
+
+		<% /* Viewport definitions as meta tags */ %>
+		<% if (htmlWebpackPlugin.options.config.viewport) { %>
+			<%
+				var viewportRuleStrings = [];
+				for (var key in htmlWebpackPlugin.options.config.viewport) {
+					if (
+						htmlWebpackPlugin.options.config.viewport[key] !== null &&
+						htmlWebpackPlugin.options.config.viewport[key] !== undefined
+					) {
+						viewportRuleStrings.push(key + '=' + htmlWebpackPlugin.options.config.viewport[key]);
+					}
+				}
+			%>
+			<meta name="viewport" content="<%= viewportRuleStrings.join(', ') %>">
+		<% } %>
+
+		<% /* Viewport definitions as CSS */ %>
+		<%
+			var viewportCssRuleStrings = [];
+
+			if (htmlWebpackPlugin.options.config.viewport.width) {
+				var viewportWidth = htmlWebpackPlugin.options.config.viewport.width;
+				if (viewportWidth && viewportWidth !== 'device-width') {
+					viewportWidth += 'px';
+				}
+				viewportCssRuleStrings.push('width: ' + viewportWidth + ';');
+			}
+
+			if (htmlWebpackPlugin.options.config.viewport.height) {
+				var viewportHeight = htmlWebpackPlugin.options.config.viewport.height;
+				if (viewportHeight && viewportHeight !== 'device-height') {
+					viewportHeight += 'px';
+				}
+				viewportCssRuleStrings.push('height: ' + viewportHeight + ';');
+			}
+
+			viewportCssRuleStrings = viewportCssRuleStrings.join('');
+		%>
+		<style type="text/css">
+			@-ms-viewport { <%= viewportCssRuleStrings %> }
+			@-o-viewport { <%= viewportCssRuleStrings %> }
+			@viewport { <%= viewportCssRuleStrings %> }
+		</style>
+
+
+		<% /* Windows: pinned site meta info (https://msdn.microsoft.com/en-us/library/dn255024(v=vs.85).aspx) */ %>
+		<meta name="msapplication-tooltip" content="<%= htmlWebpackPlugin.options.config.meta.description %>">
+		<meta name="msapplication-TileColor" content="<%= htmlWebpackPlugin.options.config.meta.themeColor %>" />
+		<meta name="msapplication-navbutton-color" content="<%= htmlWebpackPlugin.options.config.meta.themeColor %>">
 
 		<% /* Theme color */ %>
 		<% if (htmlWebpackPlugin.options.config.meta.themeColor && htmlWebpackPlugin.options.config.meta.themeColor.length) { %>
 			<meta name="theme-color" content="<%= htmlWebpackPlugin.options.config.meta.themeColor %>">
+		<% } %>
+
+		<% /* iOS: Status bar style */ %>
+		<% if (htmlWebpackPlugin.options.config.meta.iosStatusBarStyle && htmlWebpackPlugin.options.config.meta.iosStatusBarStyle.length) { %>
+			<meta name="apple-mobile-web-app-status-bar-style" content="<%= htmlWebpackPlugin.options.config.meta.iosStatusBarStyle %>">
 		<% } %>
 
 		<% /* Prefetch meta tags */ %>

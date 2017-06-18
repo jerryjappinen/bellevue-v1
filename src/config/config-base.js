@@ -17,22 +17,67 @@ module.exports = {
 	// 	test: true
 	// },
 
-	// Set the root component and where to inject it
-	rootComponentName: 'app',
-	rootComponentParentSelector: '#app',
-
+	// Localisation
 	defaultLocale: 'es',
 	fallbackLocale: 'en',
 
 	// Will be used in base HTML templating
 	meta: {
 		title: 'My app',
-		themeColor: '#00baf8'
+		description: 'Description text for this app',
+
+		// https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/
+		themeColor: '#00baf8',
+
+		// https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+		iosStatusBarStyle: 'default'
+
+	},
+
+	// Format detection meta tag for iOS
+	// https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+	formatDetection: {
+		'telephone': 'yes'
+	},
+
+	// Viewport control for mobile devices
+	// https://developer.mozilla.org/en/docs/Mozilla/Mobile/Viewport_meta_tag
+	// https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html
+	// NOTE: keys must be in kebab-case
+	viewport: {
+		'width': 'device-width',
+		'height': null,
+		'initial-scale': 1,
+		'minimum-scale': null,
+		'maximum-scale': 1,
+		'user-scalable': 'no'
 	},
 
 	// List of URLs to add a prefetch meta tag for
 	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
 	prefetch: [],
+
+	// See docs at https://router.vuejs.org/en/api/options.html
+	router: {
+
+		// 'hash': extra hash characters in URLs, no server configuration needed for routing to work
+		// 'history': no extra characters in URLs, but requires server configuration
+		mode: 'hash',
+
+		// Class names used by <router-link>
+		// NOTE: these should conform to our class naming conventions
+		linkActiveClass: 'is-active',
+		linkExactActiveClass: 'is-exact-active'
+
+	},
+
+	// Enable some meta tags that optimize the mobile experience
+	mobile: true,
+	defaultTouchHighlight: false,
+
+	// Webpack will generate app icons for all platforms based on this
+	// FIXME: no support for platform-specific source files yet
+	appIconSourceFile: 'app-icon/app-icon.png',
 
 	// https://github.com/declandewet/vue-meta#options
 	metaInfo: {
@@ -51,23 +96,9 @@ module.exports = {
 
 	},
 
-	// See docs at https://router.vuejs.org/en/api/options.html
-	router: {
-
-		// 'hash': extra hash characters in URLs, no server configuration needed for routing to work
-		// 'history': no extra characters in URLs, but requires server configuration
-		mode: 'hash',
-
-		// Class names used by <router-link>
-		// NOTE: these should conform to our class naming conventions
-		linkActiveClass: 'is-active',
-		linkExactActiveClass: 'is-exact-active'
-
-	},
-
-	// Webpack will generate app icons for all platforms based on this
-	// FIXME: no support for platform-specific source files yet
-	appIconSourceFile: 'app-icon/app-icon.png',
+	// Set the root component and where to inject it
+	rootComponentName: 'app',
+	rootComponentParentSelector: '#app',
 
 	// This filename will be used for the sprite file that is generated from source SVG files
 	svgSpritePath: 'sprite.svg',
