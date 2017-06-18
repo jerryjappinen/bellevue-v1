@@ -156,6 +156,7 @@
 			:name="name"
 			:maxlength="maxlengthValue"
 			:placeholder="placeholder"
+			:disabled="disabled"
 			@focus="onFocus"
 			@focusout="onFocusOut"></textarea>
 
@@ -167,6 +168,7 @@
 			:name="name"
 			:maxlength="maxlengthValue"
 			:placeholder="placeholder"
+			:disabled="disabled"
 			@focus="onFocus"
 			@focusout="onFocusOut">
 
@@ -177,6 +179,7 @@
 			:name="name"
 			:maxlength="maxlengthValue"
 			:placeholder="placeholder"
+			:disabled="disabled"
 			@focus="onFocus"
 			@focusout="onFocusOut">
 
@@ -191,7 +194,6 @@
 		position: relative;
 		display: inline-block;
 		vertical-align: middle;
-		@include cursor-pointer;
 		@include overflow-hidden;
 		@include radius;
 
@@ -221,6 +223,10 @@
 
 		}
 
+	}
+
+	.view-textinput-enabled {
+		@include cursor-pointer;
 	}
 
 	.view-textinput-clear {

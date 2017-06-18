@@ -166,16 +166,20 @@ dfn[title] {
 	text-decoration: underline;
 }
 
-a,
-label,
-button,
-input,
-select,
-option {
-	cursor: pointer;
-
-	&[disabled] {
-		cursor: default;
-	}
-
+a {
+	@include cursor-pointer;
 }
+
+// a,
+// label,
+// button,
+// input,
+// select,
+// option {
+// 	cursor: pointer;
+
+// 	&[disabled] {
+// 		cursor: default;
+// 	}
+
+// }
