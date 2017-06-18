@@ -41,11 +41,15 @@
 <template>
 
 	<div class="view-blank-state no-rhythm">
+
 		<h2 class="view-blank-state-title">{{ title }}</h2>
+
 		<p class="view-blank-state-description" v-if="hasDescription">{{ description }}</p>
+
 		<div class="view-blank-state-callback" v-if="hasCallback">
 			<p><click-button :callback="callback">{{ callbackLabel }}</click-button></p>
 		</div>
+
 	</div>
 
 </template>
