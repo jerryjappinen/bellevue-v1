@@ -4,7 +4,7 @@
 	// import _ from 'lodash';
 
 	// Services
-	import { network, notifications, panels, popovers, time, viewport } from '@services';
+	import { env, network, notifications, panels, popovers, time, viewport } from '@services';
 
 	export default {
 		name: 'console-services',
@@ -13,6 +13,10 @@
 
 			dump: function () {
 				return {
+
+					env: {
+						os: env.os
+					},
 
 					network: {
 						isConnecting: network.isConnecting,

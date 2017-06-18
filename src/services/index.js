@@ -1,4 +1,5 @@
 
+import env from './env';
 import network from './network';
 import notifications from './notifications';
 import panels from './panels';
@@ -7,6 +8,7 @@ import time from './time';
 import viewport from './viewport';
 
 export {
+	env,
 	network,
 	notifications,
 	panels,
@@ -16,6 +18,7 @@ export {
 };
 
 export default {
+	env,
 	network,
 	notifications,
 	panels,
