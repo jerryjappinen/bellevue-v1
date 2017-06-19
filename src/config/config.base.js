@@ -34,7 +34,12 @@ module.exports = {
 		themeColor: '#00baf8',
 		// icons: [], // will be auto injected, you can leave this empty
 		// preferRelatedApplications: false,
-		// relatedApplications: [],
+		relatedApplications: [
+			// {
+			// 	platform: 'play',
+			// 	id: 'com.google.samples.apps.iosched'
+			// }
+		],
 		scope: '/'
 	},
 
