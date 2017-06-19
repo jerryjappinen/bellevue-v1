@@ -2,8 +2,6 @@
 process.env.NODE_ENV = 'testing'
 var server = require('../../webpack/dev-server.js')
 
-console.log('DRIVER', typeof process.env.DRIVER, process.env.DRIVER)
-
 // Select which driver to use based on environment variable passed
 var useSelenium = false
 if (process.env.DRIVER) {
