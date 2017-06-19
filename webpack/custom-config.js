@@ -26,6 +26,7 @@ var treated = {
 	compileAppIcons: values.compileAppIcons,
 	appIconPlatforms: values.appIconPlatforms,
 	robotsTxt: values.robotsTxt,
+	webAppManifest: values.webAppManifest,
 
 	// Prefix some paths with src
 	appIconSourceFile: resolve('src/' + values.appIconSourceFile),

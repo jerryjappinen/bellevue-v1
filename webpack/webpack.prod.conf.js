@@ -11,6 +11,11 @@ var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 var RobotstxtPlugin = require('robotstxt-webpack-plugin').default
 
+// https://www.npmjs.com/package/webapp-manifest-plugin
+var WebappManifest = require('webapp-manifest-plugin');
+var WebappManifestPlugin = WebappManifest.default;
+var FAVICON_PLUGIN = WebappManifest.FAVICON_PLUGIN;
+
 var env = process.env.NODE_ENV === 'testing'
   ? require('./env/test.env')
   : config.build.env
@@ -107,6 +112,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   ]
 })
 
+// Robots.txt if set in config
 if (normalizedConfig.robotsTxt) {
 	if (
 		(normalizedConfig.robotsTxt.policy && normalizedConfig.robotsTxt.policy.length) ||
@@ -117,6 +123,7 @@ if (normalizedConfig.robotsTxt) {
 	}
 }
 
+// App icon compilation if set in config
 if (normalizedConfig.compileAppIcons.prod) {
   webpackConfig.plugins.push(
 		new FaviconsWebpackPlugin({
@@ -127,6 +134,15 @@ if (normalizedConfig.compileAppIcons.prod) {
 			icons: normalizedConfig.appIconPlatforms
 		}),
 	)
+}
+
+// manifest.json if set in config
+if (normalizedConfig.webAppManifest) {
+	var webAppManifestOptions = normalizedConfig.webAppManifest;
+	if (normalizedConfig.compileAppIcons.prod) {
+		webAppManifestOptions.icons = FAVICON_PLUGIN;
+	}
+  webpackConfig.plugins.push(new WebappManifestPlugin(webAppManifestOptions))
 }
 
 if (config.build.productionGzip) {

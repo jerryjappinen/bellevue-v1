@@ -19,6 +19,25 @@ module.exports = {
 
 	},
 
+	// https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+	// https://www.npmjs.com/package/webapp-manifest-plugin
+	webAppManifest: {
+		name: 'My App',
+		shortName: 'My App',
+		description: 'Description text for this app',
+		// dir: 'auto',
+		lang: 'en-US',
+		// display: 'standalone',
+		// orientation: 'any',
+		// startUrl: '/',
+		backgroundColor: '#fff',
+		themeColor: '#00baf8',
+		// icons: [], // will be auto injected, you can leave this empty
+		// preferRelatedApplications: false,
+		// relatedApplications: [],
+		scope: '/'
+	},
+
 	// Localisation
 	defaultLocale: 'es',
 	fallbackLocale: 'en',
@@ -28,6 +47,12 @@ module.exports = {
 		appId: '',
 		affiliate: '',
 		appArgument: ''
+	},
+
+	// Format detection meta tag for iOS
+	// https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+	formatDetection: {
+		'telephone': 'yes'
 	},
 
 	// Links to static or externally hosted JS that need a script tag in index.html
@@ -46,12 +71,6 @@ module.exports = {
 	// List of URLs to add a prefetch meta tag for
 	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
 	prefetch: [],
-
-	// Format detection meta tag for iOS
-	// https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
-	formatDetection: {
-		'telephone': 'yes'
-	},
 
 	// Viewport control for mobile devices
 	// https://developer.mozilla.org/en/docs/Mozilla/Mobile/Viewport_meta_tag
@@ -114,7 +133,7 @@ module.exports = {
 	// FIXME: currently implemented with favicons-webpack-plugin, which is not great
 	// https://github.com/jantimon/favicons-webpack-plugin
 	appIconPlatforms: {
-		android: true,
+		android: true, // will be also used for web app manifest
 		appleIcon: true,
 		appleStartup: false, // Not a good idea to generate these from the same source file
 		coast: false,
