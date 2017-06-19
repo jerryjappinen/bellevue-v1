@@ -44,7 +44,6 @@
 
 ## Test automation
 
-- [ ] Get unit tests to work as expected
 - [ ] Add tests for services
 - [ ] Testing SCSS
 	- Visual testing has to be easy with sandbox pages etc.
