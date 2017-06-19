@@ -9,17 +9,11 @@
 
 ## Tooling
 
-- [ ] Enable app icon generation based on config rather than crudely commenting it out
-- [ ] Enable building web app manifest
-	- https://www.npmjs.com/package/webpack-manifest-plugin
-- [ ] Support local Webpack config files outside of version control
-	- Example: set different ports for local dev server
-- [ ] Add [`eslint-plugin-vue`](https://github.com/vuejs/eslint-plugin-vue)
+- [ ] More thorough set of app icons and tiles for various platforms
 - [ ] Add some way of ensuring SCSS imports are correct
 	- If SCSS dependencies are not correct, tests might fail (as tests compile SCSS files independently, for some reason)
 	- During normal development, user might get no indication that imports are missing in source files because SCSS is normally compiled via `global.scss` or `utilities.scss` where dependencies tend to always be available
 	- If we had a command for compiling all SCSS files independently outside of tests, we could test this
-- [ ] More thorough set of app icons and tiles for various platforms
 
 ## Application code
 
@@ -31,8 +25,6 @@
 - [ ] Add responsive thresholds to `viewport` service
 - [ ] Integrate client-side form/input validation
 	- https://github.com/vuejs/awesome-vue#validation
-- [ ] Try `vue-supply`, `vue-apollo` and GraphQL
-	- https://github.com/Akryum/vue-supply
 - [ ] Support lazy loading localisation files
 	- Docs: http://kazupon.github.io/vue-i18n/en/
 	- Simple example: https://kazupon.github.io/vue-i18n/en/migrations.html#features
@@ -41,14 +33,6 @@
 
 - [ ] Split Vuex state management into modules and perhaps multiple files
 - [ ] Persist Vuex state: https://github.com/vuejs/awesome-vue#persistence
-
-## Test automation
-
-- [ ] Add tests for services
-- [ ] Testing SCSS
-	- Visual testing has to be easy with sandbox pages etc.
-	- We have some more complicated toolchains producing utility classes with responsive variants etc.
-	- http://mts.io/2014/04/02/sass-unit-testing/
 
 ## Components
 
@@ -61,23 +45,29 @@
 
 ## Investigate
 
-- [ ] Unit testing toolset: https://github.com/wrseward/vue-unit
-- [ ] Preconfiguring server-side rendering
-	- Prerendering plugin for Webpack: http://vuejs-templates.github.io/webpack/prerender.html
-	- About SSR on Vue: https://vuejs.org/v2/guide/ssr.html
-	- Full SSR guide for Vue: https://ssr.vuejs.org/en/
-	- Universal apps on Vue: https://nuxtjs.org/
-- [ ] Manifest file generation?
-	- Caches and offline stuff
-	- Web app manifests
-	- robots.txt
-- [ ] ESLint plugin: File name and export naming conventions: https://github.com/selaux/eslint-plugin-filenames
+- [ ] ESLint plugins
+	- [ ] File name and export naming conventions: https://github.com/selaux/eslint-plugin-filenames
+	- [ ] `eslint-plugin-vue`: https://github.com/vuejs/eslint-plugin-vue
+- [ ] Unit testing helpers: https://github.com/wrseward/vue-unit
 - [ ] Running only some tests from command line
 - [ ] Prerendering
 - [ ] Exposing configuration values to SCSS
 - [ ] Injecting services into root Vue object
 	- Better to have them consistently accessed via `this.$popovers` than locally renamed each time?
-	- Could they be created with root object as `parent`?
+	- Could they be created with root object as `parent` so they have access to router for example?
+
+### Preconfiguring server-side rendering
+
+- Prerendering plugin for Webpack: http://vuejs-templates.github.io/webpack/prerender.html
+- About SSR on Vue: https://vuejs.org/v2/guide/ssr.html
+- Full SSR guide for Vue: https://ssr.vuejs.org/en/
+- Universal apps on Vue: https://nuxtjs.org/
+
+### Testing SCSS
+
+- Visual testing has to be easy with sandbox pages etc.
+- We have some more complicated toolchains producing utility classes with responsive variants etc.
+- http://mts.io/2014/04/02/sass-unit-testing/
 
 ### Code intelligence
 
