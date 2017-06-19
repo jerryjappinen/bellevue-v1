@@ -44,7 +44,7 @@
     "vue-i18n": "^7.0.3",
     "vue-images-loaded": "^1.1.2",
     "vue-meta": "^1.0.4",
-    "vue-router": "^2.5.3",
+    "vue-router": "^2.6.0",
     "vue-throttle-event": "^1.4.0",
     "vuex": "^2.3.1"
   },
