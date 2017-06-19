@@ -2,7 +2,20 @@
 process.env.NODE_ENV = 'testing'
 var server = require('../../webpack/dev-server.js')
 
-var useSelenium = true
+console.log('DRIVER', typeof process.env.DRIVER, process.env.DRIVER)
+
+// Select which driver to use based on environment variable passed
+var useSelenium = false
+if (process.env.DRIVER) {
+  var param = ('' + process.env.DRIVER).toLowerCase()
+  if (param === 'selenium') {
+    useSelenium = true
+  } else if (param !== 'chrome') {
+    throw Error('Unknown driver requested. Supported drivers are "Selenium" and "Chrome".')
+  }
+}
+
+// Drivers have different config files
 var testConfigFilePath = 'nightwatch.chrome.conf.js'
 if (useSelenium) {
   testConfigFilePath = 'nightwatch.conf.js'
