@@ -49,8 +49,11 @@ npm run lint
 # Run unit tests
 npm run unit
 
-# Run e2e tests
+# Run e2e tests on standalone Chrome
 npm run e2e
+
+# Run e2e tests on Selenium (requires Java)
+DRIVER=selenium npm run e2e
 
 # Run all tests
 npm run test
