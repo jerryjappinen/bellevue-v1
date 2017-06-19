@@ -6,8 +6,8 @@
 var path = require('path')
 
 // Get base custom project configuration values
-var values = require('../src/config/config-base.js');
-var aliases = require('../src/config/config-aliases.js');
+var values = require('../src/config/config.base.js');
+var aliases = require('../src/config/config.aliases.js');
 
 // Path helper
 // FIXME: duplicated from webpack.base.conf.js

@@ -16,7 +16,7 @@ var env = process.env.NODE_ENV === 'testing'
 
 // Load custom values from manifest
 var normalizedConfig = require('./custom-config.js');
-var configForTemplate = require('../src/config/config-base.js');
+var configForTemplate = require('../src/config/config.base.js');
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
