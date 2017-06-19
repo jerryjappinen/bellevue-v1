@@ -102,7 +102,7 @@
 			},
 
 			titlebarShouldBeShown: function () {
-				return (this.popoverShouldBeShown && !popovers.isInPlace) ? false : true;
+				return !(this.panelShouldBeShown || (this.popoverShouldBeShown && !popovers.isInPlace)) ? true : false;
 			}
 
 		},
