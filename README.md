@@ -46,8 +46,11 @@ npm run build --report
 # Run all linters
 npm run lint
 
-# Run unit tests
+# Start unit tests and watch for changes in tests
 npm run unit
+
+# Run all unit tests once
+npm run unit:once
 
 # Run e2e tests on standalone Chrome
 npm run e2e

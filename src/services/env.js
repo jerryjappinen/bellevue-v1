@@ -5,26 +5,34 @@ export default new Vue({
 
 	data: function () {
 		return {
+			macosPlatforms: ['macintosh', 'macintel', 'macppc', 'mac68k'],
+			windowsPlatforms: ['win32', 'win64', 'windows', 'wince'],
+			iosPlatforms: ['iphone', 'ipad', 'ipod']
 		};
 	},
 
 	computed: {
 
-		// NOTE: platform detection is never 100 % reliable
 		os: function () {
-			var userAgent = window.navigator.userAgent.toLowerCase();
-			var platform = window.navigator.platform.toLowerCase();
-			var macosPlatforms = ['macintosh', 'macintel', 'macppc', 'mac68k'];
-			var windowsPlatforms = ['win32', 'win64', 'windows', 'wince'];
-			var iosPlatforms = ['iphone', 'ipad', 'ipod'];
+			return this.getOsFromNavigator(window.navigator.userAgent, window.navigator.platform);
+		}
 
-			if (macosPlatforms.indexOf(platform) !== -1) {
+	},
+
+	methods: {
+
+		// NOTE: platform detection is never 100 % reliable
+		getOsFromNavigator: function (userAgent, platform) {
+			userAgent = userAgent.toLowerCase();
+			platform = platform.toLowerCase();
+
+			if (this.macosPlatforms.indexOf(platform) !== -1) {
 				return 'mac';
 
-			} else if (iosPlatforms.indexOf(platform) !== -1) {
+			} else if (this.iosPlatforms.indexOf(platform) !== -1) {
 				return 'ios';
 
-			} else if (windowsPlatforms.indexOf(platform) !== -1) {
+			} else if (this.windowsPlatforms.indexOf(platform) !== -1) {
 				return 'windows';
 
 			} else if (new RegExp('Android').test(userAgent)) {
