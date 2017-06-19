@@ -9,6 +9,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+var RobotstxtPlugin = require('robotstxt-webpack-plugin').default
 
 var env = process.env.NODE_ENV === 'testing'
   ? require('./env/test.env')
@@ -105,6 +106,16 @@ var webpackConfig = merge(baseWebpackConfig, {
     ])
   ]
 })
+
+if (normalizedConfig.robotsTxt) {
+	if (
+		(normalizedConfig.robotsTxt.policy && normalizedConfig.robotsTxt.policy.length) ||
+		(normalizedConfig.robotsTxt.sitemap && normalizedConfig.robotsTxt.sitemap.length) ||
+		(normalizedConfig.robotsTxt.host && normalizedConfig.robotsTxt.host.length)
+	) {
+		webpackConfig.plugins.push(new RobotstxtPlugin(normalizedConfig.robotsTxt));
+	}
+}
 
 if (normalizedConfig.compileAppIcons.prod) {
   webpackConfig.plugins.push(

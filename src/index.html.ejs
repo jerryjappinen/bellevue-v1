@@ -23,6 +23,19 @@
 			</style>
 		<% } %>
 
+		<% /* Mobile tags */ %>
+		<%
+			var robotsMeta = [];
+			if (htmlWebpackPlugin.options.config.robotsMeta && htmlWebpackPlugin.options.config.robotsMeta.length) {
+				for (var i = 0; i < htmlWebpackPlugin.options.config.robotsMeta.length; i++) {
+					robotsMeta.push(('' + htmlWebpackPlugin.options.config.robotsMeta[i]).toUpperCase());
+				}
+			}
+		%>
+		<% if (robotsMeta.length) { %>
+			<meta name="robots" content="<%= htmlWebpackPlugin.options.config.meta.robotsMeta.join(', ') %>">
+		<% } %>
+
 		<%
 			var appStoreDefinitions = [];
 			if (

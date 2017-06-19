@@ -1,6 +1,6 @@
 {
   "name": "bellevue",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A full-featured frontend project template for modern single-page applications built on Vue.js and Webpack.",
   "author": "Jerry Jäppinen <eiskis@gmail.com>",
   "private": false,
@@ -112,6 +112,7 @@
     "postcss-loader": "^2.0.6",
     "postcss-scss": "^1.0.1",
     "rimraf": "^2.6.1",
+    "robotstxt-webpack-plugin": "^1.0.1",
     "sass-loader": "^6.0.6",
     "sass-to-js-var-loader": "0.0.2",
     "selenium-server": "^3.4.0",

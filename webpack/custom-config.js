@@ -25,6 +25,7 @@ var treated = {
 	svgSpritePath: values.svgSpritePath,
 	compileAppIcons: values.compileAppIcons,
 	appIconPlatforms: values.appIconPlatforms,
+	robotsTxt: values.robotsTxt,
 
 	// Prefix some paths with src
 	appIconSourceFile: resolve('src/' + values.appIconSourceFile),

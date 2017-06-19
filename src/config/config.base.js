@@ -6,25 +6,17 @@
 // NOTE: tooling will break if we use ES6 export here, so let's stick to module.exports
 module.exports = {
 
-	// You can disable compiling app icons here, per environment, to speed up compilation
-	compileAppIcons: {
-		dev: false,
-		prod: false
-	},
+	// Will be used in base HTML templating
+	meta: {
+		title: 'My app',
+		description: 'Description text for this app',
 
-	// FIXME: currently implemented with favicons-webpack-plugin, which is not great
-	// https://github.com/jantimon/favicons-webpack-plugin
-	appIconPlatforms: {
-		android: true,
-		appleIcon: true,
-		appleStartup: false, // Not a good idea to generate these from the same source file
-		coast: false,
-		favicons: true,
-		firefox: false,
-		opengraph: false,
-		twitter: false,
-		yandex: false,
-		windows: true
+		// https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/
+		themeColor: '#00baf8',
+
+		// https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+		iosStatusBarStyle: 'default'
+
 	},
 
 	// Localisation
@@ -51,18 +43,9 @@ module.exports = {
 		// '/static/vendor.css'
 	],
 
-	// Will be used in base HTML templating
-	meta: {
-		title: 'My app',
-		description: 'Description text for this app',
-
-		// https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/
-		themeColor: '#00baf8',
-
-		// https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
-		iosStatusBarStyle: 'default'
-
-	},
+	// List of URLs to add a prefetch meta tag for
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
+	prefetch: [],
 
 	// Format detection meta tag for iOS
 	// https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
@@ -83,9 +66,30 @@ module.exports = {
 		'user-scalable': 'no'
 	},
 
-	// List of URLs to add a prefetch meta tag for
-	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
-	prefetch: [],
+	// robots.txt
+	// https://github.com/itgalaxy/generate-robotstxt
+	// http://www.robotstxt.org
+	robotsTxt: {
+		// sitemap: 'sitemap.xml',
+		// host: 'http://example.com',
+		policy: [
+			{
+				userAgent: '*',
+				allow: '/',
+				disallow: '/foo',
+				crawlDelay: 10,
+				cleanParam: 'ref /foo/'
+			}
+		]
+	},
+
+	// http://www.robotstxt.org/meta.html
+	robotsMeta: [
+		// 'index',
+		// 'noindex',
+		// 'follow',
+		// 'nofollow'
+	],
 
 	// See docs at https://router.vuejs.org/en/api/options.html
 	router: {
@@ -99,6 +103,27 @@ module.exports = {
 		linkActiveClass: 'is-active',
 		linkExactActiveClass: 'is-exact-active'
 
+	},
+
+	// You can disable compiling app icons here, per environment, to speed up compilation
+	compileAppIcons: {
+		dev: false,
+		prod: false
+	},
+
+	// FIXME: currently implemented with favicons-webpack-plugin, which is not great
+	// https://github.com/jantimon/favicons-webpack-plugin
+	appIconPlatforms: {
+		android: true,
+		appleIcon: true,
+		appleStartup: false, // Not a good idea to generate these from the same source file
+		coast: false,
+		favicons: true,
+		firefox: false,
+		opengraph: false,
+		twitter: false,
+		yandex: false,
+		windows: true
 	},
 
 	// Enable some meta tags that optimize the mobile experience
