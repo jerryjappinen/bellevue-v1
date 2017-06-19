@@ -62,6 +62,7 @@
 
 ## Investigate
 
+- [ ] Unit testing toolset: https://github.com/wrseward/vue-unit
 - [ ] Preconfiguring server-side rendering
 	- Prerendering plugin for Webpack: http://vuejs-templates.github.io/webpack/prerender.html
 	- About SSR on Vue: https://vuejs.org/v2/guide/ssr.html

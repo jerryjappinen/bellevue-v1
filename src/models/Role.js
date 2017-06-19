@@ -1,4 +1,4 @@
-
+import _ from 'lodash';
 import Vue from 'vue';
 
 export default Vue.extend({
@@ -7,7 +7,13 @@ export default Vue.extend({
 
 		id: {
 			type: Number,
-			required: true
+			required: false,
+			validator: function (id) {
+				if (id === null || (_.isInteger(id) && id >= 0)) {
+					return true;
+				}
+				return false;
+			}
 		},
 
 		title: {
@@ -24,7 +30,7 @@ export default Vue.extend({
 	computed: {
 
 		idIsValid: function () {
-			if (typeof this.id === 'number' && this.id > -1) {
+			if (_.isInteger(this.id) && this.id >= 0) {
 				return true;
 			}
 			return false;

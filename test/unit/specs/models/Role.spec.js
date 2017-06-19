@@ -9,9 +9,7 @@ describe('Role model (harhar)', function () {
 		var role = new Role();
 
 		// Expected results
-		expect(role.id)
-			.to.not
-				.be.a('number');
+		expect(role.id).to.not.be.a('number');
 
 	});
 
@@ -24,43 +22,45 @@ describe('Role model (harhar)', function () {
 		expect(role.id).to.be.a('number');
 	});
 
-	it('should have invalid ID below 0', function (done) {
+	it('should be invalid with ID below 0', function () {
+
+		// FIXME: here I should test for the prop validation to fail
 		var role = new Role({
 			propsData: {
 				id: -1
 			}
 		});
-		expect(role.idIsValid).to.not.be.ok();
+
+		expect(role.isValid).to.not.be.ok;
+
 	});
 
-	// it('should be valid when ID is set', function (done) {
+	it('should become valid when ID is set', function () {
 
-	// 	var role = new Role();
-	// 	expect(role.isValid).to.not.be.ok();
+		var role = new Role();
 
-	// 	role.id = 123;
+		expect(role.isValid).to.not.be.ok;
 
-	// 	expect(role.isValid).to.be.ok();
+		role.id = 123;
 
-	// });
+		expect(role.isValid).to.be.ok;
 
-	// it('should be invalid when ID is unset', function (done) {
+	});
 
-	// 	var role = new Role({
-	// 		propsData: {
-	// 			id: 123
-	// 		}
-	// 	});
+	it('should become invalid when ID is unset', function () {
 
-	// 	expect(role.isValid).to.be.ok();
+		var role = new Role({
+			propsData: {
+				id: 123
+			}
+		});
 
-	// 	role.id = null;
+		expect(role.isValid).to.be.ok;
 
-	// 	Vue.nextTick(function () {
-	// 		expect(role.isValid).to.not.be.ok();
-	// 		done();
-	// 	});
+		role.id = null;
 
-	// });
+		expect(role.isValid).to.not.be.ok;
+
+	});
 
 });

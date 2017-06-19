@@ -115,6 +115,9 @@ module.exports = {
 		// See http://stackoverflow.com/questions/2100758/javascript-or-variable-assignment-explanation
 		'no-unneeded-ternary': ['off'],
 
+		// New is fine
+		'no-new': ['off'],
+
 
 
 		// Rules for imports plugin
