@@ -170,7 +170,6 @@
 
 	.view-button-content,
 	.view-button-spinner {
-		@include transition-slow;
 		@include transition-properties-common;
 	}
 
@@ -178,7 +177,6 @@
 		position: relative;
 		z-index: 2;
 		display: inline-block;
-		@include transition-delay-slow;
 	}
 
 	.view-button-spinner {
@@ -190,6 +188,25 @@
 
 
 	// Loading state
+
+	.view-button-not-loading {
+
+		.view-button-content,
+		.view-button-spinner {
+			@include transition-slow;
+		}
+
+		.view-button-content {
+			opacity: 1;
+			@include transition-delay-slow;
+		}
+
+		.view-button-spinner {
+			opacity: 0;
+		}
+
+	}
+
 	.view-button-loading {
 
 		.view-button-content,
@@ -199,7 +216,6 @@
 
 		.view-button-content {
 			opacity: 0;
-			@include no-transition-delay;
 		}
 
 		.view-button-spinner {
