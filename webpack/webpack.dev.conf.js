@@ -8,6 +8,8 @@ var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 var StylelintPlugin = require('stylelint-webpack-plugin')
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
+var _ = require('lodash')
+
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 	baseWebpackConfig.entry[name] = ['./webpack/dev-client'].concat(baseWebpackConfig.entry[name])
@@ -16,6 +18,8 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 // Load custom values from manifest
 var normalizedConfig = require('./custom-config.js');
 var configForTemplate = require('../src/config/config.base.js');
+var devValues = require('../src/config/config.dev.base.js');
+configForTemplate = _.merge(configForTemplate, devValues);
 
 var webpackConfig = merge(baseWebpackConfig, {
 	module: {

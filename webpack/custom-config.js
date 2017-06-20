@@ -3,11 +3,16 @@
 // NOTE: This utility is meant only for Webpack tooling, not application code
 // In app code '@config' should be imported directly
 
+var _ = require('lodash')
 var path = require('path')
 
 // Get base custom project configuration values
-var values = require('../src/config/config.base.js');
 var aliases = require('../src/config/config.aliases.js');
+var values = require('../src/config/config.base.js');
+var devValues = require('../src/config/config.dev.base.js');
+if (process.env.NODE_ENV === 'development') {
+	values = _.merge(values, devValues);
+}
 
 // Path helper
 // FIXME: duplicated from webpack.base.conf.js
