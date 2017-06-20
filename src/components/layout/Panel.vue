@@ -74,7 +74,6 @@
 	@import '~@shared-styles';
 
 	.view-panel {
-		@include fill-fixed;
 		overflow: hidden;
 
 		// FIXME: I'd like to have generic transition classes here even if I've chosen to use a named transition in the parent component

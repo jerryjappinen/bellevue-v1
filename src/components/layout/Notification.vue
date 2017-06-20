@@ -82,9 +82,6 @@
 	@import '~@shared-styles';
 
 	.view-notification {
-		position: absolute;
-		top: 1em;
-		right: 1em;
 
 		&.transition-fade-enter,
 		&.transition-fade-leave-to {

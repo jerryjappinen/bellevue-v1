@@ -113,7 +113,6 @@
 	// Base styling
 
 	.view-popover {
-		@include fill;
 		overflow: hidden;
 	}
 
@@ -181,7 +180,6 @@
 	}
 
 	.view-popover-not-in-place {
-		@include fill-fixed;
 
 		.view-popover-content {
 			position: absolute;

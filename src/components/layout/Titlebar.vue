@@ -147,9 +147,7 @@
 	@import '~@shared-styles';
 
 	.view-titlebar {
-		@include fill-width-fixed;
 		line-height: 1;
-		top: 0;
 
 		background-color: $color-white;
 		@include shadow;

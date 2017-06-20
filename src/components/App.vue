@@ -140,14 +140,14 @@
 			<notification v-if="notificationShouldBeShown"></notification>
 		</transition>
 
-		<!-- Panels will be rendered here when they open -->
-		<transition name="transition-fade" mode="out-in">
-			<panel v-if="panelShouldBeShown"></panel>
-		</transition>
-
 		<!-- Popover elements will be rendered here in the structure regardless of their positioning -->
 		<transition name="transition-fade" mode="out-in">
 			<popover v-if="popoverShouldBeShown"></popover>
+		</transition>
+
+		<!-- Panels will be rendered here when they open -->
+		<transition name="transition-fade" mode="out-in">
+			<panel v-if="panelShouldBeShown"></panel>
 		</transition>
 
 		<!-- Title bar -->
@@ -188,21 +188,85 @@
 	// - This is just manual duplication that leads to mistakes.
 	@import '~@shared-styles';
 
+
+
+	// NOTE
+	//
+	// Positioning and stack order for high-level layout elements
+	// This scales this top-level component to fill the entire viewport
+	// This means that body and .view-app won't scroll, but .view-app-content will
+	// Other elements like titlebar and panels can be absolutely positioned instead of fixed
+	//
+	// If you want body to scroll (works better for some apps):
+	// - remove the height and overflow limitations below
+	// - use fixed for floating elements instead of absolute
+
+	html,
+	body {
+		// overflow: hidden; // Uncomment to DISABLE the rubber band effect when scrolling to page edges on desktop
+		height: 100%;
+		max-height: 100%;
+	}
+
+	.view-app {
+		@include fill;
+		overflow: hidden;
+		height: 100%;
+		max-height: 100%;
+
+		.view-notification {
+			position: absolute;
+			// position: fixed;
+			top: 1em;
+			right: 1em;
+		}
+
+		.view-popover {
+			@include fill;
+		}
+
+		.view-popover-not-in-place {
+			// @include fill-fixed;
+			@include fill;
+		}
+
+		.view-panel {
+			// @include fill-fixed;
+			@include fill;
+		}
+
+		.view-titlebar {
+			// @include fill-width-fixed;
+			@include fill-width;
+			top: 0;
+		}
+
+	}
+
+	.view-app-content {
+		@include fill-relative;
+		overflow: auto;
+		max-height: 100%;
+	}
+
+
+
 	// Required for titlebar spacing
 	// FIXME: hacky solution, can't be transitioned and is not 100 % accurate
 	.view-app {
 		padding-top: 1em + (2 * $buffer-tight);
 
+		// Stacking order of layout elements
 		.view-notification {
-			z-index: $z-indicators;
-		}
-
-		.view-panel {
-			z-index: $z-panels;
+			z-index: $z-notifications;
 		}
 
 		.view-popover {
 			z-index: $z-popovers;
+		}
+
+		.view-panel {
+			z-index: $z-panels;
 		}
 
 		.view-titlebar {
