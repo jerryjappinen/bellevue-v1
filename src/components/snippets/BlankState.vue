@@ -16,6 +16,9 @@
 				type: Function,
 				required: false
 			},
+			callbackLoading: {
+				required: false
+			},
 			callbackLabel: {
 				type: String,
 				required: false
@@ -47,7 +50,9 @@
 		<p class="view-blank-state-description" v-if="hasDescription">{{ description }}</p>
 
 		<div class="view-blank-state-callback" v-if="hasCallback">
-			<p><click-button :callback="callback">{{ callbackLabel }}</click-button></p>
+			<p>
+				<click-button :callback="callback" :loading="callbackLoading">{{ callbackLabel }}</click-button>
+			</p>
 		</div>
 
 	</div>

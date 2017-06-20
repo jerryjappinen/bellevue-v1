@@ -101,6 +101,7 @@
 					title="No items found"
 					description="This text should tell you how to create items."
 					:callback="fetchData"
+					:callbackLoading="isLoading"
 					callbackLabel="Reset list items">
 				</blank-state>
 
