@@ -1,13 +1,6 @@
 
 # To do
 
-## Dependencies
-
-- [ ] Upgrade ESLint to version 4
-	- `eslint-plugin-node` might still has issues (as of 16 June 2017)
-- [ ] Upgrade Webpack loaders
-- [ ] Upgrade to Webpack 3: https://medium.com/webpack/webpack-3-official-release-15fd2dd8f07b
-
 ## Tooling
 
 - [ ] More thorough set of app icons and tiles for various platforms
