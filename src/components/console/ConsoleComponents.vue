@@ -8,7 +8,8 @@
 				controlsAreDisabled: false,
 				setTestValue: 'foo',
 				toggleTestValue: true,
-				textinputTestValue: ''
+				textinputTestValue: '',
+				buttonsAreLoading: false
 			};
 		},
 
@@ -21,6 +22,16 @@
 		},
 
 		methods: {
+
+			testButtonToggle: function () {
+				let vm = this;
+				if (!this.buttonsAreLoading) {
+					this.buttonsAreLoading = true;
+					setTimeout(function () {
+						vm.buttonsAreLoading = false;
+					}, 2000);
+				}
+			},
 
 			clickTestCallback: function () {
 				alert('Clicked on <click>');
@@ -163,29 +174,29 @@
 		<h3>Buttons</h3>
 
 		<p>
-			<click-button>Bar</click-button>
-			<click-button theme="stroke">Bar</click-button>
-			<click-button theme="plain">Bar</click-button>
-			<click-button icon="check"></click-button>
-			<click-button icon="check">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" theme="stroke">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" theme="plain">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" icon="check"></click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" icon="check">Bar</click-button>
 		</p>
 
 		<p>
-			<click-button color="green">Bar</click-button>
-			<click-button color="green" theme="stroke">Bar</click-button>
-			<click-button color="green" theme="plain">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" color="green">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" color="green" theme="stroke">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" color="green" theme="plain">Bar</click-button>
 		</p>
 
 		<p>
-			<click-button color="red">Bar</click-button>
-			<click-button color="red" theme="stroke">Bar</click-button>
-			<click-button color="red" theme="plain">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" color="red">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" color="red" theme="stroke">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" color="red" theme="plain">Bar</click-button>
 		</p>
 
 		<p>
-			<click-button :disabled="true">Bar</click-button>
-			<click-button :disabled="true" theme="stroke">Bar</click-button>
-			<click-button :disabled="true" theme="plain">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" :disabled="true">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" :disabled="true" theme="stroke">Bar</click-button>
+			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" :disabled="true" theme="plain">Bar</click-button>
 		</p>
 
 	</div>

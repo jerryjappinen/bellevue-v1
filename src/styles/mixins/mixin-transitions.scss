@@ -3,43 +3,93 @@
 
 // NOTE: should be auto generated based on transition variables
 
-@mixin transition ($duration, $properties: null) {
+@mixin transition ($duration, $properties: null, $delay: null) {
 	transition-duration: $duration;
 
 	@if $properties {
 		transition-property: $properties;
 	}
 
+	@if $delay {
+		transition-delay: $delay;
+	}
+
 }
 
-// Per transition durations
-
-@mixin transition-veryveryfast ($properties: null) {
-	@include transition($transition-veryveryfast, $properties);
+@mixin no-transition {
+	transition-duration: 0ms;
 }
 
-@mixin transition-veryfast ($properties: null) {
-	@include transition($transition-veryfast, $properties);
+
+
+// Transition durations
+
+@mixin transition-veryveryfast ($properties: null, $delay: null) {
+	@include transition($transition-veryveryfast, $properties, $delay);
 }
 
-@mixin transition-fast ($properties: null) {
-	@include transition($transition-fast, $properties);
+@mixin transition-veryfast ($properties: null, $delay: null) {
+	@include transition($transition-veryfast, $properties, $delay);
 }
 
-@mixin transition-medium ($properties: null) {
-	@include transition($transition-medium, $properties);
+@mixin transition-fast ($properties: null, $delay: null) {
+	@include transition($transition-fast, $properties, $delay);
 }
 
-@mixin transition-slow ($properties: null) {
-	@include transition($transition-slow, $properties);
+@mixin transition-medium ($properties: null, $delay: null) {
+	@include transition($transition-medium, $properties, $delay);
 }
 
-@mixin transition-veryslow ($properties: null) {
-	@include transition($transition-veryslow, $properties);
+@mixin transition-slow ($properties: null, $delay: null) {
+	@include transition($transition-slow, $properties, $delay);
 }
 
-@mixin transition-veryveryslow ($properties: null) {
-	@include transition($transition-veryveryslow, $properties);
+@mixin transition-veryslow ($properties: null, $delay: null) {
+	@include transition($transition-veryslow, $properties, $delay);
+}
+
+@mixin transition-veryveryslow ($properties: null, $delay: null) {
+	@include transition($transition-veryveryslow, $properties, $delay);
+}
+
+
+
+// Transition delays
+
+@mixin transition-delay ($delay) {
+	transition-delay: $delay;
+}
+
+@mixin transition-delay-veryveryfast {
+	@include transition-delay($transition-veryveryfast);
+}
+
+@mixin transition-delay-veryfast {
+	@include transition-delay($transition-veryfast);
+}
+
+@mixin transition-delay-fast {
+	@include transition-delay($transition-fast);
+}
+
+@mixin transition-delay-medium {
+	@include transition-delay($transition-medium);
+}
+
+@mixin transition-delay-slow {
+	@include transition-delay($transition-slow);
+}
+
+@mixin transition-delay-veryslow {
+	@include transition-delay($transition-veryslow);
+}
+
+@mixin transition-delay-veryveryslow {
+	@include transition-delay($transition-veryveryslow);
+}
+
+@mixin no-transition-delay {
+	@include transition-delay(0ms);
 }
 
 
@@ -93,16 +143,4 @@
 	&:active {
 		transition-duration: $transition-fast;
 	}
-}
-
-
-
-// No transition
-
-@mixin no-transition {
-	transition-duration: 0ms;
-}
-
-@mixin no-transition-delay {
-	transition-delay: 0ms;
 }

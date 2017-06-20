@@ -6,8 +6,13 @@
 
 		props: {
 
-			// Accept any value for disabled, will be checked for truthyness
+			// When the button should appear as disabled and not trigger callback
+			// Accept any value, will be checked for truthyness
 			disabled: {},
+
+			// When the button should appear as active and not rerun the callback
+			// Accept any value, will be checked for truthyness
+			loading: {},
 
 			// Either icon or label should be used, but not necessarily both
 			// FIXME: how would I validate this?
@@ -55,7 +60,9 @@
 			classes: function () {
 				var classnames = {
 					disabled: this.disabled,
-					enabled: !this.disabled
+					enabled: !this.disabled,
+					loading: this.loading,
+					notLoading: !this.loading
 				};
 
 				// Include theme and color classnames
@@ -72,7 +79,9 @@
 
 		methods: {
 			onActivate: function () {
-				this.callback();
+				if (!this.disabled && !this.loading) {
+					this.callback();
+				}
 			}
 		}
 
@@ -85,7 +94,15 @@
 		class="view-button"
 		:class="classes"
 		:disabled="disabled ? true : false"
-		@click="onActivate"><icon class="view-button-icon" v-if="icon" :asset="icon"></icon> <slot></slot></button>
+		@click="onActivate">
+			<!--<transition name="transition-scale-fade" mode="out-in">-->
+			<span class="view-button-indicator">
+				<spinner-small class="view-button-spinner"></spinner-small>
+			</span>
+			<span class="view-button-content">
+				<icon class="view-button-icon" v-if="icon" :asset="icon"></icon> <slot></slot>
+			</span>
+	</button>
 </template>
 
 <style lang="scss">
@@ -128,6 +145,7 @@
 		font-weight: 500;
 		line-height: 1;
 
+		position: relative;
 		display: inline-block;
 		@include pad-loose;
 		border-width: 2px;
@@ -148,6 +166,47 @@
 
 	.view-button-icon {
 		vertical-align: top;
+	}
+
+	.view-button-content,
+	.view-button-spinner {
+		@include transition-slow;
+		@include transition-properties-common;
+	}
+
+	.view-button-content {
+		position: relative;
+		z-index: 2;
+		display: inline-block;
+		@include transition-delay-slow;
+	}
+
+	.view-button-spinner {
+		@include keep-full-center;
+		z-index: 1;
+		opacity: 0;
+	}
+
+
+
+	// Loading state
+	.view-button-loading {
+
+		.view-button-content,
+		.view-button-spinner {
+			@include transition-fast;
+		}
+
+		.view-button-content {
+			opacity: 0;
+			@include no-transition-delay;
+		}
+
+		.view-button-spinner {
+			opacity: 1;
+			@include transition-delay-fast;
+		}
+
 	}
 
 
