@@ -32,7 +32,7 @@ These are some notes about the things that should be investigated and possibly i
 - [ ] Split Vuex state management into modules and perhaps multiple files
 - [ ] Persist Vuex state: https://github.com/vuejs/awesome-vue#persistence
 
-## Preconfiguring server-side rendering
+## Preconfigured server-side rendering
 
 - Prerendering plugin for Webpack: http://vuejs-templates.github.io/webpack/prerender.html
 - About SSR on Vue: https://vuejs.org/v2/guide/ssr.html
@@ -53,9 +53,6 @@ During normal development, user might get no indication that imports are missing
 
 Can we improve the pipeline to automate redundant tasks? Things such as the following cause a lot of boilerplate code that has to be manually maintained:
 
-- [x] Importing and declaring child components
-- [x] Importing and declaring directives used in components
-- [x] Explicitly renaming child components locally
 - [ ] Explicitly importing services in each component
 - [ ] Explicitly importing shared SCSS in `.vue` files
 - [ ] Ensuring dependencies are up to date (directives and plugins imported in components must be installed via npm and `package.json` up to date)
