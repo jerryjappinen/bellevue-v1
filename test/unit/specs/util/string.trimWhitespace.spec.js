@@ -25,16 +25,13 @@ describe('Util string.trimWhitespace with trailing whitespace', function () {
 	const expectedResult = 'Foooo';
 
 	// Test this with each of the test cases provided above
-	for (var key in whitespaceStrings) {
-		var whitespaceString = whitespaceStrings[key];
-
-		// Whitespace is at the end of string
-		var testString = expectedResult + whitespaceString;
-
+	for (let key in whitespaceStrings) {
 		it('should trim ' + key, function () {
-			expect(stringUtil.trimWhitespace(testString)).to.equal(expectedResult);
-		});
 
+			// Whitespace is at the end of string
+			expect(stringUtil.trimWhitespace(expectedResult + whitespaceStrings[key])).to.equal(expectedResult);
+
+		});
 	}
 
 });
@@ -45,16 +42,13 @@ describe('Util string.trimWhitespace with leading whitespace', function () {
 	const expectedResult = 'Foooo';
 
 	// Test this with each of the test cases provided above
-	for (var key in whitespaceStrings) {
-		var whitespaceString = whitespaceStrings[key];
-
-		// Whitespace is at the start of string
-		var testString = whitespaceString + expectedResult;
-
+	for (let key in whitespaceStrings) {
 		it('should trim ' + key, function () {
-			expect(stringUtil.trimWhitespace(testString)).to.equal(expectedResult);
-		});
 
+			// Whitespace is at the start of string
+			expect(stringUtil.trimWhitespace(whitespaceStrings[key] + expectedResult)).to.equal(expectedResult);
+
+		});
 	}
 
 });
@@ -67,16 +61,13 @@ describe('Util string.trimWhitespace with excess whitespace', function () {
 	const expectedResult = partOne + ' ' + partTwo;
 
 	// Test this with each of the test cases provided above
-	for (var key in whitespaceStrings) {
-		var whitespaceString = whitespaceStrings[key];
-
-		// Whitespace is injected in the middle
-		var testString = partOne + whitespaceString + partTwo;
-
+	for (let key in whitespaceStrings) {
 		it('should trim ' + key, function () {
-			expect(stringUtil.trimWhitespace(testString)).to.equal(expectedResult);
-		});
 
+			// Whitespace is injected in the middle
+			expect(stringUtil.trimWhitespace(partOne + whitespaceStrings[key] + partTwo)).to.equal(expectedResult);
+
+		});
 	}
 
 });

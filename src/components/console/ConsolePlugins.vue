@@ -1,7 +1,8 @@
 <script>
-
 	import _ from 'lodash';
 	import axios from 'axios';
+
+	import { string } from '@util';
 
 	export default {
 		name: 'console-plugins',
@@ -15,6 +16,10 @@
 		},
 
 		computed: {
+
+			utilStringDomainName: function () {
+				return string.getDomainName(' github.com');
+			},
 
 			httpResult: function () {
 				if (this.httpError) {
@@ -94,6 +99,10 @@
 <template>
 
 	<dl>
+
+		<!-- Utils -->
+		<dt><code>util.string</code></dt>
+		<dd><pre><code>{{ utilStringDomainName }}</code></pre></dd>
 
 		<!-- Throttle -->
 		<dt><code>$throttle</code></dt>
