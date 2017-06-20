@@ -1,14 +1,6 @@
 
 # To do
 
-## Tooling
-
-- [ ] More thorough set of app icons and tiles for various platforms
-- [ ] Add some way of ensuring SCSS imports are correct
-	- If SCSS dependencies are not correct, tests might fail (as tests compile SCSS files independently, for some reason)
-	- During normal development, user might get no indication that imports are missing in source files because SCSS is normally compiled via `global.scss` or `utilities.scss` where dependencies tend to always be available
-	- If we had a command for compiling all SCSS files independently outside of tests, we could test this
-
 ## Application code
 
 - [x] Some kind of env/device service
@@ -63,6 +55,22 @@
 - We have some more complicated toolchains producing utility classes with responsive variants etc.
 - http://mts.io/2014/04/02/sass-unit-testing/
 
+There should also be some way of ensuring SCSS imports are correct. If they're not, tests might fail (test env compiles SCSS files independently).
+
+During normal development, user might get no indication that imports are missing in source files because SCSS is normally compiled via `global.scss` or `utilities.scss` where dependencies tend to always be available. If we had a command for compiling all SCSS files independently outside of tests, we could test this.
+
+### Automation
+
+Can we improve the pipeline to automate redundant tasks? Things such as the following cause a lot of boilerplate code that has to be manually maintained:
+
+- [x] Importing and declaring child components
+- [x] Importing and declaring directives used in components
+- [x] Explicitly renaming child components locally
+- [ ] Explicitly importing services in each component
+- [ ] Explicitly importing shared SCSS in `.vue` files
+- [ ] Ensuring dependencies are up to date (directives and plugins imported in components must be installed via npm and `package.json` up to date)
+- [ ] Webpack disallows dynamic requiring just like ES6 imports, but `require.context` could perhaps be used to improve automation
+
 ### Code intelligence
 
 - [ ] VS Code IntelliSense
@@ -90,15 +98,3 @@ Makes code more robust, can improve IDE experience. Rapid iteration might get mo
 Some parts of the codebase, like models, utility libraries, state management, might benefit a lot from this. On the other hand simple single-file Vue components are mostly template and style-driven, and the view model code is almost never accessed by anything outside the component. Vue components have props (input), for which Vue has a validation feature.
 
 TS features can be introduced gradually as features mature, but we still want to demo and try out new things fast without cumbersome code quality requirements (situation is similar with automated tests).
-
-### Automation
-
-Can we improve the pipeline to automate redundant tasks? Things such as the following cause a lot of boilerplate code that has to be manually maintained:
-
-- [x] Importing and declaring child components
-- [x] Importing and declaring directives used in components
-- [x] Explicitly renaming child components locally
-- [ ] Explicitly importing services in each component
-- [ ] Explicitly importing shared SCSS in `.vue` files
-- [ ] Ensuring dependencies are up to date (directives and plugins imported in components must be installed via npm and `package.json` up to date)
-- [ ] Webpack disallows dynamic requiring just like ES6 imports, but `require.context` could perhaps be used to improve automation
