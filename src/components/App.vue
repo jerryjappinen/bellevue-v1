@@ -192,10 +192,16 @@
 
 	// NOTE
 	//
-	// Positioning and stack order for high-level layout elements
-	// This scales this top-level component to fill the entire viewport
-	// This means that body and .view-app won't scroll, but .view-app-content will
-	// Other elements like titlebar and panels can be absolutely positioned instead of fixed
+	// Positioning for high-level layout elements
+	// - We do this here instead of in each component so we have one place where we see an overview
+	// - This component in general is in charge of layout orchestration
+	// - Also each sub component should not be concerned about the parent context, i.e. positioning on the screen
+	//
+	// Restricting body scrolling
+	//
+	// - This scales this top-level component to fill the entire viewport
+	// - This means that body and .view-app won't scroll, but .view-app-content will
+	// - Other elements like titlebar and panels can be absolutely positioned instead of fixed
 	//
 	// If you want body to scroll (works better for some apps):
 	// - remove the height and overflow limitations below
@@ -257,6 +263,7 @@
 		padding-top: 1em + (2 * $buffer-tight);
 
 		// Stacking order of layout elements
+
 		.view-notification {
 			z-index: $z-notifications;
 		}
