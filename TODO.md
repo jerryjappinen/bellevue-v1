@@ -15,12 +15,7 @@
 	- Docs: http://kazupon.github.io/vue-i18n/en/
 	- Simple example: https://kazupon.github.io/vue-i18n/en/migrations.html#features
 
-## Vuex
-
-- [ ] Split Vuex state management into modules and perhaps multiple files
-- [ ] Persist Vuex state: https://github.com/vuejs/awesome-vue#persistence
-
-## Components
+### Components
 
 - [ ] Small checkmark element
 - [ ] Email, password
@@ -28,6 +23,11 @@
 - [ ] Date picker
 - [ ] Reliable in-place popover positioning
 - [ ] Click handling and blur events for closing in-place popover
+
+### Vuex
+
+- [ ] Split Vuex state management into modules and perhaps multiple files
+- [ ] Persist Vuex state: https://github.com/vuejs/awesome-vue#persistence
 
 ## Investigate
 
