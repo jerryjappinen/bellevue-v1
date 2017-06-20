@@ -130,13 +130,16 @@ module.exports = {
 	},
 
 	// You can disable compiling app icons here, per environment, to speed up compilation
+	// https://github.com/jantimon/favicons-webpack-plugin
+	//
+	// FIXME
+	// There are two issues related to these when enabled
+	// - https://github.com/Eiskis/bellevue/issues/12
+	// - https://github.com/Eiskis/bellevue/issues/22
 	compileAppIcons: {
 		dev: false,
 		prod: false
 	},
-
-	// FIXME: currently implemented with favicons-webpack-plugin, which is not great
-	// https://github.com/jantimon/favicons-webpack-plugin
 	appIconPlatforms: {
 		android: true, // will be also used for web app manifest
 		appleIcon: true,
