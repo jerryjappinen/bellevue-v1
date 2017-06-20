@@ -160,11 +160,23 @@
 			@focus="onFocus"
 			@focusout="onFocusOut"></textarea>
 
-		<!-- Vue does not support dynamic type for some reason :( -->
+		<!-- Vue does not support dynamic type :( -->
 		<input
 			v-else-if="type === 'email'"
 			v-model.trim="ownValue"
 			type="email"
+			:name="name"
+			:maxlength="maxlengthValue"
+			:placeholder="placeholder"
+			:disabled="disabled"
+			@focus="onFocus"
+			@focusout="onFocusOut">
+
+		<!-- Vue does not support dynamic type :( -->
+		<input
+			v-else-if="type === 'password'"
+			v-model.trim="ownValue"
+			type="password"
 			:name="name"
 			:maxlength="maxlengthValue"
 			:placeholder="placeholder"

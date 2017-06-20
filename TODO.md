@@ -18,7 +18,6 @@
 ### Components
 
 - [ ] Small checkmark element
-- [ ] Email, password
 - [ ] Number fields
 - [ ] Date picker
 - [ ] Reliable in-place popover positioning
