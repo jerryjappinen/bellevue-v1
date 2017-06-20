@@ -13,9 +13,9 @@ module.exports = {
 	'@locales': 'src/locales',
 
 	// Vendor code, services, utilities etc.
-	'@util': 'src/util',
 	'@models': 'src/models',
 	'@services': 'src/services',
+	'@util': 'src/util',
 
 	// Assets
 	'@assets': 'src/assets',
