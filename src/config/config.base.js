@@ -6,6 +6,21 @@
 // NOTE: tooling will break if we use ES6 export here, so let's stick to module.exports
 module.exports = {
 
+	offlineCache: {
+
+		// Set to false/true to disable/enable offline caching of production builds
+		// Outputs appcache manifest and service workers that define how app assets should be cached by supported browsers
+		enabled: false,
+
+		// Whether serve assets to users from cache or via network first when both are available
+		// 'cache-first' or 'network-first'
+		responseStrategy: 'cache-first',
+
+		// Either update all assets when the (internal) version has changed, or track individual asset versions separately
+		// 'all' or 'changed'
+		updateStrategy: 'all'
+	},
+
 	// Will be used in base HTML templating
 	meta: {
 		title: 'My app',

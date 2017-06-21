@@ -1,6 +1,7 @@
 
 // Vendor
 import _ from 'lodash';
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 
 // Polyfills etc. magic
 import 'es6-promise/auto';
@@ -22,6 +23,11 @@ import { global as globalMixins } from '@vue-mixins';
 
 // Services
 import services from '@services';
+
+
+
+// Vendor code setup
+OfflinePluginRuntime.install();
 
 
 

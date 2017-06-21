@@ -15,7 +15,7 @@ function resolve (dir) {
 }
 
 // Load custom values from manifest
-var customConfiguration = require('./custom-config.js')
+var normalizedConfig = require('./custom-config.js')
 var unresolvedAliases = require('../src/config/config.aliases')
 
 // FIXME: htmllinter-loader has some issues, but we should include it here
@@ -40,7 +40,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.css', '.scss'],
-		alias: customConfiguration.customAliases
+		alias: normalizedConfig.customAliases
   },
 	plugins: [
 		new SvgPlugin(),
@@ -98,9 +98,9 @@ module.exports = {
 					{
 						loader: 'external-svg-sprite-loader',
 						options: {
-							name: customConfiguration.svgSpritePath,
+							name: normalizedConfig.svgSpritePath,
 							iconName: '[name]',
-							svgoOptions: customConfiguration.svgo
+							svgoOptions: normalizedConfig.svgo
 						}
 					}
 
