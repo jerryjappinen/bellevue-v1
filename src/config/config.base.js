@@ -43,6 +43,11 @@ module.exports = {
 		scope: '/'
 	},
 
+	// This is a good place for configuring any remote paths you might have to work with
+	paths: {
+		// api: 'https://api.myservice.com'
+	},
+
 	// Localisation
 	defaultLocale: 'es',
 	fallbackLocale: 'en',
