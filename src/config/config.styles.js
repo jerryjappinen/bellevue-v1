@@ -3,12 +3,7 @@ import _ from 'lodash';
 
 // Get SCSS constants
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import scssConstants from '!sass-to-js-var-loader!@styles/definitions/constants';
-
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import scssPalette from '!sass-to-js-var-loader!@styles/definitions/palette';
-
-const styles = _.merge(scssConstants, scssPalette);
+import styles from '!sass-to-js-var-loader!@styles/definitions/constants';
 
 // Convert some values to numbers
 var parsedStyles = {};

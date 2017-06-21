@@ -3,13 +3,69 @@
 
 // Functions are used here to generate some colors
 @import './functions';
-@import './palette';
+
+
+
+// Brand colors
+$color-brand-red: #f8453c;
+$color-brand-orange: #fa8400;
+$color-brand-yellow: #fabc00;
+$color-brand-green: #70ca63;
+$color-brand-blue: #00baf8;
+
+
+
+// Other brands
+$color-airbnb: #fd5c63;
+$color-android: #a4c639;
+$color-behance: #005cff;
+$color-facebook: #4267b2;
+$color-goeuro: #2a84b7;
+$color-googleplay: #689f38;
+$color-instagram: #3f729b;
+$color-instapaper: #428bca;
+$color-ios: #007aff;
+$color-messenger: #007aff;
+$color-pinterest: #bd081c;
+$color-twitter: #55acee;
+$color-vue: #42b983;
+$color-whatsapp-light: #25d366;
+$color-whatsapp-dark: #128c7e;
+$color-whatsapp-verydark: #075e54;
+
+
+
+// Greyscale
+$color-white: #fff;
+$color-verylightgrey: #f7f9f9;
+$color-lightgrey: #dbe5e8;
+
+$color-grey: #a5b2b6;
+$color-grey-hint: color-translucent($color-grey, 0.4);
+
+$color-dark: #0f4d62;
+$color-dark-hue: color-darker($color-dark);
+
+$color-dark-translucent: color-translucent($color-dark, 0.15); // same as verylightgrey on white
+
+$color-black: #000;
+$color-black-hint: color-translucent($color-black, 0.1);
+
+
+
+// Colors
+// Fixme: missing standard variations (translucent, light and dark tints)
+$color-red: $color-brand-red;
+$color-red-hint: color-translucent($color-red);
+$color-orange: $color-brand-orange;
+$color-yellow: $color-brand-yellow;
+$color-blue: $color-brand-blue;
+$color-green: $color-brand-green;
+$color-green-hint: color-translucent($color-green);
 
 
 
 // Functional colors
-// FIXME: codebase still uses a mix of these and original palette values
-
 $color-discreet: $color-grey;
 
 $color-primary: $color-blue;
