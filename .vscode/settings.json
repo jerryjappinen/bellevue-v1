@@ -20,7 +20,7 @@
 		"docs": true,
 
 		// Generated files for test reports
-		"tooling/unit/coverage/**/*": true
+		"reports/**/*": true
 
 	},
 

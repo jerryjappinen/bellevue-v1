@@ -4,6 +4,5 @@ dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-tooling/unit/coverage
 tooling/e2e/reports
 selenium-debug.log
