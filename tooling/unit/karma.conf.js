@@ -16,7 +16,7 @@ module.exports = function (config) {
       'PhantomJS'
     ],
     frameworks: ['mocha', 'sinon-chai', 'phantomjs-shim'],
-    reporters: ['spec', 'coverage'],
+    reporters: ['spec', 'coverage', 'html'],
     files: [
 
       // Required to suppress issue with ES6 Promise polyfill missing in PhantomJS
@@ -40,6 +40,21 @@ module.exports = function (config) {
         { type: 'lcov', subdir: '.' },
         { type: 'text-summary' }
       ]
+    },
+    // the default configuration
+    htmlReporter: {
+      outputDir: 'reports', // where to put the reports
+      templatePath: null, // set if you moved jasmine_template.html
+      focusOnFailures: true, // reports show failures on start
+      namedFiles: true, // name files instead of creating sub-directories
+      pageTitle: 'Unit test report', // page title for reports; browser info by default
+      urlFriendlyName: true, // simply replaces spaces with _ for files/dirs
+      reportName: 'unit', // report summary filename; browser info by default
+
+      // experimental
+      preserveDescribeNesting: false, // folded suites stay folded
+      foldAll: false // reports start folded (only with preserveDescribeNesting)
     }
+
   })
 }
