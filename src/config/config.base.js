@@ -81,7 +81,7 @@ module.exports = {
 
 		// Set to false/true to disable/enable offline caching of production builds
 		// Outputs appcache manifest and service workers that define how app assets should be cached by supported browsers
-		enabled: false,
+		enabled: true,
 
 		// Whether serve assets to users from cache or via network first when both are available
 		// 'cache-first' or 'network-first'
