@@ -1,6 +1,6 @@
 // 1. start the dev server using production config
 process.env.NODE_ENV = 'testing'
-var server = require('../../webpack/dev-server.js')
+var server = require('../../tooling/dev-server.js')
 
 // Select which driver to use based on environment variable passed
 var useSelenium = false

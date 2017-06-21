@@ -15,9 +15,9 @@
     "not ie <= 8"
   ],
   "scripts": {
-    "dev": "node webpack/dev-server.js",
-    "start": "node webpack/dev-server.js",
-    "build": "node webpack/build.js",
+    "dev": "node tooling/dev-server.js",
+    "start": "node tooling/dev-server.js",
+    "build": "node tooling/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js",
     "unit:once": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
@@ -34,7 +34,8 @@
     "lint:html": "htmllint --cwd src/ **/*.html",
     "lint:vuehtml": "htmllint --cwd src/ **/*.vue",
     "lint:styles": "stylelint 'src/**/*.scss' --syntax scss",
-    "lint:vuestyles": "stylelint 'src/**/*.vue' --syntax scss"
+    "lint:vuestyles": "stylelint 'src/**/*.vue' --syntax scss",
+    "lint:tooling": "eslint --ext .js tooling"
   },
   "dependencies": {
     "axios": "^0.16.2",

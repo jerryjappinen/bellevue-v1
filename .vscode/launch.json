@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/webpack/dev-server.js"
+            "program": "${workspaceRoot}/tooling/dev-server.js"
         }
     ]
 }

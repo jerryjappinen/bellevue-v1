@@ -12,7 +12,7 @@ var _ = require('lodash')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-	baseWebpackConfig.entry[name] = ['./webpack/dev-client'].concat(baseWebpackConfig.entry[name])
+	baseWebpackConfig.entry[name] = ['./tooling/dev-client'].concat(baseWebpackConfig.entry[name])
 })
 
 // Load custom values from manifest
