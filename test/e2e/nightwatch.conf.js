@@ -1,7 +1,7 @@
 require('babel-register')
 var config = require('../../webpack/env')
 var aliases = require('../../src/config/config.aliases')
-var specPath = aliases['@spec-e2e']
+var specPath = aliases['@spec'] + '/e2e'
 
 console.log('specPath', specPath)
 

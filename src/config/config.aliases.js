@@ -36,8 +36,7 @@ module.exports = {
 	'@styles': 'src/styles',
 	'@shared-styles': 'src/styles/shared',
 
-	// Tests
-	'@spec-e2e': 'spec-e2e',
-	'@spec-unit': 'spec-unit'
+	// Test cases
+	'@spec': 'spec'
 
 };

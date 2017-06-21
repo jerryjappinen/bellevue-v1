@@ -30,7 +30,7 @@
     "docs:plugins": "docco -o docs/plugins src/vue/plugins/*.js",
     "docs:styles": "docco -o docs/styles src/styles/**/*.scss",
     "lint": "npm run lint:js && npm run lint:styles && npm run lint:vuestyles && npm run lint:html && npm run lint:vuehtml",
-    "lint:js": "eslint --ext .js,.vue src spec-unit spec-e2e",
+    "lint:js": "eslint --ext .js,.vue src spec",
     "lint:html": "htmllint --cwd src/ **/*.html",
     "lint:vuehtml": "htmllint --cwd src/ **/*.vue",
     "lint:styles": "stylelint 'src/**/*.scss' --syntax scss",
