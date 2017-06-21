@@ -5,6 +5,8 @@
     "allowSyntheticDefaultImports": true
   },
 	"include": [
+		"spec-e2e/**/*.js",
+		"spec-unit/**/*.js",
 		"src/**/*.js",
 		"src/**/*.vue"
 	]

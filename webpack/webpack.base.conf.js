@@ -53,7 +53,7 @@ module.exports = {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
+        include: [resolve('spec-e2e'), resolve('spec-unit'), resolve('src'), resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter')
         }
@@ -73,7 +73,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('spec-e2e'), resolve('spec-unit'), resolve('src'), resolve('test')]
       },
 
       // htmllinting

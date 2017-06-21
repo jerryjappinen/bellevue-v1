@@ -34,6 +34,10 @@ module.exports = {
 	// Global styles
 	// NOTE: we could split this further
 	'@styles': 'src/styles',
-	'@shared-styles': 'src/styles/shared'
+	'@shared-styles': 'src/styles/shared',
+
+	// Tests
+	// '@spec-e2e': 'spec-e2e',
+	'@spec-unit': 'spec-unit'
 
 };
