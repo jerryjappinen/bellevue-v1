@@ -7,44 +7,48 @@ html {
 	line-height: $line-height;
 }
 
-
-
-// FIXME: should use push mixins
-
-h1 {
-	margin-top: $buffer-tight;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin-top: $buffer;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin-bottom: $buffer-tight;
-}
-
+hr,
 p,
 ul,
 ol,
 table,
 pre,
 blockquote {
-	margin-top: $buffer-tight;
-	margin-bottom: $buffer;
+	@include push-vertical;
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include push-tight-bottom;
+}
+
+// Normal top margin for this
+h1 {
+	@include push-top;
+}
+
+// More top margin for these
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include push-top-even;
+}
+
+// Tables
+caption {
+	@include push-tight-bottom;
 }
 
 // Definition lists
 dl {
-	margin-bottom: $buffer;
+	@include push-bottom;
 
 	// Utilities
 	&.no-push,
@@ -53,37 +57,18 @@ dl {
 	&.inline,
 	&.inline-block {
 		dt {
-			margin-top: 0;
+			@include no-push-top;
 		}
 	}
 
 }
 
 dt {
-	margin-top: $buffer-tight;
-	margin-bottom: 0;
+	@include push-top;
+	@include no-push-bottom;
 }
 
 dd {
-	margin-top: 0;
-	margin-bottom: 0;
 	margin-left: 0;
-}
-
-// Tables
-caption {
-	margin-bottom: $buffer-tight;
-}
-
-th,
-td {
-	padding: 0;
-}
-
-// Lines
-hr {
-	border-width: 1px 0 0 0;
-	border-style: solid;
-	border-color: $color-dark-translucent;
-	@include push-vertical;
+	@include no-push-vertical;
 }
