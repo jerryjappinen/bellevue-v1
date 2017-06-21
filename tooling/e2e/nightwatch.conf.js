@@ -1,12 +1,14 @@
+var path = require('path')
 require('babel-register')
+
 var config = require('../../tooling/env')
 var aliases = require('../../src/config/config.aliases')
 var specPath = aliases['@spec'] + '/e2e'
 
-console.log('specPath', specPath)
-
 // http://nightwatchjs.org/gettingstarted#settings-file
 module.exports = {
+  globals_path: path.join(__dirname, './nightwatch.globals.js'),
+
   src_folders: [specPath],
   output_folder: 'reports/e2e',
   custom_assertions_path: ['tooling/e2e/custom-assertions'],

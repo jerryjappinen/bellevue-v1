@@ -1,6 +1,9 @@
+var _ = require('lodash')
 var chromedriver = require('chromedriver')
 
-module.exports = {
+var defaults = require('./nightwatch.globals.js')
+
+module.exports = _.merge(defaults, {
 
   before: function (done) {
     chromedriver.start()
@@ -12,4 +15,4 @@ module.exports = {
     done()
   }
 
-}
+})
