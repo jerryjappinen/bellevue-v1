@@ -1,9 +1,13 @@
 require('babel-register')
 var config = require('../../webpack/env')
+var aliases = require('../../src/config/config.aliases')
+var specPath = aliases['@spec-e2e']
+
+console.log('specPath', specPath)
 
 // http://nightwatchjs.org/gettingstarted#settings-file
 module.exports = {
-  src_folders: ['spec-e2e'],
+  src_folders: [specPath],
   output_folder: 'test/e2e/reports',
   custom_assertions_path: ['test/e2e/custom-assertions'],
 

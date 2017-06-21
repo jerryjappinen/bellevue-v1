@@ -37,7 +37,7 @@ module.exports = {
 	'@shared-styles': 'src/styles/shared',
 
 	// Tests
-	// '@spec-e2e': 'spec-e2e',
+	'@spec-e2e': 'spec-e2e',
 	'@spec-unit': 'spec-unit'
 
 };
