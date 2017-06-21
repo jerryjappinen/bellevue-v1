@@ -16,6 +16,7 @@ function resolve (dir) {
 
 // Load custom values from manifest
 var customConfiguration = require('./custom-config.js')
+var unresolvedAliases = require('../src/config/config.aliases')
 
 // FIXME: htmllinter-loader has some issues, but we should include it here
 // var htmllintOptions = {
@@ -53,7 +54,7 @@ module.exports = {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        include: [resolve('spec-e2e'), resolve('spec-unit'), resolve('src'), resolve('test')],
+        include: [resolve(unresolvedAliases['@spec-e2e']), resolve(unresolvedAliases['@spec-unit']), resolve('src'), resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter')
         }
@@ -73,7 +74,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('spec-e2e'), resolve('spec-unit'), resolve('src'), resolve('test')]
+        include: [resolve(unresolvedAliases['@spec-e2e']), resolve(unresolvedAliases['@spec-unit']), resolve('src'), resolve('test')]
       },
 
       // htmllinting

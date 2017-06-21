@@ -1,7 +1,6 @@
 
 // Utility file to normalise custom configuration for tooling
 // NOTE: This utility is meant only for Webpack tooling, not application code
-// In app code '@config' should be imported directly
 
 var _ = require('lodash')
 var path = require('path')
