@@ -8,6 +8,9 @@ var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 var StylelintPlugin = require('stylelint-webpack-plugin')
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
+// https://github.com/NekR/offline-plugin/
+var OfflinePlugin = require('offline-plugin')
+
 var _ = require('lodash')
 
 // add hot-reload related code to entry chunks
@@ -63,6 +66,11 @@ if (normalizedConfig.compileAppIcons.dev) {
 			icons: normalizedConfig.appIconPlatforms
 		}),
 	)
+}
+
+// Offline plugin
+if (normalizedConfig.offlineCache) {
+  webpackConfig.plugins.push(new OfflinePlugin(normalizedConfig.offlineCache))
 }
 
 module.exports = webpackConfig

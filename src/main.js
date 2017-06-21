@@ -27,7 +27,9 @@ import services from '@services';
 
 
 // Vendor code setup
-OfflinePluginRuntime.install();
+if (config.offlineCache.enabled) {
+	OfflinePluginRuntime.install();
+}
 
 
 
