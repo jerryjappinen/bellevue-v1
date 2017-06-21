@@ -8,7 +8,7 @@ console.log('specPath', specPath)
 // http://nightwatchjs.org/gettingstarted#settings-file
 module.exports = {
   src_folders: [specPath],
-  output_folder: 'tooling/e2e/reports',
+  output_folder: 'reports/e2e',
   custom_assertions_path: ['tooling/e2e/custom-assertions'],
 
   selenium: {
