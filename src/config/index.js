@@ -2,7 +2,7 @@
 import _ from 'lodash';
 
 // Actual config files
-import defaultAliases from './config.aliases';
+// import defaultAliases from './config.aliases';
 import defaultBase from './config.base';
 import defaultRoutes from './config.routes';
 import defaultStyles from './config.styles';
@@ -25,7 +25,7 @@ export default _.merge(
 	{},
 	mergedBase,
 	{
-		aliases: defaultAliases,
+		// aliases: defaultAliases,
 		routes: mergedRoutes,
 		styles: defaultStyles
 	}
