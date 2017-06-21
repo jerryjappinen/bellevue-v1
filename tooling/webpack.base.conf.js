@@ -50,22 +50,25 @@ module.exports = {
 	],
   module: {
     rules: [
+
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        include: [resolve(unresolvedAliases['@spec']), resolve('src'), resolve('test')],
+        include: [resolve(unresolvedAliases['@spec']), resolve('src'), resolve('tooling/e2e'), resolve('tooling/unit')],
         options: {
           formatter: require('eslint-friendly-formatter')
         }
       },
+
       // {
       //   test: /\.vue$/,
       //   loader: 'htmllint-loader',
       //   enforce: 'pre',
       //   options: htmllintOptions,
-      //   include: [resolve('src'), resolve('test')]
+      //   include: [resolve('src'), resolve('tooling/e2e'), resolve('tooling/unit')]
       // },
+
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -74,7 +77,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve(unresolvedAliases['@spec']), resolve('src'), resolve('test')]
+        include: [resolve(unresolvedAliases['@spec']), resolve('src'), resolve('tooling/e2e'), resolve('tooling/unit')]
       },
 
       // htmllinting
@@ -83,7 +86,7 @@ module.exports = {
       //   loader: 'htmllint-loader',
       //   enforce: 'pre',
 			// 	options: htmllintOptions,
-      //   include: [resolve('src'), resolve('test')]
+      //   include: [resolve('src'), resolve('tooling/e2e'), resolve('tooling/unit')]
       // },
 
 			// SVG optimisation and compilation
@@ -108,7 +111,7 @@ module.exports = {
       {
         test: /\.ejs$/,
         loader: 'ejs-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('tooling/e2e'), resolve('tooling/unit')]
       },
 
       {
