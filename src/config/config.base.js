@@ -95,6 +95,7 @@ module.exports = {
 		// Either update all assets when the (internal) version has changed, or track individual asset versions separately
 		// 'all' or 'changed'
 		updateStrategy: 'all'
+
 	},
 
 	// Viewport control for mobile devices
