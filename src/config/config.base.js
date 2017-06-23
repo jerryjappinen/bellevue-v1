@@ -117,13 +117,13 @@ module.exports = {
 		// sitemap: 'sitemap.xml',
 		// host: 'http://example.com',
 		policy: [
-			{
-				userAgent: '*',
-				allow: '/',
-				disallow: '/foo',
-				crawlDelay: 10,
-				cleanParam: 'ref /foo/'
-			}
+			// {
+			// 	userAgent: '*',
+			// 	allow: '/',
+			// 	disallow: '/foo',
+			// 	crawlDelay: 10,
+			// 	cleanParam: 'ref /foo/'
+			// }
 		]
 	},
 
