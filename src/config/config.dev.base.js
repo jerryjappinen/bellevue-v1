@@ -3,7 +3,11 @@
 module.exports = {
 
 	meta: {
-		// title: 'DEV my app'
+		// title: 'My app DEV'
+	},
+
+	offlineCache: {
+		enabled: false
 	},
 
 	paths: {

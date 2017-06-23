@@ -7,12 +7,6 @@ import components from '@vue-components';
 export default [
 
 	{
-		path: '*',
-		name: 'notFound',
-		component: components.PageNotFound
-	},
-
-	{
 		// NOTE
 		// - We could just display the home page component with this route
 		// - But if we did, the router will think all top-level pages are children of that
@@ -52,6 +46,12 @@ export default [
 		path: '/list/:page',
 		name: 'listpage',
 		component: components.PageList
+	},
+
+	{
+		path: '*',
+		name: 'notFound',
+		component: components.PageNotFound
 	}
 
 ];
