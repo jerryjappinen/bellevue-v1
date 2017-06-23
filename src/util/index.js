@@ -10,7 +10,7 @@ export {
 };
 
 export default {
-	dom: dom,
-	events: events,
-	string: string
+	dom,
+	events,
+	string
 };
