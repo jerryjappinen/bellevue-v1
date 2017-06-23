@@ -7,7 +7,18 @@ import Router from 'vue-router';
 // Import route components for vue-router
 import config from '@config';
 
+// eslint-disable-next-line import/extensions
+import defaultRoutes from '@config/config.routes';
 
+// eslint-disable-next-line import/extensions
+import devRoutes from '@config/config.dev.routes';
+
+// Merge configs with multiple sources
+let mergedRoutes = defaultRoutes;
+
+if (process.env.NODE_ENV === 'development') {
+	mergedRoutes = mergedRoutes.concat(devRoutes);
+}
 
 // Autoload plugin
 Vue.use(Router);
@@ -21,7 +32,7 @@ export const options = {
 	linkExactActiveClass: config.router.linkExactActiveClass,
 
 	// Our frontend URL scheme
-	routes: config.routes
+	routes: mergedRoutes
 
 };
 
