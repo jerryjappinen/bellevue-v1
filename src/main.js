@@ -105,7 +105,7 @@ new Vue({
 				// Call the `persist` setter for each service
 				for (var serviceName in services) {
 					var service = services[serviceName];
-					if (persist[serviceName] && service.persist) {
+					if (persist[serviceName] && !_.isUndefined(service.persist)) {
 						service.persist = persist[serviceName];
 					}
 				}
