@@ -81,8 +81,8 @@ module.exports = {
 		'home': 0,
 
 		// Sample pages
-		'list': 0,
-		'item': 0,
+		'posts': 0,
+		'post': 0,
 
 		// Sample page to demo route guards
 		'secret': 1

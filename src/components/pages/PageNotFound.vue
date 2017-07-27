@@ -12,7 +12,7 @@
 		methods: {
 			backToHome: function () {
 				this.$router.push({
-					name: 'home'
+					name: 'root'
 				});
 			}
 		}
