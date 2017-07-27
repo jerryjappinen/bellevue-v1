@@ -79,8 +79,6 @@
 	$spinnerSize: 48;
 	$spinnerRadius: ($spinnerSize / 2) * 1px;
 
-	// .view-spinner {}
-
 	.view-spinner-circle {
 		fill: transparent;
 		stroke: currentColor;

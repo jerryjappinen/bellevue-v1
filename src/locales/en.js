@@ -6,14 +6,12 @@ export default {
 	pageTitles: {
 
 		// Top-level pages
-		home: 'Hello!',
-		arbitrary: 'Some page',
-		console: 'Console',
-		list: 'List',
-		listpage: '@:pageTitles.list',
-		notFound: 'Page not found',
+		home: 'Home',
+		posts: 'Posts',
+		post: '@:pageTitles.posts',
 
 		// Console sub pages
+		console: 'Console',
 		consoleComponents: '@:pageTitles.console',
 		consoleConfiguration: '@:pageTitles.console',
 		consoleModels: '@:pageTitles.console',

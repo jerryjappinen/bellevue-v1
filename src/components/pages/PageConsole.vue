@@ -61,17 +61,17 @@
 
 <template>
 
-	<div class="view-page-console">
+	<page class="view-page-console">
 
 		<h1>Debug {{ title }}</h1>
 
 		<tabs :links="tabs"></tabs>
 
-		<transition name="transition-fade" mode="out-in">
+		<fade>
 			<router-view></router-view>
-		</transition>
+		</fade>
 
-	</div>
+	</page>
 
 </template>
 

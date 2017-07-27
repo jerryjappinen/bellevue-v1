@@ -31,7 +31,7 @@ npm install
 ## Building and testing
 
 ```sh
-# Serve with hot reload
+# Serve with hot reload and open login page in browser
 npm run dev
 
 # Serve with hot reload on a specific port

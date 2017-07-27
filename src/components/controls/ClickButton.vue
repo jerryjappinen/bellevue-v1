@@ -1,6 +1,10 @@
 <script>
-	import _ from 'lodash';
-	import util from '@util';
+	import { includes } from 'lodash';
+	import { composeClassnames } from '@util';
+
+	const themes = ['solid', 'plain', 'stroke'];
+	const colors = ['blue', 'green', 'red'];
+
 	export default {
 		name: 'click-button',
 
@@ -33,17 +37,24 @@
 			theme: {
 				type: String,
 				required: false,
+				default: themes[0],
 				validator: function (value) {
-					return _.includes(['plain', 'solid', 'stroke'], value);
+					return includes(themes, value);
 				}
 			},
 
 			color: {
 				type: String,
 				required: false,
+				default: colors[0],
 				validator: function (value) {
-					return _.includes(['blue', 'green', 'red'], value);
+					return includes(colors, value);
 				}
+			},
+
+			route: {
+				type: Object,
+				required: false
 			},
 
 			// Callback is not required, as sometimes a button might be wrapped in another control
@@ -57,32 +68,71 @@
 
 		computed: {
 
+			hasText: function () {
+				return this.$slots.default && this.$slots.default.length ? true : false;
+			},
+
+			isLink: function () {
+				return this.route ? true : false;
+			},
+
+			tag: function () {
+				return this.isLink ? 'router-link' : 'button';
+			},
+
+			extraPropBindings: function () {
+				var bindings = {};
+				if (this.isLink) {
+					bindings['to'] = this.route;
+				}
+				return bindings;
+			},
+
+			extraEventBindings: function () {
+				var bindings = {};
+				if (!this.isLink) {
+					bindings['click'] = this.onActivate;
+				}
+				return bindings;
+			},
+
 			classes: function () {
+
+				// API
 				var classnames = {
-					disabled: this.disabled,
+
+					// Icon and/or text
+					withText: this.hasText,
+					noText: !this.hasText,
+					withIcon: this.icon ? true : false,
+					noIcon: !this.icon ? true : false,
+
+					// States
+					disabled: this.disabled ? true : false,
 					enabled: !this.disabled,
 					loading: this.loading,
 					notLoading: !this.loading
+
 				};
 
 				// Include theme and color classnames
-				var theme = this.theme ? this.theme : 'solid';
-				var color = this.color ? this.color : 'blue';
-				classnames[theme] = true;
-				classnames[color] = true;
-				classnames[theme + '-' + color] = true;
+				classnames[this.theme] = true;
+				classnames[this.color] = true;
+				classnames[this.theme + '-' + this.color] = true;
 
-				return util.dom.composeClassnames(classnames, 'view-button');
+				return composeClassnames(classnames, 'view-click-button');
 			}
 
 		},
 
 		methods: {
-			onActivate: function () {
+
+			onActivate: function (event) {
 				if (!this.disabled && !this.loading) {
-					this.callback();
+					this.callback(event);
 				}
 			}
+
 		}
 
 	};
@@ -90,19 +140,23 @@
 </script>
 
 <template>
-	<button
-		class="view-button"
+
+	<!-- Renders either a router-link, or a button element -->
+	<component
+		:is="tag"
+		v-bind="extraPropBindings"
+		v-on="extraEventBindings"
+
+		class="view-click-button"
 		:class="classes"
-		:disabled="disabled ? true : false"
-		@click="onActivate">
-			<!--<transition name="transition-scale-fade" mode="out-in">-->
-			<span class="view-button-indicator">
-				<spinner-small class="view-button-spinner"></spinner-small>
+		:disabled="disabled ? true : false">
+			<span class="view-click-button-indicator">
+				<inline-spinner class="view-click-button-spinner" :adjust="false"></inline-spinner>
 			</span>
-			<span class="view-button-content">
-				<icon class="view-button-icon" v-if="icon" :asset="icon"></icon> <slot></slot>
+			<span class="view-click-button-content">
+				<icon class="view-click-button-icon" v-if="icon" :asset="icon" :scale-up="true"></icon> <slot></slot>
 			</span>
-	</button>
+	</component>
 </template>
 
 <style lang="scss">
@@ -111,23 +165,23 @@
 	// Used below for enabled buttons
 	@mixin button-colors ($color-name, $color-value) {
 
-		&.view-button-plain-#{$color-name},
-		&.view-button-stroke-#{$color-name} {
+		&.view-click-button-plain-#{$color-name},
+		&.view-click-button-stroke-#{$color-name} {
 			color: $color-value;
 			&:hover {
 				color: color-saturate($color-value);
 			}
 		}
 
-		&.view-button-stroke-#{$color-name},
-		&.view-button-solid-#{$color-name} {
+		&.view-click-button-stroke-#{$color-name},
+		&.view-click-button-solid-#{$color-name} {
 			border-color: $color-value;
 			&:hover {
 				border-color: color-saturate($color-value);
 			}
 		}
 
-		&.view-button-solid-#{$color-name} {
+		&.view-click-button-solid-#{$color-name} {
 			background-color: $color-value;
 			&:hover {
 				background-color: color-saturate($color-value);
@@ -138,7 +192,7 @@
 
 
 
-	.view-button {
+	.view-click-button {
 		@include border-box;
 		@include radius;
 
@@ -164,22 +218,22 @@
 
 	}
 
-	.view-button-icon {
+	.view-click-button-icon {
 		vertical-align: top;
 	}
 
-	.view-button-content,
-	.view-button-spinner {
+	.view-click-button-content,
+	.view-click-button-spinner {
 		@include transition-properties-common;
 	}
 
-	.view-button-content {
+	.view-click-button-content {
 		position: relative;
 		z-index: 2;
 		display: inline-block;
 	}
 
-	.view-button-spinner {
+	.view-click-button-spinner {
 		@include keep-full-center;
 		z-index: 1;
 		opacity: 0;
@@ -189,36 +243,36 @@
 
 	// Loading state
 
-	.view-button-not-loading {
+	.view-click-button-not-loading {
 
-		.view-button-content,
-		.view-button-spinner {
+		.view-click-button-content,
+		.view-click-button-spinner {
 			@include transition-slow;
 		}
 
-		.view-button-content {
+		.view-click-button-content {
 			opacity: 1;
 			@include transition-delay-slow;
 		}
 
-		.view-button-spinner {
+		.view-click-button-spinner {
 			opacity: 0;
 		}
 
 	}
 
-	.view-button-loading {
+	.view-click-button-loading {
 
-		.view-button-content,
-		.view-button-spinner {
+		.view-click-button-content,
+		.view-click-button-spinner {
 			@include transition-fast;
 		}
 
-		.view-button-content {
+		.view-click-button-content {
 			opacity: 0;
 		}
 
-		.view-button-spinner {
+		.view-click-button-spinner {
 			opacity: 1;
 			@include transition-delay-fast;
 		}
@@ -229,16 +283,16 @@
 
 	// Theme variation baseline
 
-	.view-button-plain {
+	.view-click-button-plain {
 		border-color: transparent;
 	}
 
-	.view-button-solid {
+	.view-click-button-solid {
 		color: $color-white;
 	}
 
 	// Only enabled
-	.view-button-enabled {
+	.view-click-button-enabled {
 		@include cursor-pointer;
 
 		// Scale down when pressing
@@ -246,8 +300,8 @@
 			transform: scale($scale-small);
 		}
 
-		&.view-button-plain,
-		&.view-button-stroke {
+		&.view-click-button-plain,
+		&.view-click-button-stroke {
 			&:hover {
 				background-color: color-translucent($color-dark, 0.05);
 			}
@@ -261,19 +315,19 @@
 	}
 
 	// Only disabled
-	.view-button-disabled {
+	.view-click-button-disabled {
 
-		&.view-button-plain,
-		&.view-button-stroke {
+		&.view-click-button-plain,
+		&.view-click-button-stroke {
 			color: $color-grey;
 		}
 
-		&.view-button-stroke,
-		&.view-button-solid {
+		&.view-click-button-stroke,
+		&.view-click-button-solid {
 			border-color: $color-grey;
 		}
 
-		&.view-button-solid {
+		&.view-click-button-solid {
 			background-color: $color-grey;
 		}
 

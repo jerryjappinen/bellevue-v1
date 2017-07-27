@@ -1,0 +1,26 @@
+
+@import '~@shared-styles';
+
+.container-white {
+	@include container-white;
+}
+
+.container-white-buffer {
+	@include container-white-buffer;
+}
+
+.container-dark {
+	@include container-dark;
+}
+
+.container-dark-buffer {
+	@include container-dark-buffer;
+}
+
+.container-card {
+	@include container-card;
+}
+
+.container-card-buffer {
+	@include container-card-buffer;
+}

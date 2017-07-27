@@ -1,5 +1,4 @@
-
-import _ from 'lodash';
+import { debounce } from 'lodash';
 import Vue from 'vue';
 
 export default new Vue({
@@ -75,13 +74,13 @@ export default new Vue({
 			this.scrollY = this.getScrollY();
 		},
 
-		onResize: _.debounce(function () {
+		onResize: debounce(function () {
 			this.updateDimensions();
 		}, 10, {
 			leading: true
 		}),
 
-		onScroll: _.debounce(function () {
+		onScroll: debounce(function () {
 			this.updateScrollValues();
 		}, 10, {
 			leading: true

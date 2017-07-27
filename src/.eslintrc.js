@@ -45,12 +45,17 @@ module.exports = {
 			}
 		],
 
+		// FIXME: we want to use this, but it's causing issues in tests
+		'no-unused-expressions': 'off',
+
 		// Number of consecutive blank lines allowed
+		// FIXME: there might be a bug with maxBOF, turning this off for now
+		// 'no-multiple-empty-lines': 'off',
 		'no-multiple-empty-lines': [
 			'warn',
 			{
 				'max': 3,
-				'maxBOF': 1,
+				'maxBOF': 2,
 				'maxEOF': 1
 			}
 		],
@@ -64,6 +69,7 @@ module.exports = {
 		'no-empty': 'warn',            // Empty blocks should be cleaned up
 		'no-unreachable': 'warn',      // Unreachable code should be cleaned up
 		'no-else-return': 'error',     // Smelly, code will break when refactoring
+		'no-useless-escape': 'off',    // Sometimes escaping certain characters is not useless
 
 		// Variables should be declared when they are used for the first time
 		// This makes it easier to move them from one scope to another when refactoring
@@ -71,6 +77,9 @@ module.exports = {
 			'error',
 			'never'
 		],
+
+		// Allow balancing object notation key-value pairs
+		// 'key-spacing': ['off'],
 
 		// config.someItems['foo'] is sometimes useful
 		// It can highlight that we're referring to an item with a very specific, hardcoded name (that probably should be a variable)

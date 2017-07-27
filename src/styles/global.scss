@@ -2,6 +2,7 @@
 // CSS declarations
 
 // Keyframe animations
+@import './keyframes/keyframes-pulse';
 @import './keyframes/keyframes-spin';
 
 // Web fonts
@@ -48,4 +49,4 @@
 @import './base/base-rhythm';
 @import './base/base-tables';
 @import './base/base-tooltips';
-@import './base/base-typography';
+@import './base/base-type';

@@ -1,0 +1,39 @@
+
+@import './mixin-buffer';
+@import './mixin-radius';
+@import './mixin-shadow';
+
+@mixin container-white {
+	@include radius-loose;
+	@include background-clip-padding-box;
+	overflow: auto;
+	border-width: 1px;
+	border-color: $color-dark-translucent;
+	background-color: $color-white;
+}
+
+@mixin container-white-buffer {
+	@include container-white;
+	@include buffer;
+}
+
+@mixin container-dark {
+	@include radius;
+	overflow: auto;
+	background-color: color-translucent($color-dark, 0.05);
+}
+
+@mixin container-dark-buffer {
+	@include container-dark;
+	@include buffer;
+}
+
+@mixin container-card {
+	@include container-white;
+	@include shadow;
+}
+
+@mixin container-card-buffer {
+	@include container-card;
+	@include buffer;
+}

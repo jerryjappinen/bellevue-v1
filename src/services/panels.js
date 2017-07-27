@@ -1,5 +1,4 @@
-
-import _ from 'lodash';
+import { kebabCase } from 'lodash';
 import Vue from 'vue';
 
 export default new Vue({
@@ -22,7 +21,7 @@ export default new Vue({
 
 		open: function (component) {
 			if (component) {
-				this.component = _.kebabCase(component);
+				this.component = kebabCase(component);
 			}
 		},
 

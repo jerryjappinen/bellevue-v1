@@ -16,7 +16,7 @@
 
 .transition-scale-fade-leave,
 .transition-scale-fade-leave-active {
-	@include transition-slow;
+	@include transition-fast;
 }
 
 // Default state to transition a) to when entering and b) from when leaving
@@ -29,11 +29,13 @@
 // Start state when entering
 .transition-scale-fade-enter {
 	opacity: 0;
-	transform: scale($scale-large);
+	// transform: scale($scale-large);
+	transform: scale($scale-verysmall);
 }
 
 // Out
 .transition-scale-fade-leave-active {
 	opacity: 0;
-	transform: scale($scale-small);
+	// transform: scale($scale-small);
+	transform: scale($scale-verysmall);
 }

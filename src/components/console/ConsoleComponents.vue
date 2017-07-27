@@ -9,6 +9,7 @@
 				setTestValue: 'foo',
 				toggleTestValue: true,
 				textinputTestValue: '',
+				sliderTestValue: 50,
 				buttonsAreLoading: false
 			};
 		},
@@ -51,123 +52,147 @@
 
 	<div class="view-console-components">
 
-		<h3>Images and static assets</h3>
+		<h3>Tags</h3>
 
-		<!-- References to static assets with resolved URLs -->
-		<ul>
-			<li><img class="view-console-components-image" alt="Foo" src="../../assets/logo.png"> <code>img</code> with relative URL</li>
-			<li><img class="view-console-components-image" alt="Foo" src="~@assets/logo.png"> <code>img</code> with alias in URL</li>
-			<li><img class="view-console-components-image" alt="Foo" src="~@assets/some/folder/anotherlogo.png"> <code>img</code> in a subdirectory</li>
-			<li><pic class="view-console-components-image" title="Foo" src="logo.png"></pic> <code>pic</code> with a PNG</li>
-			<li><pic class="view-console-components-image" title="Foo" src="some/folder/anotherlogo.png" hide-until-loaded></pic> <code>pic</code> with a PNG, hidden until loaded</li>
-			<li><pic class="view-console-components-image" asset="chevron-down"></pic> <code>pic</code> with an SVG</li>
-			<li><icon asset="chevron-down"></icon> <code>icon</code></li>
-			<li class="view-console-components-highlight"><icon asset="chevron-down"></icon> <code>icon</code> with an asset that supports currentColor</li>
-		</ul>
+		<card>
 
+			<p>
+				<tag>Foo bar</tag>
+				<tag color="blue">Foo bar</tag>
+				<tag color="green">Foo bar</tag>
+				<tag color="yellow">Foo bar</tag>
+				<tag color="orange">Foo bar</tag>
+				<tag color="red">Foo bar</tag>
+			</p>
 
+			<p>
+				<tag icon="arrow-right">Foo bar</tag>
+				<tag icon="arrow-left" color="blue">Foo bar</tag>
+				<tag icon="cross" color="green">Foo bar</tag>
+				<tag icon="check" color="yellow">Foo bar</tag>
+				<tag icon="help" color="orange">Foo bar</tag>
+				<tag icon="hamburger" color="red">Foo bar</tag>
+			</p>
 
-		<h3>Spinner</h3>
+			<p>
+				<tag :disabled="true" >Foo bar</tag>
+				<tag :disabled="true" color="blue">Foo bar</tag>
+				<tag :disabled="true" icon="help" color="orange">Foo bar</tag>
+				<tag :disabled="true" icon="cross" color="red">Foo bar</tag>
+			</p>
 
-		<!-- Spinners of various styles -->
-		<p>
-			<spinner></spinner>
-			<spinner-small></spinner-small>
-			<spinner class="view-console-components-spinner-1"></spinner>
-			<spinner class="view-console-components-spinner-2"></spinner>
-			<spinner class="view-console-components-spinner-3"></spinner>
-		</p>
-
-
+		</card>
 
 		<h3>Controls</h3>
 
 		<p><click-button :callback="toggleControlsDisabled">Disable/enable controls</click-button> ({{ controlsAreDisabled }})</p>
 
+		<p><slider :value.sync="sliderTestValue" :disabled="controlsAreDisabled"></slider></p>
+
+		<p>
+			<checkmark :value="true"></checkmark>
+			<checkmark :value="false"></checkmark>
+			<checkmark :disabled="true" :value="true"></checkmark>
+			<checkmark :disabled="true" :value="false"></checkmark>
+			{{ sliderTestValue }}
+		</p>
+
+
+
 		<!-- Testing barebones control components -->
-		<table class="view-console-components-controls">
 
-			<!--Clicking-->
-			<tr>
-				<td class="pad">Click</td>
-				<td><click class="pad" :callback="clickTestCallback" :disabled="controlsAreDisabled">Click me</click></td>
-			</tr>
-			<tr>
-				<td class="pad">Set to bar</td>
-				<td>
-					<set class="pad" v-model="setTestValue" to="bar" :disabled="controlsAreDisabled">
-						<checkbox :value="setTestValue === 'bar'" :disabled="controlsAreDisabled"></checkbox>
-						<flipswitch :value="setTestValue === 'bar'" :disabled="controlsAreDisabled"></flipswitch>
-						{{ setTestValue }}
-					</set>
-				</td>
-			</tr>
+		<card :buffer="false">
 
-			<!--Switches and toggles-->
-			<tr>
-				<td class="pad">Set to + bar (dynamic)</td>
-				<td>
-					<set class="pad" v-model="setTestValue" :to="setTestTargetValue" :disabled="controlsAreDisabled">
-						<radio :value="setTestValue" selected-on="foo" :disabled="controlsAreDisabled"></radio>
-						<radio :value="setTestValue" selected-on="bar" :disabled="controlsAreDisabled"></radio>
-						<radio :value="setTestValue" selected-on="foo bar" :disabled="controlsAreDisabled"></radio>
-						<radio :value="setTestValue" selected-on="bar bar" :disabled="controlsAreDisabled"></radio>
-						{{ setTestValue }}
-					</set>
-				</td>
-			</tr>
+			<table class="view-console-components-controls no-push-vertical">
 
-			<tr>
-				<td class="pad">Toggle</td>
-				<td>
-					<toggle class="pad" v-model="toggleTestValue" :disabled="controlsAreDisabled">
-						<checkbox :value="toggleTestValue" :disabled="controlsAreDisabled"></checkbox>
-						<flipswitch :value="toggleTestValue" :disabled="controlsAreDisabled"></flipswitch>
-						{{ toggleTestValue }}
-					</toggle>
-				</td>
-			</tr>
+				<!--Clicking-->
+
+				<tr>
+					<td class="pad">Click</td>
+					<td><click class="block pad" feedback="area" :callback="clickTestCallback" :disabled="controlsAreDisabled">Click me</click></td>
+				</tr>
+
+				<tr>
+					<td class="pad">Set to bar</td>
+					<td>
+						<set class="block pad" feedback="area" :value.sync="setTestValue" to="bar" :disabled="controlsAreDisabled">
+							<checkbox :value="setTestValue === 'bar'" :disabled="controlsAreDisabled"></checkbox>
+							<flipswitch :value="setTestValue === 'bar'" :disabled="controlsAreDisabled"></flipswitch>
+							{{ setTestValue }}
+						</set>
+					</td>
+				</tr>
 
 
 
-			<!--Textinput-->
+				<!--Switches and toggles-->
 
-			<tr>
-				<td class="pad">{{ textinputTestValue }}</td>
-				<td>
+				<tr>
+					<td class="pad">Set to + bar (dynamic)</td>
+					<td>
+						<set class="block pad" feedback="area" :value.sync="setTestValue" :to="setTestTargetValue" :disabled="controlsAreDisabled">
+							<radio :value="setTestValue" selected-on="foo" :disabled="controlsAreDisabled"></radio>
+							<radio :value="setTestValue" selected-on="bar" :disabled="controlsAreDisabled"></radio>
+							<radio :value="setTestValue" selected-on="foo bar" :disabled="controlsAreDisabled"></radio>
+							<radio :value="setTestValue" selected-on="bar bar" :disabled="controlsAreDisabled"></radio>
+							{{ setTestValue }}
+						</set>
+					</td>
+				</tr>
 
-					<!--NOTE: using v-model-->
-					<label class="block pad">
-						<textinput
-							v-model="textinputTestValue"
-							:disabled="controlsAreDisabled"
-							:clear="true"
-							:sanitize="true">
-						</textinput>
-					</label>
+				<tr>
+					<td class="pad">Toggle</td>
+					<td>
+						<toggle class="block pad" feedback="area" :value.sync="toggleTestValue" :disabled="controlsAreDisabled">
+							<checkbox :value="toggleTestValue" :disabled="controlsAreDisabled"></checkbox>
+							<flipswitch :value="toggleTestValue" :disabled="controlsAreDisabled"></flipswitch>
+							{{ toggleTestValue }}
+						</toggle>
+					</td>
+				</tr>
 
-				</td>
-			</tr>
 
-			<tr>
-				<td class="pad">{{ textinputTestValue }}</td>
-				<td>
 
-					<!--NOTE: using v-model-->
-					<label class="block pad">
-						<textinput
-							v-model="textinputTestValue"
-							type="multiline"
-							:disabled="controlsAreDisabled"
-							:clear="true"
-							:sanitize="true">
-						</textinput>
-					</label>
+				<!--Textinput-->
 
-				</td>
-			</tr>
+				<tr>
+					<td class="pad">{{ textinputTestValue }}</td>
+					<td>
 
-		</table>
+						<!--NOTE: using value.sync-->
+						<label class="block pad">
+							<textinput
+								:value.sync="textinputTestValue"
+								:disabled="controlsAreDisabled"
+								:clear="true"
+								:sanitize="true">
+							</textinput>
+						</label>
+
+					</td>
+				</tr>
+
+				<tr>
+					<td class="pad">{{ textinputTestValue }}</td>
+					<td>
+
+						<!--NOTE: using value.sync-->
+						<label class="block pad">
+							<textinput
+								type="multiline"
+								:value.sync="textinputTestValue"
+								:disabled="controlsAreDisabled"
+								:clear="true"
+								:sanitize="true">
+							</textinput>
+						</label>
+
+					</td>
+				</tr>
+
+			</table>
+
+		</card>
 
 
 
@@ -197,6 +222,40 @@
 			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" :disabled="true">Bar</click-button>
 			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" :disabled="true" theme="stroke">Bar</click-button>
 			<click-button :callback="testButtonToggle" :loading="buttonsAreLoading" :disabled="true" theme="plain">Bar</click-button>
+		</p>
+
+
+
+		<h3>Link buttons</h3>
+
+		<p>
+			<click-button :route="{ to: 'root' }" :loading="buttonsAreLoading" :disabled="false">Enabled link</click-button>
+			<click-button :route="{ to: 'root' }" :loading="buttonsAreLoading" :disabled="true">Disabled link</click-button>
+		</p>
+
+
+
+		<h3>Images and static assets</h3>
+
+		<!-- References to static assets with resolved URLs -->
+		<ul>
+			<li><pic class="view-console-components-image" title="User" src="user-avatar-placeholder.png" hide-until-loaded></pic> <code>pic</code> with a PNG, hidden until loaded</li>
+			<li><pic class="view-console-components-image" asset="chevron-down"></pic> <code>pic</code> with an SVG</li>
+			<li><icon asset="chevron-down"></icon> <code>icon</code></li>
+			<li class="view-console-components-highlight"><icon asset="chevron-down"></icon> <code>icon</code> with an asset that supports currentColor</li>
+		</ul>
+
+
+
+		<h3>Spinners <ellipsis :loading="false"></ellipsis> <ellipsis></ellipsis></h3>
+
+		<!-- Spinners of various styles -->
+		<p>
+			<spinner></spinner>
+			<inline-spinner></inline-spinner>
+			<spinner class="view-console-components-spinner-1"></spinner>
+			<spinner class="view-console-components-spinner-2"></spinner>
+			<spinner class="view-console-components-spinner-3"></spinner>
 		</p>
 
 	</div>
@@ -230,16 +289,24 @@
 	}
 
 	.view-console-components-controls {
-		border-width: 1px;
-
-		th,
-		td {
-			border-width: 1px;
-		}
 
 		td {
 			&:first-of-type {
 				width: 12em;
+			}
+		}
+
+		th,
+		td {
+			border-bottom-width: 1px;
+		}
+
+		tr {
+			&:last-of-type {
+				th,
+				td {
+					border-bottom-width: 0;
+				}
 			}
 		}
 

@@ -1,5 +1,5 @@
 
-import _ from 'lodash';
+import { debounce } from 'lodash';
 import Vue from 'vue';
 
 const delay = 6 * 1000;
@@ -38,7 +38,7 @@ export default new Vue({
 
 	watch: {
 
-		message: _.debounce(function () {
+		message: debounce(function () {
 			this.close();
 		}, delay)
 

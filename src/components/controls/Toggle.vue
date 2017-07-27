@@ -3,7 +3,7 @@
 
 Wrapper component to be used as a hit area. Using this makes it easier to style and control a hit area separately from the control visualisation inside it, for example in table rows
 
-This input is used by passing v-model="someValue"
+This input is used by passing the value attribute with `.sync` modifier
 Internally this translates to two-way use of `value` prop
 State of the input is kept track of internally, and the result is $emitted to parent scope
 http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
@@ -11,23 +11,20 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 -->
 
 <script>
+	import { composeClassnames, extractClassnames } from '@util';
 
-	// Utilities
-	import { dom } from '@util';
-
-	// View model
 	export default {
 		name: 'toggle',
 
-		model: {
-			prop: 'value',
-			event: 'update'
+		props: {
+			value: {},
+			disabled: {},
+			feedback: {
+				type: String,
+				required: false,
+				default: 'scale'
+			}
 		},
-
-		props: [
-			'value',
-			'disabled'
-		],
 
 		data: function () {
 			return {
@@ -44,26 +41,36 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 					return this.value;
 				},
 				set: function (value) {
-					this.$emit('update', value);
+					this.$emit('update:value', value);
 				}
 			},
 
 			classes: function () {
 
-				// Utility classes
-				var componentClasses = dom.composeClassnames({
+				// Normal component classes
+				let componentClasses = composeClassnames({
 					on: this.isOn,
 					off: !this.isOn,
 					enabled: !this.disabled,
 					disabled: this.disabled
 				}, 'view-toggle');
 
-				// Normal component classes
-				return componentClasses.concat(dom.extractClassnames({
+				// Utility classes
+				let utilityClasses = {
 					'control-enabled': !this.disabled,
 					'control-disabled': this.disabled,
 					'control-mouse-down': this.mouseDown
-				}));
+				};
+
+				// Apply feedback utility class conditionally
+				if (this.feedback) {
+					utilityClasses['control-' + this.feedback] = true;
+				}
+
+				utilityClasses = extractClassnames(utilityClasses);
+
+				// Apply all
+				return componentClasses.concat(utilityClasses);
 
 			}
 
@@ -111,26 +118,9 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 </script>
 
 <template>
-	<div class="view-toggle control" :class="classes" @click="onClick" @mousedown="onMouseDown" @mouseup="onMouseUp"><slot></slot></div>
+	<span class="view-toggle inline-block control" :class="classes" @click="onClick" @mousedown="onMouseDown" @mouseup="onMouseUp"><slot></slot></span>
 </template>
 
 <style lang="scss">
-	@import '~@shared-styles';
-
-	.view-toggle {
-		@include transition-hover-active;
-		@include transition-properties-common;
-	}
-
-	.view-toggle-enabled {
-		@include cursor-pointer;
-
-		// Default feedback for click hitareas
-		// NOTE: might be better not to set anything here since this might need a lot of overriding in many places
-		&:active {
-			background-color: $color-feedback-dark;
-		}
-
-	}
-
+	// @import '~@shared-styles';
 </style>

@@ -6,6 +6,12 @@ import components from '@vue-components';
 
 export default [
 
+	// {
+	// 	path: '*',
+	// 	name: 'notFound',
+	// 	component: components.PageNotFound
+	// },
+
 	{
 		// NOTE
 		// - We could just display the home page component with this route
@@ -26,32 +32,30 @@ export default [
 	},
 
 	{
-		path: '/arbit',
-		name: 'arbitrary',
-		component: components.PageSomething
+		path: '/login',
+		name: 'login',
+		component: components.PageLogin
+	},
+
+	// NOTE
+	// `page` here is optional, indicated by the question mark
+	// See https://github.com/vuejs/vue-router/blob/dev/examples/route-matching/app.js#L6
+	{
+		path: '/posts/:page?',
+		name: 'posts',
+		component: components.PagePosts
 	},
 
 	{
-		path: '/list',
-		name: 'list',
-		redirect: {
-			name: 'listpage',
-			params: {
-				page: 1
-			}
-		}
+		path: '/post/:id',
+		name: 'post',
+		component: components.PagePost
 	},
 
 	{
-		path: '/list/:page',
-		name: 'listpage',
-		component: components.PageList
-	},
-
-	{
-		path: '*',
-		name: 'notFound',
-		component: components.PageNotFound
+		path: '/secret',
+		name: 'secret',
+		component: components.PageHome
 	}
 
 ];

@@ -1,9 +1,6 @@
 <script>
+	import { composeClassnames } from '@util';
 
-	// Custom utilities
-	import { dom } from '@util';
-
-	// Services
 	import { notifications } from '@services';
 
 	export default {
@@ -21,7 +18,7 @@
 			},
 
 			classes: function () {
-				return dom.composeClassnames({
+				return composeClassnames({
 					on: notifications.shouldBeShown,
 					off: !notifications.shouldBeShown
 				}, 'view-notification');
@@ -64,12 +61,12 @@
 				- I could also transition the whole notification component in and out by setting the keys in App.vue
 			-->
 
-			<transition name="transition-fade" mode="out-in">
+			<fade>
 				<div v-if="message" :key="key">
 					<div>{{ message }}</div>
 					<div><click-button :callback="close">Close</click-button></div>
 				</div>
-			</transition>
+			</fade>
 
 		</div>
 	</div>

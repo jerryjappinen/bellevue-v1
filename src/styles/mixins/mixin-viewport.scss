@@ -34,9 +34,15 @@
 // Generic responsive
 
 @mixin viewport-under ($breakpoint) {
-	@media (max-width: ($breakpoint - 1px)) {
+
+	@if (unit($breakpoint) == 'px') {
+		$breakpoint: $breakpoint - 1px;
+	}
+
+	@media (max-width: ($breakpoint)) {
 		@content;
 	}
+
 }
 
 @mixin viewport-over ($breakpoint) {
@@ -46,9 +52,15 @@
 }
 
 @mixin viewport-height-under ($breakpoint) {
-	@media (max-height: ($breakpoint - 1px)) {
+
+	@if (unit($breakpoint) == 'px') {
+		$breakpoint: $breakpoint - 1px;
+	}
+
+	@media (max-height: ($breakpoint)) {
 		@content;
 	}
+
 }
 
 @mixin viewport-height-over ($breakpoint) {

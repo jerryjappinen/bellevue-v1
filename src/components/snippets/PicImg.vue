@@ -1,7 +1,5 @@
-
 <script>
-
-	import _ from 'lodash';
+	import { isString, trim } from 'lodash';
 
 	export default {
 		name: 'pic-img',
@@ -35,7 +33,7 @@
 		computed: {
 
 			renderedTitle: function () {
-				return _.isString(this.title) ? _.trim(this.title) : '';
+				return isString(this.title) ? trim(this.title) : '';
 			},
 
 
@@ -67,7 +65,7 @@
 			// Hiding
 
 			canBeHidden: function () {
-				return this.hideUntilLoaded || _.isString(this.hideUntilLoaded);
+				return this.hideUntilLoaded || isString(this.hideUntilLoaded);
 			},
 
 			isActuallyHidden: function () {

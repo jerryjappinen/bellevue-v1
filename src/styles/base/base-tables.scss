@@ -3,12 +3,44 @@
 
 table {
 
+	&.pad,
+	&.separate,
+	&.separate-bottom {
+
+		td,
+		th {
+			@include pad-loose;
+		}
+
+	}
+
+	&.pad {
+		padding: 0;
+	}
+
 	&.separate {
 
 		td,
 		th {
 			border-width: 1px;
-			@include pad;
+		}
+
+	}
+
+	&.separate-bottom {
+
+		td,
+		th {
+			border-bottom-width: 1px;
+		}
+
+		tr {
+			&:last-child {
+				td,
+				th {
+					border-bottom-width: 0;
+				}
+			}
 		}
 
 	}

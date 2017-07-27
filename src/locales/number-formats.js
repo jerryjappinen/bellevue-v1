@@ -7,14 +7,6 @@ export default {
 			style: 'currency',
 			currency: 'USD'
 		}
-	},
-
-	'es': {
-		currency: {
-			style: 'currency',
-			currency: 'USD',
-			currencyDisplay: 'symbol'
-		}
 	}
 
 };

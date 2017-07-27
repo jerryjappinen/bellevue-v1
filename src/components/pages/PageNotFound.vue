@@ -22,20 +22,18 @@
 
 <template>
 
-	<div class="view-page-not-found">
-
-		<blank-state
-			title="Page not found"
-			description="Looks like this page doesn't exist. 😕"
-			:callback="backToHome"
-			callbackLabel="Back to home page">
+	<page class="view-page-not-found" limit="small">
+		<blank-state title="Page not found" description="Looks like this page doesn't exist. 😕">
+			<click-button :callback="backToHome">Back to home page</click-button>
 		</blank-state>
-
-	</div>
+	</page>
 
 </template>
 
 <style lang="scss">
 	// @import '~@shared-styles';
-	// .view-page-not-found {}
+
+	// .view-page-not-found {
+	// }
+
 </style>

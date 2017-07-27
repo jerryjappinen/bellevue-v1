@@ -6,11 +6,8 @@ This is a read-only component that visualizes state. Wrap this component in a co
 -->
 
 <script>
+	import { composeClassnames } from '@util';
 
-	// Utilities
-	import util from '@util';
-
-	// View model
 	export default {
 		name: 'flipswitch',
 
@@ -28,7 +25,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 		computed: {
 
 			classes: function () {
-				return util.dom.composeClassnames({
+				return composeClassnames({
 					on: this.value,
 					off: !this.value,
 					enabled: !this.disabled,
@@ -69,32 +66,34 @@ This is a read-only component that visualizes state. Wrap this component in a co
 		position: relative;
 		display: inline-block;
 
-		width: 54px;
-		height: 32px;
+		width: 50px;
+		height: 28px;
+		border-width: 2px;
 
 		border-radius: 16px;
 		vertical-align: middle;
 
 		// Default for enabled, off state
-		background-color: $color-lightgrey;
+		background-color: $color-white;
 	}
 
 	.view-flipswitch-knob {
 		position: relative;
-		top: 3px;
-		left: 24px;
+		top: 2px;
+		left: 23px;
 		box-sizing: border-box;
 
 		display: block;
 
-		width: 26px;
-		height: 26px;
+		width: 24px;
+		height: 24px;
+		@include background-clip-padding-box;
 		@include radius-round;
 
 		// Default for off state
 		background-color: $color-white;
 		@include shadow-transparent;
-		transform: translate3d(-20px, 0, 0);
+		transform: translate3d(-21px, 0, 0);
 	}
 
 
@@ -102,7 +101,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 	// On/off states
 
 	.view-flipswitch-on {
-		background-color: $color-primary;
+		background-color: $color-link;
 
 		.view-flipswitch-knob {
 			opacity: 1;
@@ -113,21 +112,20 @@ This is a read-only component that visualizes state. Wrap this component in a co
 
 	}
 
-	// .view-flipswitch-off {}
-
 
 
 	// Enabled/disabled states
 
 	.view-flipswitch-enabled {
+		border-color: $color-link;
 
 		&:hover {
-			background-color: color-darken($color-lightgrey);
+			transform: scale($scale-large);
 		}
 
-		&.view-flipswitch-on {
-			&:hover {
-				background-color: color-darken($color-primary);
+		&.view-flipswitch-off {
+			.view-flipswitch-knob {
+				background-color: $color-link;
 			}
 		}
 
@@ -140,6 +138,12 @@ This is a read-only component that visualizes state. Wrap this component in a co
 			background-color: $color-grey;
 		}
 
+		&.view-flipswitch-off {
+			.view-flipswitch-knob {
+				background-color: $color-lightgrey;
+			}
+		}
+
 	}
 
 
@@ -149,11 +153,15 @@ This is a read-only component that visualizes state. Wrap this component in a co
 	// This is already set in the standard control components
 	.control-enabled {
 		&:hover {
-
 			.view-flipswitch {
-				transform: scale($scale-verylarge);
+				transform: scale($scale-large);
 			}
-
+		}
+		&:active {
+			.view-flipswitch {
+				@include transition-fast;
+				transform: scale($scale-small);
+			}
 		}
 	}
 

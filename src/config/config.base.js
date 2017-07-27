@@ -8,8 +8,8 @@ module.exports = {
 
 	// Will be used in base HTML templating
 	meta: {
-		title: 'My app',
-		description: 'Description text for this app',
+		title: 'Bellevue app',
+		description: 'Description about what this app does',
 
 		// https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/
 		themeColor: '#00baf8',
@@ -22,9 +22,9 @@ module.exports = {
 	// https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
 	// https://www.npmjs.com/package/webapp-manifest-plugin
 	webAppManifest: {
-		name: 'My App',
-		shortName: 'My App',
-		description: 'Description text for this app',
+		name: 'Bellevue app',
+		shortName: 'Bellevue app',
+		description: 'Description about what this app does',
 		// dir: 'auto',
 		lang: 'en-US',
 		// display: 'standalone',
@@ -43,13 +43,54 @@ module.exports = {
 		scope: '/'
 	},
 
-	// This is a good place for configuring any remote paths you might have to work with
-	paths: {
-		// api: 'https://api.myservice.com'
+	// This is a good place for configuring any miscellaneous paths you might have to work with
+	paths: {},
+
+	// Setting environment variables etc.
+	env: 'production',
+	currentRemote: 'production',
+
+	// List of available remotes
+	// NOTE: you can add multiple remotes here and select which one to use in currentRemote to develop against different backends
+	remotes: {
+
+		// Provide base path, and any other information you need
+		// This is consumed in @models/Remote
+		production: {
+			path: 'https://jsonplaceholder.typicode.com/',
+			api: '',
+			login: 'login/',
+			logout: 'logout/'
+		}
+
+	},
+
+	// NOTE: not from Bellevue below this line
+
+	// Anyone with access level at or higher than listed here can access route
+	// 0 means anyone can access, even when not logged in
+
+	routePermissionRoles: [
+		'loggedUser' // 1
+	],
+
+	routePermissions: {
+
+		// Root forwards to home, so make sure these two match
+		'root': 0,
+		'home': 0,
+
+		// Sample pages
+		'list': 0,
+		'item': 0,
+
+		// Sample page to demo route guards
+		'secret': 1
+
 	},
 
 	// Localisation
-	defaultLocale: 'es',
+	defaultLocale: 'en',
 	fallbackLocale: 'en',
 
 	// Link to native iOS app's App Store page
@@ -86,7 +127,7 @@ module.exports = {
 
 		// Set to false/true to disable/enable offline caching of production builds
 		// Outputs appcache manifest and service workers that define how app assets should be cached by supported browsers
-		enabled: true,
+		enabled: false,
 
 		// Whether serve assets to users from cache or via network first when both are available
 		// 'cache-first' or 'network-first'
@@ -185,7 +226,7 @@ module.exports = {
 	// https://github.com/declandewet/vue-meta#options
 	metaInfo: {
 
-		// the component option name that vue-meta looks for meta info on.
+		// the component option name that vue-meta looks for meta info on
 		keyName: 'metaInfo',
 
 		// the attribute name vue-meta adds to the tags it observes

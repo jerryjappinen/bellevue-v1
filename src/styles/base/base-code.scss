@@ -9,14 +9,18 @@ code {
 
 pre {
 	code {
+		// line-height: $line-height-tight;
+
 		display: block;
 		padding: 1.6em;
-		border-width: 1px;
+		// border-width: 1px;
 
 		@include radius-loose;
 		// border-color: $color-lightgrey;
-		background-color: $color-verylightgrey;
-		// line-height: $line-height-tight;
+		// background-color: $color-verylightgrey;
+		// background-color: $color-white;
+		color: $color-white;
+		background-color: $color-darkgrey;
 
 	}
 }

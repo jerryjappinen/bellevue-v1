@@ -15,7 +15,7 @@
 }
 
 @mixin type-large {
-	font-size: 1.2em;
+	font-size: $font-size-large;
 	line-height: $line-height-loose;
 
 	@include viewport-over-small {
@@ -25,15 +25,15 @@
 }
 
 @mixin type-display {
-	font-family: $font-display;
+	// font-family: $font-display;
 	font-size: $font-size-display;
 	font-weight: inherit;
 
 	line-height: $line-height-tight;
 
-	@include viewport-over-tiny {
-		font-size: 1.4em;
-	}
+	// @include viewport-over-tiny {
+	// 	font-size: 1.4em;
+	// }
 
 }
 
@@ -51,13 +51,12 @@
 }
 
 @mixin type-discreet {
-	font-weight: 500;
 	color: $color-grey;
-	@include type-small;
 }
 
-@mixin type-discreet-dark {
-	color: $color-dark;
+@mixin type-discreet-small {
+	@include type-discreet;
+	@include type-small;
 }
 
 @mixin type-warning {
@@ -70,21 +69,22 @@
 
 @mixin type-h1 {
 	// @include type-serif;
-	font-size: 1.6em;
-	font-weight: inherit;
+	font-size: 1.5em;
+	font-weight: 600;
 	line-height: 1.2;
+	color: $color-dark;
 
-	@include viewport-over-tiny {
-		font-size: 1.8em;
-	}
+	// @include viewport-over-tiny {
+	// 	font-size: 1.8em;
+	// }
 
-	@include viewport-over-small {
-		font-size: 2.0em;
-	}
+	// @include viewport-over-small {
+	// 	font-size: 2.0em;
+	// }
 
-	@include viewport-over-large {
-		font-size: 2.2em;
-	}
+	// @include viewport-over-large {
+	// 	font-size: 2.2em;
+	// }
 
 }
 
@@ -93,21 +93,17 @@
 }
 
 @mixin type-h3 {
-	// @include type-uppercase;
-	// font-weight: 600;
-	font-size: inherit;
-	font-weight: inherit;
-}
-
-@mixin type-h4 {
 	font-size: inherit;
 	font-weight: 600;
 }
 
-@mixin type-h5 {
-	font-size: inherit;
-	font-weight: inherit;
+@mixin type-h4 {
+	@include type-uppercase;
 	@include type-discreet;
+}
+
+@mixin type-h5 {
+	@include type-discreet-small;
 }
 
 

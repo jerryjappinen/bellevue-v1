@@ -1,5 +1,4 @@
-
-import _ from 'lodash';
+import { merge } from 'lodash';
 
 // Actual config files
 // import defaultAliases from './config.aliases';
@@ -13,7 +12,7 @@ import devBase from './config.dev.base';
 let mergedBase = defaultBase;
 
 if (process.env.NODE_ENV === 'development') {
-	mergedBase = _.merge(mergedBase, devBase);
+	mergedBase = merge(mergedBase, devBase);
 }
 
 mergedBase.styles = defaultStyles;

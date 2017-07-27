@@ -10,8 +10,9 @@ describe('PageHome.vue', function () {
 		const vm = new Constructor().$mount();
 
 		// Expected results
+		// console.log('PageHome.spec', vm.$el.querySelector('h1'));
 		expect(vm.$el.querySelector('h1').textContent)
-			.to.equal('Hello world!');
+			.to.equal('Hello World!');
 
 	});
 

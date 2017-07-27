@@ -1,18 +1,28 @@
 
 @import '~@shared-styles';
 
-.control {
+.control,
+.control-area,
+.control-scale {
 	@include transition-hover-active;
 	@include transition-properties-common;
 }
 
+// Default feedback for hit areas
+// NOTE: might be better not to set anything here since this might need a lot of overriding in many places
 .control-enabled {
 	@include cursor-pointer;
 
-	// Default feedback for click hitareas
-	// NOTE: might be better not to set anything here since this might need a lot of overriding in many places
-	&:active {
-		background-color: $color-feedback-dark;
+	&.control-area {
+		&:active {
+			background-color: $color-feedback-dark;
+		}
+	}
+
+	&.control-scale {
+		&:active {
+			transform: scale($scale-small);
+		}
 	}
 
 }
@@ -20,6 +30,8 @@
 // .control-disabled {}
 
 // Prevent user select when double clicking or swiping etc.
-.control-mouse-down {
-	user-select: none;
+.control-enabled {
+	&.control-mouse-down {
+		user-select: none;
+	}
 }

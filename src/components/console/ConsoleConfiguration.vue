@@ -1,9 +1,4 @@
 <script>
-
-	// Vendor code
-	// import _ from 'lodash';
-
-	// Config
 	import config from '@config';
 
 	export default {

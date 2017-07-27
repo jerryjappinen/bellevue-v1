@@ -6,11 +6,8 @@ This is a read-only component that visualizes state. Wrap this component in a co
 -->
 
 <script>
+	import { composeClassnames } from '@util';
 
-	// Utilities
-	import util from '@util';
-
-	// View model
 	export default {
 		name: 'radio',
 
@@ -32,7 +29,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 			},
 
 			classes: function () {
-				return util.dom.composeClassnames({
+				return composeClassnames({
 					on: this.isOn,
 					off: !this.isOn,
 					enabled: !this.disabled,

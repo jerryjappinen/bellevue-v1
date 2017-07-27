@@ -1,5 +1,4 @@
-
-import _ from 'lodash';
+import { debounce, isNumber, kebabCase, merge } from 'lodash';
 import Vue from 'vue';
 
 import { viewport } from '@services';
@@ -24,7 +23,7 @@ export default new Vue({
 			return this.component ? true : false;
 		},
 
-		targetCoordinates: _.debounce(function () {
+		targetCoordinates: debounce(function () {
 			if (this.inPlaceTargetBox) {
 				return {
 					x: this.inPlaceTargetBox.left,
@@ -36,12 +35,10 @@ export default new Vue({
 
 		isInPlace: function () {
 			return this.targetCoordinates &&
-				_.isNumber(this.targetCoordinates.x) &&
-				_.isNumber(this.targetCoordinates.y) &&
+				isNumber(this.targetCoordinates.x) &&
+				isNumber(this.targetCoordinates.y) &&
 				viewport.width > this.inPlaceMinViewportWidth &&
-				viewport.height > this.inPlaceMinViewportHeight
-					? true
-					: false;
+				viewport.height > this.inPlaceMinViewportHeight ? true : false;
 		}
 
 	},
@@ -79,7 +76,7 @@ export default new Vue({
 
 				// Update only what's changed
 				} else {
-					this.inPlaceTargetBox = _.merge({}, this.inPlaceTargetBox, newProperties);
+					this.inPlaceTargetBox = merge({}, this.inPlaceTargetBox, newProperties);
 				}
 
 			// Clean up
@@ -96,7 +93,7 @@ export default new Vue({
 		open: function (component, inPlaceTarget) {
 
 			if (component) {
-				component = _.kebabCase(component);
+				component = kebabCase(component);
 
 				// Proper in-place target given
 				if (inPlaceTarget) {
@@ -111,7 +108,7 @@ export default new Vue({
 						this.clearInterval();
 						var vm = this;
 						this._interval = setInterval(function () {
-							_.debounce(vm.updateInPlaceTargetBox);
+							debounce(vm.updateInPlaceTargetBox);
 						}, 50);
 					}
 

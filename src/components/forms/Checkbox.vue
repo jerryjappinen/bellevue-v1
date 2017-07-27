@@ -6,11 +6,8 @@ This is a read-only component that visualizes state. Wrap this component in a co
 -->
 
 <script>
+	import { composeClassnames } from '@util';
 
-	// Utilities
-	import util from '@util';
-
-	// View model
 	export default {
 		name: 'checkbox',
 
@@ -28,7 +25,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 		computed: {
 
 			classes: function () {
-				return util.dom.composeClassnames({
+				return composeClassnames({
 					on: this.value,
 					off: !this.value,
 					enabled: !this.disabled,
@@ -44,7 +41,7 @@ This is a read-only component that visualizes state. Wrap this component in a co
 
 <template>
 	<div class="view-checkbox" :class="classes">
-		<icon class="view-checkbox-icon" asset="check" :mono="true"></icon>
+		<icon class="view-checkbox-icon" asset="check"></icon>
 	</div>
 </template>
 

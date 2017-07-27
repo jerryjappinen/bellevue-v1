@@ -1,21 +1,16 @@
 
 <script>
 
-	// This input is used by passing v-model="someValue"
+	// This input is used by passing the value attribute with `.sync` modifier
 	// Internally this translates to two-way use of `value` property
 	// State of the input is kept track of internally, and the result is $emitted to parent scope
 	// http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 
-	import _ from 'lodash';
-	import { dom, string } from '@util';
+	import { debounce } from 'lodash';
+	import { composeClassnames, trimWhitespace } from '@util';
 
 	export default {
 		name: 'textinput',
-
-		model: {
-			prop: 'value',
-			event: 'update'
-		},
 
 		props: [
 
@@ -52,7 +47,7 @@
 			},
 
 			classes: function () {
-				return dom.composeClassnames({
+				return composeClassnames({
 
 					// From props
 					clearable: this.clear ? true : false,
@@ -76,7 +71,7 @@
 
 			sanitizeValue: function (value) {
 				if (this.sanitize) {
-					return string.trimWhitespace('' + value);
+					return trimWhitespace('' + value);
 				}
 				return '' + value;
 			},
@@ -106,7 +101,7 @@
 
 				if (this.value !== newValue) {
 
-					this.$emit('update', this.sanitizeValue(newValue));
+					this.$emit('update:value', this.sanitizeValue(newValue));
 
 					if (this.isPristine) {
 						this.isPristine = false;
@@ -125,9 +120,9 @@
 
 			value: 'pullChange',
 
-			ownValue: _.debounce(function () {
+			ownValue: debounce(function () {
 				this.emitChange();
-			}, 75)
+			}, 50)
 
 		}
 
@@ -140,14 +135,14 @@
 	<span class="view-textinput" :class="classes">
 
 		<!-- Clear button -->
-		<transition name="transition-scale-fade">
+		<custom-transition name="scale-fade">
 			<span
 				v-if="clear && !isEmpty"
 				class="view-textinput-clear"
 				@click="onClear">
 					<icon asset="cross"></icon>
 				</span>
-		</transition>
+		</custom-transition>
 
 		<!-- Textarea for multiline input -->
 		<textarea
@@ -203,14 +198,22 @@
 	@import '~@shared-styles';
 
 	.view-textinput {
+		$border-width: 1px;
+
+		@include border-box;
 		position: relative;
 		display: inline-block;
-		vertical-align: middle;
 		@include overflow-hidden;
 		@include radius;
+		@include shadow-transparent;
 
+		// Default width
+		width: 12em;
+		border-width: $border-width;
+
+		vertical-align: middle;
 		border-color: $color-dark-translucent;
-		background-color: $color-verylightgrey;
+		background-color: $color-white;
 		@include background-clip-padding-box;
 
 		@include transition-slow;
@@ -218,16 +221,17 @@
 
 		input,
 		textarea {
+			@include border-box;
 			position: relative;
 			z-index: 0;
 
-			box-sizing: border-box;
 			display: block;
 			width: 100%;
 			@include cursor-inherit;
 
-			// border-width: 2px;
-			@include pad;
+			padding-top: $pad-vertical - $border-width;
+			padding-bottom: $pad-vertical - $border-width;
+			@include pad-loose-horizontal;
 
 			// &:active {
 			// 	border-color: $color-lightgrey;
@@ -291,13 +295,21 @@
 
 
 
-	// Focused state
+	// States
+
+	.view-textinput-not-focused {
+		&:hover {
+			border-color: $color-grey;
+			@include transition-fast;
+		}
+	}
 
 	.view-textinput-focused {
 		@include cursor-default;
 		@include transition-fast;
 
-		background-color: $color-lightgrey;
+		border-color: $color-dark;
+		@include shadow;
 
 		.view-textinput-clear {
 			@include transition-fast;

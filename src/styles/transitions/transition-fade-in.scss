@@ -1,0 +1,18 @@
+
+@import '~@shared-styles';
+
+// FIXME: would be better to not specify the opacity value 1, but let the default or component's defined value stand
+.transition-fade-in-enter-active {
+	opacity: 1;
+	@include transition-fast;
+	@include transition-properties(opacity);
+}
+
+.transition-fade-in-leave-active {
+	@include no-transition;
+}
+
+// Start state for enter
+.transition-fade-in-enter {
+	opacity: 0;
+}

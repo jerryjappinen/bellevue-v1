@@ -3,11 +3,13 @@
 
 
 
-// FIXME: this should go, label styles should come from components
+// Labels
+
 label {
-	// @include type-h3;
-	display: block;
+	@include cursor-pointer;
 }
+
+
 
 // Reset input styling
 button,
@@ -48,6 +50,7 @@ textarea {
 // Dimensions
 input,
 textarea {
+	cursor: inherit;
 	box-sizing: border-box;
 	max-width: 100%;
 	// border-color: transparent;

@@ -1,5 +1,4 @@
-
-import _ from 'lodash';
+import { debounce } from 'lodash';
 
 // Set a computed property to automatically store in localStorage
 // https://vuejs.org/v2/guide/mixins.html
@@ -17,7 +16,7 @@ export default {
 	watch: {
 
 		// Store serialized data into localStorage when it changes (throttled)
-		persist: _.debounce(function (data) {
+		persist: debounce(function (data) {
 			if (this.persistKey) {
 				localStorage.setItem(this.persistKey, JSON.stringify(data));
 			}
@@ -29,7 +28,7 @@ export default {
 		if (this.persistKey && this.persist) {
 
 			// Load serialized data from localStorage
-			// NOTE: this is a synchronous operation
+			// NOTE: this is a synchronous operation, theoretically it might slow things down
 			var data = localStorage.getItem(this.persistKey);
 
 			if (data) {

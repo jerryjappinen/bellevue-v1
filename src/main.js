@@ -1,6 +1,6 @@
 
 // Vendor
-import _ from 'lodash';
+import { isUndefined, kebabCase } from 'lodash';
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 
 // Polyfills etc. magic
@@ -42,7 +42,7 @@ if (config.offlineCache.enabled) {
 
 			// Vue.directive(directiveName, directives[directive])
 			// Vue.component(componentName, components[component])
-			Vue[type](_.kebabCase(key), registrees[type][key]);
+			Vue[type](kebabCase(key), registrees[type][key]);
 
 		}
 	}
@@ -90,7 +90,7 @@ new Vue({
 				// Collect serialized state data form each custom service
 				for (var serviceName in services) {
 					var service = services[serviceName];
-					if (service.persist) {
+					if (!isUndefined(service.persist)) {
 						persist[serviceName] = service.persist;
 					}
 				}
@@ -99,13 +99,13 @@ new Vue({
 			},
 
 			// Allow passing the full batch of serialized service data and load it with the unserialization callback of each service
-			// NOTE: the `serialized` property of each service must be a writable computed
+			// NOTE: the `persist` property of each service must be a writable computed
 			set: function (persist) {
 
 				// Call the `persist` setter for each service
 				for (var serviceName in services) {
 					var service = services[serviceName];
-					if (persist[serviceName] && !_.isUndefined(service.persist)) {
+					if (persist[serviceName] && !isUndefined(service.persist)) {
 						service.persist = persist[serviceName];
 					}
 				}

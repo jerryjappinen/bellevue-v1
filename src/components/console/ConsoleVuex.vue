@@ -44,10 +44,10 @@
 			<dd><click :callback="decrement">Decrement</click></dd>
 
 			<dt>Operate via a component</dt>
-			<dd class="separate pad radius"><global-counter-iterator :reverse="true"></global-counter-iterator></dd>
+			<dd class="separate radius"><global-counter-iterator :reverse="true"></global-counter-iterator></dd>
 
 			<dt>Operate via a component in a popover</dt>
-			<dd><click :callback="openPopover"><button>Open popover</button></click></dd>
+			<dd><click :callback="openPopover">Open popover</click></dd>
 		</dl>
 
 	</div>

@@ -21,7 +21,7 @@
 	"attr-name-ignore-regex": false,
 	"attr-name-style": false,
 	"attr-no-dup": true,
-	"attr-no-unsafe-chars": true,
+	"attr-no-unsafe-char": false,
 	"attr-quote-style": "double",
 	"attr-req-value": false,
 	"class-no-dup": true,

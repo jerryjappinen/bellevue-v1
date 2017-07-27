@@ -1,48 +1,16 @@
 <script>
-
-	import { init, Account, Role } from '@models';
+	import { init, Post } from '@models';
 
 	export default {
 		name: 'console-models',
 
-		computed: {
-
-			testRoleModel1: function () {
-				return init(Role, {
-					id: 3
-				});
-			},
-
-			testRoleModel2: function () {
-				return init(Role, {
-					id: 128,
-					title: 'Foo'
-				});
-			},
-
-			testAccount: function () {
-				return init(Account, {
-					id: 900,
-					roleId: this.testRoleModel2.id,
-					email: 'bar@gmail.com',
-					name: 'Bar'
-				});
-			}
-
-		},
-
-		methods: {
-
-			changeRoleId: function () {
-				this.testRoleModel2.id += 128;
-			},
-
-			onAccountTestClick: function () {
-				if (this.testAccount) {
-					this.testAccount.fetch(this.testAccount.id);
-				}
-			}
-
+		data: function () {
+			return {
+				testPost: init(Post, {
+					id: 3,
+					name: 'Some Post name'
+				})
+			};
 		}
 
 	};
@@ -53,24 +21,21 @@
 
 <template>
 
-	<dl class="view-console-models bodytext">
+	<div class="view-console-models">
 
-		<dt>Roles</dt>
+		<dl class="container-card-buffer bodytext">
 
-		<dd>Role 1: {{ testRoleModel1.sanitizedTitle }} ({{ testRoleModel1.id }})</dd>
-		<dd>Role 2: {{ testRoleModel2.sanitizedTitle }} ({{ testRoleModel2.id }})</dd>
-		<dd><strong @click="changeRoleId">Click me</strong> to change ID of role 2</dd>
+			<dt>Post 1</dt>
 
-		<template v-if="testAccount && testAccount.isValid">
+			<dd><code>id</code>: {{ testPost.id }}</dd>
+			<dd><code>name</code>: {{ testPost.name }}</dd>
+			<dd><code>isTopLevel</code>: {{ testPost.isTopLevel }}</dd>
+			<dd><code>hasParent</code>: {{ testPost.hasParent }}</dd>
+			<dd><code>hasChildren</code>: {{ testPost.hasChildren }}</dd>
 
-			<dt>Accounts</dt>
+		</dl>
 
-			<dd><em>{{ testAccount.email }}</em> (role ID <em>{{ testAccount.role.id }}</em>)</dd>
-			<dd><strong @click="onAccountTestClick">Click me</strong> to fire a HTTP request via <code>testAccount</code></dd>
-
-		</template>
-
-	</dl>
+	</div>
 
 </template>
 

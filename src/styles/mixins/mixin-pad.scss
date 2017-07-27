@@ -98,19 +98,20 @@
 // Loose pad
 
 @mixin pad-loose {
-	padding: $pad-loose-vertical $pad-loose-horizontal;
+	@include pad-loose-horizontal;
+	@include pad-loose-vertical;
 }
 
 
 
 @mixin pad-loose-horizontal {
-	padding-left: $pad-loose-horizontal;
-	padding-right: $pad-loose-horizontal;
+	@include pad-loose-left;
+	@include pad-loose-right;
 }
 
 @mixin pad-loose-vertical {
-	padding-top: $pad-loose-vertical;
-	padding-bottom: $pad-loose-vertical;
+	@include pad-loose-top;
+	@include pad-loose-bottom;
 }
 
 
@@ -139,4 +140,39 @@
 
 @mixin pad-loose-left {
 	padding-left: $pad-loose-horizontal;
+}
+
+
+
+// No pad
+
+@mixin no-pad {
+	@include no-pad-horizontal;
+	@include no-pad-vertical;
+}
+
+@mixin no-pad-horizontal {
+	@include no-pad-left;
+	@include no-pad-right;
+}
+
+@mixin no-pad-vertical {
+	@include no-pad-top;
+	@include no-pad-bottom;
+}
+
+@mixin no-pad-top {
+	padding-top: 0;
+}
+
+@mixin no-pad-right {
+	padding-right: 0;
+}
+
+@mixin no-pad-bottom {
+	padding-bottom: 0;
+}
+
+@mixin no-pad-left {
+	padding-left: 0;
 }

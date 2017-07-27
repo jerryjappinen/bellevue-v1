@@ -2,7 +2,7 @@
 <script>
 
 	// Custom utils
-	import util from '@util';
+	import { trimWhitespace } from '@util';
 
 	export default {
 
@@ -13,7 +13,7 @@
 			// Id of the desired item in SVG sprite (should be same as original file name)
 			asset: {
 				type: String,
-				required: false
+				required: true
 			},
 
 			title: {
@@ -27,7 +27,7 @@
 
 			renderedTitle: function () {
 				if (this.title) {
-					var title = util.string.trimWhitespace(this.title);
+					var title = trimWhitespace(this.title);
 					if (title.length < 0) {
 						return title;
 					}

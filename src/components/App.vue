@@ -21,7 +21,7 @@
 
 
 	// Services
-	import { notifications, panels, popovers } from '@services';
+	import { auth, notifications, panels, popovers } from '@services';
 
 	// Config
 	import config from '@config';
@@ -56,12 +56,14 @@
 		computed: {
 
 			persist: {
+
 				get: function () {
 					return {
 						panelComponent: panels.component,
 						route: this.$route.name
 					};
 				},
+
 				set: function (persist) {
 
 					// Reopen panel if user reloaded the page
@@ -70,6 +72,7 @@
 					}
 
 				}
+
 			},
 
 
@@ -77,13 +80,56 @@
 			// Meta information
 
 			pageTitle: function () {
-				return this.$t('pageTitles.' + this.$route.name) + ' – ' + config.meta.title;
+				if (this.routeIsValid) {
+					return this.$t('pageTitles.' + this.$route.name) + ' – ' + config.meta.title;
+				}
+				return config.meta.title;
 			},
 
 			// NOTE: route names are NOT user-facing. They can be used as localisation keys though.
 			titlebarTitle: function () {
-				return this.$t('pageTitles.' + this.$route.name);
+				if (this.routeIsValid) {
+					return this.$t('pageTitles.' + this.$route.name);
+				}
+				return config.meta.title;
 			},
+
+
+
+			// Checks to guard against normal page navigation
+
+			routeIsValid: function () {
+				return this.$route.matched.length > 0 ? true : false;
+			},
+
+			// Uncomment this if you want to always require a connection for using the app
+			// offlinePageShouldBeShown: function () {
+			// 	// return network.isOffline ? true : false;
+			// },
+
+			// Current user is set but does not have privileges
+			// NOTE: for public pages it's better to show 404, but for it's OK to tell an authenticated user if they're lacking permissions
+			noAccessPageShouldBeShown: function () {
+				if (auth.isConfirmed && !auth.canAccessRoute(this.$route.name)) {
+					return true;
+				}
+				return false;
+			},
+
+			// No component set for this route, or (guest) user does not have access rights
+			notFoundPageShouldBeShown: function () {
+				if (!auth.isLoading && (!this.routeIsValid || !auth.canAccessRoute(this.$route.name))) {
+					return true;
+				}
+				return false;
+			},
+
+			// NOTE: be careful here - user will see nothing except a loading indicator when this is true
+			routerViewShouldBeShown: function () {
+				return !auth.isLoading ? true : false;
+			},
+
+			// NOTE: if none of the above matches, fallback is shown (see the template below)
 
 
 
@@ -102,7 +148,11 @@
 			},
 
 			titlebarShouldBeShown: function () {
-				return !(this.panelShouldBeShown || (this.popoverShouldBeShown && !popovers.isInPlace)) ? true : false;
+				return !(
+					// this.offlinePageShouldBeShown ||
+					this.panelShouldBeShown ||
+					(this.popoverShouldBeShown && !popovers.isInPlace)
+				) ? true : false;
 			}
 
 		},
@@ -136,34 +186,47 @@
 	<div class="view-app">
 
 		<!-- Notifications -->
-		<transition name="transition-hide-right" mode="out-in">
+		<custom-transition name="hide-right">
 			<notification v-if="notificationShouldBeShown"></notification>
-		</transition>
+		</custom-transition>
 
 		<!-- Popover elements will be rendered here in the structure regardless of their positioning -->
-		<transition name="transition-fade" mode="out-in">
-			<popover v-if="popoverShouldBeShown"></popover>
-		</transition>
+		<fade>
+			<popovers v-if="popoverShouldBeShown"></popovers>
+		</fade>
 
 		<!-- Panels will be rendered here when they open -->
-		<transition name="transition-fade" mode="out-in">
-			<panel v-if="panelShouldBeShown"></panel>
-		</transition>
+		<fade>
+			<panels v-if="panelShouldBeShown"></panels>
+		</fade>
 
 		<!-- Title bar -->
-		<transition name="transition-hide-up" appear>
+		<custom-transition name="hide-up" appear>
 			<titlebar v-if="titlebarShouldBeShown" :title="titlebarTitle"></titlebar>
-		</transition>
+		</custom-transition>
 
 		<!-- Main content area that can be padded -->
 		<div class="view-app-content">
 
 			<!-- First-level router view -->
-			<transition name="transition-fade" mode="out-in" appear>
-				<!--<keep-alive>-->
-					<router-view></router-view>
-				<!--</keep-alive>-->
-			</transition>
+			<fade appear>
+
+				<!-- Offline -->
+				<!-- <page-offline v-if="offlinePageShouldBeShown"></page-offline> -->
+
+				<!-- User is logged in but missing access rights -->
+				<page-no-access v-if="noAccessPageShouldBeShown"></page-no-access>
+
+				<!-- No page like this, or no access with these privileges -->
+				<page-not-found v-else-if="notFoundPageShouldBeShown"></page-not-found>
+
+				<!-- Normal pages will be rendered here -->
+				<router-view v-else-if="routerViewShouldBeShown"></router-view>
+
+				<!-- Fallback -->
+				<ellipsis v-else class="view-app-loading"></ellipsis>
+
+			</fade>
 
 		</div>
 	</div>
@@ -181,11 +244,6 @@
 	// - This makes it easier to distinguish between state classes, component-specific classes and utility classes.
 	// - This is especially helpful when overriding styles of child components in parents.
 	// - For some reason, @import will require '~' when using an alias (defined in Webpack's configuration, in the resolve section)
-
-	// FIXME
-	//
-	// - Do I really need this in every component definition?
-	// - This is just manual duplication that leads to mistakes.
 	@import '~@shared-styles';
 
 
@@ -214,6 +272,9 @@
 		max-height: 100%;
 	}
 
+	// NOTE: calc() here is runtime
+	$titlebar-height: calc(1em + (2 * #{$buffer-tight}) + 6px);
+
 	.view-app {
 		@include fill;
 		overflow: hidden;
@@ -223,11 +284,12 @@
 		.view-notification {
 			position: absolute;
 			// position: fixed;
-			top: 1em;
+			top: $titlebar-height;
 			right: 1em;
+			margin-top: 1em;
 		}
 
-		.view-popover {
+		.view-popovers {
 			@include fill;
 		}
 
@@ -236,7 +298,7 @@
 			@include fill;
 		}
 
-		.view-panel {
+		.view-panels {
 			// @include fill-fixed;
 			@include fill;
 		}
@@ -255,12 +317,7 @@
 		max-height: 100%;
 	}
 
-
-
-	// Required for titlebar spacing
-	// FIXME: hacky solution, can't be transitioned and is not 100 % accurate
 	.view-app {
-		padding-top: 1em + (2 * $buffer-tight);
 
 		// Stacking order of layout elements
 
@@ -268,11 +325,11 @@
 			z-index: $z-notifications;
 		}
 
-		.view-popover {
+		.view-popovers {
 			z-index: $z-popovers;
 		}
 
-		.view-panel {
+		.view-panels {
 			z-index: $z-panels;
 		}
 
@@ -282,9 +339,18 @@
 
 	}
 
+	// Required for titlebar spacing
 	.view-app-content {
-		margin-top: 6px; // Titlebar link borders
-		@include buffer-relative;
+		padding-top: $titlebar-height;
+	}
+
+	.view-app-loading {
+		display: block;
+		@include keep-center;
+		@include buffer-loose-even;
+		text-align: center;
+		transform: scale(2);
+		@include type-discreet;
 	}
 
 </style>

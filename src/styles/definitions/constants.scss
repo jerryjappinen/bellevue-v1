@@ -14,36 +14,38 @@ $color-brand-green: #70ca63;
 $color-brand-blue: #00baf8;
 
 // Other brands
-$color-airbnb: #fd5c63;
-$color-android: #a4c639;
-$color-behance: #005cff;
-$color-facebook: #4267b2;
-$color-goeuro: #2a84b7;
-$color-googleplay: #689f38;
-$color-instagram: #3f729b;
-$color-instapaper: #428bca;
-$color-ios: #007aff;
-$color-messenger: #007aff;
-$color-olx: #9861d8;
-$color-pinterest: #bd081c;
-$color-twitter: #55acee;
-$color-vue: #42b983;
-$color-whatsapp-light: #25d366;
-$color-whatsapp-dark: #128c7e;
-$color-whatsapp-verydark: #075e54;
+// $ color-airbnb: #fd5c63;
+// $ color-android: #a4c639;
+// $ color-behance: #005cff;
+// $ color-facebook: #4267b2;
+// $ color-goeuro: #2a84b7;
+// $ color-googleplay: #689f38;
+// $ color-instagram: #3f729b;
+// $ color-instapaper: #428bca;
+// $ color-ios: #007aff;
+// $ color-messenger: #007aff;
+// $ color-olx: #9861d8;
+// $ color-pinterest: #bd081c;
+// $ color-twitter: #55acee;
+// $ color-vue: #42b983;
+// $ color-whatsapp-light: #25d366;
+// $ color-whatsapp-dark: #128c7e;
+// $ color-whatsapp-verydark: #075e54;
 
 // Greyscale
 $color-white: #fff;
+
 $color-verylightgrey: #f7f9f9;
 $color-lightgrey: #dbe5e8;
-
 $color-grey: #a5b2b6;
+$color-darkgrey: #34464c;
+
 $color-grey-hint: color-translucent($color-grey, 0.4);
 
 $color-dark: #0f4d62;
 $color-dark-hue: color-darker($color-dark);
 
-$color-dark-translucent: color-translucent($color-dark, 0.15); // same as verylightgrey on white
+$color-dark-translucent: color-translucent($color-dark, 0.15); // same as lightgrey on white
 
 $color-black: #000;
 $color-black-hint: color-translucent($color-black, 0.1);
@@ -80,20 +82,20 @@ $color-feedback-light: color-translucent($color-white, 0.05);
 
 
 // Font families
-$font-sans: 'Source Sans', 'Open Sans', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Segoe UI', 'Segoe WP', 'Arial', sans-serif;
+$font-sans: 'Source Sans', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Segoe UI', 'Segoe WP', 'Arial', sans-serif;
 $font-serif: 'Droid Serif', 'Georgia', serif;
 $font-mono: 'Menlo', 'Monaco', 'Segoe UI Mono', 'Droid Sans Mono', 'Consolas', monospace;
 $font-display: $font-sans;
 
 // Font sizes
 $font-size-default: 16px;
-$font-size-default-over-verylarge: 20px;
+$font-size-default-over-verylarge: 18px;
 
 $font-size-small: 0.875em; // 14px
-$font-size-big: 1.4em;
-$font-size-massive: 2.0em;
+$font-size-large: 1.25em; // 20px
+$font-size-massive: 2.0em;  // 32px
 
-$font-size-display: $font-size-big;
+$font-size-display: $font-size-large;
 $font-size-uppercase: $font-size-small;
 $font-size-mono: $font-size-small;
 
@@ -146,7 +148,7 @@ $separator-double: $separator * 2;
 $pad-tight-vertical: 2px;
 $pad-tight-horizontal: 4px;
 $pad-vertical: 4px;
-$pad-horizontal: 8px;
+$pad-horizontal: 6px;
 $pad-loose-vertical: 8px;
 $pad-loose-horizontal: 12px;
 
@@ -202,6 +204,7 @@ $height-header: 3em;
 
 
 // Content-oriented defined widths
+$width-body-verytight: 12em;
 $width-body-tight: 24em;
 $width-body: 28em;
 $width-body-loose: 36em;
@@ -226,8 +229,8 @@ $height-ipadpro: 1366px;
 
 // Breakpoints
 // NOTE: defining breakpoints in px gives more predictable control on devices, and avoids any issues when em is scaled
-$breakpoint-tiny: 420px;
-$breakpoint-small: 640px;
+$breakpoint-tiny: 375px;
+$breakpoint-small: 580px;
 $breakpoint-smallish: 768px;
 $breakpoint-medium: 960px;
 $breakpoint-large: 1240px;

@@ -97,13 +97,13 @@ button,
 input,
 textarea {
 	// clear: both;
-	border-color: $color-grey-hint;
+	border-color: $color-lightgrey;
 	// max-width: 100%;
 
 	&:before,
 	&:after {
 		vertical-align: middle;
-		border-color: $color-grey-hint;
+		border-color: $color-lightgrey;
 	}
 
 }

@@ -1,10 +1,6 @@
-
 <script>
+	import { isEmpty, isString } from 'lodash';
 
-	// Vendor
-	import _ from 'lodash';
-
-	// View model
 	export default {
 
 		name: 'pic',
@@ -20,7 +16,7 @@
 		computed: {
 
 			useSvg: function () {
-				if (_.isString(this.asset) && !_.isEmpty(this.asset)) {
+				if (isString(this.asset) && !isEmpty(this.asset)) {
 					return true;
 				}
 				return false;

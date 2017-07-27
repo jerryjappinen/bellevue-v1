@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45 (43475) - http://www.bohemiancoding.com/sketch -->
+    <title>svg/arrow-right</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="svg/arrow-right" stroke-width="2" stroke="#FF00FF">
+            <polyline id="Path" transform="translate(14.000000, 12.000000) rotate(270.000000) translate(-14.000000, -12.000000) " points="8 9 14 15 20 9"></polyline>
+            <path d="M5,12 L17,12" id="Path" transform="translate(11.000000, 12.000000) rotate(180.000000) translate(-11.000000, -12.000000) "></path>
+        </g>
+        <g id="Annotations" transform="translate(-840.000000, -334.000000)"></g>
+    </g>
+</svg>

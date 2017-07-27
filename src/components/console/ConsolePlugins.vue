@@ -1,8 +1,8 @@
 <script>
-	import _ from 'lodash';
+	import { merge } from 'lodash';
 	import axios from 'axios';
 
-	import { string } from '@util';
+	import { getDomainName } from '@util';
 
 	export default {
 		name: 'console-plugins',
@@ -17,8 +17,8 @@
 
 		computed: {
 
-			utilStringDomainName: function () {
-				return string.getDomainName(' github.com');
+			utilDomainName: function () {
+				return getDomainName(' github.com');
 			},
 
 			httpResult: function () {
@@ -29,10 +29,6 @@
 					return JSON.stringify(this.httpResponse, null, 2);
 				}
 				return null;
-			},
-
-			throttleIsAvailable: function () {
-				return this.$throttle ? true : false;
 			}
 
 		},
@@ -55,10 +51,12 @@
 					};
 
 					axios.get(url, options)
+
 						.then(function (response) {
 							vm.testingHttp = false;
-							vm.httpResponse = _.merge({}, response, { data: '...' });
+							vm.httpResponse = merge({}, response, { data: '...' });
 						})
+
 						.catch(function (error) {
 							vm.testingHttp = false;
 							vm.httpError = error;
@@ -102,20 +100,16 @@
 
 		<!-- Utils -->
 		<dt><code>util.string</code></dt>
-		<dd><pre><code>{{ utilStringDomainName }}</code></pre></dd>
-
-		<!-- Throttle -->
-		<dt><code>$throttle</code></dt>
-		<dd><pre><code>{{ throttleIsAvailable }}</code></pre></dd>
+		<dd><pre><code>{{ utilDomainName }}</code></pre></dd>
 
 		<!-- http -->
 		<template v-if="httpResult || testingHttp">
-			<dt>Testing Axios <spinner-small v-if="testingHttp"></spinner-small></dt>
+			<dt>Testing Axios <inline-spinner v-if="testingHttp"></inline-spinner></dt>
 			<dd>
-				<transition name="transition-fade" mode="out-in">
+				<fade>
 					<pre key="testingHttpPlaceholder" v-if="testingHttp"><code>http get...</code></pre>
 					<pre key="testingHttpResult" v-else><code>{{ httpResult }}</code></pre>
-				</transition>
+				</fade>
 			</dd>
 		</template>
 

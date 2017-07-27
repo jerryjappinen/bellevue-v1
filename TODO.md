@@ -10,6 +10,12 @@ These are some notes about the things that should be investigated and possibly i
 	- Docs: http://kazupon.github.io/vue-i18n/en/
 	- Simple example: https://kazupon.github.io/vue-i18n/en/migrations.html#features
 - [ ] Unit test helpers: https://github.com/wrseward/vue-unit
+- [ ] Make `index.html.ejs` watching work again
+
+### Docs
+
+- [ ] Details about logic in `App.vue` for rendering  pages
+- [ ] Layout and reusable sections
 
 ## More predesigned components
 
@@ -18,8 +24,12 @@ These are some notes about the things that should be investigated and possibly i
 - [ ] Date picker
 - [ ] Reliable in-place popover positioning
 - [ ] Click handling and blur events for closing in-place popover
+- [ ] `LinkButton`
+- [ ] `ExternalLink` rel="noopener"
+- [ ] `ExternalLinkButton` rel="noopener"
+- [ ] Allow giving callbacks to notifications
 
-## Client-side validation and error
+## Client-side validation and errors
 
 - [ ] Integrate validation library
 	- Seems like the best and most multi-purpose one: https://www.monterail.com/blog/2016/rethinking-validations-for-vue-js

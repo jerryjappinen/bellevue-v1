@@ -1,21 +1,11 @@
 
 <!--
-
 Wrapper component to be used as a hit area. Using this makes it easier to style and control a hit area separately from the control visualisation inside it, for example in table rows
-
-This input is used by passing v-model="someValue"
-Internally this translates to two-way use of `value` prop
-State of the input is kept track of internally, and the result is $emitted to parent scope
-http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
-
 -->
 
 <script>
+	import { composeClassnames, extractClassnames } from '@util';
 
-	// Utilities
-	import util from '@util';
-
-	// View model
 	export default {
 		name: 'click',
 
@@ -24,7 +14,12 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 				type: Function,
 				required: true
 			},
-			disabled: {}
+			disabled: {},
+			feedback: {
+				type: String,
+				required: false,
+				default: 'scale'
+			}
 		},
 
 		data: function () {
@@ -37,18 +32,28 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 
 			classes: function () {
 
-				// Utility classes
-				var componentClasses = util.dom.composeClassnames({
+				// Normal component classes
+				let componentClasses = composeClassnames({
 					enabled: !this.disabled,
 					disabled: this.disabled
 				}, 'view-click');
 
-				// Normal component classes
-				return componentClasses.concat(util.dom.extractClassnames({
+				// Utility classes
+				let utilityClasses = {
 					'control-enabled': !this.disabled,
 					'control-disabled': this.disabled,
 					'control-mouse-down': this.mouseDown
-				}));
+				};
+
+				// Apply feedback utility class conditionally
+				if (this.feedback) {
+					utilityClasses['control-' + this.feedback] = true;
+				}
+
+				utilityClasses = extractClassnames(utilityClasses);
+
+				// Apply all
+				return componentClasses.concat(utilityClasses);
 
 			}
 
@@ -77,18 +82,9 @@ http://vuejs.org/guide/components.html#Form-Input-Components-using-Custom-Events
 </script>
 
 <template>
-	<div class="view-click control" :class="classes" @click="onClick" @mousedown="onMouseDown" @mouseup="onMouseUp"><slot></slot></div>
+	<span class="view-click inline-block control" :class="classes" @click="onClick" @mousedown="onMouseDown" @mouseup="onMouseUp"><slot></slot></span>
 </template>
 
 <style lang="scss">
-	@import '~@shared-styles';
-
-	// .view-click {}
-	// .view-click-enabled {}
-	// .view-click-disabled {}
-
-	.view-click-mouse-down {
-		user-select: none;
-	}
-
+	// @import '~@shared-styles';
 </style>

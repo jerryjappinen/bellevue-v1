@@ -1,16 +1,42 @@
-
-import dom from './dom';
-import events from './events';
-import string from './string';
+import clearSelection from './clearSelection';
+import composeClassnames from './composeClassnames';
+import escapeRegExpString from './escapeRegExpString';
+import eventHasMetaKey from './eventHasMetaKey';
+import extractClassnames from './extractClassnames';
+import linkIsExternal from './linkIsExternal';
+import getDomainName from './getDomainName';
+import startsWith from './startsWith';
+import processLargeArray from './processLargeArray';
+import replaceAll from './replaceAll';
+import scrollToElement from './scrollToElement';
+import trimWhitespace from './trimWhitespace';
 
 export {
-	dom,
-	events,
-	string
+	clearSelection,
+	composeClassnames,
+	escapeRegExpString,
+	eventHasMetaKey,
+	extractClassnames,
+	linkIsExternal,
+	getDomainName,
+	startsWith,
+	processLargeArray,
+	replaceAll,
+	scrollToElement,
+	trimWhitespace
 };
 
 export default {
-	dom,
-	events,
-	string
+	clearSelection,
+	composeClassnames,
+	escapeRegExpString,
+	eventHasMetaKey,
+	extractClassnames,
+	linkIsExternal,
+	getDomainName,
+	startsWith,
+	processLargeArray,
+	replaceAll,
+	scrollToElement,
+	trimWhitespace
 };

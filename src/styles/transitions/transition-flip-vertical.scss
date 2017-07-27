@@ -1,0 +1,32 @@
+
+@import '~@shared-styles';
+
+// Shared, defaults
+.transition-flip-vertical-enter-active,
+.transition-flip-vertical-leave-active {
+	transition-property: transform;
+}
+
+.transition-flip-vertical-enter-active {
+	@include transition-veryfast;
+}
+
+.transition-flip-vertical-leave-active {
+	@include transition-veryfast;
+}
+
+// Default state to transition a) to when entering and b) from when leaving
+.transition-flip-vertical-enter-active,
+.transition-flip-vertical-leave-active {
+	transform: rotateX(0deg);
+}
+
+// Start state when entering
+.transition-flip-vertical-enter {
+	transform: rotateX(-90deg);
+}
+
+// Out
+.transition-flip-vertical-leave-to {
+	transform: rotateX(90deg);
+}

@@ -12,14 +12,12 @@
 
 import VueI18n from './vue-i18n';
 import VueMeta from './vue-meta';
-import VueThrottleEvent from './vue-throttle-event';
 import VueRouter from './vue-router';
 import Vuex from './vuex';
 
 export {
 	VueI18n,
 	VueMeta,
-	VueThrottleEvent,
 	VueRouter,
 	Vuex
 };
@@ -27,7 +25,6 @@ export {
 export default {
 	VueI18n,
 	VueMeta,
-	VueThrottleEvent,
 	VueRouter,
 	Vuex
 };

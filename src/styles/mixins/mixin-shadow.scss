@@ -1,28 +1,28 @@
 
-@mixin shadow ($color: $color-black, $opacity: 0.15) {
-	box-shadow: 0 1px 6px rgba($color, $opacity);
+@mixin shadow ($opacity: 0.15, $color: $color-darkgrey) {
+	box-shadow: 0 2px 8px rgba($color, $opacity);
 }
 
-@mixin shadow-transparent ($color: $color-black) {
-	@include shadow($color, 0);
+@mixin shadow-transparent ($color: $color-darkgrey) {
+	@include shadow(0, $color);
 }
 
 
 
-@mixin shadow-tight ($color: $color-black, $opacity: 0.1) {
+@mixin shadow-tight ($opacity: 0.15, $color: $color-darkgrey) {
 	box-shadow: 0 1px 2px rgba($color, $opacity);
 }
 
-@mixin shadow-tight-transparent ($color: $color-black) {
-	@include shadow-tight($color, 0);
+@mixin shadow-tight-transparent ($color: $color-darkgrey) {
+	@include shadow-tight(0, $color);
 }
 
 
 
-@mixin shadow-loose ($color: $color-black, $opacity: 0.1) {
+@mixin shadow-loose ($opacity: 0.15, $color: $color-darkgrey) {
 	box-shadow: 0 2px 38px rgba($color, $opacity);
 }
 
-@mixin shadow-loose-transparent ($color: $color-black) {
-	@include shadow-loose($color, 0);
+@mixin shadow-loose-transparent ($color: $color-darkgrey) {
+	@include shadow-loose(0, $color);
 }

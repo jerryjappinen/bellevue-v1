@@ -1,10 +1,5 @@
 <script>
-
-	// Vendor code
-	// import _ from 'lodash';
-
-	// Services
-	import { env, network, notifications, panels, popovers, time, viewport } from '@services';
+	import { auth, env, network, notifications, panels, popovers, time, viewport } from '@services';
 
 	export default {
 		name: 'console-services',
@@ -14,8 +9,17 @@
 			dump: function () {
 				return {
 
+					auth: {
+						currentAccount: auth.currentAccount ? auth.currentAccount.nameOrEmail : auth.currentAccount,
+						isLoading: auth.isLoading
+					},
+
 					env: {
-						os: env.os
+						os: env.os,
+						currentRemote: {
+							code: env.currentRemote.code,
+							isConfigured: env.currentRemote.isConfigured
+						}
 					},
 
 					network: {
@@ -35,7 +39,7 @@
 
 					popovers: {
 						component: popovers.component,
-						inPlaceTarget: popovers.inPlaceTarget,
+						inPlaceTarget: popovers.inPlaceTarget ? 'yes' : 'no',
 						inPlaceTargetBox: popovers.inPlaceTargetBox
 					},
 
@@ -70,15 +74,15 @@
 			},
 
 			openPanel: function () {
-				panels.open('PanelConsole');
+				panels.open('PanelReadme');
 			},
 
 			openPopover: function () {
-				popovers.open('PopoverCounter');
+				popovers.open('PopoverMainMenu');
 			},
 
 			openPopoverInPlace: function (event) {
-				popovers.open('PopoverCounter', event.target, {
+				popovers.open('PopoverMainMenu', event.target, {
 					someParameter: 'Foo'
 				});
 			}
@@ -93,26 +97,26 @@
 
 	<div class="view-console-services">
 
-		<h2>Test services</h2>
+		<p>
+			<click-button theme="plain" :callback="setNotificationText">Set notification text</click-button>
+			<click-button theme="plain" :callback="clearNotificationText">Clear notification</click-button>
+			<click-button theme="plain" :callback="openPanel">Open panel</click-button>
+			<click-button theme="plain" :callback="openPopover">Open popover</click-button>
+			<click-button theme="plain" :callback="openPopoverInPlace">Open popover in-place (doesn't work reliably yet)</click-button>
+		</p>
 
-		<ul>
-			<li><click :callback="setNotificationText">Set notification text</click></li>
-			<li><click :callback="clearNotificationText">Clear notification</click></li>
-			<li><click :callback="openPanel"><button>Open panel</button></click></li>
-			<li><click :callback="openPopover"><button>Open popover</button></click></li>
-			<li><click :callback="openPopoverInPlace"><button>Open popover in-place</button> (doesn't work reliably yet)</click></li>
-		</ul>
+		<template v-for="(values, serviceName) in dump">
 
-		<h2>Services state</h2>
+			<h2>{{ serviceName }}</h2>
 
-		<dl>
-			<template v-for="(values, serviceName) in dump">
+			<dl>
 				<template v-for="(value, key) in values">
 					<dt><code>{{ serviceName }}.{{ key }}</code></dt>
 					<dd><pre><code>{{ JSON.stringify(value, null, 2) }}</code></pre></dd>
 				</template>
-			</template>
-		</dl>
+			</dl>
+
+		</template>
 
 	</div>
 

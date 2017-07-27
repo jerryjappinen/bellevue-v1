@@ -3,6 +3,8 @@
 
 // Transitions
 @import './transitions/transition-fade';
+@import './transitions/transition-fade-in';
+@import './transitions/transition-flip-vertical';
 @import './transitions/transition-hide';
 @import './transitions/transition-scale-fade';
 
@@ -42,6 +44,7 @@
 // @import './utilities-base/utility-box-model';
 @import './utilities-base/utility-buffer';
 @import './utilities-base/utility-clear';
+@import './utilities-base/utility-container';
 // @import './utilities-base/utility-cursor';
 @import './utilities-base/utility-display';
 // @import './utilities-base/utility-fill';
@@ -51,7 +54,7 @@
 @import './utilities-base/utility-pad';
 // @import './utilities-base/utility-position';
 // @import './utilities-base/utility-pull';
-// @import './utilities-base/utility-push';
+@import './utilities-base/utility-push';
 // @import './utilities-base/utility-radius';
 @import './utilities-base/utility-rhythm';
 // @import './utilities-base/utility-separate';
