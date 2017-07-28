@@ -258,6 +258,8 @@ $viewport-under-smallish: '(max-width: #{$breakpoint-smallish - 1px})';
 $viewport-under-medium: '(max-width: #{$breakpoint-medium - 1px})';
 $viewport-under-large: '(max-width: #{$breakpoint-large - 1px})';
 $viewport-under-verylarge: '(max-width: #{$breakpoint-verylarge - 1px})';
+$viewport-under-ridiculous: '(max-width: #{$breakpoint-ridiculous - 1px})';
+$viewport-under-totallyridiculous: '(max-width: #{$breakpoint-totallyridiculous - 1px})';
 
 $viewport-over-tiny: '(min-width: #{$breakpoint-tiny})';
 $viewport-over-small: '(min-width: #{$breakpoint-small})';
@@ -265,6 +267,8 @@ $viewport-over-smallish: '(min-width: #{$breakpoint-smallish})';
 $viewport-over-medium: '(min-width: #{$breakpoint-medium})';
 $viewport-over-large: '(min-width: #{$breakpoint-large})';
 $viewport-over-verylarge: '(min-width: #{$breakpoint-verylarge})';
+$viewport-over-ridiculous: '(min-width: #{$breakpoint-ridiculous})';
+$viewport-over-totallyridiculous: '(min-width: #{$breakpoint-totallyridiculous})';
 
 $viewport-portrait: '(max-aspect-ratio: 1/1)';
 $viewport-landscape: '(min-aspect-ratio: 1/1)';
