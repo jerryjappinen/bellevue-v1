@@ -13,7 +13,7 @@
 
 <template>
 
-	<page class="view-page-home">
+	<page class="view-page-home" limit="medium">
 
 		<h1>{{ welcomeMessage }}</h1>
 
