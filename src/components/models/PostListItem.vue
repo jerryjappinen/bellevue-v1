@@ -1,4 +1,3 @@
-
 <script>
 	import { Post } from '@models';
 
@@ -10,40 +9,6 @@
 			post: {
 				type: Post,
 				required: true
-			},
-
-			filter: {},
-
-			isOpen: {
-				default: false,
-				required: false
-			},
-
-			forceOpen: {
-				default: false,
-				required: false
-			}
-
-		},
-
-		data: function () {
-			return {
-				isReallyOpen: this.isOpen ? true : false
-			};
-		},
-
-		computed: {
-
-			toggleIcon: function () {
-				return this.isReallyOpen ? 'chevron-up' : 'chevron-down';
-			}
-
-		},
-
-		methods: {
-
-			toggle: function () {
-				this.isReallyOpen = !this.isReallyOpen;
 			}
 
 		}
