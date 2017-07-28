@@ -51,6 +51,18 @@
 	}
 }
 
+@mixin limit-ridiculous {
+	@include viewport-over-ridiculous {
+		max-width: $limit-ridiculous;
+	}
+}
+
+@mixin limit-totallyridiculous {
+	@include viewport-over-totallyridiculous {
+		max-width: $limit-totallyridiculous;
+	}
+}
+
 @mixin no-limit {
 	max-width: none;
 }

@@ -236,7 +236,7 @@ $breakpoint-medium: 960px;
 $breakpoint-large: 1240px;
 $breakpoint-verylarge: 1540px;
 $breakpoint-ridiculous: 2048px;
-$breakpoint-totally-ridiculous: 2480px;
+$breakpoint-totallyridiculous: 2480px;
 
 // Paragraph widths
 // NOTE
@@ -249,7 +249,7 @@ $limit-medium: (number($breakpoint-medium) / number($font-size-default)) * 1em;
 $limit-large: (number($breakpoint-large) / number($font-size-default)) * 1em;
 $limit-verylarge: (number($breakpoint-verylarge) / number($font-size-default)) * 1em;
 $limit-ridiculous: (number($breakpoint-ridiculous) / number($font-size-default)) * 1em;
-$limit-totally-ridiculous: (number($breakpoint-totally-ridiculous) / number($font-size-default)) * 1em;
+$limit-totallyridiculous: (number($breakpoint-totallyridiculous) / number($font-size-default)) * 1em;
 
 // Viewport
 $viewport-under-tiny: '(max-width: #{$breakpoint-tiny - 1px})';

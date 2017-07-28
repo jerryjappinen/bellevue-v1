@@ -3,7 +3,7 @@
 	import { includes } from 'lodash';
 	import { composeClassnames } from '@util';
 
-	const limits = ['tiny', 'small', 'medium', 'large'];
+	const limits = ['tiny', 'small', 'smallish', 'medium', 'large', 'verylarge', 'ridiculous', 'totallyridiculous'];
 
 	export default {
 		name: 'page',
@@ -90,12 +90,28 @@
 		@include limit-small;
 	}
 
+	.view-page-smallish {
+		@include limit-smallish;
+	}
+
 	.view-page-medium {
 		@include limit-medium;
 	}
 
 	.view-page-large {
 		@include limit-large;
+	}
+
+	.view-page-verylarge {
+		@include limit-verylarge;
+	}
+
+	.view-page-ridiculous {
+		@include limit-ridiculous;
+	}
+
+	.view-page-totallyridiculous {
+		@include limit-totallyridiculous;
 	}
 
 </style>
