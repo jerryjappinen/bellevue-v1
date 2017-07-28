@@ -155,6 +155,34 @@
 
 
 
+@mixin viewport-under-ridiculous {
+	@media #{$viewport-under-ridiculous} {
+		@content;
+	}
+}
+
+@mixin viewport-over-ridiculous {
+	@media #{$viewport-over-ridiculous} {
+		@content;
+	}
+}
+
+
+
+@mixin viewport-under-totallyridiculous {
+	@media #{$viewport-under-totallyridiculous} {
+		@content;
+	}
+}
+
+@mixin viewport-over-totallyridiculous {
+	@media #{$viewport-over-totallyridiculous} {
+		@content;
+	}
+}
+
+
+
 @mixin viewport-portrait {
 	@media #{$viewport-portrait} {
 		@content;
