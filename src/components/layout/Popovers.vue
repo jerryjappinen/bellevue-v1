@@ -25,18 +25,45 @@
 
 			// Binding helpers
 
+			inPlaceFlipX: function () {
+				return popovers.isInPlace && popovers.inPlaceFlipX ? true : false;
+			},
+
+			inPlaceFlipY: function () {
+				return popovers.isInPlace && popovers.inPlaceFlipY ? true : false;
+			},
+
 			classes: function () {
 				return composeClassnames({
 					inPlace: popovers.isInPlace,
 					on: this.component,
-					off: !this.component
+					off: !this.component,
+					inPlaceFlipX: this.inPlaceFlipX,
+					inPlaceFlipY: this.inPlaceFlipY
 				}, 'view-popovers');
 			},
 
 			positionStyleBinding: function () {
+				let x = popovers.targetCoordinates.x;
+				let y = popovers.targetCoordinates.y;
+
+				// Flip X
+				if (this.inPlaceFlipX) {
+					x = 'calc(' + x + 'px - 100%)';
+				} else {
+					x = x + 'px';
+				}
+
+				// Flip X
+				if (this.inPlaceFlipY) {
+					y = 'calc(' + y + 'px - 100%)';
+				} else {
+					y = y + 'px';
+				}
+
 				if (popovers.isInPlace) {
 					return {
-						transform: 'translate3d(' + popovers.targetCoordinates.x + 'px, ' + popovers.targetCoordinates.y + 'px, 0)'
+						transform: 'translate3d(' + x + ', ' + y + ', 0)'
 					};
 				}
 			}
@@ -156,8 +183,8 @@
 		.view-popovers-content {
 			@include transform-origin-top-left;
 			min-width: 8em;
-			max-width: 24em;
-			max-height: 12em;
+			// max-width: 24em;
+			// max-height: 12em;
 
 			// // Whoops, I don't want this
 			// > * {
@@ -173,11 +200,36 @@
 
 	}
 
+	// Flip popover
+	// FIXME: this technique leaves .view-popovers-content in place, which might block mouse events
+	// .view-popovers-in-place-flip-x {
+	// 	.view-popovers-content-relative {
+	// 		transform: translateX(-100%);
+	// 	}
+	// }
+
+	// .view-popovers-in-place-flip-y {
+
+	// 	.view-popovers-content-relative {
+	// 		transform: translateY(-100%);
+	// 	}
+
+	// 	&.view-popovers-in-place-flip-x {
+	// 		.view-popovers-content-relative {
+	// 			transform: translateY(-100%) translateX(-100%);
+	// 		}
+	// 	}
+
+	// }
+
+
+
+	// Not in-place positioning
 	.view-popovers-not-in-place {
 
 		.view-popovers-content {
 			position: absolute;
-			top: 0;
+			bottom: 0;
 			left: 50%;
 
 			width: 100%;
@@ -185,7 +237,11 @@
 
 			transform: translate3d(-50%, 0, 0);
 
-			@include viewport-over-tiny {
+			@include viewport-under-small {
+				min-height: 16em;
+			}
+
+			@include viewport-over-small {
 				top: 50%;
 				width: 90%;
 				max-height: 90%;
@@ -199,7 +255,7 @@
 			min-height: 16em;
 			max-height: 100%;
 
-			@include viewport-over-tiny {
+			@include viewport-over-small {
 				@include radius-loose;
 			}
 

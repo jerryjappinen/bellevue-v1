@@ -1,4 +1,4 @@
-import { debounce, isNumber, kebabCase, merge } from 'lodash';
+import { debounce, defer, isNumber, kebabCase, merge } from 'lodash';
 import Vue from 'vue';
 
 import { viewport } from '@services';
@@ -13,6 +13,9 @@ export default new Vue({
 			component: null,
 			inPlaceTarget: null,
 			inPlaceTargetBox: null,
+			inPlaceFlipY: false,
+			inPlaceFlipX: false,
+
 			_interval: null
 		};
 	},
@@ -25,9 +28,22 @@ export default new Vue({
 
 		targetCoordinates: debounce(function () {
 			if (this.inPlaceTargetBox) {
+
+				// Y position
+				let y = this.inPlaceTargetBox.top;
+				if (!this.inPlaceFlipY) {
+					y = y + this.inPlaceTargetBox.height;
+				}
+
+				// X position
+				let x = this.inPlaceTargetBox.left;
+				if (this.inPlaceFlipX) {
+					x = x + this.inPlaceTargetBox.width;
+				}
+
 				return {
-					x: this.inPlaceTargetBox.left,
-					y: this.inPlaceTargetBox.top
+					x: x,
+					y: y
 				};
 			}
 			return null;
@@ -64,6 +80,7 @@ export default new Vue({
 		},
 
 		updateInPlaceTargetBox: function () {
+			console.log('update');
 
 			// This gives us width, height, top, bottom, left, right
 			if (this.inPlaceTarget) {
@@ -90,7 +107,7 @@ export default new Vue({
 
 		// API
 
-		open: function (component, inPlaceTarget) {
+		open: function (component, inPlaceTarget, inPlaceFlipX, inPlaceFlipY) {
 
 			if (component) {
 				component = kebabCase(component);
@@ -100,15 +117,17 @@ export default new Vue({
 
 					// Get target and update dimensions
 					this.inPlaceTarget = inPlaceTarget;
+					this.inPlaceFlipY = inPlaceFlipY ? true : false;
+					this.inPlaceFlipX = inPlaceFlipX ? true : false;
 					this.updateInPlaceTargetBox();
 
 					// Keep target box updated
 					// FLAG: brute force approach...
 					if (this.inPlaceTargetBox) {
 						this.clearInterval();
-						var vm = this;
+						var service = this;
 						this._interval = setInterval(function () {
-							debounce(vm.updateInPlaceTargetBox);
+							defer(service.updateInPlaceTargetBox);
 						}, 50);
 					}
 
