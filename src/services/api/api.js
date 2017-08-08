@@ -1,4 +1,4 @@
-import { isArray, merge } from 'lodash';
+import { includes, isArray, merge } from 'lodash';
 import axios from 'axios';
 
 import env from '../env';
@@ -118,7 +118,7 @@ export default {
 
 		},
 
-		send: function (method, path, parameters, onSuccess, onFail, onEither, transformer) {
+		send: function (method, path, data, parameters, onSuccess, onFail, onEither, transformer) {
 			var service = this;
 			this.onOperationStart();
 
@@ -136,12 +136,31 @@ export default {
 			}
 
 			// Send request and do callback on success
-			return axios[method](path, {
-				baseURL: this.basePath,
-				withCredentials: true,
-				// headers: {},
-				params: parameters
-			}).then(function (response) {
+			// FIXME: hackity hack
+			let callback = function () {
+
+				if (includes(['post', 'put', 'patch'], method)) {
+					return axios[method](
+						path,
+						data,
+						{
+							baseURL: service.basePath,
+							withCredentials: true,
+							// headers: {},
+							params: parameters
+						}
+					);
+				}
+
+				return axios[method](path, {
+					baseURL: service.basePath,
+					withCredentials: true,
+					// headers: {},
+					params: parameters
+				});
+			};
+
+			return callback().then(function (response) {
 
 				// onSuccess callback defined
 				if (onSuccess) {
@@ -202,7 +221,11 @@ export default {
 		},
 
 		get: function (path, parameters, onSuccess, onFail, onEither, transformer) {
-			return this.send('get', path, parameters, onSuccess, onFail, onEither, transformer);
+			return this.send('get', path, {}, parameters, onSuccess, onFail, onEither, transformer);
+		},
+
+		post: function (path, data, parameters, onSuccess, onFail, onEither, transformer) {
+			return this.send('post', path, data, parameters, onSuccess, onFail, onEither, transformer);
 		}
 
 	}
