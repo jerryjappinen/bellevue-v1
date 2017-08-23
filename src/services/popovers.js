@@ -115,6 +115,8 @@ export default new Vue({
 				// Proper in-place target given
 				if (inPlaceTarget) {
 
+					window.a = inPlaceTarget;
+
 					// Get target and update dimensions
 					this.inPlaceTarget = inPlaceTarget;
 					this.inPlaceFlipY = inPlaceFlipY ? true : false;

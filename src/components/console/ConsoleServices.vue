@@ -102,7 +102,7 @@
 			<click-button theme="plain" :callback="clearNotificationText">Clear notification</click-button>
 			<click-button theme="plain" :callback="openPanel">Open panel</click-button>
 			<click-button theme="plain" :callback="openPopover">Open popover</click-button>
-			<click-button theme="plain" :callback="openPopoverInPlace">Open popover in-place (doesn't work reliably yet)</click-button>
+			<click-button theme="plain" :callback="openPopoverInPlace">Open popover in-place</click-button>
 		</p>
 
 		<template v-for="(values, serviceName) in dump">

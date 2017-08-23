@@ -44,28 +44,30 @@
 			},
 
 			positionStyleBinding: function () {
-				let x = popovers.targetCoordinates.x;
-				let y = popovers.targetCoordinates.y;
-
-				// Flip X
-				if (this.inPlaceFlipX) {
-					x = 'calc(' + x + 'px - 100%)';
-				} else {
-					x = x + 'px';
-				}
-
-				// Flip X
-				if (this.inPlaceFlipY) {
-					y = 'calc(' + y + 'px - 100%)';
-				} else {
-					y = y + 'px';
-				}
-
 				if (popovers.isInPlace) {
+					let x = popovers.targetCoordinates.x;
+					let y = popovers.targetCoordinates.y;
+
+					// Flip X
+					if (this.inPlaceFlipX) {
+						x = 'calc(' + x + 'px - 100%)';
+					} else {
+						x = x + 'px';
+					}
+
+					// Flip X
+					if (this.inPlaceFlipY) {
+						y = 'calc(' + y + 'px - 100%)';
+					} else {
+						y = y + 'px';
+					}
+
 					return {
 						transform: 'translate3d(' + x + ', ' + y + ', 0)'
 					};
 				}
+
+				return null;
 			}
 
 		},
